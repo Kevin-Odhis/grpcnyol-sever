@@ -1,0 +1,28 @@
+# Build folders
+build
+cmake-build-debug
+cmake-build-release
+
+# Git
+.git
+.gitignore
+
+# IDE files
+.vscode
+.idea
+
+# Environment files
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# C++ compiled files
+*.o
+*.out
+*.a
+*.so
+
+# Logs
+*.log

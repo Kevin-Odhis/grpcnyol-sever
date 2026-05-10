@@ -1,0 +1,410 @@
+syntax="proto3";
+
+//import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+package School;
+
+service SchoolService{
+    rpc CreateSchool(AddSchoolRequest) returns (Response);
+    rpc GetSchoolDetails(SchoolDetailsRequest) returns (SchoolDetails);
+    rpc GetSchools(SchoolsRequest)returns(SchoolList);
+
+    rpc AddStudent(AddStudentRequest) returns (Response);
+    rpc RemoveStudent(RemoveStudentRequest) returns (Response);
+    rpc EditStudentDetails(EditStudentDetailsRequest)returns(Response);
+    rpc GetStudents(FindStudentsRequest)returns(StudentList);
+    rpc GetLearnersbyGrade(Students_Grade_Request)returns(StudentList);
+    rpc DeleteStudentSubject(DeleteSubjectRequest)returns(Response);
+
+    rpc AddStudentScore(AddScoreRequest)returns(Response);
+    rpc StudentExamReport(ExamReportRequest)returns(ExamReport);
+    rpc AddSubjectsToStudent(AddSubjectsRequest) returns (Response);
+
+    rpc AddTeacher(AddTeacherRequest)returns(Response);
+    rpc TeacherLogin(LoginRequest)returns(Teacher);
+    rpc RemoveTeacher(RemoveTeacherRequest)returns(Response);
+    rpc GetTeachers(GetTeachersRequest)returns(TeachersList);
+    rpc UpdateSubjects(UpdateSubjectsRequest)returns(Response);
+    rpc ListofLearnersbyGrade_Subject(GetStudentsperSubjectRequest)returns(LearnersListperGrade);
+    rpc ResetPassword(ResetPasswordRequest)returns(Response);
+    rpc DeleteTeacherSubject(DeleteTeacherSubjectRequest) returns (Response);
+
+    rpc AddExam(AddExamRequest)returns(Response);
+    rpc FindExams(FindExamRequest)returns(ExamList);
+    rpc SetExamAnalysed(SetExamAnalysedRequest)returns(Response);
+    rpc GradeMeritList(MeritListRequest)returns(MeritList);
+    rpc setLoadedSubjects(setloadedsubjectrequest)returns(Response);
+    rpc fetchLoadedSubjects(getloadedsubjectsrequest)returns(SubjectList);
+
+    rpc AddGrade(AddGradeRequest)returns(Response);
+    rpc RemoveGradeSubject(RemoveSubjectRequest)returns(Response);
+    rpc RemoveGrade(RemoveGradeRequest)returns(Response);
+    rpc FindGrades(FindGradesRequest)returns(GradeList);
+    rpc UpdateGrade(UpdateGradeRequest)returns(Response);
+    rpc GradeStudents(GradeStudentsRequest)returns(StudentList);
+
+    rpc Invoice(AddInvoiceRequest)returns(Response);
+    rpc GetInvoice(GetInvoiceRequest)returns(InvoiceList);
+
+    rpc Receipt(AddReceiptRequest)returns(Response);
+    rpc GetReceipt(GetReceiptRequest)returns(ReceiptList);
+}
+message SchoolsRequest{
+    Role role=1;
+}
+message SchoolList{
+    repeated school schools=1;
+}
+message AddReceiptRequest{
+    Receipt receipt=1;
+}
+message AddInvoiceRequest{
+    Invoice invoice=1;
+}
+message GetReceiptRequest{
+    string schoolid=1;
+}
+message ReceiptList{
+    repeated Receipt receipts=1;
+}
+message GetInvoiceRequest{
+    string schoolid=1;
+}
+message InvoiceList{
+    repeated Invoice invoices=1;
+}
+
+message Receipt{
+    string schoolid=1;
+    string receiptnumber=2;
+    string invoiceid=3;
+    google.protobuf.Timestamp date=4;
+    paymentDetails payment=5;
+    double amount = 6;
+    string description=7;
+    string amountinwords=8;
+}
+message paymentDetails{
+    string method=1;
+    string transactioncode=2;
+    string senderName=3;
+}
+    
+message Invoice{
+    string invoiceNumber=1;
+    string schoolId=2;
+    InvoiceStatus status=3;
+    int32 billingYear=4;
+    double amount=5;
+    string description=6;
+    google.protobuf.Timestamp startDate=7;
+    google.protobuf.Timestamp dueDate=8;
+}
+enum InvoiceStatus {
+    INVOICE_PENDING = 0;
+    INVOICE_PAID = 1;
+    INVOICE_OVERDUE = 2;
+}
+enum SubscriptionStatus{
+    GRACE=0;
+    ACTIVE=1;
+    EXPIRED=2;
+}
+message DeleteTeacherSubjectRequest{
+    int32 teachercode=1;
+    repeated GradeSub subjects=2;
+    string school_id=3;
+}
+message DeleteSubjectRequest{
+    repeated string subjects=1;
+    string school_id=2;
+    string student_upi=3;
+}
+message EditStudentDetailsRequest{
+    Student student=1;
+    string school_id=2;
+}
+message AddSubjectsRequest{
+    repeated grade_subject subjects=1;
+    string school_id=2;
+    string upi=3;
+}
+message FindExamRequest{
+    string school_id=1;
+}
+message GetTeachersRequest{
+    string school_id=1;
+}
+message FindGradesRequest{
+    string school_id=1;
+}
+message FindStudentsRequest{
+    string school_id=1;
+}
+message AddSchoolRequest{
+    school details=1;
+}
+message SchoolDetails{
+    school details=1;
+}
+message school{
+    string name=1;
+    string email=2;
+    string address=3;
+    Category category=4;
+    string school_id=5;
+    string school_motto=6;
+    string school_head=7;
+    SubscriptionStatus status=8;
+    google.protobuf.Timestamp startDate=9;
+    google.protobuf.Timestamp dueDate=10;
+}
+message SchoolDetailsRequest{
+    string school_id=1;
+}
+message RemoveSubjectRequest{
+    repeated grade_subject subjects=1;
+    string grade_name=2;
+    string school_id=3;
+}
+message ResetPasswordRequest{
+    string username=1;
+    string newpassword=2;
+}
+message setloadedsubjectrequest{
+    string grade_name=1;
+    string exam_name=2;
+    string subject=3;
+    string school_id=4;
+    int32 paper_number=5;
+    bool full_paper=6;
+}
+message getloadedsubjectsrequest{
+    string grade_name=1;
+    string exam_name=2;
+    string school_id=3;
+}
+message SubjectList{
+    repeated string subject=1;
+}
+message MeritListRequest{
+    string gradename=1;
+    string examname=2;
+    bool full_paper=3;
+    string school_id=4;
+}
+message StudentMerit{
+    string upi=1;
+    string student_name=2;
+    Sex sex=3;
+    repeated SubjectScore scores=4;
+}
+message MeritList{
+    repeated StudentMerit learners=1;
+}
+message SetExamAnalysedRequest{
+    string exam_name=1;
+    string grade_name=2;
+    string school_id=3;
+    bool analysis_status=4;
+}
+message GradeStudentsRequest{
+    string grade=1;
+    string school_id=2;
+}
+message ExamList{
+    repeated Exam exams=1;
+}
+message Students_Grade_Request{
+    string grade_name=1;
+    string school=2;
+}
+message GetStudentsperSubjectRequest{
+    int32 code=1;
+    string subject=2;
+    string grade_name=3;
+    string exam_name=4;
+    string school_id=5;
+    bool full_paper=6;
+    int32 paper_number=7;
+}
+message LearnersListperGrade{
+repeated studentforteacher students=1;
+}
+message studentforteacher{
+    string student_name=1;
+    string upi=2;
+    string grade_name=3;
+    int32 score=4;
+}
+message UpdateSubjectsRequest{
+    repeated GradeSub new_subjects=1;
+    int32 teacher_code=2;
+    Role role=3;
+    string school_id=4;
+}
+message ExamReportRequest{
+    string upi=1;
+    string exam_name=2;
+    string school_id=3;
+}
+message AddScoreRequest{
+    add_subject_score mark=1;
+    string school_id=2;
+    int32 out_of=3;
+}
+message add_subject_score{
+    string subject=1;
+    paper_score scores=2;
+    string upi=3;
+    string exam_name=4;
+    bool full_paper=5;
+}
+message paper_score{
+    int32 pp=1;
+    int32 score=2;
+
+}
+message UpdateGradeRequest{
+    int32 code=1;
+    string name=2;
+    string newname=3;
+    repeated grade_subject subjects=4;
+    string school_id=5;
+}
+message Grade{
+    string name=1;
+    int32 grade_teacher_code=2;
+}
+message AddGradeRequest{
+    Grade grade=1;
+    repeated grade_subject subjects=2;
+    string school_id=3;
+    Category level=4;
+}
+message grade_subject{
+    string subject=1;
+    int32 code=2;
+}
+message RemoveGradeRequest{
+    string name=1;
+    string school_id=2;
+}
+message GradeList{
+    repeated Return_Grade grades=1;
+}
+message Return_Grade{
+    string name=1;
+    int32 grade_teacher_code=2;
+    repeated Exam exams=3;
+    int32 total_learners=4;
+    repeated grade_subject subjects=5;
+    repeated teacher_subject l_areas=6;
+    string grade_teacher_name=7;
+    Category level=8;
+}
+message teacher_subject{
+    string subject=1;
+    string teacher_name=2;
+    int32 teacher_code=3;
+}
+message AddExamRequest{
+    string name=1;
+    repeated exam_grade grades=2;
+    bool analysed=3;
+    int32 term=4;
+    string school_id=5;
+}
+message exam_grade{
+    string grade=1;
+    bool full_paper=2;
+}
+message Exam{
+    string exam_name=1;
+    bool analysed=2;
+    int32 term=3;
+    bool full_paper=4;
+}
+message TeachersList{
+    repeated Teacher teachers=1;
+}
+message RemoveTeacherRequest{
+    int32 code=1;
+    string name=2;
+    string school_id=3;
+}
+message AddTeacherRequest{
+    Teacher teacher=1;
+    repeated GradeSub grade_subs=2;
+    loginDetails login=3;
+    string school_id=4;
+}
+message loginDetails{
+    string username=1;
+    string password=2;
+}
+message LoginRequest{
+    loginDetails verify=1;
+}
+message StudentList{
+    repeated Student students=1;
+}
+
+message Student{
+    string name=1;
+    string upi_no=2;
+    string grade=3;
+    Sex gender=4;
+    repeated string subjects=5;
+
+}
+message AddStudentRequest{
+    Student student=1;
+    string school_id=2;
+}
+message Response{
+    string message=1;
+    bool success=2;
+}
+message RemoveStudentRequest{
+    string upi_no=1;
+    string school_id=2;
+}
+message Teacher{
+    string name=1;
+    int32 code=2;
+    repeated GradeSub grade_subs=3;
+    Role role=4;
+    string school_id=5;
+}
+message GradeSub{
+    string grade=1;
+    string subject=2;
+}
+message SubjectScore{
+string subject=1;
+int32 score=2;
+string level=3;
+}
+message ExamReport{
+    int32 total_marks=1;
+    string overall_level=2;
+    repeated SubjectScore scores=3;
+}
+enum Sex{
+    Unspecified=0;
+    Male=1;
+    Female=2;
+}
+enum Role{
+    TEACHER=0;
+    PRINCIPAL=1;
+    ADMIN=3;
+    HOI=4;
+    DEVELOPER=5;
+}
+enum Category{
+    PRIMARY=0;
+    JUNIOR=1;
+    SECONDARY=2;
+}
