@@ -4,48 +4,59 @@ FROM ubuntu:24.04 AS builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Base dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
-    pkg-config \
     git \
-    wget \
     curl \
+    zip \
+    unzip \
+    tar \
+    pkg-config \
+    libssl-dev \
     protobuf-compiler \
     libprotobuf-dev \
-    libgrpc++-dev \
-    grpc-proto \
-    libssl-dev \
-    libsasl2-dev \
+    protobuf-compiler-grpc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install MongoDB C++ Driver
-RUN apt-get update && apt-get install -y \
-    libmongocxx-dev \
-    libbsoncxx-dev
+# -------------------------
+# Install vcpkg
+WORKDIR /opt
+RUN git clone https://github.com/microsoft/vcpkg.git
+WORKDIR /opt/vcpkg
+RUN ./bootstrap-vcpkg.sh
 
+# -------------------------
+# Install dependencies via vcpkg
+RUN ./vcpkg install \
+    grpc \
+    protobuf \
+    mongo-cxx-driver
+
+# -------------------------
+# App build
 WORKDIR /app
-
 COPY . .
 
-RUN mkdir -p build
-
+# Tell CMake to use vcpkg toolchain
+RUN mkdir build
 WORKDIR /app/build
 
-RUN cmake ..
+RUN cmake .. \
+    -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
 
 RUN make -j$(nproc)
 
+# =========================
 # Runtime Stage
 FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    libprotobuf-dev \
-    libgrpc++1.51 \
-    libmongocxx-dev \
-    libbsoncxx-dev \
+    libssl-dev \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
