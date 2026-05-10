@@ -46,7 +46,8 @@ WORKDIR /app/build
 RUN cmake .. \
     -DCMAKE_TOOLCHAIN_FILE=/opt/vcpkg/scripts/buildsystems/vcpkg.cmake
 
-RUN make -j$(nproc)
+#RUN make -j$(nproc)
+RUN make -j2
 
 # =========================
 # Runtime Stage
