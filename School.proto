@@ -8,6 +8,9 @@ service SchoolService{
     rpc CreateSchool(AddSchoolRequest) returns (Response);
     rpc GetSchoolDetails(SchoolDetailsRequest) returns (SchoolDetails);
     rpc GetSchools(SchoolsRequest)returns(SchoolList);
+    rpc AddSchoolHead(AddSchoolHeadRequest)returns(Response);
+    rpc Delete_SchoolHead(DeleteSchoolHeadRequest)returns(Response);
+    rpc UpdateSchoolDetails(UpdateSchoolRequest)returns(Response);
 
     rpc AddStudent(AddStudentRequest) returns (Response);
     rpc RemoveStudent(RemoveStudentRequest) returns (Response);
@@ -28,8 +31,10 @@ service SchoolService{
     rpc ListofLearnersbyGrade_Subject(GetStudentsperSubjectRequest)returns(LearnersListperGrade);
     rpc ResetPassword(ResetPasswordRequest)returns(Response);
     rpc DeleteTeacherSubject(DeleteTeacherSubjectRequest) returns (Response);
+    rpc UpdateAdminRole(UpdateAdminRoleRequest)returns(Response);
 
     rpc AddExam(AddExamRequest)returns(Response);
+    rpc AddExamToGrade(AddExamToGradeRequest)returns(Response);
     rpc FindExams(FindExamRequest)returns(ExamList);
     rpc SetExamAnalysed(SetExamAnalysedRequest)returns(Response);
     rpc GradeMeritList(MeritListRequest)returns(MeritList);
@@ -49,8 +54,27 @@ service SchoolService{
     rpc Receipt(AddReceiptRequest)returns(Response);
     rpc GetReceipt(GetReceiptRequest)returns(ReceiptList);
 }
+message AddExamToGradeRequest{
+    string schoolid=1;
+    string exam_name=2;
+    string grade_name=3;
+    Role role=4;
+    int32 term=5;
+    bool full=6;
+}
+message AddSchoolHeadRequest{
+    string schoolid=1;
+    Teacher teacher=2;
+}
 message SchoolsRequest{
     Role role=1;
+}
+message UpdateSchoolRequest{
+    string school_name=1;
+    string school_motto=2;
+    string school_email=3;
+    string school_id=4;
+    Role role=5;
 }
 message SchoolList{
     repeated school schools=1;
@@ -60,6 +84,9 @@ message AddReceiptRequest{
 }
 message AddInvoiceRequest{
     Invoice invoice=1;
+}
+message DeleteSchoolHeadRequest{
+    string schoolid=1;
 }
 message GetReceiptRequest{
     string schoolid=1;
@@ -73,7 +100,11 @@ message GetInvoiceRequest{
 message InvoiceList{
     repeated Invoice invoices=1;
 }
-
+message UpdateAdminRoleRequest{
+    string schoolid=1;
+    Role new_role=2;
+    int32 code=3;
+}
 message Receipt{
     string schoolid=1;
     string receiptnumber=2;
@@ -399,9 +430,9 @@ enum Sex{
 enum Role{
     TEACHER=0;
     PRINCIPAL=1;
-    ADMIN=3;
-    HOI=4;
-    DEVELOPER=5;
+    ADMIN=2;
+    HOI=3;
+    DEVELOPER=4;
 }
 enum Category{
     PRIMARY=0;

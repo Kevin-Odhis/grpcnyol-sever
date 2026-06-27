@@ -54,7 +54,7 @@ class SchoolDB{
         std::string DeleteTeacher(int code,const std::string& school_id);
         std::vector<Tutor> FindTeachers(const std::string& school_id);
         std::string Teacher_Name(int code,const std::string& school_id);
-        std::string UpdateLearningAreas(int code,const std::string& school_id,const Role& role,l_areas_container && grade_sub);
+        std::string UpdateLearningAreas(int code,const std::string& school_id,l_areas_container && grade_sub);
         void Delete_TeacherSubjects(int code,const std::string& school_id,const l_areas_container& gradsubs={});
         std::vector<StudentExam> GetStudentsperSubject(const std::string& grade,const std::string& subj,
             int t_code,const std::string& examname,const std::string& school_id);
@@ -78,6 +78,7 @@ class SchoolDB{
 
        std::string CreateExam(const std::string& exam_name,int term,std::vector<std::pair<std::string,bool>>&& grades,const std::string& school_id);
        std::vector<School::Exam>GetExams(const std::string& school_id);
+       std::string AddExamToGrade(const std::string& exam,const std::string& grade,const std::string&school_id,int term,bool full=false);
        bool ExamAnalyzed(const std::string& grade_name,const std::string& exam_name,bool analysis,const std::string& school_id);
        std::vector<Student>FindGradeStudents(const std::string& grade,const std::string& school_id);
        School::MeritList FetchGradeMeritList(const std::string& grade_name,const std::string& exam_name,const std::string& school_id);
@@ -97,12 +98,16 @@ class SchoolDB{
         const std::string& email,const School::Category& cate,const std::string& motto);
        School::school GetSchoolDetails(const std::string& school_id);
        School::SchoolList GetSchools();
+       std::string UpdateSchoolDetails(const School::UpdateSchoolRequest& request);
        void AddSubjects_to_Student(const std::string& upi,const std::string& school_id,
             const std::vector<std::string>& subjects);
        std::vector<StudentExam>GetStudents_Mark(const std::string& grade,const std::string& subj,int t_code,
                 const std::string& examname,const std::string& school_id);
-        
 
+        std::string UpdateAdminRole(int code,const std::string& school_id,const School::Role& new_role);
+        std::string Add_SchoolHead(const School::Teacher& head,const std::string& school_id);
+        std::string Delete_SchoolHead(const std::string& school_id);
+        
         std::string insertInvoice(const School::Invoice& inv);
         bool insertReceipt(const School::Receipt& r);
         std::vector<School::Invoice>getInvoicesBySchool(const std::string& schoolId);

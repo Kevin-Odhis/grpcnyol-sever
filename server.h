@@ -66,6 +66,7 @@ class SchoolServiceImpl final:public SchoolService::Service{
         Status RemoveTeacher(ServerContext* context,const RemoveTeacherRequest* request,Response* reply)override;
         Status UpdateSubjects(ServerContext* context,const UpdateSubjectsRequest* request,Response* reply)override;
         Status DeleteTeacherSubject(ServerContext* context,const School::DeleteTeacherSubjectRequest* request,Response* reply)override;
+        Status UpdateAdminRole(ServerContext* context,const School::UpdateAdminRoleRequest* request,Response* reply)override;
 
         Status AddExam(ServerContext* context,const AddExamRequest* request,Response* reply)override;
 
@@ -81,10 +82,11 @@ class SchoolServiceImpl final:public SchoolService::Service{
         Status FindExams(ServerContext* context,const School::FindExamRequest* request,ExamList* response)override;
         Status GradeStudents(ServerContext* context,const GradeStudentsRequest* request,StudentList* reply)override;
         Status SetExamAnalysed(ServerContext* context,const SetExamAnalysedRequest* request,Response* reply)override;
+        Status AddExamToGrade(ServerContext* context,const School::AddExamToGradeRequest* request,Response* reply)override;
 
         Status GradeMeritList(ServerContext* context,const MeritListRequest* request,MeritList* reply)override;
-        Status setLoadedSubjects(ServerContext* context,const setloadedsubjectrequest* request,Response* reply)override;
-        Status fetchLoadedSubjects(ServerContext* context,const getloadedsubjectsrequest* request,SubjectList* reply)override;
+        Status setLoadedSubjects(ServerContext* context,const School::setloadedsubjectrequest* request,Response* reply)override;
+        Status fetchLoadedSubjects(ServerContext* context,const School::getloadedsubjectsrequest* request,SubjectList* reply)override;
         Status TeacherLogin(ServerContext* context,const School::LoginRequest* request,Teacher* response)override;
         Status ResetPassword(ServerContext* context,const School::ResetPasswordRequest* request,Response* reply)override;
 
@@ -93,6 +95,9 @@ class SchoolServiceImpl final:public SchoolService::Service{
         Status CreateSchool(ServerContext* context,const School::AddSchoolRequest* request,Response* reply)override;
         Status GetSchools(ServerContext* context,const School::SchoolsRequest* request,School::SchoolList* reply)override;
         Status GetSchoolDetails(ServerContext* context,const School::SchoolDetailsRequest* request,School::SchoolDetails* reply)override;
+        Status AddSchoolHead(ServerContext* context,const School::AddSchoolHeadRequest* request,Response* reply)override;
+        Status UpdateSchoolDetails(ServerContext* context,const School::UpdateSchoolRequest* request,Response* reply)override;
+        Status Delete_SchoolHead(ServerContext* context,const School::DeleteSchoolHeadRequest* request,Response* reply)override;
 
         Status Invoice(ServerContext* context,const School::AddInvoiceRequest* request,Response* reply)override;
         Status GetInvoice(ServerContext* context,const School::GetInvoiceRequest* request,School::InvoiceList* reply)override;

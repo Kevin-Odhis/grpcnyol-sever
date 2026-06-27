@@ -1,5 +1,4 @@
 
-
 FROM debian:bookworm-slim AS builder
 
 ENV DEBIAN_FRONTEND=noninteractive

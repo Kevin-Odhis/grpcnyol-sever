@@ -57,6 +57,27 @@ class SchoolService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::SchoolList>> PrepareAsyncGetSchools(::grpc::ClientContext* context, const ::School::SchoolsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::SchoolList>>(PrepareAsyncGetSchoolsRaw(context, request, cq));
     }
+    virtual ::grpc::Status AddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::School::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncAddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncAddSchoolHeadRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncAddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncAddSchoolHeadRaw(context, request, cq));
+    }
+    virtual ::grpc::Status Delete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::School::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncDelete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncDelete_SchoolHeadRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncDelete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncDelete_SchoolHeadRaw(context, request, cq));
+    }
+    virtual ::grpc::Status UpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::School::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncUpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncUpdateSchoolDetailsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncUpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncUpdateSchoolDetailsRaw(context, request, cq));
+    }
     virtual ::grpc::Status AddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::School::Response* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncAddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncAddStudentRaw(context, request, cq));
@@ -176,12 +197,26 @@ class SchoolService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncDeleteTeacherSubject(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncDeleteTeacherSubjectRaw(context, request, cq));
     }
+    virtual ::grpc::Status UpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::School::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncUpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncUpdateAdminRoleRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncUpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncUpdateAdminRoleRaw(context, request, cq));
+    }
     virtual ::grpc::Status AddExam(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::School::Response* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncAddExam(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncAddExamRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncAddExam(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncAddExamRaw(context, request, cq));
+    }
+    virtual ::grpc::Status AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::School::Response* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> AsyncAddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(AsyncAddExamToGradeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>> PrepareAsyncAddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>>(PrepareAsyncAddExamToGradeRaw(context, request, cq));
     }
     virtual ::grpc::Status FindExams(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::School::ExamList* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::School::ExamList>> AsyncFindExams(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::grpc::CompletionQueue* cq) {
@@ -297,6 +332,12 @@ class SchoolService final {
       virtual void GetSchoolDetails(::grpc::ClientContext* context, const ::School::SchoolDetailsRequest* request, ::School::SchoolDetails* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetSchools(::grpc::ClientContext* context, const ::School::SchoolsRequest* request, ::School::SchoolList* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetSchools(::grpc::ClientContext* context, const ::School::SchoolsRequest* request, ::School::SchoolList* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void AddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void AddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Delete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Delete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void UpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void AddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void RemoveStudent(::grpc::ClientContext* context, const ::School::RemoveStudentRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
@@ -331,8 +372,12 @@ class SchoolService final {
       virtual void ResetPassword(::grpc::ClientContext* context, const ::School::ResetPasswordRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void DeleteTeacherSubject(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeleteTeacherSubject(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void UpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void AddExam(::grpc::ClientContext* context, const ::School::AddExamRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AddExam(::grpc::ClientContext* context, const ::School::AddExamRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void FindExams(::grpc::ClientContext* context, const ::School::FindExamRequest* request, ::School::ExamList* response, std::function<void(::grpc::Status)>) = 0;
       virtual void FindExams(::grpc::ClientContext* context, const ::School::FindExamRequest* request, ::School::ExamList* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void SetExamAnalysed(::grpc::ClientContext* context, const ::School::SetExamAnalysedRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) = 0;
@@ -374,6 +419,12 @@ class SchoolService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::SchoolDetails>* PrepareAsyncGetSchoolDetailsRaw(::grpc::ClientContext* context, const ::School::SchoolDetailsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::SchoolList>* AsyncGetSchoolsRaw(::grpc::ClientContext* context, const ::School::SchoolsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::SchoolList>* PrepareAsyncGetSchoolsRaw(::grpc::ClientContext* context, const ::School::SchoolsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncAddSchoolHeadRaw(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncAddSchoolHeadRaw(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncDelete_SchoolHeadRaw(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncDelete_SchoolHeadRaw(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncUpdateSchoolDetailsRaw(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncUpdateSchoolDetailsRaw(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncAddStudentRaw(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncAddStudentRaw(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncRemoveStudentRaw(::grpc::ClientContext* context, const ::School::RemoveStudentRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -408,8 +459,12 @@ class SchoolService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncResetPasswordRaw(::grpc::ClientContext* context, const ::School::ResetPasswordRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncDeleteTeacherSubjectRaw(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncDeleteTeacherSubjectRaw(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncUpdateAdminRoleRaw(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncUpdateAdminRoleRaw(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncAddExamRaw(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncAddExamRaw(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncAddExamToGradeRaw(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* PrepareAsyncAddExamToGradeRaw(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::ExamList>* AsyncFindExamsRaw(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::ExamList>* PrepareAsyncFindExamsRaw(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::School::Response>* AsyncSetExamAnalysedRaw(::grpc::ClientContext* context, const ::School::SetExamAnalysedRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -464,6 +519,27 @@ class SchoolService final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::SchoolList>> PrepareAsyncGetSchools(::grpc::ClientContext* context, const ::School::SchoolsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::SchoolList>>(PrepareAsyncGetSchoolsRaw(context, request, cq));
+    }
+    ::grpc::Status AddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::School::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncAddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(AsyncAddSchoolHeadRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncAddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncAddSchoolHeadRaw(context, request, cq));
+    }
+    ::grpc::Status Delete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::School::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncDelete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(AsyncDelete_SchoolHeadRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncDelete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncDelete_SchoolHeadRaw(context, request, cq));
+    }
+    ::grpc::Status UpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::School::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncUpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(AsyncUpdateSchoolDetailsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncUpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncUpdateSchoolDetailsRaw(context, request, cq));
     }
     ::grpc::Status AddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::School::Response* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncAddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::grpc::CompletionQueue* cq) {
@@ -584,12 +660,26 @@ class SchoolService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncDeleteTeacherSubject(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncDeleteTeacherSubjectRaw(context, request, cq));
     }
+    ::grpc::Status UpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::School::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncUpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(AsyncUpdateAdminRoleRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncUpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncUpdateAdminRoleRaw(context, request, cq));
+    }
     ::grpc::Status AddExam(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::School::Response* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncAddExam(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(AsyncAddExamRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncAddExam(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncAddExamRaw(context, request, cq));
+    }
+    ::grpc::Status AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::School::Response* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> AsyncAddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(AsyncAddExamToGradeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>> PrepareAsyncAddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::Response>>(PrepareAsyncAddExamToGradeRaw(context, request, cq));
     }
     ::grpc::Status FindExams(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::School::ExamList* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::School::ExamList>> AsyncFindExams(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::grpc::CompletionQueue* cq) {
@@ -705,6 +795,12 @@ class SchoolService final {
       void GetSchoolDetails(::grpc::ClientContext* context, const ::School::SchoolDetailsRequest* request, ::School::SchoolDetails* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetSchools(::grpc::ClientContext* context, const ::School::SchoolsRequest* request, ::School::SchoolList* response, std::function<void(::grpc::Status)>) override;
       void GetSchools(::grpc::ClientContext* context, const ::School::SchoolsRequest* request, ::School::SchoolList* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void AddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
+      void AddSchoolHead(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Delete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
+      void Delete_SchoolHead(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void UpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
+      void UpdateSchoolDetails(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
       void AddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
       void AddStudent(::grpc::ClientContext* context, const ::School::AddStudentRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
       void RemoveStudent(::grpc::ClientContext* context, const ::School::RemoveStudentRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
@@ -739,8 +835,12 @@ class SchoolService final {
       void ResetPassword(::grpc::ClientContext* context, const ::School::ResetPasswordRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
       void DeleteTeacherSubject(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
       void DeleteTeacherSubject(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void UpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
+      void UpdateAdminRole(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
       void AddExam(::grpc::ClientContext* context, const ::School::AddExamRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
       void AddExam(::grpc::ClientContext* context, const ::School::AddExamRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
+      void AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
       void FindExams(::grpc::ClientContext* context, const ::School::FindExamRequest* request, ::School::ExamList* response, std::function<void(::grpc::Status)>) override;
       void FindExams(::grpc::ClientContext* context, const ::School::FindExamRequest* request, ::School::ExamList* response, ::grpc::ClientUnaryReactor* reactor) override;
       void SetExamAnalysed(::grpc::ClientContext* context, const ::School::SetExamAnalysedRequest* request, ::School::Response* response, std::function<void(::grpc::Status)>) override;
@@ -788,6 +888,12 @@ class SchoolService final {
     ::grpc::ClientAsyncResponseReader< ::School::SchoolDetails>* PrepareAsyncGetSchoolDetailsRaw(::grpc::ClientContext* context, const ::School::SchoolDetailsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::SchoolList>* AsyncGetSchoolsRaw(::grpc::ClientContext* context, const ::School::SchoolsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::SchoolList>* PrepareAsyncGetSchoolsRaw(::grpc::ClientContext* context, const ::School::SchoolsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncAddSchoolHeadRaw(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncAddSchoolHeadRaw(::grpc::ClientContext* context, const ::School::AddSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncDelete_SchoolHeadRaw(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncDelete_SchoolHeadRaw(::grpc::ClientContext* context, const ::School::DeleteSchoolHeadRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncUpdateSchoolDetailsRaw(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncUpdateSchoolDetailsRaw(::grpc::ClientContext* context, const ::School::UpdateSchoolRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncAddStudentRaw(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncAddStudentRaw(::grpc::ClientContext* context, const ::School::AddStudentRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncRemoveStudentRaw(::grpc::ClientContext* context, const ::School::RemoveStudentRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -822,8 +928,12 @@ class SchoolService final {
     ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncResetPasswordRaw(::grpc::ClientContext* context, const ::School::ResetPasswordRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncDeleteTeacherSubjectRaw(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncDeleteTeacherSubjectRaw(::grpc::ClientContext* context, const ::School::DeleteTeacherSubjectRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncUpdateAdminRoleRaw(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncUpdateAdminRoleRaw(::grpc::ClientContext* context, const ::School::UpdateAdminRoleRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncAddExamRaw(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncAddExamRaw(::grpc::ClientContext* context, const ::School::AddExamRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncAddExamToGradeRaw(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::School::Response>* PrepareAsyncAddExamToGradeRaw(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::ExamList>* AsyncFindExamsRaw(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::ExamList>* PrepareAsyncFindExamsRaw(::grpc::ClientContext* context, const ::School::FindExamRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::School::Response>* AsyncSetExamAnalysedRaw(::grpc::ClientContext* context, const ::School::SetExamAnalysedRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -857,6 +967,9 @@ class SchoolService final {
     const ::grpc::internal::RpcMethod rpcmethod_CreateSchool_;
     const ::grpc::internal::RpcMethod rpcmethod_GetSchoolDetails_;
     const ::grpc::internal::RpcMethod rpcmethod_GetSchools_;
+    const ::grpc::internal::RpcMethod rpcmethod_AddSchoolHead_;
+    const ::grpc::internal::RpcMethod rpcmethod_Delete_SchoolHead_;
+    const ::grpc::internal::RpcMethod rpcmethod_UpdateSchoolDetails_;
     const ::grpc::internal::RpcMethod rpcmethod_AddStudent_;
     const ::grpc::internal::RpcMethod rpcmethod_RemoveStudent_;
     const ::grpc::internal::RpcMethod rpcmethod_EditStudentDetails_;
@@ -874,7 +987,9 @@ class SchoolService final {
     const ::grpc::internal::RpcMethod rpcmethod_ListofLearnersbyGrade_Subject_;
     const ::grpc::internal::RpcMethod rpcmethod_ResetPassword_;
     const ::grpc::internal::RpcMethod rpcmethod_DeleteTeacherSubject_;
+    const ::grpc::internal::RpcMethod rpcmethod_UpdateAdminRole_;
     const ::grpc::internal::RpcMethod rpcmethod_AddExam_;
+    const ::grpc::internal::RpcMethod rpcmethod_AddExamToGrade_;
     const ::grpc::internal::RpcMethod rpcmethod_FindExams_;
     const ::grpc::internal::RpcMethod rpcmethod_SetExamAnalysed_;
     const ::grpc::internal::RpcMethod rpcmethod_GradeMeritList_;
@@ -900,6 +1015,9 @@ class SchoolService final {
     virtual ::grpc::Status CreateSchool(::grpc::ServerContext* context, const ::School::AddSchoolRequest* request, ::School::Response* response);
     virtual ::grpc::Status GetSchoolDetails(::grpc::ServerContext* context, const ::School::SchoolDetailsRequest* request, ::School::SchoolDetails* response);
     virtual ::grpc::Status GetSchools(::grpc::ServerContext* context, const ::School::SchoolsRequest* request, ::School::SchoolList* response);
+    virtual ::grpc::Status AddSchoolHead(::grpc::ServerContext* context, const ::School::AddSchoolHeadRequest* request, ::School::Response* response);
+    virtual ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* context, const ::School::DeleteSchoolHeadRequest* request, ::School::Response* response);
+    virtual ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* context, const ::School::UpdateSchoolRequest* request, ::School::Response* response);
     virtual ::grpc::Status AddStudent(::grpc::ServerContext* context, const ::School::AddStudentRequest* request, ::School::Response* response);
     virtual ::grpc::Status RemoveStudent(::grpc::ServerContext* context, const ::School::RemoveStudentRequest* request, ::School::Response* response);
     virtual ::grpc::Status EditStudentDetails(::grpc::ServerContext* context, const ::School::EditStudentDetailsRequest* request, ::School::Response* response);
@@ -917,7 +1035,9 @@ class SchoolService final {
     virtual ::grpc::Status ListofLearnersbyGrade_Subject(::grpc::ServerContext* context, const ::School::GetStudentsperSubjectRequest* request, ::School::LearnersListperGrade* response);
     virtual ::grpc::Status ResetPassword(::grpc::ServerContext* context, const ::School::ResetPasswordRequest* request, ::School::Response* response);
     virtual ::grpc::Status DeleteTeacherSubject(::grpc::ServerContext* context, const ::School::DeleteTeacherSubjectRequest* request, ::School::Response* response);
+    virtual ::grpc::Status UpdateAdminRole(::grpc::ServerContext* context, const ::School::UpdateAdminRoleRequest* request, ::School::Response* response);
     virtual ::grpc::Status AddExam(::grpc::ServerContext* context, const ::School::AddExamRequest* request, ::School::Response* response);
+    virtual ::grpc::Status AddExamToGrade(::grpc::ServerContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response);
     virtual ::grpc::Status FindExams(::grpc::ServerContext* context, const ::School::FindExamRequest* request, ::School::ExamList* response);
     virtual ::grpc::Status SetExamAnalysed(::grpc::ServerContext* context, const ::School::SetExamAnalysedRequest* request, ::School::Response* response);
     virtual ::grpc::Status GradeMeritList(::grpc::ServerContext* context, const ::School::MeritListRequest* request, ::School::MeritList* response);
@@ -995,12 +1115,72 @@ class SchoolService final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_AddSchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_AddSchoolHead() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_AddSchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddSchoolHead(::grpc::ServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddSchoolHead(::grpc::ServerContext* context, ::School::AddSchoolHeadRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Delete_SchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_Delete_SchoolHead() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_Delete_SchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDelete_SchoolHead(::grpc::ServerContext* context, ::School::DeleteSchoolHeadRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_UpdateSchoolDetails : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_UpdateSchoolDetails() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_UpdateSchoolDetails() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateSchoolDetails(::grpc::ServerContext* context, ::School::UpdateSchoolRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_AddStudent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AddStudent() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_AddStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1011,7 +1191,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddStudent(::grpc::ServerContext* context, ::School::AddStudentRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1020,7 +1200,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_RemoveStudent() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(7);
     }
     ~WithAsyncMethod_RemoveStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1031,7 +1211,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveStudent(::grpc::ServerContext* context, ::School::RemoveStudentRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1040,7 +1220,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_EditStudentDetails() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_EditStudentDetails() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1051,7 +1231,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestEditStudentDetails(::grpc::ServerContext* context, ::School::EditStudentDetailsRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1060,7 +1240,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetStudents() {
-      ::grpc::Service::MarkMethodAsync(6);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_GetStudents() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1071,7 +1251,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetStudents(::grpc::ServerContext* context, ::School::FindStudentsRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::StudentList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1080,7 +1260,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetLearnersbyGrade() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(10);
     }
     ~WithAsyncMethod_GetLearnersbyGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1091,7 +1271,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetLearnersbyGrade(::grpc::ServerContext* context, ::School::Students_Grade_Request* request, ::grpc::ServerAsyncResponseWriter< ::School::StudentList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1100,7 +1280,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_DeleteStudentSubject() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(11);
     }
     ~WithAsyncMethod_DeleteStudentSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1111,7 +1291,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteStudentSubject(::grpc::ServerContext* context, ::School::DeleteSubjectRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1120,7 +1300,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AddStudentScore() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(12);
     }
     ~WithAsyncMethod_AddStudentScore() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1131,7 +1311,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddStudentScore(::grpc::ServerContext* context, ::School::AddScoreRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1140,7 +1320,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_StudentExamReport() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(13);
     }
     ~WithAsyncMethod_StudentExamReport() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1151,7 +1331,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestStudentExamReport(::grpc::ServerContext* context, ::School::ExamReportRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::ExamReport>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1160,7 +1340,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AddSubjectsToStudent() {
-      ::grpc::Service::MarkMethodAsync(11);
+      ::grpc::Service::MarkMethodAsync(14);
     }
     ~WithAsyncMethod_AddSubjectsToStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1171,7 +1351,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddSubjectsToStudent(::grpc::ServerContext* context, ::School::AddSubjectsRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1180,7 +1360,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AddTeacher() {
-      ::grpc::Service::MarkMethodAsync(12);
+      ::grpc::Service::MarkMethodAsync(15);
     }
     ~WithAsyncMethod_AddTeacher() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1191,7 +1371,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddTeacher(::grpc::ServerContext* context, ::School::AddTeacherRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1200,7 +1380,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_TeacherLogin() {
-      ::grpc::Service::MarkMethodAsync(13);
+      ::grpc::Service::MarkMethodAsync(16);
     }
     ~WithAsyncMethod_TeacherLogin() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1211,7 +1391,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestTeacherLogin(::grpc::ServerContext* context, ::School::LoginRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Teacher>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1220,7 +1400,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_RemoveTeacher() {
-      ::grpc::Service::MarkMethodAsync(14);
+      ::grpc::Service::MarkMethodAsync(17);
     }
     ~WithAsyncMethod_RemoveTeacher() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1231,7 +1411,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveTeacher(::grpc::ServerContext* context, ::School::RemoveTeacherRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1240,7 +1420,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetTeachers() {
-      ::grpc::Service::MarkMethodAsync(15);
+      ::grpc::Service::MarkMethodAsync(18);
     }
     ~WithAsyncMethod_GetTeachers() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1251,7 +1431,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetTeachers(::grpc::ServerContext* context, ::School::GetTeachersRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::TeachersList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1260,7 +1440,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateSubjects() {
-      ::grpc::Service::MarkMethodAsync(16);
+      ::grpc::Service::MarkMethodAsync(19);
     }
     ~WithAsyncMethod_UpdateSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1271,7 +1451,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateSubjects(::grpc::ServerContext* context, ::School::UpdateSubjectsRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1280,7 +1460,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ListofLearnersbyGrade_Subject() {
-      ::grpc::Service::MarkMethodAsync(17);
+      ::grpc::Service::MarkMethodAsync(20);
     }
     ~WithAsyncMethod_ListofLearnersbyGrade_Subject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1291,7 +1471,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListofLearnersbyGrade_Subject(::grpc::ServerContext* context, ::School::GetStudentsperSubjectRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::LearnersListperGrade>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1300,7 +1480,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ResetPassword() {
-      ::grpc::Service::MarkMethodAsync(18);
+      ::grpc::Service::MarkMethodAsync(21);
     }
     ~WithAsyncMethod_ResetPassword() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1311,7 +1491,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestResetPassword(::grpc::ServerContext* context, ::School::ResetPasswordRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(21, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1320,7 +1500,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_DeleteTeacherSubject() {
-      ::grpc::Service::MarkMethodAsync(19);
+      ::grpc::Service::MarkMethodAsync(22);
     }
     ~WithAsyncMethod_DeleteTeacherSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1331,7 +1511,27 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteTeacherSubject(::grpc::ServerContext* context, ::School::DeleteTeacherSubjectRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(22, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_UpdateAdminRole : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_UpdateAdminRole() {
+      ::grpc::Service::MarkMethodAsync(23);
+    }
+    ~WithAsyncMethod_UpdateAdminRole() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAdminRole(::grpc::ServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateAdminRole(::grpc::ServerContext* context, ::School::UpdateAdminRoleRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(23, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1340,7 +1540,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AddExam() {
-      ::grpc::Service::MarkMethodAsync(20);
+      ::grpc::Service::MarkMethodAsync(24);
     }
     ~WithAsyncMethod_AddExam() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1351,7 +1551,27 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddExam(::grpc::ServerContext* context, ::School::AddExamRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(24, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_AddExamToGrade : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_AddExamToGrade() {
+      ::grpc::Service::MarkMethodAsync(25);
+    }
+    ~WithAsyncMethod_AddExamToGrade() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddExamToGrade(::grpc::ServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddExamToGrade(::grpc::ServerContext* context, ::School::AddExamToGradeRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(25, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1360,7 +1580,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_FindExams() {
-      ::grpc::Service::MarkMethodAsync(21);
+      ::grpc::Service::MarkMethodAsync(26);
     }
     ~WithAsyncMethod_FindExams() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1371,7 +1591,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestFindExams(::grpc::ServerContext* context, ::School::FindExamRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::ExamList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(21, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(26, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1380,7 +1600,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SetExamAnalysed() {
-      ::grpc::Service::MarkMethodAsync(22);
+      ::grpc::Service::MarkMethodAsync(27);
     }
     ~WithAsyncMethod_SetExamAnalysed() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1391,7 +1611,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSetExamAnalysed(::grpc::ServerContext* context, ::School::SetExamAnalysedRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(22, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(27, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1400,7 +1620,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GradeMeritList() {
-      ::grpc::Service::MarkMethodAsync(23);
+      ::grpc::Service::MarkMethodAsync(28);
     }
     ~WithAsyncMethod_GradeMeritList() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1411,7 +1631,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGradeMeritList(::grpc::ServerContext* context, ::School::MeritListRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::MeritList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(23, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(28, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1420,7 +1640,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_setLoadedSubjects() {
-      ::grpc::Service::MarkMethodAsync(24);
+      ::grpc::Service::MarkMethodAsync(29);
     }
     ~WithAsyncMethod_setLoadedSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1431,7 +1651,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestsetLoadedSubjects(::grpc::ServerContext* context, ::School::setloadedsubjectrequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(24, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(29, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1440,7 +1660,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_fetchLoadedSubjects() {
-      ::grpc::Service::MarkMethodAsync(25);
+      ::grpc::Service::MarkMethodAsync(30);
     }
     ~WithAsyncMethod_fetchLoadedSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1451,7 +1671,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestfetchLoadedSubjects(::grpc::ServerContext* context, ::School::getloadedsubjectsrequest* request, ::grpc::ServerAsyncResponseWriter< ::School::SubjectList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(25, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(30, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1460,7 +1680,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AddGrade() {
-      ::grpc::Service::MarkMethodAsync(26);
+      ::grpc::Service::MarkMethodAsync(31);
     }
     ~WithAsyncMethod_AddGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1471,7 +1691,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddGrade(::grpc::ServerContext* context, ::School::AddGradeRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(26, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(31, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1480,7 +1700,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_RemoveGradeSubject() {
-      ::grpc::Service::MarkMethodAsync(27);
+      ::grpc::Service::MarkMethodAsync(32);
     }
     ~WithAsyncMethod_RemoveGradeSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1491,7 +1711,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveGradeSubject(::grpc::ServerContext* context, ::School::RemoveSubjectRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(27, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(32, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1500,7 +1720,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_RemoveGrade() {
-      ::grpc::Service::MarkMethodAsync(28);
+      ::grpc::Service::MarkMethodAsync(33);
     }
     ~WithAsyncMethod_RemoveGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1511,7 +1731,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveGrade(::grpc::ServerContext* context, ::School::RemoveGradeRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(28, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(33, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1520,7 +1740,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_FindGrades() {
-      ::grpc::Service::MarkMethodAsync(29);
+      ::grpc::Service::MarkMethodAsync(34);
     }
     ~WithAsyncMethod_FindGrades() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1531,7 +1751,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestFindGrades(::grpc::ServerContext* context, ::School::FindGradesRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::GradeList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(29, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(34, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1540,7 +1760,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateGrade() {
-      ::grpc::Service::MarkMethodAsync(30);
+      ::grpc::Service::MarkMethodAsync(35);
     }
     ~WithAsyncMethod_UpdateGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1551,7 +1771,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateGrade(::grpc::ServerContext* context, ::School::UpdateGradeRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(30, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(35, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1560,7 +1780,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GradeStudents() {
-      ::grpc::Service::MarkMethodAsync(31);
+      ::grpc::Service::MarkMethodAsync(36);
     }
     ~WithAsyncMethod_GradeStudents() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1571,7 +1791,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGradeStudents(::grpc::ServerContext* context, ::School::GradeStudentsRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::StudentList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(31, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(36, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1580,7 +1800,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Invoice() {
-      ::grpc::Service::MarkMethodAsync(32);
+      ::grpc::Service::MarkMethodAsync(37);
     }
     ~WithAsyncMethod_Invoice() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1591,7 +1811,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestInvoice(::grpc::ServerContext* context, ::School::AddInvoiceRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(32, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(37, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1600,7 +1820,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetInvoice() {
-      ::grpc::Service::MarkMethodAsync(33);
+      ::grpc::Service::MarkMethodAsync(38);
     }
     ~WithAsyncMethod_GetInvoice() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1611,7 +1831,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetInvoice(::grpc::ServerContext* context, ::School::GetInvoiceRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::InvoiceList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(33, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(38, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1620,7 +1840,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Receipt() {
-      ::grpc::Service::MarkMethodAsync(34);
+      ::grpc::Service::MarkMethodAsync(39);
     }
     ~WithAsyncMethod_Receipt() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1631,7 +1851,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReceipt(::grpc::ServerContext* context, ::School::AddReceiptRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::Response>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(34, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(39, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1640,7 +1860,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetReceipt() {
-      ::grpc::Service::MarkMethodAsync(35);
+      ::grpc::Service::MarkMethodAsync(40);
     }
     ~WithAsyncMethod_GetReceipt() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1651,10 +1871,10 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetReceipt(::grpc::ServerContext* context, ::School::GetReceiptRequest* request, ::grpc::ServerAsyncResponseWriter< ::School::ReceiptList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(35, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(40, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CreateSchool<WithAsyncMethod_GetSchoolDetails<WithAsyncMethod_GetSchools<WithAsyncMethod_AddStudent<WithAsyncMethod_RemoveStudent<WithAsyncMethod_EditStudentDetails<WithAsyncMethod_GetStudents<WithAsyncMethod_GetLearnersbyGrade<WithAsyncMethod_DeleteStudentSubject<WithAsyncMethod_AddStudentScore<WithAsyncMethod_StudentExamReport<WithAsyncMethod_AddSubjectsToStudent<WithAsyncMethod_AddTeacher<WithAsyncMethod_TeacherLogin<WithAsyncMethod_RemoveTeacher<WithAsyncMethod_GetTeachers<WithAsyncMethod_UpdateSubjects<WithAsyncMethod_ListofLearnersbyGrade_Subject<WithAsyncMethod_ResetPassword<WithAsyncMethod_DeleteTeacherSubject<WithAsyncMethod_AddExam<WithAsyncMethod_FindExams<WithAsyncMethod_SetExamAnalysed<WithAsyncMethod_GradeMeritList<WithAsyncMethod_setLoadedSubjects<WithAsyncMethod_fetchLoadedSubjects<WithAsyncMethod_AddGrade<WithAsyncMethod_RemoveGradeSubject<WithAsyncMethod_RemoveGrade<WithAsyncMethod_FindGrades<WithAsyncMethod_UpdateGrade<WithAsyncMethod_GradeStudents<WithAsyncMethod_Invoice<WithAsyncMethod_GetInvoice<WithAsyncMethod_Receipt<WithAsyncMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_CreateSchool<WithAsyncMethod_GetSchoolDetails<WithAsyncMethod_GetSchools<WithAsyncMethod_AddSchoolHead<WithAsyncMethod_Delete_SchoolHead<WithAsyncMethod_UpdateSchoolDetails<WithAsyncMethod_AddStudent<WithAsyncMethod_RemoveStudent<WithAsyncMethod_EditStudentDetails<WithAsyncMethod_GetStudents<WithAsyncMethod_GetLearnersbyGrade<WithAsyncMethod_DeleteStudentSubject<WithAsyncMethod_AddStudentScore<WithAsyncMethod_StudentExamReport<WithAsyncMethod_AddSubjectsToStudent<WithAsyncMethod_AddTeacher<WithAsyncMethod_TeacherLogin<WithAsyncMethod_RemoveTeacher<WithAsyncMethod_GetTeachers<WithAsyncMethod_UpdateSubjects<WithAsyncMethod_ListofLearnersbyGrade_Subject<WithAsyncMethod_ResetPassword<WithAsyncMethod_DeleteTeacherSubject<WithAsyncMethod_UpdateAdminRole<WithAsyncMethod_AddExam<WithAsyncMethod_AddExamToGrade<WithAsyncMethod_FindExams<WithAsyncMethod_SetExamAnalysed<WithAsyncMethod_GradeMeritList<WithAsyncMethod_setLoadedSubjects<WithAsyncMethod_fetchLoadedSubjects<WithAsyncMethod_AddGrade<WithAsyncMethod_RemoveGradeSubject<WithAsyncMethod_RemoveGrade<WithAsyncMethod_FindGrades<WithAsyncMethod_UpdateGrade<WithAsyncMethod_GradeStudents<WithAsyncMethod_Invoice<WithAsyncMethod_GetInvoice<WithAsyncMethod_Receipt<WithAsyncMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_CreateSchool : public BaseClass {
    private:
@@ -1737,18 +1957,99 @@ class SchoolService final {
       ::grpc::CallbackServerContext* /*context*/, const ::School::SchoolsRequest* /*request*/, ::School::SchoolList* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_AddSchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_AddSchoolHead() {
+      ::grpc::Service::MarkMethodCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::School::AddSchoolHeadRequest, ::School::Response>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::School::AddSchoolHeadRequest* request, ::School::Response* response) { return this->AddSchoolHead(context, request, response); }));}
+    void SetMessageAllocatorFor_AddSchoolHead(
+        ::grpc::MessageAllocator< ::School::AddSchoolHeadRequest, ::School::Response>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddSchoolHeadRequest, ::School::Response>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_AddSchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddSchoolHead(::grpc::ServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AddSchoolHead(
+      ::grpc::CallbackServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_Delete_SchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_Delete_SchoolHead() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::School::DeleteSchoolHeadRequest, ::School::Response>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::School::DeleteSchoolHeadRequest* request, ::School::Response* response) { return this->Delete_SchoolHead(context, request, response); }));}
+    void SetMessageAllocatorFor_Delete_SchoolHead(
+        ::grpc::MessageAllocator< ::School::DeleteSchoolHeadRequest, ::School::Response>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::School::DeleteSchoolHeadRequest, ::School::Response>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_Delete_SchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* Delete_SchoolHead(
+      ::grpc::CallbackServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_UpdateSchoolDetails : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_UpdateSchoolDetails() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::School::UpdateSchoolRequest, ::School::Response>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::School::UpdateSchoolRequest* request, ::School::Response* response) { return this->UpdateSchoolDetails(context, request, response); }));}
+    void SetMessageAllocatorFor_UpdateSchoolDetails(
+        ::grpc::MessageAllocator< ::School::UpdateSchoolRequest, ::School::Response>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::School::UpdateSchoolRequest, ::School::Response>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_UpdateSchoolDetails() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* UpdateSchoolDetails(
+      ::grpc::CallbackServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_AddStudent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_AddStudent() {
-      ::grpc::Service::MarkMethodCallback(3,
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddStudentRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddStudentRequest* request, ::School::Response* response) { return this->AddStudent(context, request, response); }));}
     void SetMessageAllocatorFor_AddStudent(
         ::grpc::MessageAllocator< ::School::AddStudentRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddStudentRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1769,13 +2070,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_RemoveStudent() {
-      ::grpc::Service::MarkMethodCallback(4,
+      ::grpc::Service::MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::School::RemoveStudentRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::RemoveStudentRequest* request, ::School::Response* response) { return this->RemoveStudent(context, request, response); }));}
     void SetMessageAllocatorFor_RemoveStudent(
         ::grpc::MessageAllocator< ::School::RemoveStudentRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::RemoveStudentRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1796,13 +2097,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_EditStudentDetails() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::School::EditStudentDetailsRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::EditStudentDetailsRequest* request, ::School::Response* response) { return this->EditStudentDetails(context, request, response); }));}
     void SetMessageAllocatorFor_EditStudentDetails(
         ::grpc::MessageAllocator< ::School::EditStudentDetailsRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::EditStudentDetailsRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1823,13 +2124,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetStudents() {
-      ::grpc::Service::MarkMethodCallback(6,
+      ::grpc::Service::MarkMethodCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::School::FindStudentsRequest, ::School::StudentList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::FindStudentsRequest* request, ::School::StudentList* response) { return this->GetStudents(context, request, response); }));}
     void SetMessageAllocatorFor_GetStudents(
         ::grpc::MessageAllocator< ::School::FindStudentsRequest, ::School::StudentList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::FindStudentsRequest, ::School::StudentList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1850,13 +2151,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetLearnersbyGrade() {
-      ::grpc::Service::MarkMethodCallback(7,
+      ::grpc::Service::MarkMethodCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::School::Students_Grade_Request, ::School::StudentList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::Students_Grade_Request* request, ::School::StudentList* response) { return this->GetLearnersbyGrade(context, request, response); }));}
     void SetMessageAllocatorFor_GetLearnersbyGrade(
         ::grpc::MessageAllocator< ::School::Students_Grade_Request, ::School::StudentList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::Students_Grade_Request, ::School::StudentList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1877,13 +2178,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_DeleteStudentSubject() {
-      ::grpc::Service::MarkMethodCallback(8,
+      ::grpc::Service::MarkMethodCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::School::DeleteSubjectRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::DeleteSubjectRequest* request, ::School::Response* response) { return this->DeleteStudentSubject(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteStudentSubject(
         ::grpc::MessageAllocator< ::School::DeleteSubjectRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::DeleteSubjectRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1904,13 +2205,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_AddStudentScore() {
-      ::grpc::Service::MarkMethodCallback(9,
+      ::grpc::Service::MarkMethodCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddScoreRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddScoreRequest* request, ::School::Response* response) { return this->AddStudentScore(context, request, response); }));}
     void SetMessageAllocatorFor_AddStudentScore(
         ::grpc::MessageAllocator< ::School::AddScoreRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(9);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddScoreRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1931,13 +2232,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_StudentExamReport() {
-      ::grpc::Service::MarkMethodCallback(10,
+      ::grpc::Service::MarkMethodCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::School::ExamReportRequest, ::School::ExamReport>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::ExamReportRequest* request, ::School::ExamReport* response) { return this->StudentExamReport(context, request, response); }));}
     void SetMessageAllocatorFor_StudentExamReport(
         ::grpc::MessageAllocator< ::School::ExamReportRequest, ::School::ExamReport>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(10);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::ExamReportRequest, ::School::ExamReport>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1958,13 +2259,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_AddSubjectsToStudent() {
-      ::grpc::Service::MarkMethodCallback(11,
+      ::grpc::Service::MarkMethodCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddSubjectsRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddSubjectsRequest* request, ::School::Response* response) { return this->AddSubjectsToStudent(context, request, response); }));}
     void SetMessageAllocatorFor_AddSubjectsToStudent(
         ::grpc::MessageAllocator< ::School::AddSubjectsRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(11);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddSubjectsRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -1985,13 +2286,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_AddTeacher() {
-      ::grpc::Service::MarkMethodCallback(12,
+      ::grpc::Service::MarkMethodCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddTeacherRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddTeacherRequest* request, ::School::Response* response) { return this->AddTeacher(context, request, response); }));}
     void SetMessageAllocatorFor_AddTeacher(
         ::grpc::MessageAllocator< ::School::AddTeacherRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(12);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddTeacherRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2012,13 +2313,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_TeacherLogin() {
-      ::grpc::Service::MarkMethodCallback(13,
+      ::grpc::Service::MarkMethodCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::School::LoginRequest, ::School::Teacher>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::LoginRequest* request, ::School::Teacher* response) { return this->TeacherLogin(context, request, response); }));}
     void SetMessageAllocatorFor_TeacherLogin(
         ::grpc::MessageAllocator< ::School::LoginRequest, ::School::Teacher>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::LoginRequest, ::School::Teacher>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2039,13 +2340,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_RemoveTeacher() {
-      ::grpc::Service::MarkMethodCallback(14,
+      ::grpc::Service::MarkMethodCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::School::RemoveTeacherRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::RemoveTeacherRequest* request, ::School::Response* response) { return this->RemoveTeacher(context, request, response); }));}
     void SetMessageAllocatorFor_RemoveTeacher(
         ::grpc::MessageAllocator< ::School::RemoveTeacherRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::RemoveTeacherRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2066,13 +2367,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetTeachers() {
-      ::grpc::Service::MarkMethodCallback(15,
+      ::grpc::Service::MarkMethodCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::School::GetTeachersRequest, ::School::TeachersList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::GetTeachersRequest* request, ::School::TeachersList* response) { return this->GetTeachers(context, request, response); }));}
     void SetMessageAllocatorFor_GetTeachers(
         ::grpc::MessageAllocator< ::School::GetTeachersRequest, ::School::TeachersList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(15);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::GetTeachersRequest, ::School::TeachersList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2093,13 +2394,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_UpdateSubjects() {
-      ::grpc::Service::MarkMethodCallback(16,
+      ::grpc::Service::MarkMethodCallback(19,
           new ::grpc::internal::CallbackUnaryHandler< ::School::UpdateSubjectsRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::UpdateSubjectsRequest* request, ::School::Response* response) { return this->UpdateSubjects(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateSubjects(
         ::grpc::MessageAllocator< ::School::UpdateSubjectsRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(16);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(19);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::UpdateSubjectsRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2120,13 +2421,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ListofLearnersbyGrade_Subject() {
-      ::grpc::Service::MarkMethodCallback(17,
+      ::grpc::Service::MarkMethodCallback(20,
           new ::grpc::internal::CallbackUnaryHandler< ::School::GetStudentsperSubjectRequest, ::School::LearnersListperGrade>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::GetStudentsperSubjectRequest* request, ::School::LearnersListperGrade* response) { return this->ListofLearnersbyGrade_Subject(context, request, response); }));}
     void SetMessageAllocatorFor_ListofLearnersbyGrade_Subject(
         ::grpc::MessageAllocator< ::School::GetStudentsperSubjectRequest, ::School::LearnersListperGrade>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(20);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::GetStudentsperSubjectRequest, ::School::LearnersListperGrade>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2147,13 +2448,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_ResetPassword() {
-      ::grpc::Service::MarkMethodCallback(18,
+      ::grpc::Service::MarkMethodCallback(21,
           new ::grpc::internal::CallbackUnaryHandler< ::School::ResetPasswordRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::ResetPasswordRequest* request, ::School::Response* response) { return this->ResetPassword(context, request, response); }));}
     void SetMessageAllocatorFor_ResetPassword(
         ::grpc::MessageAllocator< ::School::ResetPasswordRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(18);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(21);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::ResetPasswordRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2174,13 +2475,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_DeleteTeacherSubject() {
-      ::grpc::Service::MarkMethodCallback(19,
+      ::grpc::Service::MarkMethodCallback(22,
           new ::grpc::internal::CallbackUnaryHandler< ::School::DeleteTeacherSubjectRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::DeleteTeacherSubjectRequest* request, ::School::Response* response) { return this->DeleteTeacherSubject(context, request, response); }));}
     void SetMessageAllocatorFor_DeleteTeacherSubject(
         ::grpc::MessageAllocator< ::School::DeleteTeacherSubjectRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(19);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(22);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::DeleteTeacherSubjectRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2196,18 +2497,45 @@ class SchoolService final {
       ::grpc::CallbackServerContext* /*context*/, const ::School::DeleteTeacherSubjectRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_UpdateAdminRole : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_UpdateAdminRole() {
+      ::grpc::Service::MarkMethodCallback(23,
+          new ::grpc::internal::CallbackUnaryHandler< ::School::UpdateAdminRoleRequest, ::School::Response>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::School::UpdateAdminRoleRequest* request, ::School::Response* response) { return this->UpdateAdminRole(context, request, response); }));}
+    void SetMessageAllocatorFor_UpdateAdminRole(
+        ::grpc::MessageAllocator< ::School::UpdateAdminRoleRequest, ::School::Response>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(23);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::School::UpdateAdminRoleRequest, ::School::Response>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_UpdateAdminRole() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAdminRole(::grpc::ServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* UpdateAdminRole(
+      ::grpc::CallbackServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_AddExam : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_AddExam() {
-      ::grpc::Service::MarkMethodCallback(20,
+      ::grpc::Service::MarkMethodCallback(24,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddExamRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddExamRequest* request, ::School::Response* response) { return this->AddExam(context, request, response); }));}
     void SetMessageAllocatorFor_AddExam(
         ::grpc::MessageAllocator< ::School::AddExamRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(20);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(24);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddExamRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2223,18 +2551,45 @@ class SchoolService final {
       ::grpc::CallbackServerContext* /*context*/, const ::School::AddExamRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_AddExamToGrade : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_AddExamToGrade() {
+      ::grpc::Service::MarkMethodCallback(25,
+          new ::grpc::internal::CallbackUnaryHandler< ::School::AddExamToGradeRequest, ::School::Response>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response) { return this->AddExamToGrade(context, request, response); }));}
+    void SetMessageAllocatorFor_AddExamToGrade(
+        ::grpc::MessageAllocator< ::School::AddExamToGradeRequest, ::School::Response>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(25);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddExamToGradeRequest, ::School::Response>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_AddExamToGrade() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddExamToGrade(::grpc::ServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AddExamToGrade(
+      ::grpc::CallbackServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_FindExams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_FindExams() {
-      ::grpc::Service::MarkMethodCallback(21,
+      ::grpc::Service::MarkMethodCallback(26,
           new ::grpc::internal::CallbackUnaryHandler< ::School::FindExamRequest, ::School::ExamList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::FindExamRequest* request, ::School::ExamList* response) { return this->FindExams(context, request, response); }));}
     void SetMessageAllocatorFor_FindExams(
         ::grpc::MessageAllocator< ::School::FindExamRequest, ::School::ExamList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(21);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(26);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::FindExamRequest, ::School::ExamList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2255,13 +2610,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_SetExamAnalysed() {
-      ::grpc::Service::MarkMethodCallback(22,
+      ::grpc::Service::MarkMethodCallback(27,
           new ::grpc::internal::CallbackUnaryHandler< ::School::SetExamAnalysedRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::SetExamAnalysedRequest* request, ::School::Response* response) { return this->SetExamAnalysed(context, request, response); }));}
     void SetMessageAllocatorFor_SetExamAnalysed(
         ::grpc::MessageAllocator< ::School::SetExamAnalysedRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(22);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(27);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::SetExamAnalysedRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2282,13 +2637,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GradeMeritList() {
-      ::grpc::Service::MarkMethodCallback(23,
+      ::grpc::Service::MarkMethodCallback(28,
           new ::grpc::internal::CallbackUnaryHandler< ::School::MeritListRequest, ::School::MeritList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::MeritListRequest* request, ::School::MeritList* response) { return this->GradeMeritList(context, request, response); }));}
     void SetMessageAllocatorFor_GradeMeritList(
         ::grpc::MessageAllocator< ::School::MeritListRequest, ::School::MeritList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(23);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(28);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::MeritListRequest, ::School::MeritList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2309,13 +2664,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_setLoadedSubjects() {
-      ::grpc::Service::MarkMethodCallback(24,
+      ::grpc::Service::MarkMethodCallback(29,
           new ::grpc::internal::CallbackUnaryHandler< ::School::setloadedsubjectrequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::setloadedsubjectrequest* request, ::School::Response* response) { return this->setLoadedSubjects(context, request, response); }));}
     void SetMessageAllocatorFor_setLoadedSubjects(
         ::grpc::MessageAllocator< ::School::setloadedsubjectrequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(24);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(29);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::setloadedsubjectrequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2336,13 +2691,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_fetchLoadedSubjects() {
-      ::grpc::Service::MarkMethodCallback(25,
+      ::grpc::Service::MarkMethodCallback(30,
           new ::grpc::internal::CallbackUnaryHandler< ::School::getloadedsubjectsrequest, ::School::SubjectList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::getloadedsubjectsrequest* request, ::School::SubjectList* response) { return this->fetchLoadedSubjects(context, request, response); }));}
     void SetMessageAllocatorFor_fetchLoadedSubjects(
         ::grpc::MessageAllocator< ::School::getloadedsubjectsrequest, ::School::SubjectList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(25);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(30);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::getloadedsubjectsrequest, ::School::SubjectList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2363,13 +2718,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_AddGrade() {
-      ::grpc::Service::MarkMethodCallback(26,
+      ::grpc::Service::MarkMethodCallback(31,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddGradeRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddGradeRequest* request, ::School::Response* response) { return this->AddGrade(context, request, response); }));}
     void SetMessageAllocatorFor_AddGrade(
         ::grpc::MessageAllocator< ::School::AddGradeRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(26);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(31);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddGradeRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2390,13 +2745,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_RemoveGradeSubject() {
-      ::grpc::Service::MarkMethodCallback(27,
+      ::grpc::Service::MarkMethodCallback(32,
           new ::grpc::internal::CallbackUnaryHandler< ::School::RemoveSubjectRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::RemoveSubjectRequest* request, ::School::Response* response) { return this->RemoveGradeSubject(context, request, response); }));}
     void SetMessageAllocatorFor_RemoveGradeSubject(
         ::grpc::MessageAllocator< ::School::RemoveSubjectRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(27);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(32);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::RemoveSubjectRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2417,13 +2772,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_RemoveGrade() {
-      ::grpc::Service::MarkMethodCallback(28,
+      ::grpc::Service::MarkMethodCallback(33,
           new ::grpc::internal::CallbackUnaryHandler< ::School::RemoveGradeRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::RemoveGradeRequest* request, ::School::Response* response) { return this->RemoveGrade(context, request, response); }));}
     void SetMessageAllocatorFor_RemoveGrade(
         ::grpc::MessageAllocator< ::School::RemoveGradeRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(28);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(33);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::RemoveGradeRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2444,13 +2799,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_FindGrades() {
-      ::grpc::Service::MarkMethodCallback(29,
+      ::grpc::Service::MarkMethodCallback(34,
           new ::grpc::internal::CallbackUnaryHandler< ::School::FindGradesRequest, ::School::GradeList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::FindGradesRequest* request, ::School::GradeList* response) { return this->FindGrades(context, request, response); }));}
     void SetMessageAllocatorFor_FindGrades(
         ::grpc::MessageAllocator< ::School::FindGradesRequest, ::School::GradeList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(29);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(34);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::FindGradesRequest, ::School::GradeList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2471,13 +2826,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_UpdateGrade() {
-      ::grpc::Service::MarkMethodCallback(30,
+      ::grpc::Service::MarkMethodCallback(35,
           new ::grpc::internal::CallbackUnaryHandler< ::School::UpdateGradeRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::UpdateGradeRequest* request, ::School::Response* response) { return this->UpdateGrade(context, request, response); }));}
     void SetMessageAllocatorFor_UpdateGrade(
         ::grpc::MessageAllocator< ::School::UpdateGradeRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(30);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(35);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::UpdateGradeRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2498,13 +2853,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GradeStudents() {
-      ::grpc::Service::MarkMethodCallback(31,
+      ::grpc::Service::MarkMethodCallback(36,
           new ::grpc::internal::CallbackUnaryHandler< ::School::GradeStudentsRequest, ::School::StudentList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::GradeStudentsRequest* request, ::School::StudentList* response) { return this->GradeStudents(context, request, response); }));}
     void SetMessageAllocatorFor_GradeStudents(
         ::grpc::MessageAllocator< ::School::GradeStudentsRequest, ::School::StudentList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(31);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(36);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::GradeStudentsRequest, ::School::StudentList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2525,13 +2880,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_Invoice() {
-      ::grpc::Service::MarkMethodCallback(32,
+      ::grpc::Service::MarkMethodCallback(37,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddInvoiceRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddInvoiceRequest* request, ::School::Response* response) { return this->Invoice(context, request, response); }));}
     void SetMessageAllocatorFor_Invoice(
         ::grpc::MessageAllocator< ::School::AddInvoiceRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(32);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(37);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddInvoiceRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2552,13 +2907,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetInvoice() {
-      ::grpc::Service::MarkMethodCallback(33,
+      ::grpc::Service::MarkMethodCallback(38,
           new ::grpc::internal::CallbackUnaryHandler< ::School::GetInvoiceRequest, ::School::InvoiceList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::GetInvoiceRequest* request, ::School::InvoiceList* response) { return this->GetInvoice(context, request, response); }));}
     void SetMessageAllocatorFor_GetInvoice(
         ::grpc::MessageAllocator< ::School::GetInvoiceRequest, ::School::InvoiceList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(33);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(38);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::GetInvoiceRequest, ::School::InvoiceList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2579,13 +2934,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_Receipt() {
-      ::grpc::Service::MarkMethodCallback(34,
+      ::grpc::Service::MarkMethodCallback(39,
           new ::grpc::internal::CallbackUnaryHandler< ::School::AddReceiptRequest, ::School::Response>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::AddReceiptRequest* request, ::School::Response* response) { return this->Receipt(context, request, response); }));}
     void SetMessageAllocatorFor_Receipt(
         ::grpc::MessageAllocator< ::School::AddReceiptRequest, ::School::Response>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(34);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(39);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::AddReceiptRequest, ::School::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2606,13 +2961,13 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_GetReceipt() {
-      ::grpc::Service::MarkMethodCallback(35,
+      ::grpc::Service::MarkMethodCallback(40,
           new ::grpc::internal::CallbackUnaryHandler< ::School::GetReceiptRequest, ::School::ReceiptList>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::School::GetReceiptRequest* request, ::School::ReceiptList* response) { return this->GetReceipt(context, request, response); }));}
     void SetMessageAllocatorFor_GetReceipt(
         ::grpc::MessageAllocator< ::School::GetReceiptRequest, ::School::ReceiptList>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(35);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(40);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::School::GetReceiptRequest, ::School::ReceiptList>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -2627,7 +2982,7 @@ class SchoolService final {
     virtual ::grpc::ServerUnaryReactor* GetReceipt(
       ::grpc::CallbackServerContext* /*context*/, const ::School::GetReceiptRequest* /*request*/, ::School::ReceiptList* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_CreateSchool<WithCallbackMethod_GetSchoolDetails<WithCallbackMethod_GetSchools<WithCallbackMethod_AddStudent<WithCallbackMethod_RemoveStudent<WithCallbackMethod_EditStudentDetails<WithCallbackMethod_GetStudents<WithCallbackMethod_GetLearnersbyGrade<WithCallbackMethod_DeleteStudentSubject<WithCallbackMethod_AddStudentScore<WithCallbackMethod_StudentExamReport<WithCallbackMethod_AddSubjectsToStudent<WithCallbackMethod_AddTeacher<WithCallbackMethod_TeacherLogin<WithCallbackMethod_RemoveTeacher<WithCallbackMethod_GetTeachers<WithCallbackMethod_UpdateSubjects<WithCallbackMethod_ListofLearnersbyGrade_Subject<WithCallbackMethod_ResetPassword<WithCallbackMethod_DeleteTeacherSubject<WithCallbackMethod_AddExam<WithCallbackMethod_FindExams<WithCallbackMethod_SetExamAnalysed<WithCallbackMethod_GradeMeritList<WithCallbackMethod_setLoadedSubjects<WithCallbackMethod_fetchLoadedSubjects<WithCallbackMethod_AddGrade<WithCallbackMethod_RemoveGradeSubject<WithCallbackMethod_RemoveGrade<WithCallbackMethod_FindGrades<WithCallbackMethod_UpdateGrade<WithCallbackMethod_GradeStudents<WithCallbackMethod_Invoice<WithCallbackMethod_GetInvoice<WithCallbackMethod_Receipt<WithCallbackMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef WithCallbackMethod_CreateSchool<WithCallbackMethod_GetSchoolDetails<WithCallbackMethod_GetSchools<WithCallbackMethod_AddSchoolHead<WithCallbackMethod_Delete_SchoolHead<WithCallbackMethod_UpdateSchoolDetails<WithCallbackMethod_AddStudent<WithCallbackMethod_RemoveStudent<WithCallbackMethod_EditStudentDetails<WithCallbackMethod_GetStudents<WithCallbackMethod_GetLearnersbyGrade<WithCallbackMethod_DeleteStudentSubject<WithCallbackMethod_AddStudentScore<WithCallbackMethod_StudentExamReport<WithCallbackMethod_AddSubjectsToStudent<WithCallbackMethod_AddTeacher<WithCallbackMethod_TeacherLogin<WithCallbackMethod_RemoveTeacher<WithCallbackMethod_GetTeachers<WithCallbackMethod_UpdateSubjects<WithCallbackMethod_ListofLearnersbyGrade_Subject<WithCallbackMethod_ResetPassword<WithCallbackMethod_DeleteTeacherSubject<WithCallbackMethod_UpdateAdminRole<WithCallbackMethod_AddExam<WithCallbackMethod_AddExamToGrade<WithCallbackMethod_FindExams<WithCallbackMethod_SetExamAnalysed<WithCallbackMethod_GradeMeritList<WithCallbackMethod_setLoadedSubjects<WithCallbackMethod_fetchLoadedSubjects<WithCallbackMethod_AddGrade<WithCallbackMethod_RemoveGradeSubject<WithCallbackMethod_RemoveGrade<WithCallbackMethod_FindGrades<WithCallbackMethod_UpdateGrade<WithCallbackMethod_GradeStudents<WithCallbackMethod_Invoice<WithCallbackMethod_GetInvoice<WithCallbackMethod_Receipt<WithCallbackMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_CreateSchool : public BaseClass {
@@ -2681,12 +3036,63 @@ class SchoolService final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_AddSchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_AddSchoolHead() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_AddSchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddSchoolHead(::grpc::ServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Delete_SchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_Delete_SchoolHead() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_Delete_SchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_UpdateSchoolDetails : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_UpdateSchoolDetails() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_UpdateSchoolDetails() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_AddStudent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AddStudent() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_AddStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2703,7 +3109,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_RemoveStudent() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(7);
     }
     ~WithGenericMethod_RemoveStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2720,7 +3126,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_EditStudentDetails() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_EditStudentDetails() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2737,7 +3143,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetStudents() {
-      ::grpc::Service::MarkMethodGeneric(6);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_GetStudents() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2754,7 +3160,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetLearnersbyGrade() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(10);
     }
     ~WithGenericMethod_GetLearnersbyGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2771,7 +3177,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_DeleteStudentSubject() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(11);
     }
     ~WithGenericMethod_DeleteStudentSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2788,7 +3194,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AddStudentScore() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(12);
     }
     ~WithGenericMethod_AddStudentScore() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2805,7 +3211,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_StudentExamReport() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(13);
     }
     ~WithGenericMethod_StudentExamReport() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2822,7 +3228,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AddSubjectsToStudent() {
-      ::grpc::Service::MarkMethodGeneric(11);
+      ::grpc::Service::MarkMethodGeneric(14);
     }
     ~WithGenericMethod_AddSubjectsToStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2839,7 +3245,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AddTeacher() {
-      ::grpc::Service::MarkMethodGeneric(12);
+      ::grpc::Service::MarkMethodGeneric(15);
     }
     ~WithGenericMethod_AddTeacher() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2856,7 +3262,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_TeacherLogin() {
-      ::grpc::Service::MarkMethodGeneric(13);
+      ::grpc::Service::MarkMethodGeneric(16);
     }
     ~WithGenericMethod_TeacherLogin() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2873,7 +3279,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_RemoveTeacher() {
-      ::grpc::Service::MarkMethodGeneric(14);
+      ::grpc::Service::MarkMethodGeneric(17);
     }
     ~WithGenericMethod_RemoveTeacher() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2890,7 +3296,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetTeachers() {
-      ::grpc::Service::MarkMethodGeneric(15);
+      ::grpc::Service::MarkMethodGeneric(18);
     }
     ~WithGenericMethod_GetTeachers() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2907,7 +3313,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateSubjects() {
-      ::grpc::Service::MarkMethodGeneric(16);
+      ::grpc::Service::MarkMethodGeneric(19);
     }
     ~WithGenericMethod_UpdateSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2924,7 +3330,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ListofLearnersbyGrade_Subject() {
-      ::grpc::Service::MarkMethodGeneric(17);
+      ::grpc::Service::MarkMethodGeneric(20);
     }
     ~WithGenericMethod_ListofLearnersbyGrade_Subject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2941,7 +3347,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ResetPassword() {
-      ::grpc::Service::MarkMethodGeneric(18);
+      ::grpc::Service::MarkMethodGeneric(21);
     }
     ~WithGenericMethod_ResetPassword() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2958,7 +3364,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_DeleteTeacherSubject() {
-      ::grpc::Service::MarkMethodGeneric(19);
+      ::grpc::Service::MarkMethodGeneric(22);
     }
     ~WithGenericMethod_DeleteTeacherSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2970,12 +3376,29 @@ class SchoolService final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_UpdateAdminRole : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_UpdateAdminRole() {
+      ::grpc::Service::MarkMethodGeneric(23);
+    }
+    ~WithGenericMethod_UpdateAdminRole() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAdminRole(::grpc::ServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_AddExam : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AddExam() {
-      ::grpc::Service::MarkMethodGeneric(20);
+      ::grpc::Service::MarkMethodGeneric(24);
     }
     ~WithGenericMethod_AddExam() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2987,12 +3410,29 @@ class SchoolService final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_AddExamToGrade : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_AddExamToGrade() {
+      ::grpc::Service::MarkMethodGeneric(25);
+    }
+    ~WithGenericMethod_AddExamToGrade() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddExamToGrade(::grpc::ServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_FindExams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_FindExams() {
-      ::grpc::Service::MarkMethodGeneric(21);
+      ::grpc::Service::MarkMethodGeneric(26);
     }
     ~WithGenericMethod_FindExams() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3009,7 +3449,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SetExamAnalysed() {
-      ::grpc::Service::MarkMethodGeneric(22);
+      ::grpc::Service::MarkMethodGeneric(27);
     }
     ~WithGenericMethod_SetExamAnalysed() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3026,7 +3466,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GradeMeritList() {
-      ::grpc::Service::MarkMethodGeneric(23);
+      ::grpc::Service::MarkMethodGeneric(28);
     }
     ~WithGenericMethod_GradeMeritList() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3043,7 +3483,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_setLoadedSubjects() {
-      ::grpc::Service::MarkMethodGeneric(24);
+      ::grpc::Service::MarkMethodGeneric(29);
     }
     ~WithGenericMethod_setLoadedSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3060,7 +3500,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_fetchLoadedSubjects() {
-      ::grpc::Service::MarkMethodGeneric(25);
+      ::grpc::Service::MarkMethodGeneric(30);
     }
     ~WithGenericMethod_fetchLoadedSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3077,7 +3517,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AddGrade() {
-      ::grpc::Service::MarkMethodGeneric(26);
+      ::grpc::Service::MarkMethodGeneric(31);
     }
     ~WithGenericMethod_AddGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3094,7 +3534,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_RemoveGradeSubject() {
-      ::grpc::Service::MarkMethodGeneric(27);
+      ::grpc::Service::MarkMethodGeneric(32);
     }
     ~WithGenericMethod_RemoveGradeSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3111,7 +3551,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_RemoveGrade() {
-      ::grpc::Service::MarkMethodGeneric(28);
+      ::grpc::Service::MarkMethodGeneric(33);
     }
     ~WithGenericMethod_RemoveGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3128,7 +3568,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_FindGrades() {
-      ::grpc::Service::MarkMethodGeneric(29);
+      ::grpc::Service::MarkMethodGeneric(34);
     }
     ~WithGenericMethod_FindGrades() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3145,7 +3585,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateGrade() {
-      ::grpc::Service::MarkMethodGeneric(30);
+      ::grpc::Service::MarkMethodGeneric(35);
     }
     ~WithGenericMethod_UpdateGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3162,7 +3602,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GradeStudents() {
-      ::grpc::Service::MarkMethodGeneric(31);
+      ::grpc::Service::MarkMethodGeneric(36);
     }
     ~WithGenericMethod_GradeStudents() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3179,7 +3619,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Invoice() {
-      ::grpc::Service::MarkMethodGeneric(32);
+      ::grpc::Service::MarkMethodGeneric(37);
     }
     ~WithGenericMethod_Invoice() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3196,7 +3636,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetInvoice() {
-      ::grpc::Service::MarkMethodGeneric(33);
+      ::grpc::Service::MarkMethodGeneric(38);
     }
     ~WithGenericMethod_GetInvoice() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3213,7 +3653,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Receipt() {
-      ::grpc::Service::MarkMethodGeneric(34);
+      ::grpc::Service::MarkMethodGeneric(39);
     }
     ~WithGenericMethod_Receipt() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3230,7 +3670,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetReceipt() {
-      ::grpc::Service::MarkMethodGeneric(35);
+      ::grpc::Service::MarkMethodGeneric(40);
     }
     ~WithGenericMethod_GetReceipt() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3302,12 +3742,72 @@ class SchoolService final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_AddSchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_AddSchoolHead() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_AddSchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddSchoolHead(::grpc::ServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddSchoolHead(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Delete_SchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_Delete_SchoolHead() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_Delete_SchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDelete_SchoolHead(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_UpdateSchoolDetails : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_UpdateSchoolDetails() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_UpdateSchoolDetails() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateSchoolDetails(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_AddStudent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AddStudent() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_AddStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3318,7 +3818,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddStudent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3327,7 +3827,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_RemoveStudent() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(7);
     }
     ~WithRawMethod_RemoveStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3338,7 +3838,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveStudent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3347,7 +3847,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_EditStudentDetails() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_EditStudentDetails() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3358,7 +3858,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestEditStudentDetails(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3367,7 +3867,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetStudents() {
-      ::grpc::Service::MarkMethodRaw(6);
+      ::grpc::Service::MarkMethodRaw(9);
     }
     ~WithRawMethod_GetStudents() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3378,7 +3878,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetStudents(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3387,7 +3887,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetLearnersbyGrade() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(10);
     }
     ~WithRawMethod_GetLearnersbyGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3398,7 +3898,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetLearnersbyGrade(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3407,7 +3907,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_DeleteStudentSubject() {
-      ::grpc::Service::MarkMethodRaw(8);
+      ::grpc::Service::MarkMethodRaw(11);
     }
     ~WithRawMethod_DeleteStudentSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3418,7 +3918,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteStudentSubject(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3427,7 +3927,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AddStudentScore() {
-      ::grpc::Service::MarkMethodRaw(9);
+      ::grpc::Service::MarkMethodRaw(12);
     }
     ~WithRawMethod_AddStudentScore() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3438,7 +3938,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddStudentScore(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3447,7 +3947,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_StudentExamReport() {
-      ::grpc::Service::MarkMethodRaw(10);
+      ::grpc::Service::MarkMethodRaw(13);
     }
     ~WithRawMethod_StudentExamReport() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3458,7 +3958,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestStudentExamReport(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3467,7 +3967,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AddSubjectsToStudent() {
-      ::grpc::Service::MarkMethodRaw(11);
+      ::grpc::Service::MarkMethodRaw(14);
     }
     ~WithRawMethod_AddSubjectsToStudent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3478,7 +3978,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddSubjectsToStudent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3487,7 +3987,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AddTeacher() {
-      ::grpc::Service::MarkMethodRaw(12);
+      ::grpc::Service::MarkMethodRaw(15);
     }
     ~WithRawMethod_AddTeacher() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3498,7 +3998,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddTeacher(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3507,7 +4007,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_TeacherLogin() {
-      ::grpc::Service::MarkMethodRaw(13);
+      ::grpc::Service::MarkMethodRaw(16);
     }
     ~WithRawMethod_TeacherLogin() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3518,7 +4018,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestTeacherLogin(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3527,7 +4027,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_RemoveTeacher() {
-      ::grpc::Service::MarkMethodRaw(14);
+      ::grpc::Service::MarkMethodRaw(17);
     }
     ~WithRawMethod_RemoveTeacher() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3538,7 +4038,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveTeacher(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3547,7 +4047,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetTeachers() {
-      ::grpc::Service::MarkMethodRaw(15);
+      ::grpc::Service::MarkMethodRaw(18);
     }
     ~WithRawMethod_GetTeachers() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3558,7 +4058,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetTeachers(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(15, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3567,7 +4067,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateSubjects() {
-      ::grpc::Service::MarkMethodRaw(16);
+      ::grpc::Service::MarkMethodRaw(19);
     }
     ~WithRawMethod_UpdateSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3578,7 +4078,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateSubjects(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3587,7 +4087,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ListofLearnersbyGrade_Subject() {
-      ::grpc::Service::MarkMethodRaw(17);
+      ::grpc::Service::MarkMethodRaw(20);
     }
     ~WithRawMethod_ListofLearnersbyGrade_Subject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3598,7 +4098,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListofLearnersbyGrade_Subject(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3607,7 +4107,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ResetPassword() {
-      ::grpc::Service::MarkMethodRaw(18);
+      ::grpc::Service::MarkMethodRaw(21);
     }
     ~WithRawMethod_ResetPassword() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3618,7 +4118,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestResetPassword(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(18, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(21, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3627,7 +4127,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_DeleteTeacherSubject() {
-      ::grpc::Service::MarkMethodRaw(19);
+      ::grpc::Service::MarkMethodRaw(22);
     }
     ~WithRawMethod_DeleteTeacherSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3638,7 +4138,27 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteTeacherSubject(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(19, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(22, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_UpdateAdminRole : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_UpdateAdminRole() {
+      ::grpc::Service::MarkMethodRaw(23);
+    }
+    ~WithRawMethod_UpdateAdminRole() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAdminRole(::grpc::ServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateAdminRole(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(23, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3647,7 +4167,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AddExam() {
-      ::grpc::Service::MarkMethodRaw(20);
+      ::grpc::Service::MarkMethodRaw(24);
     }
     ~WithRawMethod_AddExam() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3658,7 +4178,27 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddExam(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(20, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(24, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_AddExamToGrade : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_AddExamToGrade() {
+      ::grpc::Service::MarkMethodRaw(25);
+    }
+    ~WithRawMethod_AddExamToGrade() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddExamToGrade(::grpc::ServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAddExamToGrade(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(25, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3667,7 +4207,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_FindExams() {
-      ::grpc::Service::MarkMethodRaw(21);
+      ::grpc::Service::MarkMethodRaw(26);
     }
     ~WithRawMethod_FindExams() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3678,7 +4218,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestFindExams(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(21, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(26, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3687,7 +4227,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SetExamAnalysed() {
-      ::grpc::Service::MarkMethodRaw(22);
+      ::grpc::Service::MarkMethodRaw(27);
     }
     ~WithRawMethod_SetExamAnalysed() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3698,7 +4238,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSetExamAnalysed(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(22, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(27, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3707,7 +4247,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GradeMeritList() {
-      ::grpc::Service::MarkMethodRaw(23);
+      ::grpc::Service::MarkMethodRaw(28);
     }
     ~WithRawMethod_GradeMeritList() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3718,7 +4258,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGradeMeritList(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(23, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(28, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3727,7 +4267,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_setLoadedSubjects() {
-      ::grpc::Service::MarkMethodRaw(24);
+      ::grpc::Service::MarkMethodRaw(29);
     }
     ~WithRawMethod_setLoadedSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3738,7 +4278,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestsetLoadedSubjects(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(24, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(29, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3747,7 +4287,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_fetchLoadedSubjects() {
-      ::grpc::Service::MarkMethodRaw(25);
+      ::grpc::Service::MarkMethodRaw(30);
     }
     ~WithRawMethod_fetchLoadedSubjects() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3758,7 +4298,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestfetchLoadedSubjects(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(25, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(30, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3767,7 +4307,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AddGrade() {
-      ::grpc::Service::MarkMethodRaw(26);
+      ::grpc::Service::MarkMethodRaw(31);
     }
     ~WithRawMethod_AddGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3778,7 +4318,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestAddGrade(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(26, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(31, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3787,7 +4327,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_RemoveGradeSubject() {
-      ::grpc::Service::MarkMethodRaw(27);
+      ::grpc::Service::MarkMethodRaw(32);
     }
     ~WithRawMethod_RemoveGradeSubject() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3798,7 +4338,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveGradeSubject(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(27, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(32, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3807,7 +4347,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_RemoveGrade() {
-      ::grpc::Service::MarkMethodRaw(28);
+      ::grpc::Service::MarkMethodRaw(33);
     }
     ~WithRawMethod_RemoveGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3818,7 +4358,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveGrade(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(28, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(33, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3827,7 +4367,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_FindGrades() {
-      ::grpc::Service::MarkMethodRaw(29);
+      ::grpc::Service::MarkMethodRaw(34);
     }
     ~WithRawMethod_FindGrades() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3838,7 +4378,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestFindGrades(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(29, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(34, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3847,7 +4387,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateGrade() {
-      ::grpc::Service::MarkMethodRaw(30);
+      ::grpc::Service::MarkMethodRaw(35);
     }
     ~WithRawMethod_UpdateGrade() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3858,7 +4398,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateGrade(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(30, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(35, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3867,7 +4407,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GradeStudents() {
-      ::grpc::Service::MarkMethodRaw(31);
+      ::grpc::Service::MarkMethodRaw(36);
     }
     ~WithRawMethod_GradeStudents() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3878,7 +4418,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGradeStudents(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(31, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(36, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3887,7 +4427,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Invoice() {
-      ::grpc::Service::MarkMethodRaw(32);
+      ::grpc::Service::MarkMethodRaw(37);
     }
     ~WithRawMethod_Invoice() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3898,7 +4438,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestInvoice(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(32, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(37, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3907,7 +4447,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetInvoice() {
-      ::grpc::Service::MarkMethodRaw(33);
+      ::grpc::Service::MarkMethodRaw(38);
     }
     ~WithRawMethod_GetInvoice() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3918,7 +4458,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetInvoice(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(33, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(38, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3927,7 +4467,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Receipt() {
-      ::grpc::Service::MarkMethodRaw(34);
+      ::grpc::Service::MarkMethodRaw(39);
     }
     ~WithRawMethod_Receipt() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3938,7 +4478,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReceipt(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(34, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(39, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -3947,7 +4487,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetReceipt() {
-      ::grpc::Service::MarkMethodRaw(35);
+      ::grpc::Service::MarkMethodRaw(40);
     }
     ~WithRawMethod_GetReceipt() override {
       BaseClassMustBeDerivedFromService(this);
@@ -3958,7 +4498,7 @@ class SchoolService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetReceipt(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(35, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(40, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -4028,12 +4568,78 @@ class SchoolService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_AddSchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_AddSchoolHead() {
+      ::grpc::Service::MarkMethodRawCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddSchoolHead(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_AddSchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddSchoolHead(::grpc::ServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AddSchoolHead(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_Delete_SchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_Delete_SchoolHead() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Delete_SchoolHead(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_Delete_SchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* Delete_SchoolHead(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_UpdateSchoolDetails : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_UpdateSchoolDetails() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateSchoolDetails(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_UpdateSchoolDetails() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* UpdateSchoolDetails(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_AddStudent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_AddStudent() {
-      ::grpc::Service::MarkMethodRawCallback(3,
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddStudent(context, request, response); }));
@@ -4055,7 +4661,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_RemoveStudent() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveStudent(context, request, response); }));
@@ -4077,7 +4683,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_EditStudentDetails() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(8,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->EditStudentDetails(context, request, response); }));
@@ -4099,7 +4705,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetStudents() {
-      ::grpc::Service::MarkMethodRawCallback(6,
+      ::grpc::Service::MarkMethodRawCallback(9,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetStudents(context, request, response); }));
@@ -4121,7 +4727,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetLearnersbyGrade() {
-      ::grpc::Service::MarkMethodRawCallback(7,
+      ::grpc::Service::MarkMethodRawCallback(10,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetLearnersbyGrade(context, request, response); }));
@@ -4143,7 +4749,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_DeleteStudentSubject() {
-      ::grpc::Service::MarkMethodRawCallback(8,
+      ::grpc::Service::MarkMethodRawCallback(11,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteStudentSubject(context, request, response); }));
@@ -4165,7 +4771,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_AddStudentScore() {
-      ::grpc::Service::MarkMethodRawCallback(9,
+      ::grpc::Service::MarkMethodRawCallback(12,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddStudentScore(context, request, response); }));
@@ -4187,7 +4793,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_StudentExamReport() {
-      ::grpc::Service::MarkMethodRawCallback(10,
+      ::grpc::Service::MarkMethodRawCallback(13,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StudentExamReport(context, request, response); }));
@@ -4209,7 +4815,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_AddSubjectsToStudent() {
-      ::grpc::Service::MarkMethodRawCallback(11,
+      ::grpc::Service::MarkMethodRawCallback(14,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddSubjectsToStudent(context, request, response); }));
@@ -4231,7 +4837,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_AddTeacher() {
-      ::grpc::Service::MarkMethodRawCallback(12,
+      ::grpc::Service::MarkMethodRawCallback(15,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddTeacher(context, request, response); }));
@@ -4253,7 +4859,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_TeacherLogin() {
-      ::grpc::Service::MarkMethodRawCallback(13,
+      ::grpc::Service::MarkMethodRawCallback(16,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TeacherLogin(context, request, response); }));
@@ -4275,7 +4881,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_RemoveTeacher() {
-      ::grpc::Service::MarkMethodRawCallback(14,
+      ::grpc::Service::MarkMethodRawCallback(17,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveTeacher(context, request, response); }));
@@ -4297,7 +4903,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetTeachers() {
-      ::grpc::Service::MarkMethodRawCallback(15,
+      ::grpc::Service::MarkMethodRawCallback(18,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetTeachers(context, request, response); }));
@@ -4319,7 +4925,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_UpdateSubjects() {
-      ::grpc::Service::MarkMethodRawCallback(16,
+      ::grpc::Service::MarkMethodRawCallback(19,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateSubjects(context, request, response); }));
@@ -4341,7 +4947,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ListofLearnersbyGrade_Subject() {
-      ::grpc::Service::MarkMethodRawCallback(17,
+      ::grpc::Service::MarkMethodRawCallback(20,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ListofLearnersbyGrade_Subject(context, request, response); }));
@@ -4363,7 +4969,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_ResetPassword() {
-      ::grpc::Service::MarkMethodRawCallback(18,
+      ::grpc::Service::MarkMethodRawCallback(21,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ResetPassword(context, request, response); }));
@@ -4385,7 +4991,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_DeleteTeacherSubject() {
-      ::grpc::Service::MarkMethodRawCallback(19,
+      ::grpc::Service::MarkMethodRawCallback(22,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteTeacherSubject(context, request, response); }));
@@ -4402,12 +5008,34 @@ class SchoolService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_UpdateAdminRole : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_UpdateAdminRole() {
+      ::grpc::Service::MarkMethodRawCallback(23,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateAdminRole(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_UpdateAdminRole() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAdminRole(::grpc::ServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* UpdateAdminRole(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_AddExam : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_AddExam() {
-      ::grpc::Service::MarkMethodRawCallback(20,
+      ::grpc::Service::MarkMethodRawCallback(24,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddExam(context, request, response); }));
@@ -4424,12 +5052,34 @@ class SchoolService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_AddExamToGrade : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_AddExamToGrade() {
+      ::grpc::Service::MarkMethodRawCallback(25,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddExamToGrade(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_AddExamToGrade() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AddExamToGrade(::grpc::ServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AddExamToGrade(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_FindExams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_FindExams() {
-      ::grpc::Service::MarkMethodRawCallback(21,
+      ::grpc::Service::MarkMethodRawCallback(26,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->FindExams(context, request, response); }));
@@ -4451,7 +5101,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_SetExamAnalysed() {
-      ::grpc::Service::MarkMethodRawCallback(22,
+      ::grpc::Service::MarkMethodRawCallback(27,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetExamAnalysed(context, request, response); }));
@@ -4473,7 +5123,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GradeMeritList() {
-      ::grpc::Service::MarkMethodRawCallback(23,
+      ::grpc::Service::MarkMethodRawCallback(28,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GradeMeritList(context, request, response); }));
@@ -4495,7 +5145,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_setLoadedSubjects() {
-      ::grpc::Service::MarkMethodRawCallback(24,
+      ::grpc::Service::MarkMethodRawCallback(29,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->setLoadedSubjects(context, request, response); }));
@@ -4517,7 +5167,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_fetchLoadedSubjects() {
-      ::grpc::Service::MarkMethodRawCallback(25,
+      ::grpc::Service::MarkMethodRawCallback(30,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->fetchLoadedSubjects(context, request, response); }));
@@ -4539,7 +5189,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_AddGrade() {
-      ::grpc::Service::MarkMethodRawCallback(26,
+      ::grpc::Service::MarkMethodRawCallback(31,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddGrade(context, request, response); }));
@@ -4561,7 +5211,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_RemoveGradeSubject() {
-      ::grpc::Service::MarkMethodRawCallback(27,
+      ::grpc::Service::MarkMethodRawCallback(32,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveGradeSubject(context, request, response); }));
@@ -4583,7 +5233,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_RemoveGrade() {
-      ::grpc::Service::MarkMethodRawCallback(28,
+      ::grpc::Service::MarkMethodRawCallback(33,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveGrade(context, request, response); }));
@@ -4605,7 +5255,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_FindGrades() {
-      ::grpc::Service::MarkMethodRawCallback(29,
+      ::grpc::Service::MarkMethodRawCallback(34,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->FindGrades(context, request, response); }));
@@ -4627,7 +5277,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_UpdateGrade() {
-      ::grpc::Service::MarkMethodRawCallback(30,
+      ::grpc::Service::MarkMethodRawCallback(35,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateGrade(context, request, response); }));
@@ -4649,7 +5299,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GradeStudents() {
-      ::grpc::Service::MarkMethodRawCallback(31,
+      ::grpc::Service::MarkMethodRawCallback(36,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GradeStudents(context, request, response); }));
@@ -4671,7 +5321,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_Invoice() {
-      ::grpc::Service::MarkMethodRawCallback(32,
+      ::grpc::Service::MarkMethodRawCallback(37,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Invoice(context, request, response); }));
@@ -4693,7 +5343,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetInvoice() {
-      ::grpc::Service::MarkMethodRawCallback(33,
+      ::grpc::Service::MarkMethodRawCallback(38,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetInvoice(context, request, response); }));
@@ -4715,7 +5365,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_Receipt() {
-      ::grpc::Service::MarkMethodRawCallback(34,
+      ::grpc::Service::MarkMethodRawCallback(39,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Receipt(context, request, response); }));
@@ -4737,7 +5387,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_GetReceipt() {
-      ::grpc::Service::MarkMethodRawCallback(35,
+      ::grpc::Service::MarkMethodRawCallback(40,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetReceipt(context, request, response); }));
@@ -4835,12 +5485,93 @@ class SchoolService final {
     virtual ::grpc::Status StreamedGetSchools(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::SchoolsRequest,::School::SchoolList>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_AddSchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_AddSchoolHead() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::School::AddSchoolHeadRequest, ::School::Response>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::School::AddSchoolHeadRequest, ::School::Response>* streamer) {
+                       return this->StreamedAddSchoolHead(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_AddSchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AddSchoolHead(::grpc::ServerContext* /*context*/, const ::School::AddSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAddSchoolHead(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::AddSchoolHeadRequest,::School::Response>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Delete_SchoolHead : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_Delete_SchoolHead() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::School::DeleteSchoolHeadRequest, ::School::Response>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::School::DeleteSchoolHeadRequest, ::School::Response>* streamer) {
+                       return this->StreamedDelete_SchoolHead(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_Delete_SchoolHead() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Delete_SchoolHead(::grpc::ServerContext* /*context*/, const ::School::DeleteSchoolHeadRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDelete_SchoolHead(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::DeleteSchoolHeadRequest,::School::Response>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_UpdateSchoolDetails : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_UpdateSchoolDetails() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::School::UpdateSchoolRequest, ::School::Response>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::School::UpdateSchoolRequest, ::School::Response>* streamer) {
+                       return this->StreamedUpdateSchoolDetails(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_UpdateSchoolDetails() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UpdateSchoolDetails(::grpc::ServerContext* /*context*/, const ::School::UpdateSchoolRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUpdateSchoolDetails(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::UpdateSchoolRequest,::School::Response>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_AddStudent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AddStudent() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddStudentRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -4867,7 +5598,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_RemoveStudent() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::RemoveStudentRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -4894,7 +5625,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_EditStudentDetails() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::EditStudentDetailsRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -4921,7 +5652,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetStudents() {
-      ::grpc::Service::MarkMethodStreamed(6,
+      ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::FindStudentsRequest, ::School::StudentList>(
             [this](::grpc::ServerContext* context,
@@ -4948,7 +5679,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetLearnersbyGrade() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(10,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::Students_Grade_Request, ::School::StudentList>(
             [this](::grpc::ServerContext* context,
@@ -4975,7 +5706,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_DeleteStudentSubject() {
-      ::grpc::Service::MarkMethodStreamed(8,
+      ::grpc::Service::MarkMethodStreamed(11,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::DeleteSubjectRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5002,7 +5733,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AddStudentScore() {
-      ::grpc::Service::MarkMethodStreamed(9,
+      ::grpc::Service::MarkMethodStreamed(12,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddScoreRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5029,7 +5760,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_StudentExamReport() {
-      ::grpc::Service::MarkMethodStreamed(10,
+      ::grpc::Service::MarkMethodStreamed(13,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::ExamReportRequest, ::School::ExamReport>(
             [this](::grpc::ServerContext* context,
@@ -5056,7 +5787,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AddSubjectsToStudent() {
-      ::grpc::Service::MarkMethodStreamed(11,
+      ::grpc::Service::MarkMethodStreamed(14,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddSubjectsRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5083,7 +5814,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AddTeacher() {
-      ::grpc::Service::MarkMethodStreamed(12,
+      ::grpc::Service::MarkMethodStreamed(15,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddTeacherRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5110,7 +5841,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_TeacherLogin() {
-      ::grpc::Service::MarkMethodStreamed(13,
+      ::grpc::Service::MarkMethodStreamed(16,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::LoginRequest, ::School::Teacher>(
             [this](::grpc::ServerContext* context,
@@ -5137,7 +5868,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_RemoveTeacher() {
-      ::grpc::Service::MarkMethodStreamed(14,
+      ::grpc::Service::MarkMethodStreamed(17,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::RemoveTeacherRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5164,7 +5895,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetTeachers() {
-      ::grpc::Service::MarkMethodStreamed(15,
+      ::grpc::Service::MarkMethodStreamed(18,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::GetTeachersRequest, ::School::TeachersList>(
             [this](::grpc::ServerContext* context,
@@ -5191,7 +5922,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateSubjects() {
-      ::grpc::Service::MarkMethodStreamed(16,
+      ::grpc::Service::MarkMethodStreamed(19,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::UpdateSubjectsRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5218,7 +5949,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ListofLearnersbyGrade_Subject() {
-      ::grpc::Service::MarkMethodStreamed(17,
+      ::grpc::Service::MarkMethodStreamed(20,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::GetStudentsperSubjectRequest, ::School::LearnersListperGrade>(
             [this](::grpc::ServerContext* context,
@@ -5245,7 +5976,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ResetPassword() {
-      ::grpc::Service::MarkMethodStreamed(18,
+      ::grpc::Service::MarkMethodStreamed(21,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::ResetPasswordRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5272,7 +6003,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_DeleteTeacherSubject() {
-      ::grpc::Service::MarkMethodStreamed(19,
+      ::grpc::Service::MarkMethodStreamed(22,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::DeleteTeacherSubjectRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5294,12 +6025,39 @@ class SchoolService final {
     virtual ::grpc::Status StreamedDeleteTeacherSubject(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::DeleteTeacherSubjectRequest,::School::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_UpdateAdminRole : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_UpdateAdminRole() {
+      ::grpc::Service::MarkMethodStreamed(23,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::School::UpdateAdminRoleRequest, ::School::Response>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::School::UpdateAdminRoleRequest, ::School::Response>* streamer) {
+                       return this->StreamedUpdateAdminRole(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_UpdateAdminRole() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UpdateAdminRole(::grpc::ServerContext* /*context*/, const ::School::UpdateAdminRoleRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUpdateAdminRole(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::UpdateAdminRoleRequest,::School::Response>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_AddExam : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AddExam() {
-      ::grpc::Service::MarkMethodStreamed(20,
+      ::grpc::Service::MarkMethodStreamed(24,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddExamRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5321,12 +6079,39 @@ class SchoolService final {
     virtual ::grpc::Status StreamedAddExam(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::AddExamRequest,::School::Response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_AddExamToGrade : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_AddExamToGrade() {
+      ::grpc::Service::MarkMethodStreamed(25,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::School::AddExamToGradeRequest, ::School::Response>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::School::AddExamToGradeRequest, ::School::Response>* streamer) {
+                       return this->StreamedAddExamToGrade(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_AddExamToGrade() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AddExamToGrade(::grpc::ServerContext* /*context*/, const ::School::AddExamToGradeRequest* /*request*/, ::School::Response* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAddExamToGrade(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::AddExamToGradeRequest,::School::Response>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_FindExams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_FindExams() {
-      ::grpc::Service::MarkMethodStreamed(21,
+      ::grpc::Service::MarkMethodStreamed(26,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::FindExamRequest, ::School::ExamList>(
             [this](::grpc::ServerContext* context,
@@ -5353,7 +6138,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SetExamAnalysed() {
-      ::grpc::Service::MarkMethodStreamed(22,
+      ::grpc::Service::MarkMethodStreamed(27,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::SetExamAnalysedRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5380,7 +6165,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GradeMeritList() {
-      ::grpc::Service::MarkMethodStreamed(23,
+      ::grpc::Service::MarkMethodStreamed(28,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::MeritListRequest, ::School::MeritList>(
             [this](::grpc::ServerContext* context,
@@ -5407,7 +6192,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_setLoadedSubjects() {
-      ::grpc::Service::MarkMethodStreamed(24,
+      ::grpc::Service::MarkMethodStreamed(29,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::setloadedsubjectrequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5434,7 +6219,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_fetchLoadedSubjects() {
-      ::grpc::Service::MarkMethodStreamed(25,
+      ::grpc::Service::MarkMethodStreamed(30,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::getloadedsubjectsrequest, ::School::SubjectList>(
             [this](::grpc::ServerContext* context,
@@ -5461,7 +6246,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AddGrade() {
-      ::grpc::Service::MarkMethodStreamed(26,
+      ::grpc::Service::MarkMethodStreamed(31,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddGradeRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5488,7 +6273,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_RemoveGradeSubject() {
-      ::grpc::Service::MarkMethodStreamed(27,
+      ::grpc::Service::MarkMethodStreamed(32,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::RemoveSubjectRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5515,7 +6300,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_RemoveGrade() {
-      ::grpc::Service::MarkMethodStreamed(28,
+      ::grpc::Service::MarkMethodStreamed(33,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::RemoveGradeRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5542,7 +6327,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_FindGrades() {
-      ::grpc::Service::MarkMethodStreamed(29,
+      ::grpc::Service::MarkMethodStreamed(34,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::FindGradesRequest, ::School::GradeList>(
             [this](::grpc::ServerContext* context,
@@ -5569,7 +6354,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateGrade() {
-      ::grpc::Service::MarkMethodStreamed(30,
+      ::grpc::Service::MarkMethodStreamed(35,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::UpdateGradeRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5596,7 +6381,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GradeStudents() {
-      ::grpc::Service::MarkMethodStreamed(31,
+      ::grpc::Service::MarkMethodStreamed(36,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::GradeStudentsRequest, ::School::StudentList>(
             [this](::grpc::ServerContext* context,
@@ -5623,7 +6408,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Invoice() {
-      ::grpc::Service::MarkMethodStreamed(32,
+      ::grpc::Service::MarkMethodStreamed(37,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddInvoiceRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5650,7 +6435,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetInvoice() {
-      ::grpc::Service::MarkMethodStreamed(33,
+      ::grpc::Service::MarkMethodStreamed(38,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::GetInvoiceRequest, ::School::InvoiceList>(
             [this](::grpc::ServerContext* context,
@@ -5677,7 +6462,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Receipt() {
-      ::grpc::Service::MarkMethodStreamed(34,
+      ::grpc::Service::MarkMethodStreamed(39,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::AddReceiptRequest, ::School::Response>(
             [this](::grpc::ServerContext* context,
@@ -5704,7 +6489,7 @@ class SchoolService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetReceipt() {
-      ::grpc::Service::MarkMethodStreamed(35,
+      ::grpc::Service::MarkMethodStreamed(40,
         new ::grpc::internal::StreamedUnaryHandler<
           ::School::GetReceiptRequest, ::School::ReceiptList>(
             [this](::grpc::ServerContext* context,
@@ -5725,9 +6510,9 @@ class SchoolService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetReceipt(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::School::GetReceiptRequest,::School::ReceiptList>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_CreateSchool<WithStreamedUnaryMethod_GetSchoolDetails<WithStreamedUnaryMethod_GetSchools<WithStreamedUnaryMethod_AddStudent<WithStreamedUnaryMethod_RemoveStudent<WithStreamedUnaryMethod_EditStudentDetails<WithStreamedUnaryMethod_GetStudents<WithStreamedUnaryMethod_GetLearnersbyGrade<WithStreamedUnaryMethod_DeleteStudentSubject<WithStreamedUnaryMethod_AddStudentScore<WithStreamedUnaryMethod_StudentExamReport<WithStreamedUnaryMethod_AddSubjectsToStudent<WithStreamedUnaryMethod_AddTeacher<WithStreamedUnaryMethod_TeacherLogin<WithStreamedUnaryMethod_RemoveTeacher<WithStreamedUnaryMethod_GetTeachers<WithStreamedUnaryMethod_UpdateSubjects<WithStreamedUnaryMethod_ListofLearnersbyGrade_Subject<WithStreamedUnaryMethod_ResetPassword<WithStreamedUnaryMethod_DeleteTeacherSubject<WithStreamedUnaryMethod_AddExam<WithStreamedUnaryMethod_FindExams<WithStreamedUnaryMethod_SetExamAnalysed<WithStreamedUnaryMethod_GradeMeritList<WithStreamedUnaryMethod_setLoadedSubjects<WithStreamedUnaryMethod_fetchLoadedSubjects<WithStreamedUnaryMethod_AddGrade<WithStreamedUnaryMethod_RemoveGradeSubject<WithStreamedUnaryMethod_RemoveGrade<WithStreamedUnaryMethod_FindGrades<WithStreamedUnaryMethod_UpdateGrade<WithStreamedUnaryMethod_GradeStudents<WithStreamedUnaryMethod_Invoice<WithStreamedUnaryMethod_GetInvoice<WithStreamedUnaryMethod_Receipt<WithStreamedUnaryMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_CreateSchool<WithStreamedUnaryMethod_GetSchoolDetails<WithStreamedUnaryMethod_GetSchools<WithStreamedUnaryMethod_AddSchoolHead<WithStreamedUnaryMethod_Delete_SchoolHead<WithStreamedUnaryMethod_UpdateSchoolDetails<WithStreamedUnaryMethod_AddStudent<WithStreamedUnaryMethod_RemoveStudent<WithStreamedUnaryMethod_EditStudentDetails<WithStreamedUnaryMethod_GetStudents<WithStreamedUnaryMethod_GetLearnersbyGrade<WithStreamedUnaryMethod_DeleteStudentSubject<WithStreamedUnaryMethod_AddStudentScore<WithStreamedUnaryMethod_StudentExamReport<WithStreamedUnaryMethod_AddSubjectsToStudent<WithStreamedUnaryMethod_AddTeacher<WithStreamedUnaryMethod_TeacherLogin<WithStreamedUnaryMethod_RemoveTeacher<WithStreamedUnaryMethod_GetTeachers<WithStreamedUnaryMethod_UpdateSubjects<WithStreamedUnaryMethod_ListofLearnersbyGrade_Subject<WithStreamedUnaryMethod_ResetPassword<WithStreamedUnaryMethod_DeleteTeacherSubject<WithStreamedUnaryMethod_UpdateAdminRole<WithStreamedUnaryMethod_AddExam<WithStreamedUnaryMethod_AddExamToGrade<WithStreamedUnaryMethod_FindExams<WithStreamedUnaryMethod_SetExamAnalysed<WithStreamedUnaryMethod_GradeMeritList<WithStreamedUnaryMethod_setLoadedSubjects<WithStreamedUnaryMethod_fetchLoadedSubjects<WithStreamedUnaryMethod_AddGrade<WithStreamedUnaryMethod_RemoveGradeSubject<WithStreamedUnaryMethod_RemoveGrade<WithStreamedUnaryMethod_FindGrades<WithStreamedUnaryMethod_UpdateGrade<WithStreamedUnaryMethod_GradeStudents<WithStreamedUnaryMethod_Invoice<WithStreamedUnaryMethod_GetInvoice<WithStreamedUnaryMethod_Receipt<WithStreamedUnaryMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CreateSchool<WithStreamedUnaryMethod_GetSchoolDetails<WithStreamedUnaryMethod_GetSchools<WithStreamedUnaryMethod_AddStudent<WithStreamedUnaryMethod_RemoveStudent<WithStreamedUnaryMethod_EditStudentDetails<WithStreamedUnaryMethod_GetStudents<WithStreamedUnaryMethod_GetLearnersbyGrade<WithStreamedUnaryMethod_DeleteStudentSubject<WithStreamedUnaryMethod_AddStudentScore<WithStreamedUnaryMethod_StudentExamReport<WithStreamedUnaryMethod_AddSubjectsToStudent<WithStreamedUnaryMethod_AddTeacher<WithStreamedUnaryMethod_TeacherLogin<WithStreamedUnaryMethod_RemoveTeacher<WithStreamedUnaryMethod_GetTeachers<WithStreamedUnaryMethod_UpdateSubjects<WithStreamedUnaryMethod_ListofLearnersbyGrade_Subject<WithStreamedUnaryMethod_ResetPassword<WithStreamedUnaryMethod_DeleteTeacherSubject<WithStreamedUnaryMethod_AddExam<WithStreamedUnaryMethod_FindExams<WithStreamedUnaryMethod_SetExamAnalysed<WithStreamedUnaryMethod_GradeMeritList<WithStreamedUnaryMethod_setLoadedSubjects<WithStreamedUnaryMethod_fetchLoadedSubjects<WithStreamedUnaryMethod_AddGrade<WithStreamedUnaryMethod_RemoveGradeSubject<WithStreamedUnaryMethod_RemoveGrade<WithStreamedUnaryMethod_FindGrades<WithStreamedUnaryMethod_UpdateGrade<WithStreamedUnaryMethod_GradeStudents<WithStreamedUnaryMethod_Invoice<WithStreamedUnaryMethod_GetInvoice<WithStreamedUnaryMethod_Receipt<WithStreamedUnaryMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_CreateSchool<WithStreamedUnaryMethod_GetSchoolDetails<WithStreamedUnaryMethod_GetSchools<WithStreamedUnaryMethod_AddSchoolHead<WithStreamedUnaryMethod_Delete_SchoolHead<WithStreamedUnaryMethod_UpdateSchoolDetails<WithStreamedUnaryMethod_AddStudent<WithStreamedUnaryMethod_RemoveStudent<WithStreamedUnaryMethod_EditStudentDetails<WithStreamedUnaryMethod_GetStudents<WithStreamedUnaryMethod_GetLearnersbyGrade<WithStreamedUnaryMethod_DeleteStudentSubject<WithStreamedUnaryMethod_AddStudentScore<WithStreamedUnaryMethod_StudentExamReport<WithStreamedUnaryMethod_AddSubjectsToStudent<WithStreamedUnaryMethod_AddTeacher<WithStreamedUnaryMethod_TeacherLogin<WithStreamedUnaryMethod_RemoveTeacher<WithStreamedUnaryMethod_GetTeachers<WithStreamedUnaryMethod_UpdateSubjects<WithStreamedUnaryMethod_ListofLearnersbyGrade_Subject<WithStreamedUnaryMethod_ResetPassword<WithStreamedUnaryMethod_DeleteTeacherSubject<WithStreamedUnaryMethod_UpdateAdminRole<WithStreamedUnaryMethod_AddExam<WithStreamedUnaryMethod_AddExamToGrade<WithStreamedUnaryMethod_FindExams<WithStreamedUnaryMethod_SetExamAnalysed<WithStreamedUnaryMethod_GradeMeritList<WithStreamedUnaryMethod_setLoadedSubjects<WithStreamedUnaryMethod_fetchLoadedSubjects<WithStreamedUnaryMethod_AddGrade<WithStreamedUnaryMethod_RemoveGradeSubject<WithStreamedUnaryMethod_RemoveGrade<WithStreamedUnaryMethod_FindGrades<WithStreamedUnaryMethod_UpdateGrade<WithStreamedUnaryMethod_GradeStudents<WithStreamedUnaryMethod_Invoice<WithStreamedUnaryMethod_GetInvoice<WithStreamedUnaryMethod_Receipt<WithStreamedUnaryMethod_GetReceipt<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace School

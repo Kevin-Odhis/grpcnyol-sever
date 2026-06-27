@@ -57,6 +57,9 @@ namespace School {
 class AddExamRequest;
 struct AddExamRequestDefaultTypeInternal;
 extern AddExamRequestDefaultTypeInternal _AddExamRequest_default_instance_;
+class AddExamToGradeRequest;
+struct AddExamToGradeRequestDefaultTypeInternal;
+extern AddExamToGradeRequestDefaultTypeInternal _AddExamToGradeRequest_default_instance_;
 class AddGradeRequest;
 struct AddGradeRequestDefaultTypeInternal;
 extern AddGradeRequestDefaultTypeInternal _AddGradeRequest_default_instance_;
@@ -66,6 +69,9 @@ extern AddInvoiceRequestDefaultTypeInternal _AddInvoiceRequest_default_instance_
 class AddReceiptRequest;
 struct AddReceiptRequestDefaultTypeInternal;
 extern AddReceiptRequestDefaultTypeInternal _AddReceiptRequest_default_instance_;
+class AddSchoolHeadRequest;
+struct AddSchoolHeadRequestDefaultTypeInternal;
+extern AddSchoolHeadRequestDefaultTypeInternal _AddSchoolHeadRequest_default_instance_;
 class AddSchoolRequest;
 struct AddSchoolRequestDefaultTypeInternal;
 extern AddSchoolRequestDefaultTypeInternal _AddSchoolRequest_default_instance_;
@@ -81,6 +87,9 @@ extern AddSubjectsRequestDefaultTypeInternal _AddSubjectsRequest_default_instanc
 class AddTeacherRequest;
 struct AddTeacherRequestDefaultTypeInternal;
 extern AddTeacherRequestDefaultTypeInternal _AddTeacherRequest_default_instance_;
+class DeleteSchoolHeadRequest;
+struct DeleteSchoolHeadRequestDefaultTypeInternal;
+extern DeleteSchoolHeadRequestDefaultTypeInternal _DeleteSchoolHeadRequest_default_instance_;
 class DeleteSubjectRequest;
 struct DeleteSubjectRequestDefaultTypeInternal;
 extern DeleteSubjectRequestDefaultTypeInternal _DeleteSubjectRequest_default_instance_;
@@ -219,9 +228,15 @@ extern TeacherDefaultTypeInternal _Teacher_default_instance_;
 class TeachersList;
 struct TeachersListDefaultTypeInternal;
 extern TeachersListDefaultTypeInternal _TeachersList_default_instance_;
+class UpdateAdminRoleRequest;
+struct UpdateAdminRoleRequestDefaultTypeInternal;
+extern UpdateAdminRoleRequestDefaultTypeInternal _UpdateAdminRoleRequest_default_instance_;
 class UpdateGradeRequest;
 struct UpdateGradeRequestDefaultTypeInternal;
 extern UpdateGradeRequestDefaultTypeInternal _UpdateGradeRequest_default_instance_;
+class UpdateSchoolRequest;
+struct UpdateSchoolRequestDefaultTypeInternal;
+extern UpdateSchoolRequestDefaultTypeInternal _UpdateSchoolRequest_default_instance_;
 class UpdateSubjectsRequest;
 struct UpdateSubjectsRequestDefaultTypeInternal;
 extern UpdateSubjectsRequestDefaultTypeInternal _UpdateSubjectsRequest_default_instance_;
@@ -370,9 +385,9 @@ inline bool Sex_Parse(absl::string_view name, Sex* value) {
 enum Role : int {
   TEACHER = 0,
   PRINCIPAL = 1,
-  ADMIN = 3,
-  HOI = 4,
-  DEVELOPER = 5,
+  ADMIN = 2,
+  HOI = 3,
+  DEVELOPER = 4,
   Role_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
   Role_INT_MAX_SENTINEL_DO_NOT_USE_ =
@@ -382,8 +397,8 @@ enum Role : int {
 bool Role_IsValid(int value);
 extern const uint32_t Role_internal_data_[];
 constexpr Role Role_MIN = static_cast<Role>(0);
-constexpr Role Role_MAX = static_cast<Role>(5);
-constexpr int Role_ARRAYSIZE = 5 + 1;
+constexpr Role Role_MAX = static_cast<Role>(4);
+constexpr int Role_ARRAYSIZE = 4 + 1;
 const ::google::protobuf::EnumDescriptor*
 Role_descriptor();
 template <typename T>
@@ -396,7 +411,7 @@ const std::string& Role_Name(T value) {
 template <>
 inline const std::string& Role_Name(Role value) {
   return ::google::protobuf::internal::NameOfDenseEnum<Role_descriptor,
-                                                 0, 5>(
+                                                 0, 4>(
       static_cast<int>(value));
 }
 inline bool Role_Parse(absl::string_view name, Role* value) {
@@ -502,7 +517,7 @@ class teacher_subject final : public ::google::protobuf::Message
     return reinterpret_cast<const teacher_subject*>(
         &_teacher_subject_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 50;
+  static constexpr int kIndexInFileMessages = 55;
   friend void swap(teacher_subject& a, teacher_subject& b) { a.Swap(&b); }
   inline void Swap(teacher_subject* other) {
     if (other == this) return;
@@ -728,7 +743,7 @@ class studentforteacher final : public ::google::protobuf::Message
     return reinterpret_cast<const studentforteacher*>(
         &_studentforteacher_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 37;
+  static constexpr int kIndexInFileMessages = 42;
   friend void swap(studentforteacher& a, studentforteacher& b) { a.Swap(&b); }
   inline void Swap(studentforteacher* other) {
     if (other == this) return;
@@ -972,7 +987,7 @@ class setloadedsubjectrequest final : public ::google::protobuf::Message
     return reinterpret_cast<const setloadedsubjectrequest*>(
         &_setloadedsubjectrequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 25;
+  static constexpr int kIndexInFileMessages = 30;
   friend void swap(setloadedsubjectrequest& a, setloadedsubjectrequest& b) { a.Swap(&b); }
   inline void Swap(setloadedsubjectrequest* other) {
     if (other == this) return;
@@ -1246,7 +1261,7 @@ class paymentDetails final : public ::google::protobuf::Message
     return reinterpret_cast<const paymentDetails*>(
         &_paymentDetails_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 9;
+  static constexpr int kIndexInFileMessages = 14;
   friend void swap(paymentDetails& a, paymentDetails& b) { a.Swap(&b); }
   inline void Swap(paymentDetails* other) {
     if (other == this) return;
@@ -1478,7 +1493,7 @@ class paper_score final : public ::google::protobuf::Message
     return reinterpret_cast<const paper_score*>(
         &_paper_score_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 42;
+  static constexpr int kIndexInFileMessages = 47;
   friend void swap(paper_score& a, paper_score& b) { a.Swap(&b); }
   inline void Swap(paper_score* other) {
     if (other == this) return;
@@ -1680,7 +1695,7 @@ class loginDetails final : public ::google::protobuf::Message
     return reinterpret_cast<const loginDetails*>(
         &_loginDetails_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 57;
+  static constexpr int kIndexInFileMessages = 62;
   friend void swap(loginDetails& a, loginDetails& b) { a.Swap(&b); }
   inline void Swap(loginDetails* other) {
     if (other == this) return;
@@ -1894,7 +1909,7 @@ class grade_subject final : public ::google::protobuf::Message
     return reinterpret_cast<const grade_subject*>(
         &_grade_subject_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 46;
+  static constexpr int kIndexInFileMessages = 51;
   friend void swap(grade_subject& a, grade_subject& b) { a.Swap(&b); }
   inline void Swap(grade_subject* other) {
     if (other == this) return;
@@ -2102,7 +2117,7 @@ class getloadedsubjectsrequest final : public ::google::protobuf::Message
     return reinterpret_cast<const getloadedsubjectsrequest*>(
         &_getloadedsubjectsrequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 26;
+  static constexpr int kIndexInFileMessages = 31;
   friend void swap(getloadedsubjectsrequest& a, getloadedsubjectsrequest& b) { a.Swap(&b); }
   inline void Swap(getloadedsubjectsrequest* other) {
     if (other == this) return;
@@ -2334,7 +2349,7 @@ class exam_grade final : public ::google::protobuf::Message
     return reinterpret_cast<const exam_grade*>(
         &_exam_grade_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 52;
+  static constexpr int kIndexInFileMessages = 57;
   friend void swap(exam_grade& a, exam_grade& b) { a.Swap(&b); }
   inline void Swap(exam_grade* other) {
     if (other == this) return;
@@ -2483,6 +2498,488 @@ class exam_grade final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class UpdateSchoolRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:School.UpdateSchoolRequest) */ {
+ public:
+  inline UpdateSchoolRequest() : UpdateSchoolRequest(nullptr) {}
+  ~UpdateSchoolRequest() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(UpdateSchoolRequest* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(UpdateSchoolRequest));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR UpdateSchoolRequest(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline UpdateSchoolRequest(const UpdateSchoolRequest& from) : UpdateSchoolRequest(nullptr, from) {}
+  inline UpdateSchoolRequest(UpdateSchoolRequest&& from) noexcept
+      : UpdateSchoolRequest(nullptr, std::move(from)) {}
+  inline UpdateSchoolRequest& operator=(const UpdateSchoolRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UpdateSchoolRequest& operator=(UpdateSchoolRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UpdateSchoolRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UpdateSchoolRequest* internal_default_instance() {
+    return reinterpret_cast<const UpdateSchoolRequest*>(
+        &_UpdateSchoolRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 3;
+  friend void swap(UpdateSchoolRequest& a, UpdateSchoolRequest& b) { a.Swap(&b); }
+  inline void Swap(UpdateSchoolRequest* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UpdateSchoolRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UpdateSchoolRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<UpdateSchoolRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const UpdateSchoolRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const UpdateSchoolRequest& from) { UpdateSchoolRequest::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(UpdateSchoolRequest* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "School.UpdateSchoolRequest"; }
+
+ protected:
+  explicit UpdateSchoolRequest(::google::protobuf::Arena* arena);
+  UpdateSchoolRequest(::google::protobuf::Arena* arena, const UpdateSchoolRequest& from);
+  UpdateSchoolRequest(::google::protobuf::Arena* arena, UpdateSchoolRequest&& from) noexcept
+      : UpdateSchoolRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kSchoolNameFieldNumber = 1,
+    kSchoolMottoFieldNumber = 2,
+    kSchoolEmailFieldNumber = 3,
+    kSchoolIdFieldNumber = 4,
+    kRoleFieldNumber = 5,
+  };
+  // string school_name = 1;
+  void clear_school_name() ;
+  const std::string& school_name() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_school_name(Arg_&& arg, Args_... args);
+  std::string* mutable_school_name();
+  PROTOBUF_NODISCARD std::string* release_school_name();
+  void set_allocated_school_name(std::string* value);
+
+  private:
+  const std::string& _internal_school_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_school_name(
+      const std::string& value);
+  std::string* _internal_mutable_school_name();
+
+  public:
+  // string school_motto = 2;
+  void clear_school_motto() ;
+  const std::string& school_motto() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_school_motto(Arg_&& arg, Args_... args);
+  std::string* mutable_school_motto();
+  PROTOBUF_NODISCARD std::string* release_school_motto();
+  void set_allocated_school_motto(std::string* value);
+
+  private:
+  const std::string& _internal_school_motto() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_school_motto(
+      const std::string& value);
+  std::string* _internal_mutable_school_motto();
+
+  public:
+  // string school_email = 3;
+  void clear_school_email() ;
+  const std::string& school_email() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_school_email(Arg_&& arg, Args_... args);
+  std::string* mutable_school_email();
+  PROTOBUF_NODISCARD std::string* release_school_email();
+  void set_allocated_school_email(std::string* value);
+
+  private:
+  const std::string& _internal_school_email() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_school_email(
+      const std::string& value);
+  std::string* _internal_mutable_school_email();
+
+  public:
+  // string school_id = 4;
+  void clear_school_id() ;
+  const std::string& school_id() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_school_id(Arg_&& arg, Args_... args);
+  std::string* mutable_school_id();
+  PROTOBUF_NODISCARD std::string* release_school_id();
+  void set_allocated_school_id(std::string* value);
+
+  private:
+  const std::string& _internal_school_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_school_id(
+      const std::string& value);
+  std::string* _internal_mutable_school_id();
+
+  public:
+  // .School.Role role = 5;
+  void clear_role() ;
+  ::School::Role role() const;
+  void set_role(::School::Role value);
+
+  private:
+  ::School::Role _internal_role() const;
+  void _internal_set_role(::School::Role value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:School.UpdateSchoolRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 5, 0,
+      79, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const UpdateSchoolRequest& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr school_name_;
+    ::google::protobuf::internal::ArenaStringPtr school_motto_;
+    ::google::protobuf::internal::ArenaStringPtr school_email_;
+    ::google::protobuf::internal::ArenaStringPtr school_id_;
+    int role_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_School_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UpdateAdminRoleRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:School.UpdateAdminRoleRequest) */ {
+ public:
+  inline UpdateAdminRoleRequest() : UpdateAdminRoleRequest(nullptr) {}
+  ~UpdateAdminRoleRequest() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(UpdateAdminRoleRequest* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(UpdateAdminRoleRequest));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR UpdateAdminRoleRequest(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline UpdateAdminRoleRequest(const UpdateAdminRoleRequest& from) : UpdateAdminRoleRequest(nullptr, from) {}
+  inline UpdateAdminRoleRequest(UpdateAdminRoleRequest&& from) noexcept
+      : UpdateAdminRoleRequest(nullptr, std::move(from)) {}
+  inline UpdateAdminRoleRequest& operator=(const UpdateAdminRoleRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UpdateAdminRoleRequest& operator=(UpdateAdminRoleRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UpdateAdminRoleRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UpdateAdminRoleRequest* internal_default_instance() {
+    return reinterpret_cast<const UpdateAdminRoleRequest*>(
+        &_UpdateAdminRoleRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 12;
+  friend void swap(UpdateAdminRoleRequest& a, UpdateAdminRoleRequest& b) { a.Swap(&b); }
+  inline void Swap(UpdateAdminRoleRequest* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UpdateAdminRoleRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UpdateAdminRoleRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<UpdateAdminRoleRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const UpdateAdminRoleRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const UpdateAdminRoleRequest& from) { UpdateAdminRoleRequest::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(UpdateAdminRoleRequest* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "School.UpdateAdminRoleRequest"; }
+
+ protected:
+  explicit UpdateAdminRoleRequest(::google::protobuf::Arena* arena);
+  UpdateAdminRoleRequest(::google::protobuf::Arena* arena, const UpdateAdminRoleRequest& from);
+  UpdateAdminRoleRequest(::google::protobuf::Arena* arena, UpdateAdminRoleRequest&& from) noexcept
+      : UpdateAdminRoleRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kSchoolidFieldNumber = 1,
+    kNewRoleFieldNumber = 2,
+    kCodeFieldNumber = 3,
+  };
+  // string schoolid = 1;
+  void clear_schoolid() ;
+  const std::string& schoolid() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_schoolid(Arg_&& arg, Args_... args);
+  std::string* mutable_schoolid();
+  PROTOBUF_NODISCARD std::string* release_schoolid();
+  void set_allocated_schoolid(std::string* value);
+
+  private:
+  const std::string& _internal_schoolid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schoolid(
+      const std::string& value);
+  std::string* _internal_mutable_schoolid();
+
+  public:
+  // .School.Role new_role = 2;
+  void clear_new_role() ;
+  ::School::Role new_role() const;
+  void set_new_role(::School::Role value);
+
+  private:
+  ::School::Role _internal_new_role() const;
+  void _internal_set_new_role(::School::Role value);
+
+  public:
+  // int32 code = 3;
+  void clear_code() ;
+  ::int32_t code() const;
+  void set_code(::int32_t value);
+
+  private:
+  ::int32_t _internal_code() const;
+  void _internal_set_code(::int32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:School.UpdateAdminRoleRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 3, 0,
+      46, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const UpdateAdminRoleRequest& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr schoolid_;
+    int new_role_;
+    ::int32_t code_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_School_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SubjectScore final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:School.SubjectScore) */ {
  public:
@@ -2542,7 +3039,7 @@ class SubjectScore final : public ::google::protobuf::Message
     return reinterpret_cast<const SubjectScore*>(
         &_SubjectScore_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 66;
+  static constexpr int kIndexInFileMessages = 71;
   friend void swap(SubjectScore& a, SubjectScore& b) { a.Swap(&b); }
   inline void Swap(SubjectScore* other) {
     if (other == this) return;
@@ -2768,7 +3265,7 @@ class SubjectList final : public ::google::protobuf::Message
     return reinterpret_cast<const SubjectList*>(
         &_SubjectList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 27;
+  static constexpr int kIndexInFileMessages = 32;
   friend void swap(SubjectList& a, SubjectList& b) { a.Swap(&b); }
   inline void Swap(SubjectList* other) {
     if (other == this) return;
@@ -2970,7 +3467,7 @@ class Students_Grade_Request final : public ::google::protobuf::Message
     return reinterpret_cast<const Students_Grade_Request*>(
         &_Students_Grade_Request_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 34;
+  static constexpr int kIndexInFileMessages = 39;
   friend void swap(Students_Grade_Request& a, Students_Grade_Request& b) { a.Swap(&b); }
   inline void Swap(Students_Grade_Request* other) {
     if (other == this) return;
@@ -3184,7 +3681,7 @@ class Student final : public ::google::protobuf::Message
     return reinterpret_cast<const Student*>(
         &_Student_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 60;
+  static constexpr int kIndexInFileMessages = 65;
   friend void swap(Student& a, Student& b) { a.Swap(&b); }
   inline void Swap(Student* other) {
     if (other == this) return;
@@ -3452,7 +3949,7 @@ class SetExamAnalysedRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const SetExamAnalysedRequest*>(
         &_SetExamAnalysedRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 31;
+  static constexpr int kIndexInFileMessages = 36;
   friend void swap(SetExamAnalysedRequest& a, SetExamAnalysedRequest& b) { a.Swap(&b); }
   inline void Swap(SetExamAnalysedRequest* other) {
     if (other == this) return;
@@ -3696,7 +4193,7 @@ class SchoolsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const SchoolsRequest*>(
         &_SchoolsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 0;
+  static constexpr int kIndexInFileMessages = 2;
   friend void swap(SchoolsRequest& a, SchoolsRequest& b) { a.Swap(&b); }
   inline void Swap(SchoolsRequest* other) {
     if (other == this) return;
@@ -3886,7 +4383,7 @@ class SchoolDetailsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const SchoolDetailsRequest*>(
         &_SchoolDetailsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 22;
+  static constexpr int kIndexInFileMessages = 27;
   friend void swap(SchoolDetailsRequest& a, SchoolDetailsRequest& b) { a.Swap(&b); }
   inline void Swap(SchoolDetailsRequest* other) {
     if (other == this) return;
@@ -4082,7 +4579,7 @@ class Response final : public ::google::protobuf::Message
     return reinterpret_cast<const Response*>(
         &_Response_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 62;
+  static constexpr int kIndexInFileMessages = 67;
   friend void swap(Response& a, Response& b) { a.Swap(&b); }
   inline void Swap(Response* other) {
     if (other == this) return;
@@ -4290,7 +4787,7 @@ class ResetPasswordRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const ResetPasswordRequest*>(
         &_ResetPasswordRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 24;
+  static constexpr int kIndexInFileMessages = 29;
   friend void swap(ResetPasswordRequest& a, ResetPasswordRequest& b) { a.Swap(&b); }
   inline void Swap(ResetPasswordRequest* other) {
     if (other == this) return;
@@ -4504,7 +5001,7 @@ class RemoveTeacherRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const RemoveTeacherRequest*>(
         &_RemoveTeacherRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 55;
+  static constexpr int kIndexInFileMessages = 60;
   friend void swap(RemoveTeacherRequest& a, RemoveTeacherRequest& b) { a.Swap(&b); }
   inline void Swap(RemoveTeacherRequest* other) {
     if (other == this) return;
@@ -4730,7 +5227,7 @@ class RemoveStudentRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const RemoveStudentRequest*>(
         &_RemoveStudentRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 63;
+  static constexpr int kIndexInFileMessages = 68;
   friend void swap(RemoveStudentRequest& a, RemoveStudentRequest& b) { a.Swap(&b); }
   inline void Swap(RemoveStudentRequest* other) {
     if (other == this) return;
@@ -4944,7 +5441,7 @@ class RemoveGradeRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const RemoveGradeRequest*>(
         &_RemoveGradeRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 47;
+  static constexpr int kIndexInFileMessages = 52;
   friend void swap(RemoveGradeRequest& a, RemoveGradeRequest& b) { a.Swap(&b); }
   inline void Swap(RemoveGradeRequest* other) {
     if (other == this) return;
@@ -5158,7 +5655,7 @@ class MeritListRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const MeritListRequest*>(
         &_MeritListRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 28;
+  static constexpr int kIndexInFileMessages = 33;
   friend void swap(MeritListRequest& a, MeritListRequest& b) { a.Swap(&b); }
   inline void Swap(MeritListRequest* other) {
     if (other == this) return;
@@ -5402,7 +5899,7 @@ class GradeSub final : public ::google::protobuf::Message
     return reinterpret_cast<const GradeSub*>(
         &_GradeSub_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 65;
+  static constexpr int kIndexInFileMessages = 70;
   friend void swap(GradeSub& a, GradeSub& b) { a.Swap(&b); }
   inline void Swap(GradeSub* other) {
     if (other == this) return;
@@ -5616,7 +6113,7 @@ class GradeStudentsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const GradeStudentsRequest*>(
         &_GradeStudentsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 32;
+  static constexpr int kIndexInFileMessages = 37;
   friend void swap(GradeStudentsRequest& a, GradeStudentsRequest& b) { a.Swap(&b); }
   inline void Swap(GradeStudentsRequest* other) {
     if (other == this) return;
@@ -5830,7 +6327,7 @@ class Grade final : public ::google::protobuf::Message
     return reinterpret_cast<const Grade*>(
         &_Grade_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 44;
+  static constexpr int kIndexInFileMessages = 49;
   friend void swap(Grade& a, Grade& b) { a.Swap(&b); }
   inline void Swap(Grade* other) {
     if (other == this) return;
@@ -6038,7 +6535,7 @@ class GetTeachersRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const GetTeachersRequest*>(
         &_GetTeachersRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 16;
+  static constexpr int kIndexInFileMessages = 21;
   friend void swap(GetTeachersRequest& a, GetTeachersRequest& b) { a.Swap(&b); }
   inline void Swap(GetTeachersRequest* other) {
     if (other == this) return;
@@ -6234,7 +6731,7 @@ class GetStudentsperSubjectRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const GetStudentsperSubjectRequest*>(
         &_GetStudentsperSubjectRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 35;
+  static constexpr int kIndexInFileMessages = 40;
   friend void swap(GetStudentsperSubjectRequest& a, GetStudentsperSubjectRequest& b) { a.Swap(&b); }
   inline void Swap(GetStudentsperSubjectRequest* other) {
     if (other == this) return;
@@ -6520,7 +7017,7 @@ class GetReceiptRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const GetReceiptRequest*>(
         &_GetReceiptRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 4;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(GetReceiptRequest& a, GetReceiptRequest& b) { a.Swap(&b); }
   inline void Swap(GetReceiptRequest* other) {
     if (other == this) return;
@@ -6716,7 +7213,7 @@ class GetInvoiceRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const GetInvoiceRequest*>(
         &_GetInvoiceRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 10;
   friend void swap(GetInvoiceRequest& a, GetInvoiceRequest& b) { a.Swap(&b); }
   inline void Swap(GetInvoiceRequest* other) {
     if (other == this) return;
@@ -6912,7 +7409,7 @@ class FindStudentsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const FindStudentsRequest*>(
         &_FindStudentsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 18;
+  static constexpr int kIndexInFileMessages = 23;
   friend void swap(FindStudentsRequest& a, FindStudentsRequest& b) { a.Swap(&b); }
   inline void Swap(FindStudentsRequest* other) {
     if (other == this) return;
@@ -7108,7 +7605,7 @@ class FindGradesRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const FindGradesRequest*>(
         &_FindGradesRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 17;
+  static constexpr int kIndexInFileMessages = 22;
   friend void swap(FindGradesRequest& a, FindGradesRequest& b) { a.Swap(&b); }
   inline void Swap(FindGradesRequest* other) {
     if (other == this) return;
@@ -7304,7 +7801,7 @@ class FindExamRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const FindExamRequest*>(
         &_FindExamRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 15;
+  static constexpr int kIndexInFileMessages = 20;
   friend void swap(FindExamRequest& a, FindExamRequest& b) { a.Swap(&b); }
   inline void Swap(FindExamRequest* other) {
     if (other == this) return;
@@ -7500,7 +7997,7 @@ class ExamReportRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const ExamReportRequest*>(
         &_ExamReportRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 39;
+  static constexpr int kIndexInFileMessages = 44;
   friend void swap(ExamReportRequest& a, ExamReportRequest& b) { a.Swap(&b); }
   inline void Swap(ExamReportRequest* other) {
     if (other == this) return;
@@ -7732,7 +8229,7 @@ class Exam final : public ::google::protobuf::Message
     return reinterpret_cast<const Exam*>(
         &_Exam_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 53;
+  static constexpr int kIndexInFileMessages = 58;
   friend void swap(Exam& a, Exam& b) { a.Swap(&b); }
   inline void Swap(Exam* other) {
     if (other == this) return;
@@ -7964,7 +8461,7 @@ class DeleteSubjectRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const DeleteSubjectRequest*>(
         &_DeleteSubjectRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 12;
+  static constexpr int kIndexInFileMessages = 17;
   friend void swap(DeleteSubjectRequest& a, DeleteSubjectRequest& b) { a.Swap(&b); }
   inline void Swap(DeleteSubjectRequest* other) {
     if (other == this) return;
@@ -8143,6 +8640,470 @@ class DeleteSubjectRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class DeleteSchoolHeadRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:School.DeleteSchoolHeadRequest) */ {
+ public:
+  inline DeleteSchoolHeadRequest() : DeleteSchoolHeadRequest(nullptr) {}
+  ~DeleteSchoolHeadRequest() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(DeleteSchoolHeadRequest* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(DeleteSchoolHeadRequest));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR DeleteSchoolHeadRequest(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline DeleteSchoolHeadRequest(const DeleteSchoolHeadRequest& from) : DeleteSchoolHeadRequest(nullptr, from) {}
+  inline DeleteSchoolHeadRequest(DeleteSchoolHeadRequest&& from) noexcept
+      : DeleteSchoolHeadRequest(nullptr, std::move(from)) {}
+  inline DeleteSchoolHeadRequest& operator=(const DeleteSchoolHeadRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeleteSchoolHeadRequest& operator=(DeleteSchoolHeadRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeleteSchoolHeadRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeleteSchoolHeadRequest* internal_default_instance() {
+    return reinterpret_cast<const DeleteSchoolHeadRequest*>(
+        &_DeleteSchoolHeadRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 7;
+  friend void swap(DeleteSchoolHeadRequest& a, DeleteSchoolHeadRequest& b) { a.Swap(&b); }
+  inline void Swap(DeleteSchoolHeadRequest* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeleteSchoolHeadRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeleteSchoolHeadRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<DeleteSchoolHeadRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const DeleteSchoolHeadRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const DeleteSchoolHeadRequest& from) { DeleteSchoolHeadRequest::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(DeleteSchoolHeadRequest* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "School.DeleteSchoolHeadRequest"; }
+
+ protected:
+  explicit DeleteSchoolHeadRequest(::google::protobuf::Arena* arena);
+  DeleteSchoolHeadRequest(::google::protobuf::Arena* arena, const DeleteSchoolHeadRequest& from);
+  DeleteSchoolHeadRequest(::google::protobuf::Arena* arena, DeleteSchoolHeadRequest&& from) noexcept
+      : DeleteSchoolHeadRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kSchoolidFieldNumber = 1,
+  };
+  // string schoolid = 1;
+  void clear_schoolid() ;
+  const std::string& schoolid() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_schoolid(Arg_&& arg, Args_... args);
+  std::string* mutable_schoolid();
+  PROTOBUF_NODISCARD std::string* release_schoolid();
+  void set_allocated_schoolid(std::string* value);
+
+  private:
+  const std::string& _internal_schoolid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schoolid(
+      const std::string& value);
+  std::string* _internal_mutable_schoolid();
+
+  public:
+  // @@protoc_insertion_point(class_scope:School.DeleteSchoolHeadRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      47, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const DeleteSchoolHeadRequest& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr schoolid_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_School_2eproto;
+};
+// -------------------------------------------------------------------
+
+class AddExamToGradeRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:School.AddExamToGradeRequest) */ {
+ public:
+  inline AddExamToGradeRequest() : AddExamToGradeRequest(nullptr) {}
+  ~AddExamToGradeRequest() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(AddExamToGradeRequest* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(AddExamToGradeRequest));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR AddExamToGradeRequest(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline AddExamToGradeRequest(const AddExamToGradeRequest& from) : AddExamToGradeRequest(nullptr, from) {}
+  inline AddExamToGradeRequest(AddExamToGradeRequest&& from) noexcept
+      : AddExamToGradeRequest(nullptr, std::move(from)) {}
+  inline AddExamToGradeRequest& operator=(const AddExamToGradeRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AddExamToGradeRequest& operator=(AddExamToGradeRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AddExamToGradeRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AddExamToGradeRequest* internal_default_instance() {
+    return reinterpret_cast<const AddExamToGradeRequest*>(
+        &_AddExamToGradeRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 0;
+  friend void swap(AddExamToGradeRequest& a, AddExamToGradeRequest& b) { a.Swap(&b); }
+  inline void Swap(AddExamToGradeRequest* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AddExamToGradeRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AddExamToGradeRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<AddExamToGradeRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const AddExamToGradeRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const AddExamToGradeRequest& from) { AddExamToGradeRequest::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(AddExamToGradeRequest* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "School.AddExamToGradeRequest"; }
+
+ protected:
+  explicit AddExamToGradeRequest(::google::protobuf::Arena* arena);
+  AddExamToGradeRequest(::google::protobuf::Arena* arena, const AddExamToGradeRequest& from);
+  AddExamToGradeRequest(::google::protobuf::Arena* arena, AddExamToGradeRequest&& from) noexcept
+      : AddExamToGradeRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kSchoolidFieldNumber = 1,
+    kExamNameFieldNumber = 2,
+    kGradeNameFieldNumber = 3,
+    kRoleFieldNumber = 4,
+    kTermFieldNumber = 5,
+    kFullFieldNumber = 6,
+  };
+  // string schoolid = 1;
+  void clear_schoolid() ;
+  const std::string& schoolid() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_schoolid(Arg_&& arg, Args_... args);
+  std::string* mutable_schoolid();
+  PROTOBUF_NODISCARD std::string* release_schoolid();
+  void set_allocated_schoolid(std::string* value);
+
+  private:
+  const std::string& _internal_schoolid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schoolid(
+      const std::string& value);
+  std::string* _internal_mutable_schoolid();
+
+  public:
+  // string exam_name = 2;
+  void clear_exam_name() ;
+  const std::string& exam_name() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_exam_name(Arg_&& arg, Args_... args);
+  std::string* mutable_exam_name();
+  PROTOBUF_NODISCARD std::string* release_exam_name();
+  void set_allocated_exam_name(std::string* value);
+
+  private:
+  const std::string& _internal_exam_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_exam_name(
+      const std::string& value);
+  std::string* _internal_mutable_exam_name();
+
+  public:
+  // string grade_name = 3;
+  void clear_grade_name() ;
+  const std::string& grade_name() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_grade_name(Arg_&& arg, Args_... args);
+  std::string* mutable_grade_name();
+  PROTOBUF_NODISCARD std::string* release_grade_name();
+  void set_allocated_grade_name(std::string* value);
+
+  private:
+  const std::string& _internal_grade_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_grade_name(
+      const std::string& value);
+  std::string* _internal_mutable_grade_name();
+
+  public:
+  // .School.Role role = 4;
+  void clear_role() ;
+  ::School::Role role() const;
+  void set_role(::School::Role value);
+
+  private:
+  ::School::Role _internal_role() const;
+  void _internal_set_role(::School::Role value);
+
+  public:
+  // int32 term = 5;
+  void clear_term() ;
+  ::int32_t term() const;
+  void set_term(::int32_t value);
+
+  private:
+  ::int32_t _internal_term() const;
+  void _internal_set_term(::int32_t value);
+
+  public:
+  // bool full = 6;
+  void clear_full() ;
+  bool full() const;
+  void set_full(bool value);
+
+  private:
+  bool _internal_full() const;
+  void _internal_set_full(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:School.AddExamToGradeRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 0,
+      64, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const AddExamToGradeRequest& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr schoolid_;
+    ::google::protobuf::internal::ArenaStringPtr exam_name_;
+    ::google::protobuf::internal::ArenaStringPtr grade_name_;
+    int role_;
+    ::int32_t term_;
+    bool full_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_School_2eproto;
+};
+// -------------------------------------------------------------------
+
 class school final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:School.school) */ {
  public:
@@ -8202,7 +9163,7 @@ class school final : public ::google::protobuf::Message
     return reinterpret_cast<const school*>(
         &_school_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 21;
+  static constexpr int kIndexInFileMessages = 26;
   friend void swap(school& a, school& b) { a.Swap(&b); }
   inline void Swap(school* other) {
     if (other == this) return;
@@ -8547,7 +9508,7 @@ class add_subject_score final : public ::google::protobuf::Message
     return reinterpret_cast<const add_subject_score*>(
         &_add_subject_score_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 41;
+  static constexpr int kIndexInFileMessages = 46;
   friend void swap(add_subject_score& a, add_subject_score& b) { a.Swap(&b); }
   inline void Swap(add_subject_score* other) {
     if (other == this) return;
@@ -8809,7 +9770,7 @@ class UpdateSubjectsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const UpdateSubjectsRequest*>(
         &_UpdateSubjectsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 38;
+  static constexpr int kIndexInFileMessages = 43;
   friend void swap(UpdateSubjectsRequest& a, UpdateSubjectsRequest& b) { a.Swap(&b); }
   inline void Swap(UpdateSubjectsRequest* other) {
     if (other == this) return;
@@ -9048,7 +10009,7 @@ class UpdateGradeRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const UpdateGradeRequest*>(
         &_UpdateGradeRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 43;
+  static constexpr int kIndexInFileMessages = 48;
   friend void swap(UpdateGradeRequest& a, UpdateGradeRequest& b) { a.Swap(&b); }
   inline void Swap(UpdateGradeRequest* other) {
     if (other == this) return;
@@ -9311,7 +10272,7 @@ class Teacher final : public ::google::protobuf::Message
     return reinterpret_cast<const Teacher*>(
         &_Teacher_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 64;
+  static constexpr int kIndexInFileMessages = 69;
   friend void swap(Teacher& a, Teacher& b) { a.Swap(&b); }
   inline void Swap(Teacher* other) {
     if (other == this) return;
@@ -9568,7 +10529,7 @@ class StudentMerit final : public ::google::protobuf::Message
     return reinterpret_cast<const StudentMerit*>(
         &_StudentMerit_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 29;
+  static constexpr int kIndexInFileMessages = 34;
   friend void swap(StudentMerit& a, StudentMerit& b) { a.Swap(&b); }
   inline void Swap(StudentMerit* other) {
     if (other == this) return;
@@ -9813,7 +10774,7 @@ class StudentList final : public ::google::protobuf::Message
     return reinterpret_cast<const StudentList*>(
         &_StudentList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 59;
+  static constexpr int kIndexInFileMessages = 64;
   friend void swap(StudentList& a, StudentList& b) { a.Swap(&b); }
   inline void Swap(StudentList* other) {
     if (other == this) return;
@@ -10010,7 +10971,7 @@ class Return_Grade final : public ::google::protobuf::Message
     return reinterpret_cast<const Return_Grade*>(
         &_Return_Grade_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 49;
+  static constexpr int kIndexInFileMessages = 54;
   friend void swap(Return_Grade& a, Return_Grade& b) { a.Swap(&b); }
   inline void Swap(Return_Grade* other) {
     if (other == this) return;
@@ -10317,7 +11278,7 @@ class RemoveSubjectRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const RemoveSubjectRequest*>(
         &_RemoveSubjectRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 23;
+  static constexpr int kIndexInFileMessages = 28;
   friend void swap(RemoveSubjectRequest& a, RemoveSubjectRequest& b) { a.Swap(&b); }
   inline void Swap(RemoveSubjectRequest* other) {
     if (other == this) return;
@@ -10550,7 +11511,7 @@ class Receipt final : public ::google::protobuf::Message
     return reinterpret_cast<const Receipt*>(
         &_Receipt_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 13;
   friend void swap(Receipt& a, Receipt& b) { a.Swap(&b); }
   inline void Swap(Receipt* other) {
     if (other == this) return;
@@ -10865,7 +11826,7 @@ class LoginRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const LoginRequest*>(
         &_LoginRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 58;
+  static constexpr int kIndexInFileMessages = 63;
   friend void swap(LoginRequest& a, LoginRequest& b) { a.Swap(&b); }
   inline void Swap(LoginRequest* other) {
     if (other == this) return;
@@ -11061,7 +12022,7 @@ class LearnersListperGrade final : public ::google::protobuf::Message
     return reinterpret_cast<const LearnersListperGrade*>(
         &_LearnersListperGrade_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 36;
+  static constexpr int kIndexInFileMessages = 41;
   friend void swap(LearnersListperGrade& a, LearnersListperGrade& b) { a.Swap(&b); }
   inline void Swap(LearnersListperGrade* other) {
     if (other == this) return;
@@ -11258,7 +12219,7 @@ class Invoice final : public ::google::protobuf::Message
     return reinterpret_cast<const Invoice*>(
         &_Invoice_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 10;
+  static constexpr int kIndexInFileMessages = 15;
   friend void swap(Invoice& a, Invoice& b) { a.Swap(&b); }
   inline void Swap(Invoice* other) {
     if (other == this) return;
@@ -11561,7 +12522,7 @@ class ExamReport final : public ::google::protobuf::Message
     return reinterpret_cast<const ExamReport*>(
         &_ExamReport_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 67;
+  static constexpr int kIndexInFileMessages = 72;
   friend void swap(ExamReport& a, ExamReport& b) { a.Swap(&b); }
   inline void Swap(ExamReport* other) {
     if (other == this) return;
@@ -11788,7 +12749,7 @@ class ExamList final : public ::google::protobuf::Message
     return reinterpret_cast<const ExamList*>(
         &_ExamList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 33;
+  static constexpr int kIndexInFileMessages = 38;
   friend void swap(ExamList& a, ExamList& b) { a.Swap(&b); }
   inline void Swap(ExamList* other) {
     if (other == this) return;
@@ -11985,7 +12946,7 @@ class EditStudentDetailsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const EditStudentDetailsRequest*>(
         &_EditStudentDetailsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 13;
+  static constexpr int kIndexInFileMessages = 18;
   friend void swap(EditStudentDetailsRequest& a, EditStudentDetailsRequest& b) { a.Swap(&b); }
   inline void Swap(EditStudentDetailsRequest* other) {
     if (other == this) return;
@@ -12199,7 +13160,7 @@ class DeleteTeacherSubjectRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const DeleteTeacherSubjectRequest*>(
         &_DeleteTeacherSubjectRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 11;
+  static constexpr int kIndexInFileMessages = 16;
   friend void swap(DeleteTeacherSubjectRequest& a, DeleteTeacherSubjectRequest& b) { a.Swap(&b); }
   inline void Swap(DeleteTeacherSubjectRequest* other) {
     if (other == this) return;
@@ -12426,7 +13387,7 @@ class AddSubjectsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddSubjectsRequest*>(
         &_AddSubjectsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 14;
+  static constexpr int kIndexInFileMessages = 19;
   friend void swap(AddSubjectsRequest& a, AddSubjectsRequest& b) { a.Swap(&b); }
   inline void Swap(AddSubjectsRequest* other) {
     if (other == this) return;
@@ -12659,7 +13620,7 @@ class AddStudentRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddStudentRequest*>(
         &_AddStudentRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 61;
+  static constexpr int kIndexInFileMessages = 66;
   friend void swap(AddStudentRequest& a, AddStudentRequest& b) { a.Swap(&b); }
   inline void Swap(AddStudentRequest* other) {
     if (other == this) return;
@@ -12873,7 +13834,7 @@ class AddGradeRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddGradeRequest*>(
         &_AddGradeRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 45;
+  static constexpr int kIndexInFileMessages = 50;
   friend void swap(AddGradeRequest& a, AddGradeRequest& b) { a.Swap(&b); }
   inline void Swap(AddGradeRequest* other) {
     if (other == this) return;
@@ -13118,7 +14079,7 @@ class AddExamRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddExamRequest*>(
         &_AddExamRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 51;
+  static constexpr int kIndexInFileMessages = 56;
   friend void swap(AddExamRequest& a, AddExamRequest& b) { a.Swap(&b); }
   inline void Swap(AddExamRequest* other) {
     if (other == this) return;
@@ -13375,7 +14336,7 @@ class TeachersList final : public ::google::protobuf::Message
     return reinterpret_cast<const TeachersList*>(
         &_TeachersList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 54;
+  static constexpr int kIndexInFileMessages = 59;
   friend void swap(TeachersList& a, TeachersList& b) { a.Swap(&b); }
   inline void Swap(TeachersList* other) {
     if (other == this) return;
@@ -13572,7 +14533,7 @@ class SchoolList final : public ::google::protobuf::Message
     return reinterpret_cast<const SchoolList*>(
         &_SchoolList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 1;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(SchoolList& a, SchoolList& b) { a.Swap(&b); }
   inline void Swap(SchoolList* other) {
     if (other == this) return;
@@ -13769,7 +14730,7 @@ class SchoolDetails final : public ::google::protobuf::Message
     return reinterpret_cast<const SchoolDetails*>(
         &_SchoolDetails_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 20;
+  static constexpr int kIndexInFileMessages = 25;
   friend void swap(SchoolDetails& a, SchoolDetails& b) { a.Swap(&b); }
   inline void Swap(SchoolDetails* other) {
     if (other == this) return;
@@ -13965,7 +14926,7 @@ class ReceiptList final : public ::google::protobuf::Message
     return reinterpret_cast<const ReceiptList*>(
         &_ReceiptList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 5;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(ReceiptList& a, ReceiptList& b) { a.Swap(&b); }
   inline void Swap(ReceiptList* other) {
     if (other == this) return;
@@ -14162,7 +15123,7 @@ class MeritList final : public ::google::protobuf::Message
     return reinterpret_cast<const MeritList*>(
         &_MeritList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 30;
+  static constexpr int kIndexInFileMessages = 35;
   friend void swap(MeritList& a, MeritList& b) { a.Swap(&b); }
   inline void Swap(MeritList* other) {
     if (other == this) return;
@@ -14359,7 +15320,7 @@ class InvoiceList final : public ::google::protobuf::Message
     return reinterpret_cast<const InvoiceList*>(
         &_InvoiceList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 11;
   friend void swap(InvoiceList& a, InvoiceList& b) { a.Swap(&b); }
   inline void Swap(InvoiceList* other) {
     if (other == this) return;
@@ -14556,7 +15517,7 @@ class GradeList final : public ::google::protobuf::Message
     return reinterpret_cast<const GradeList*>(
         &_GradeList_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 48;
+  static constexpr int kIndexInFileMessages = 53;
   friend void swap(GradeList& a, GradeList& b) { a.Swap(&b); }
   inline void Swap(GradeList* other) {
     if (other == this) return;
@@ -14753,7 +15714,7 @@ class AddTeacherRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddTeacherRequest*>(
         &_AddTeacherRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 56;
+  static constexpr int kIndexInFileMessages = 61;
   friend void swap(AddTeacherRequest& a, AddTeacherRequest& b) { a.Swap(&b); }
   inline void Swap(AddTeacherRequest* other) {
     if (other == this) return;
@@ -15003,7 +15964,7 @@ class AddScoreRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddScoreRequest*>(
         &_AddScoreRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 40;
+  static constexpr int kIndexInFileMessages = 45;
   friend void swap(AddScoreRequest& a, AddScoreRequest& b) { a.Swap(&b); }
   inline void Swap(AddScoreRequest* other) {
     if (other == this) return;
@@ -15229,7 +16190,7 @@ class AddSchoolRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddSchoolRequest*>(
         &_AddSchoolRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 19;
+  static constexpr int kIndexInFileMessages = 24;
   friend void swap(AddSchoolRequest& a, AddSchoolRequest& b) { a.Swap(&b); }
   inline void Swap(AddSchoolRequest* other) {
     if (other == this) return;
@@ -15366,6 +16327,220 @@ class AddSchoolRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class AddSchoolHeadRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:School.AddSchoolHeadRequest) */ {
+ public:
+  inline AddSchoolHeadRequest() : AddSchoolHeadRequest(nullptr) {}
+  ~AddSchoolHeadRequest() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(AddSchoolHeadRequest* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(AddSchoolHeadRequest));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR AddSchoolHeadRequest(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline AddSchoolHeadRequest(const AddSchoolHeadRequest& from) : AddSchoolHeadRequest(nullptr, from) {}
+  inline AddSchoolHeadRequest(AddSchoolHeadRequest&& from) noexcept
+      : AddSchoolHeadRequest(nullptr, std::move(from)) {}
+  inline AddSchoolHeadRequest& operator=(const AddSchoolHeadRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AddSchoolHeadRequest& operator=(AddSchoolHeadRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AddSchoolHeadRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AddSchoolHeadRequest* internal_default_instance() {
+    return reinterpret_cast<const AddSchoolHeadRequest*>(
+        &_AddSchoolHeadRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(AddSchoolHeadRequest& a, AddSchoolHeadRequest& b) { a.Swap(&b); }
+  inline void Swap(AddSchoolHeadRequest* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AddSchoolHeadRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AddSchoolHeadRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<AddSchoolHeadRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const AddSchoolHeadRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const AddSchoolHeadRequest& from) { AddSchoolHeadRequest::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(AddSchoolHeadRequest* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "School.AddSchoolHeadRequest"; }
+
+ protected:
+  explicit AddSchoolHeadRequest(::google::protobuf::Arena* arena);
+  AddSchoolHeadRequest(::google::protobuf::Arena* arena, const AddSchoolHeadRequest& from);
+  AddSchoolHeadRequest(::google::protobuf::Arena* arena, AddSchoolHeadRequest&& from) noexcept
+      : AddSchoolHeadRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kSchoolidFieldNumber = 1,
+    kTeacherFieldNumber = 2,
+  };
+  // string schoolid = 1;
+  void clear_schoolid() ;
+  const std::string& schoolid() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_schoolid(Arg_&& arg, Args_... args);
+  std::string* mutable_schoolid();
+  PROTOBUF_NODISCARD std::string* release_schoolid();
+  void set_allocated_schoolid(std::string* value);
+
+  private:
+  const std::string& _internal_schoolid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schoolid(
+      const std::string& value);
+  std::string* _internal_mutable_schoolid();
+
+  public:
+  // .School.Teacher teacher = 2;
+  bool has_teacher() const;
+  void clear_teacher() ;
+  const ::School::Teacher& teacher() const;
+  PROTOBUF_NODISCARD ::School::Teacher* release_teacher();
+  ::School::Teacher* mutable_teacher();
+  void set_allocated_teacher(::School::Teacher* value);
+  void unsafe_arena_set_allocated_teacher(::School::Teacher* value);
+  ::School::Teacher* unsafe_arena_release_teacher();
+
+  private:
+  const ::School::Teacher& _internal_teacher() const;
+  ::School::Teacher* _internal_mutable_teacher();
+
+  public:
+  // @@protoc_insertion_point(class_scope:School.AddSchoolHeadRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      44, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const AddSchoolHeadRequest& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr schoolid_;
+    ::School::Teacher* teacher_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_School_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AddReceiptRequest final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:School.AddReceiptRequest) */ {
  public:
@@ -15425,7 +16600,7 @@ class AddReceiptRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddReceiptRequest*>(
         &_AddReceiptRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(AddReceiptRequest& a, AddReceiptRequest& b) { a.Swap(&b); }
   inline void Swap(AddReceiptRequest* other) {
     if (other == this) return;
@@ -15621,7 +16796,7 @@ class AddInvoiceRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const AddInvoiceRequest*>(
         &_AddInvoiceRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 3;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(AddInvoiceRequest& a, AddInvoiceRequest& b) { a.Swap(&b); }
   inline void Swap(AddInvoiceRequest* other) {
     if (other == this) return;
@@ -15771,6 +16946,368 @@ class AddInvoiceRequest final : public ::google::protobuf::Message
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// AddExamToGradeRequest
+
+// string schoolid = 1;
+inline void AddExamToGradeRequest::clear_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.ClearToEmpty();
+}
+inline const std::string& AddExamToGradeRequest::schoolid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.AddExamToGradeRequest.schoolid)
+  return _internal_schoolid();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void AddExamToGradeRequest::set_schoolid(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.AddExamToGradeRequest.schoolid)
+}
+inline std::string* AddExamToGradeRequest::mutable_schoolid() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_schoolid();
+  // @@protoc_insertion_point(field_mutable:School.AddExamToGradeRequest.schoolid)
+  return _s;
+}
+inline const std::string& AddExamToGradeRequest::_internal_schoolid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.schoolid_.Get();
+}
+inline void AddExamToGradeRequest::_internal_set_schoolid(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(value, GetArena());
+}
+inline std::string* AddExamToGradeRequest::_internal_mutable_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.schoolid_.Mutable( GetArena());
+}
+inline std::string* AddExamToGradeRequest::release_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.AddExamToGradeRequest.schoolid)
+  return _impl_.schoolid_.Release();
+}
+inline void AddExamToGradeRequest::set_allocated_schoolid(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.schoolid_.IsDefault()) {
+    _impl_.schoolid_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.AddExamToGradeRequest.schoolid)
+}
+
+// string exam_name = 2;
+inline void AddExamToGradeRequest::clear_exam_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exam_name_.ClearToEmpty();
+}
+inline const std::string& AddExamToGradeRequest::exam_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.AddExamToGradeRequest.exam_name)
+  return _internal_exam_name();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void AddExamToGradeRequest::set_exam_name(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exam_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.AddExamToGradeRequest.exam_name)
+}
+inline std::string* AddExamToGradeRequest::mutable_exam_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_exam_name();
+  // @@protoc_insertion_point(field_mutable:School.AddExamToGradeRequest.exam_name)
+  return _s;
+}
+inline const std::string& AddExamToGradeRequest::_internal_exam_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.exam_name_.Get();
+}
+inline void AddExamToGradeRequest::_internal_set_exam_name(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exam_name_.Set(value, GetArena());
+}
+inline std::string* AddExamToGradeRequest::_internal_mutable_exam_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.exam_name_.Mutable( GetArena());
+}
+inline std::string* AddExamToGradeRequest::release_exam_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.AddExamToGradeRequest.exam_name)
+  return _impl_.exam_name_.Release();
+}
+inline void AddExamToGradeRequest::set_allocated_exam_name(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exam_name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.exam_name_.IsDefault()) {
+    _impl_.exam_name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.AddExamToGradeRequest.exam_name)
+}
+
+// string grade_name = 3;
+inline void AddExamToGradeRequest::clear_grade_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.grade_name_.ClearToEmpty();
+}
+inline const std::string& AddExamToGradeRequest::grade_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.AddExamToGradeRequest.grade_name)
+  return _internal_grade_name();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void AddExamToGradeRequest::set_grade_name(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.grade_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.AddExamToGradeRequest.grade_name)
+}
+inline std::string* AddExamToGradeRequest::mutable_grade_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_grade_name();
+  // @@protoc_insertion_point(field_mutable:School.AddExamToGradeRequest.grade_name)
+  return _s;
+}
+inline const std::string& AddExamToGradeRequest::_internal_grade_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.grade_name_.Get();
+}
+inline void AddExamToGradeRequest::_internal_set_grade_name(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.grade_name_.Set(value, GetArena());
+}
+inline std::string* AddExamToGradeRequest::_internal_mutable_grade_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.grade_name_.Mutable( GetArena());
+}
+inline std::string* AddExamToGradeRequest::release_grade_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.AddExamToGradeRequest.grade_name)
+  return _impl_.grade_name_.Release();
+}
+inline void AddExamToGradeRequest::set_allocated_grade_name(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.grade_name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.grade_name_.IsDefault()) {
+    _impl_.grade_name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.AddExamToGradeRequest.grade_name)
+}
+
+// .School.Role role = 4;
+inline void AddExamToGradeRequest::clear_role() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.role_ = 0;
+}
+inline ::School::Role AddExamToGradeRequest::role() const {
+  // @@protoc_insertion_point(field_get:School.AddExamToGradeRequest.role)
+  return _internal_role();
+}
+inline void AddExamToGradeRequest::set_role(::School::Role value) {
+  _internal_set_role(value);
+  // @@protoc_insertion_point(field_set:School.AddExamToGradeRequest.role)
+}
+inline ::School::Role AddExamToGradeRequest::_internal_role() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::School::Role>(_impl_.role_);
+}
+inline void AddExamToGradeRequest::_internal_set_role(::School::Role value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.role_ = value;
+}
+
+// int32 term = 5;
+inline void AddExamToGradeRequest::clear_term() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.term_ = 0;
+}
+inline ::int32_t AddExamToGradeRequest::term() const {
+  // @@protoc_insertion_point(field_get:School.AddExamToGradeRequest.term)
+  return _internal_term();
+}
+inline void AddExamToGradeRequest::set_term(::int32_t value) {
+  _internal_set_term(value);
+  // @@protoc_insertion_point(field_set:School.AddExamToGradeRequest.term)
+}
+inline ::int32_t AddExamToGradeRequest::_internal_term() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.term_;
+}
+inline void AddExamToGradeRequest::_internal_set_term(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.term_ = value;
+}
+
+// bool full = 6;
+inline void AddExamToGradeRequest::clear_full() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.full_ = false;
+}
+inline bool AddExamToGradeRequest::full() const {
+  // @@protoc_insertion_point(field_get:School.AddExamToGradeRequest.full)
+  return _internal_full();
+}
+inline void AddExamToGradeRequest::set_full(bool value) {
+  _internal_set_full(value);
+  // @@protoc_insertion_point(field_set:School.AddExamToGradeRequest.full)
+}
+inline bool AddExamToGradeRequest::_internal_full() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.full_;
+}
+inline void AddExamToGradeRequest::_internal_set_full(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.full_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AddSchoolHeadRequest
+
+// string schoolid = 1;
+inline void AddSchoolHeadRequest::clear_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.ClearToEmpty();
+}
+inline const std::string& AddSchoolHeadRequest::schoolid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.AddSchoolHeadRequest.schoolid)
+  return _internal_schoolid();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void AddSchoolHeadRequest::set_schoolid(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.AddSchoolHeadRequest.schoolid)
+}
+inline std::string* AddSchoolHeadRequest::mutable_schoolid() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_schoolid();
+  // @@protoc_insertion_point(field_mutable:School.AddSchoolHeadRequest.schoolid)
+  return _s;
+}
+inline const std::string& AddSchoolHeadRequest::_internal_schoolid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.schoolid_.Get();
+}
+inline void AddSchoolHeadRequest::_internal_set_schoolid(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(value, GetArena());
+}
+inline std::string* AddSchoolHeadRequest::_internal_mutable_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.schoolid_.Mutable( GetArena());
+}
+inline std::string* AddSchoolHeadRequest::release_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.AddSchoolHeadRequest.schoolid)
+  return _impl_.schoolid_.Release();
+}
+inline void AddSchoolHeadRequest::set_allocated_schoolid(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.schoolid_.IsDefault()) {
+    _impl_.schoolid_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.AddSchoolHeadRequest.schoolid)
+}
+
+// .School.Teacher teacher = 2;
+inline bool AddSchoolHeadRequest::has_teacher() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.teacher_ != nullptr);
+  return value;
+}
+inline void AddSchoolHeadRequest::clear_teacher() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.teacher_ != nullptr) _impl_.teacher_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::School::Teacher& AddSchoolHeadRequest::_internal_teacher() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::School::Teacher* p = _impl_.teacher_;
+  return p != nullptr ? *p : reinterpret_cast<const ::School::Teacher&>(::School::_Teacher_default_instance_);
+}
+inline const ::School::Teacher& AddSchoolHeadRequest::teacher() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.AddSchoolHeadRequest.teacher)
+  return _internal_teacher();
+}
+inline void AddSchoolHeadRequest::unsafe_arena_set_allocated_teacher(::School::Teacher* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.teacher_);
+  }
+  _impl_.teacher_ = reinterpret_cast<::School::Teacher*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:School.AddSchoolHeadRequest.teacher)
+}
+inline ::School::Teacher* AddSchoolHeadRequest::release_teacher() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::School::Teacher* released = _impl_.teacher_;
+  _impl_.teacher_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::School::Teacher* AddSchoolHeadRequest::unsafe_arena_release_teacher() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.AddSchoolHeadRequest.teacher)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::School::Teacher* temp = _impl_.teacher_;
+  _impl_.teacher_ = nullptr;
+  return temp;
+}
+inline ::School::Teacher* AddSchoolHeadRequest::_internal_mutable_teacher() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.teacher_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::School::Teacher>(GetArena());
+    _impl_.teacher_ = reinterpret_cast<::School::Teacher*>(p);
+  }
+  return _impl_.teacher_;
+}
+inline ::School::Teacher* AddSchoolHeadRequest::mutable_teacher() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::School::Teacher* _msg = _internal_mutable_teacher();
+  // @@protoc_insertion_point(field_mutable:School.AddSchoolHeadRequest.teacher)
+  return _msg;
+}
+inline void AddSchoolHeadRequest::set_allocated_teacher(::School::Teacher* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.teacher_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.teacher_ = reinterpret_cast<::School::Teacher*>(value);
+  // @@protoc_insertion_point(field_set_allocated:School.AddSchoolHeadRequest.teacher)
+}
+
+// -------------------------------------------------------------------
+
 // SchoolsRequest
 
 // .School.Role role = 1;
@@ -15791,6 +17328,224 @@ inline ::School::Role SchoolsRequest::_internal_role() const {
   return static_cast<::School::Role>(_impl_.role_);
 }
 inline void SchoolsRequest::_internal_set_role(::School::Role value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.role_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// UpdateSchoolRequest
+
+// string school_name = 1;
+inline void UpdateSchoolRequest::clear_school_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_name_.ClearToEmpty();
+}
+inline const std::string& UpdateSchoolRequest::school_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.UpdateSchoolRequest.school_name)
+  return _internal_school_name();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void UpdateSchoolRequest::set_school_name(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.UpdateSchoolRequest.school_name)
+}
+inline std::string* UpdateSchoolRequest::mutable_school_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_school_name();
+  // @@protoc_insertion_point(field_mutable:School.UpdateSchoolRequest.school_name)
+  return _s;
+}
+inline const std::string& UpdateSchoolRequest::_internal_school_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.school_name_.Get();
+}
+inline void UpdateSchoolRequest::_internal_set_school_name(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_name_.Set(value, GetArena());
+}
+inline std::string* UpdateSchoolRequest::_internal_mutable_school_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.school_name_.Mutable( GetArena());
+}
+inline std::string* UpdateSchoolRequest::release_school_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.UpdateSchoolRequest.school_name)
+  return _impl_.school_name_.Release();
+}
+inline void UpdateSchoolRequest::set_allocated_school_name(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.school_name_.IsDefault()) {
+    _impl_.school_name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.UpdateSchoolRequest.school_name)
+}
+
+// string school_motto = 2;
+inline void UpdateSchoolRequest::clear_school_motto() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_motto_.ClearToEmpty();
+}
+inline const std::string& UpdateSchoolRequest::school_motto() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.UpdateSchoolRequest.school_motto)
+  return _internal_school_motto();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void UpdateSchoolRequest::set_school_motto(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_motto_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.UpdateSchoolRequest.school_motto)
+}
+inline std::string* UpdateSchoolRequest::mutable_school_motto() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_school_motto();
+  // @@protoc_insertion_point(field_mutable:School.UpdateSchoolRequest.school_motto)
+  return _s;
+}
+inline const std::string& UpdateSchoolRequest::_internal_school_motto() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.school_motto_.Get();
+}
+inline void UpdateSchoolRequest::_internal_set_school_motto(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_motto_.Set(value, GetArena());
+}
+inline std::string* UpdateSchoolRequest::_internal_mutable_school_motto() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.school_motto_.Mutable( GetArena());
+}
+inline std::string* UpdateSchoolRequest::release_school_motto() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.UpdateSchoolRequest.school_motto)
+  return _impl_.school_motto_.Release();
+}
+inline void UpdateSchoolRequest::set_allocated_school_motto(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_motto_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.school_motto_.IsDefault()) {
+    _impl_.school_motto_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.UpdateSchoolRequest.school_motto)
+}
+
+// string school_email = 3;
+inline void UpdateSchoolRequest::clear_school_email() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_email_.ClearToEmpty();
+}
+inline const std::string& UpdateSchoolRequest::school_email() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.UpdateSchoolRequest.school_email)
+  return _internal_school_email();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void UpdateSchoolRequest::set_school_email(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_email_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.UpdateSchoolRequest.school_email)
+}
+inline std::string* UpdateSchoolRequest::mutable_school_email() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_school_email();
+  // @@protoc_insertion_point(field_mutable:School.UpdateSchoolRequest.school_email)
+  return _s;
+}
+inline const std::string& UpdateSchoolRequest::_internal_school_email() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.school_email_.Get();
+}
+inline void UpdateSchoolRequest::_internal_set_school_email(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_email_.Set(value, GetArena());
+}
+inline std::string* UpdateSchoolRequest::_internal_mutable_school_email() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.school_email_.Mutable( GetArena());
+}
+inline std::string* UpdateSchoolRequest::release_school_email() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.UpdateSchoolRequest.school_email)
+  return _impl_.school_email_.Release();
+}
+inline void UpdateSchoolRequest::set_allocated_school_email(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_email_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.school_email_.IsDefault()) {
+    _impl_.school_email_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.UpdateSchoolRequest.school_email)
+}
+
+// string school_id = 4;
+inline void UpdateSchoolRequest::clear_school_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_id_.ClearToEmpty();
+}
+inline const std::string& UpdateSchoolRequest::school_id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.UpdateSchoolRequest.school_id)
+  return _internal_school_id();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void UpdateSchoolRequest::set_school_id(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.UpdateSchoolRequest.school_id)
+}
+inline std::string* UpdateSchoolRequest::mutable_school_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_school_id();
+  // @@protoc_insertion_point(field_mutable:School.UpdateSchoolRequest.school_id)
+  return _s;
+}
+inline const std::string& UpdateSchoolRequest::_internal_school_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.school_id_.Get();
+}
+inline void UpdateSchoolRequest::_internal_set_school_id(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_id_.Set(value, GetArena());
+}
+inline std::string* UpdateSchoolRequest::_internal_mutable_school_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.school_id_.Mutable( GetArena());
+}
+inline std::string* UpdateSchoolRequest::release_school_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.UpdateSchoolRequest.school_id)
+  return _impl_.school_id_.Release();
+}
+inline void UpdateSchoolRequest::set_allocated_school_id(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.school_id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.school_id_.IsDefault()) {
+    _impl_.school_id_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.UpdateSchoolRequest.school_id)
+}
+
+// .School.Role role = 5;
+inline void UpdateSchoolRequest::clear_role() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.role_ = 0;
+}
+inline ::School::Role UpdateSchoolRequest::role() const {
+  // @@protoc_insertion_point(field_get:School.UpdateSchoolRequest.role)
+  return _internal_role();
+}
+inline void UpdateSchoolRequest::set_role(::School::Role value) {
+  _internal_set_role(value);
+  // @@protoc_insertion_point(field_set:School.UpdateSchoolRequest.role)
+}
+inline ::School::Role UpdateSchoolRequest::_internal_role() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::School::Role>(_impl_.role_);
+}
+inline void UpdateSchoolRequest::_internal_set_role(::School::Role value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.role_ = value;
 }
@@ -16050,6 +17805,58 @@ inline void AddInvoiceRequest::set_allocated_invoice(::School::Invoice* value) {
 
 // -------------------------------------------------------------------
 
+// DeleteSchoolHeadRequest
+
+// string schoolid = 1;
+inline void DeleteSchoolHeadRequest::clear_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.ClearToEmpty();
+}
+inline const std::string& DeleteSchoolHeadRequest::schoolid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.DeleteSchoolHeadRequest.schoolid)
+  return _internal_schoolid();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void DeleteSchoolHeadRequest::set_schoolid(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.DeleteSchoolHeadRequest.schoolid)
+}
+inline std::string* DeleteSchoolHeadRequest::mutable_schoolid() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_schoolid();
+  // @@protoc_insertion_point(field_mutable:School.DeleteSchoolHeadRequest.schoolid)
+  return _s;
+}
+inline const std::string& DeleteSchoolHeadRequest::_internal_schoolid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.schoolid_.Get();
+}
+inline void DeleteSchoolHeadRequest::_internal_set_schoolid(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(value, GetArena());
+}
+inline std::string* DeleteSchoolHeadRequest::_internal_mutable_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.schoolid_.Mutable( GetArena());
+}
+inline std::string* DeleteSchoolHeadRequest::release_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.DeleteSchoolHeadRequest.schoolid)
+  return _impl_.schoolid_.Release();
+}
+inline void DeleteSchoolHeadRequest::set_allocated_schoolid(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.schoolid_.IsDefault()) {
+    _impl_.schoolid_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.DeleteSchoolHeadRequest.schoolid)
+}
+
+// -------------------------------------------------------------------
+
 // GetReceiptRequest
 
 // string schoolid = 1;
@@ -16256,6 +18063,102 @@ inline ::google::protobuf::RepeatedPtrField<::School::Invoice>*
 InvoiceList::_internal_mutable_invoices() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.invoices_;
+}
+
+// -------------------------------------------------------------------
+
+// UpdateAdminRoleRequest
+
+// string schoolid = 1;
+inline void UpdateAdminRoleRequest::clear_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.ClearToEmpty();
+}
+inline const std::string& UpdateAdminRoleRequest::schoolid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:School.UpdateAdminRoleRequest.schoolid)
+  return _internal_schoolid();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void UpdateAdminRoleRequest::set_schoolid(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:School.UpdateAdminRoleRequest.schoolid)
+}
+inline std::string* UpdateAdminRoleRequest::mutable_schoolid() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_schoolid();
+  // @@protoc_insertion_point(field_mutable:School.UpdateAdminRoleRequest.schoolid)
+  return _s;
+}
+inline const std::string& UpdateAdminRoleRequest::_internal_schoolid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.schoolid_.Get();
+}
+inline void UpdateAdminRoleRequest::_internal_set_schoolid(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.Set(value, GetArena());
+}
+inline std::string* UpdateAdminRoleRequest::_internal_mutable_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.schoolid_.Mutable( GetArena());
+}
+inline std::string* UpdateAdminRoleRequest::release_schoolid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:School.UpdateAdminRoleRequest.schoolid)
+  return _impl_.schoolid_.Release();
+}
+inline void UpdateAdminRoleRequest::set_allocated_schoolid(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.schoolid_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.schoolid_.IsDefault()) {
+    _impl_.schoolid_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:School.UpdateAdminRoleRequest.schoolid)
+}
+
+// .School.Role new_role = 2;
+inline void UpdateAdminRoleRequest::clear_new_role() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.new_role_ = 0;
+}
+inline ::School::Role UpdateAdminRoleRequest::new_role() const {
+  // @@protoc_insertion_point(field_get:School.UpdateAdminRoleRequest.new_role)
+  return _internal_new_role();
+}
+inline void UpdateAdminRoleRequest::set_new_role(::School::Role value) {
+  _internal_set_new_role(value);
+  // @@protoc_insertion_point(field_set:School.UpdateAdminRoleRequest.new_role)
+}
+inline ::School::Role UpdateAdminRoleRequest::_internal_new_role() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::School::Role>(_impl_.new_role_);
+}
+inline void UpdateAdminRoleRequest::_internal_set_new_role(::School::Role value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.new_role_ = value;
+}
+
+// int32 code = 3;
+inline void UpdateAdminRoleRequest::clear_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.code_ = 0;
+}
+inline ::int32_t UpdateAdminRoleRequest::code() const {
+  // @@protoc_insertion_point(field_get:School.UpdateAdminRoleRequest.code)
+  return _internal_code();
+}
+inline void UpdateAdminRoleRequest::set_code(::int32_t value) {
+  _internal_set_code(value);
+  // @@protoc_insertion_point(field_set:School.UpdateAdminRoleRequest.code)
+}
+inline ::int32_t UpdateAdminRoleRequest::_internal_code() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.code_;
+}
+inline void UpdateAdminRoleRequest::_internal_set_code(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.code_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -453,9 +453,8 @@ Status SchoolServiceImpl::UpdateSubjects(ServerContext* context,const UpdateSubj
                 l_areas.emplace_back(grad,learning);
             }
             int code=request->teacher_code();
-            Role role=request->role();
             
-            std::string db_response=school_db.UpdateLearningAreas(code,s_id,role,std::move(l_areas));
+            std::string db_response=school_db.UpdateLearningAreas(code,s_id,std::move(l_areas));
             if(db_response.find("Could not")!=std::string::npos||db_response.find("Update failed")!=std::string::npos){
                 reply->set_success(false);
                 reply->set_message(db_response);
@@ -573,6 +572,42 @@ Status SchoolServiceImpl::ListofLearnersbyGrade_Subject(ServerContext* context,c
         }
     }
 
+Status SchoolServiceImpl::UpdateAdminRole(ServerContext* context,const School::UpdateAdminRoleRequest* request,Response* reply){
+    try{
+        std::string s_id=request->schoolid();
+        if(s_id.empty()){
+            reply->set_success(false);
+            reply->set_message("The school is not recorgnized!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+        int code=request->code();
+        std::string new_role_str=School::Role_Name(request->new_role());
+        Role new_role;
+        if(!Role_Parse(new_role_str,&new_role)){
+            reply->set_success(false);
+            reply->set_message("Invalid role specified!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+        std::string db_response=school_db.UpdateAdminRole(code,s_id,new_role);
+        if(db_response.find("Failed")!=std::string::npos){
+            reply->set_success(false);
+            reply->set_message(db_response);
+            return Status(grpc::StatusCode::INTERNAL,db_response);
+        }
+        reply->set_success(true);
+        reply->set_message(db_response);
+        return Status::OK;
+    }
+    catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
 Status SchoolServiceImpl::GetTeachers(ServerContext* context,const School::GetTeachersRequest* request,TeachersList* reply){
     try{
         std::string s_id=request->school_id();
@@ -748,7 +783,46 @@ Status SchoolServiceImpl::FindExams(ServerContext* context,const School::FindExa
         return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
     }
 }
-Status SchoolServiceImpl::GradeStudents(ServerContext* context,const GradeStudentsRequest* request,StudentList* reply){
+Status SchoolServiceImpl::AddExamToGrade(ServerContext* context,const School::AddExamToGradeRequest* request,Response* reply){
+    try{
+        Role user=request->role();
+        if(user!=Role::ADMIN){
+            reply->set_success(false);
+            reply->set_message("Only admins can add assessments to grades");
+            return Status(grpc::StatusCode::PERMISSION_DENIED,"Only admins can add assessments to grades.");
+        }
+        if(request->exam_name().empty()){
+            reply->set_success(false);
+            reply->set_message("Assessment name is required.");
+            return Status(grpc::StatusCode::INVALID_ARGUMENT,"Assessment name is required.");
+        }
+        if(request->grade_name().empty()){
+            reply->set_success(false);
+            reply->set_message("Grade name is required.");
+            return Status(grpc::StatusCode::INVALID_ARGUMENT,"Grade name is required.");
+        }
+        std::string s_id=request->schoolid();
+        if(s_id.empty()){
+            reply->set_success(false);
+            reply->set_message("The school is not recorgnized!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+        auto response=school_db.AddExamToGrade(request->exam_name(),request->grade_name(),s_id,request->term(),request->full());
+        reply->set_success(true);
+        reply->set_message("Exam added to grade successfully.");
+        return Status::OK;
+    }
+    catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
+Status SchoolServiceImpl::GradeStudents(ServerContext* context,const School::GradeStudentsRequest* request,StudentList* reply){
     try{
         std::string s_id=request->school_id();
         if(s_id.empty()){
@@ -1039,6 +1113,64 @@ Status SchoolServiceImpl::CreateSchool(ServerContext* context,const School::AddS
         return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
     }
 }
+Status SchoolServiceImpl::AddSchoolHead(ServerContext* context,const School::AddSchoolHeadRequest* request,Response* reply){
+    try{
+        std::string s_id=request->schoolid();
+        if(s_id.empty()){
+            reply->set_success(false);
+            reply->set_message("The school is not recorgnized!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+        auto db_response=school_db.Add_SchoolHead(request->teacher(),s_id);
+        if(db_response.find("Failed")!=std::string::npos){
+            reply->set_success(false);
+            reply->set_message(db_response);
+            return Status(grpc::StatusCode::INTERNAL,db_response);
+        }
+        reply->set_success(true);
+        reply->set_message(db_response);
+        return Status::OK;
+    }
+     catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
+Status SchoolServiceImpl::Delete_SchoolHead(ServerContext* context,const School::DeleteSchoolHeadRequest* request,Response* reply){
+    try{
+        std::string s_id=request->schoolid();
+        if(s_id.empty()){
+            reply->set_success(false);
+            reply->set_message("The school is not recorgnized!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+       
+        auto db_response=school_db.Delete_SchoolHead(s_id);
+        if(db_response.find("Failed")!=std::string::npos){
+            reply->set_success(false);
+            reply->set_message(db_response);
+            return Status(grpc::StatusCode::INTERNAL,db_response);
+        }
+        reply->set_success(true);
+        reply->set_message(db_response);
+        return Status::OK;
+
+    }
+     catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
 Status SchoolServiceImpl::GetSchoolDetails(ServerContext* context,const School::SchoolDetailsRequest* request,School::SchoolDetails* reply){
     try{
         std::string s_id=request->school_id();
@@ -1061,6 +1193,35 @@ Status SchoolServiceImpl::GetSchoolDetails(ServerContext* context,const School::
         return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
     }
 }
+Status SchoolServiceImpl::UpdateSchoolDetails(ServerContext* context,const School::UpdateSchoolRequest* request,Response* reply){
+    try{
+        if(request->role()==Role::TEACHER){
+            reply->set_success(false);
+            reply->set_message("Only Admins and HoIs can update school details!");
+            return Status(grpc::StatusCode::PERMISSION_DENIED,reply->message());
+        }
+        std::string s_id=request->school_id();
+        if(s_id.empty()){
+            reply->set_success(false);
+            reply->set_message("school_id is required!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+        auto db_response=school_db.UpdateSchoolDetails(*request);
+        reply->set_success(true);
+        reply->set_message(db_response);
+        return Status::OK;
+    }
+    catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
+
  Status SchoolServiceImpl::GetSchools(ServerContext* context,const School::SchoolsRequest* request,School::SchoolList* reply){
     try{
         if(request->role()!=Role::DEVELOPER){

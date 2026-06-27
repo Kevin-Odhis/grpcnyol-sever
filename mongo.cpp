@@ -789,17 +789,12 @@ const std::string& user,const std::string& password,const std::string& school_id
         throw std::runtime_error("Internal error: "+std::string(e.what()));
     }
   }
-std::string SchoolDB::UpdateLearningAreas(int code,const std::string& school_id,const Role& role,std::vector<std::pair<std::string,
+std::string SchoolDB::UpdateLearningAreas(int code,const std::string& school_id,std::vector<std::pair<std::string,
     std::string>>&& grade_sub){
     auto handle=getcollection("teachers");
     auto& coll=handle.coll;
     try{
         auto filter=make_document(kvp("code",bsoncxx::types::b_int32{code}),kvp("school_id",school_id));
-        auto roleupdate=make_document(kvp("$set",make_document(kvp("role",Role_Name(role)))));
-        auto role_result=coll.update_one(filter.view(),roleupdate.view());
-        if(!role_result||role_result->matched_count()==0){
-            return "Update failed: No changes made to role of teacher with code "+std::to_string(code)+".";
-        }
         bsoncxx::builder::basic::array doc{};
         for(const auto& [grade,sub]:grade_sub){
             doc.append(make_document(kvp("grade_name",grade),kvp("subject",sub)));
@@ -928,6 +923,77 @@ std::string SchoolDB::CreateExam(const std::string& exam_name,int term,std::vect
         if(e.code().value()==11000){
             throw std::runtime_error("Exam already exists.");
         }
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
+std::string SchoolDB::AddExamToGrade(const std::string& exam_name,const std::string& grade,const std::string&school_id,int term,bool full){
+    auto handle=getcollection("grades");
+    auto& coll=handle.coll;
+    try{
+        School::school s_category=GetSchoolDetails(school_id);
+        std::map<int,std::pair<std::string,int>> subject_paper=GetSubjects(School::Category_Name(s_category.category()));
+
+        bsoncxx::builder::basic::array loaded_subs{};
+        auto filter=make_document(kvp("grade",grade),kvp("school_id",school_id));
+        auto find_grade=coll.find_one(filter.view());
+        if(!find_grade){
+            throw std::runtime_error(grade+" not found in the school database.");
+        }
+        auto class_doc=find_grade->view();
+        if(!class_doc["subjects"]||class_doc["subjects"].type()!=bsoncxx::type::k_array){
+            throw std::runtime_error("No subjects found for grade "+grade+".");
+        }
+        auto sub_arr=class_doc["subjects"].get_array().value;
+
+        for(const auto& sub_ele:sub_arr){
+                if(sub_ele.type()!=bsoncxx::type::k_document)continue;
+                auto sub_doc=sub_ele.get_document().view();
+                if(!sub_doc["subject_code"]||sub_doc["subject_code"].type()!=bsoncxx::type::k_int32)continue;
+                int code=sub_doc["subject_code"].get_int32().value;
+
+                auto it=subject_paper.find(code);
+                if(it==subject_paper.end())continue;
+                int papers=it->second.second;
+                bsoncxx::builder::basic::document subpaper_doc;
+                subpaper_doc.append(kvp("code",it->first),kvp("subject",it->second.first));
+                
+                bsoncxx::builder::basic::document papers_doc;
+                for(int i=1;i<=papers;++i){
+                    std::string paper="pp"+std::to_string(i);
+                    papers_doc.append(kvp(paper,bsoncxx::types::b_bool{false}));
+                }
+                subpaper_doc.append(kvp("papers",papers_doc.extract()));
+                loaded_subs.append(subpaper_doc.extract());
+            } 
+        bsoncxx::builder::basic::document exam{};
+        if(full){
+            exam.append(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",full),
+            kvp("loaded_subjects",loaded_subs.extract()));
+        }else{
+            exam.append(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",full),
+            kvp("loaded_subjects",make_array()));
+        }
+        auto grd_filter=make_document(kvp("grade",grade),kvp("school_id",school_id),
+                    kvp("exams",make_document(kvp("$not",make_document(kvp("$elemMatch",make_document(kvp("exam_name",exam_name))))))));
+
+        auto exam_final = exam.extract();
+        auto update=make_document(kvp("$addToSet",make_document(kvp("exams",exam_final.view()))));
+        auto update_result=coll.update_one(grd_filter.view(),update.view());
+
+        if(update_result&&update_result->modified_count()>0){
+            if(full){
+                AddExamPapers(grade,school_id,exam_name);
+              }
+        }
+        return exam_name+" added to "+grade+" successfully.";
+    }
+    catch(const mongocxx::operation_exception& e){
         throw std::runtime_error("Operation failed: "+std::string(e.what()));
     }
     catch(const mongocxx::exception& e){
@@ -1264,6 +1330,7 @@ std::vector<StudentExam> SchoolDB::GetStudents_Mark(const std::string& grade,con
             throw std::runtime_error("Internal error: "+std::string(e.what()));
         }
     }
+
 std::vector<School::Exam>SchoolDB::GetExams(const std::string& school_id){
     auto handle=getcollection("exam");
     auto& coll=handle.coll;
@@ -1673,6 +1740,29 @@ std::string SchoolDB::ResetUserPassword(const std::string& username,const std::s
         throw std::runtime_error("Internal error: "+std::string(e.what()));
     }
 }
+std::string SchoolDB::UpdateAdminRole(int code,const std::string& school_id,const School::Role& new_role){
+    auto handle=getcollection("teachers");
+    auto& coll=handle.coll;
+    try{
+        auto filter=make_document(kvp("code",bsoncxx::types::b_int32{code}),
+        kvp("school_id",school_id));
+        auto update=make_document(kvp("$set",make_document(kvp("role",School::Role_Name(new_role)))));
+        auto result=coll.update_one(filter.view(),update.view());
+        if(!result||result->matched_count()==0){
+            return "Failed to update admin role: No user found with code "+std::to_string(code)+".";
+        }
+        return "Admin role updated successfully";
+    }
+    catch(const mongocxx::operation_exception& e){
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
 Return_Grade SchoolDB::GetSubjects_Teacher(const std::string& grade,const std::string& school_id) {
     auto handle = getcollection("teachers");
     auto& coll = handle.coll;
@@ -1833,6 +1923,55 @@ std::string SchoolDB::CreateSchool(const std::string& name,const std::string& ad
         throw std::runtime_error("Internal error: "+std::string(e.what()));
     }
 }
+
+std::string SchoolDB::Add_SchoolHead(const School::Teacher& head,const std::string& school_id){
+    auto handle=getcollection("school");
+    auto& coll=handle.coll;
+    try{
+        auto filter=make_document(kvp("schoolId",school_id));
+        auto update=make_document(kvp("$set",make_document(
+            kvp("school_head",head.name())
+        )));
+        auto result=coll.update_one(filter.view(),update.view());
+        if(!result||result->matched_count()==0){
+            return "Failed to add school head: No school found with the provided school_id.";
+        }
+        return "School head added successfully";
+    }
+    catch(const mongocxx::operation_exception& e){
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
+std::string SchoolDB::Delete_SchoolHead(const std::string& school_id){
+    auto handle=getcollection("school");
+    auto& coll=handle.coll;
+    try{
+        auto filter=make_document(kvp("schoolId",school_id));
+        auto update=make_document(kvp("$set",make_document(
+            kvp("school_head","")
+        )));
+        auto result=coll.update_one(filter.view(),update.view());
+        if(!result||result->matched_count()==0){
+            return "Failed to delete school head: No school found with the provided school_id.";
+        }
+        return "School head deleted successfully";
+    }
+    catch(const mongocxx::operation_exception& e){
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
 School::school SchoolDB::GetSchoolDetails(const std::string& school_id){
     auto handle=getcollection("school");
     auto& coll=handle.coll;
@@ -1868,6 +2007,33 @@ School::school SchoolDB::GetSchoolDetails(const std::string& school_id){
         return s_details;
     }
      catch(const mongocxx::operation_exception& e){
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
+
+std::string SchoolDB::UpdateSchoolDetails(const School::UpdateSchoolRequest& request){
+    auto handle=getcollection("school");
+    auto& coll=handle.coll;
+    try{
+        auto filter=make_document(kvp("schoolId",request.school_id()));
+        auto update=make_document(kvp("$set",make_document(
+            kvp("name",request.school_name()),
+            kvp("email",request.school_email()),
+            kvp("motto",request.school_motto())
+        )));
+        auto result=coll.update_one(filter.view(),update.view());
+        if(!result||result->matched_count()==0){
+            return "Failed to update school details: No school found with the provided school_id.";
+        }
+        return "School details updated successfully";
+    }
+    catch(const mongocxx::operation_exception& e){
         throw std::runtime_error("Operation failed: "+std::string(e.what()));
     }
     catch(const mongocxx::exception& e){

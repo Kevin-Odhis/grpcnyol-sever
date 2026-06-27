@@ -307,6 +307,72 @@ struct exam_gradeDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 exam_gradeDefaultTypeInternal _exam_grade_default_instance_;
 
+inline constexpr UpdateSchoolRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : school_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        school_motto_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        school_email_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        school_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        role_{static_cast< ::School::Role >(0)},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UpdateSchoolRequest::UpdateSchoolRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct UpdateSchoolRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UpdateSchoolRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UpdateSchoolRequestDefaultTypeInternal() {}
+  union {
+    UpdateSchoolRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateSchoolRequestDefaultTypeInternal _UpdateSchoolRequest_default_instance_;
+
+inline constexpr UpdateAdminRoleRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : schoolid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        new_role_{static_cast< ::School::Role >(0)},
+        code_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UpdateAdminRoleRequest::UpdateAdminRoleRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct UpdateAdminRoleRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UpdateAdminRoleRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UpdateAdminRoleRequestDefaultTypeInternal() {}
+  union {
+    UpdateAdminRoleRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateAdminRoleRequestDefaultTypeInternal _UpdateAdminRoleRequest_default_instance_;
+
 inline constexpr SubjectScore::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : subject_(
@@ -1079,6 +1145,69 @@ struct DeleteSubjectRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteSubjectRequestDefaultTypeInternal _DeleteSubjectRequest_default_instance_;
+
+inline constexpr DeleteSchoolHeadRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : schoolid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR DeleteSchoolHeadRequest::DeleteSchoolHeadRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct DeleteSchoolHeadRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DeleteSchoolHeadRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DeleteSchoolHeadRequestDefaultTypeInternal() {}
+  union {
+    DeleteSchoolHeadRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteSchoolHeadRequestDefaultTypeInternal _DeleteSchoolHeadRequest_default_instance_;
+
+inline constexpr AddExamToGradeRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : schoolid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        grade_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        role_{static_cast< ::School::Role >(0)},
+        term_{0},
+        full_{false},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AddExamToGradeRequest::AddExamToGradeRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AddExamToGradeRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AddExamToGradeRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AddExamToGradeRequestDefaultTypeInternal() {}
+  union {
+    AddExamToGradeRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddExamToGradeRequestDefaultTypeInternal _AddExamToGradeRequest_default_instance_;
 
 inline constexpr school::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2005,6 +2134,34 @@ struct AddSchoolRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddSchoolRequestDefaultTypeInternal _AddSchoolRequest_default_instance_;
 
+inline constexpr AddSchoolHeadRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        schoolid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        teacher_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AddSchoolHeadRequest::AddSchoolHeadRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AddSchoolHeadRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AddSchoolHeadRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AddSchoolHeadRequestDefaultTypeInternal() {}
+  union {
+    AddSchoolHeadRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddSchoolHeadRequestDefaultTypeInternal _AddSchoolHeadRequest_default_instance_;
+
 inline constexpr AddReceiptRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -2062,6 +2219,32 @@ const ::uint32_t
     TableStruct_School_2eproto::offsets[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
         protodesc_cold) = {
         ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.schoolid_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.exam_name_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.grade_name_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.role_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.term_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.full_),
+        PROTOBUF_FIELD_OFFSET(::School::AddSchoolHeadRequest, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::School::AddSchoolHeadRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::AddSchoolHeadRequest, _impl_.schoolid_),
+        PROTOBUF_FIELD_OFFSET(::School::AddSchoolHeadRequest, _impl_.teacher_),
+        ~0u,
+        0,
+        ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::SchoolsRequest, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -2070,6 +2253,19 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::School::SchoolsRequest, _impl_.role_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::UpdateSchoolRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::UpdateSchoolRequest, _impl_.school_name_),
+        PROTOBUF_FIELD_OFFSET(::School::UpdateSchoolRequest, _impl_.school_motto_),
+        PROTOBUF_FIELD_OFFSET(::School::UpdateSchoolRequest, _impl_.school_email_),
+        PROTOBUF_FIELD_OFFSET(::School::UpdateSchoolRequest, _impl_.school_id_),
+        PROTOBUF_FIELD_OFFSET(::School::UpdateSchoolRequest, _impl_.role_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::SchoolList, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2099,6 +2295,15 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::School::AddInvoiceRequest, _impl_.invoice_),
         0,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::DeleteSchoolHeadRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::DeleteSchoolHeadRequest, _impl_.schoolid_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::GetReceiptRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2135,6 +2340,17 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::School::InvoiceList, _impl_.invoices_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::UpdateAdminRoleRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::UpdateAdminRoleRequest, _impl_.schoolid_),
+        PROTOBUF_FIELD_OFFSET(::School::UpdateAdminRoleRequest, _impl_.new_role_),
+        PROTOBUF_FIELD_OFFSET(::School::UpdateAdminRoleRequest, _impl_.code_),
         PROTOBUF_FIELD_OFFSET(::School::Receipt, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::School::Receipt, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2851,84 +3067,94 @@ const ::uint32_t
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-        {0, -1, -1, sizeof(::School::SchoolsRequest)},
-        {9, -1, -1, sizeof(::School::SchoolList)},
-        {18, 27, -1, sizeof(::School::AddReceiptRequest)},
-        {28, 37, -1, sizeof(::School::AddInvoiceRequest)},
-        {38, -1, -1, sizeof(::School::GetReceiptRequest)},
-        {47, -1, -1, sizeof(::School::ReceiptList)},
-        {56, -1, -1, sizeof(::School::GetInvoiceRequest)},
-        {65, -1, -1, sizeof(::School::InvoiceList)},
-        {74, 90, -1, sizeof(::School::Receipt)},
-        {98, -1, -1, sizeof(::School::paymentDetails)},
-        {109, 125, -1, sizeof(::School::Invoice)},
-        {133, -1, -1, sizeof(::School::DeleteTeacherSubjectRequest)},
-        {144, -1, -1, sizeof(::School::DeleteSubjectRequest)},
-        {155, 165, -1, sizeof(::School::EditStudentDetailsRequest)},
-        {167, -1, -1, sizeof(::School::AddSubjectsRequest)},
-        {178, -1, -1, sizeof(::School::FindExamRequest)},
-        {187, -1, -1, sizeof(::School::GetTeachersRequest)},
-        {196, -1, -1, sizeof(::School::FindGradesRequest)},
-        {205, -1, -1, sizeof(::School::FindStudentsRequest)},
-        {214, 223, -1, sizeof(::School::AddSchoolRequest)},
-        {224, 233, -1, sizeof(::School::SchoolDetails)},
-        {234, 252, -1, sizeof(::School::school)},
-        {262, -1, -1, sizeof(::School::SchoolDetailsRequest)},
-        {271, -1, -1, sizeof(::School::RemoveSubjectRequest)},
-        {282, -1, -1, sizeof(::School::ResetPasswordRequest)},
-        {292, -1, -1, sizeof(::School::setloadedsubjectrequest)},
-        {306, -1, -1, sizeof(::School::getloadedsubjectsrequest)},
-        {317, -1, -1, sizeof(::School::SubjectList)},
-        {326, -1, -1, sizeof(::School::MeritListRequest)},
-        {338, -1, -1, sizeof(::School::StudentMerit)},
-        {350, -1, -1, sizeof(::School::MeritList)},
-        {359, -1, -1, sizeof(::School::SetExamAnalysedRequest)},
-        {371, -1, -1, sizeof(::School::GradeStudentsRequest)},
-        {381, -1, -1, sizeof(::School::ExamList)},
-        {390, -1, -1, sizeof(::School::Students_Grade_Request)},
-        {400, -1, -1, sizeof(::School::GetStudentsperSubjectRequest)},
-        {415, -1, -1, sizeof(::School::LearnersListperGrade)},
-        {424, -1, -1, sizeof(::School::studentforteacher)},
-        {436, -1, -1, sizeof(::School::UpdateSubjectsRequest)},
-        {448, -1, -1, sizeof(::School::ExamReportRequest)},
-        {459, 470, -1, sizeof(::School::AddScoreRequest)},
-        {473, 486, -1, sizeof(::School::add_subject_score)},
-        {491, -1, -1, sizeof(::School::paper_score)},
-        {501, -1, -1, sizeof(::School::UpdateGradeRequest)},
-        {514, -1, -1, sizeof(::School::Grade)},
-        {524, 536, -1, sizeof(::School::AddGradeRequest)},
-        {540, -1, -1, sizeof(::School::grade_subject)},
-        {550, -1, -1, sizeof(::School::RemoveGradeRequest)},
-        {560, -1, -1, sizeof(::School::GradeList)},
-        {569, -1, -1, sizeof(::School::Return_Grade)},
-        {585, -1, -1, sizeof(::School::teacher_subject)},
-        {596, -1, -1, sizeof(::School::AddExamRequest)},
-        {609, -1, -1, sizeof(::School::exam_grade)},
-        {619, -1, -1, sizeof(::School::Exam)},
-        {631, -1, -1, sizeof(::School::TeachersList)},
-        {640, -1, -1, sizeof(::School::RemoveTeacherRequest)},
-        {651, 663, -1, sizeof(::School::AddTeacherRequest)},
-        {667, -1, -1, sizeof(::School::loginDetails)},
-        {677, 686, -1, sizeof(::School::LoginRequest)},
-        {687, -1, -1, sizeof(::School::StudentList)},
-        {696, -1, -1, sizeof(::School::Student)},
-        {709, 719, -1, sizeof(::School::AddStudentRequest)},
-        {721, -1, -1, sizeof(::School::Response)},
-        {731, -1, -1, sizeof(::School::RemoveStudentRequest)},
-        {741, -1, -1, sizeof(::School::Teacher)},
-        {754, -1, -1, sizeof(::School::GradeSub)},
-        {764, -1, -1, sizeof(::School::SubjectScore)},
-        {775, -1, -1, sizeof(::School::ExamReport)},
+        {0, -1, -1, sizeof(::School::AddExamToGradeRequest)},
+        {14, 24, -1, sizeof(::School::AddSchoolHeadRequest)},
+        {26, -1, -1, sizeof(::School::SchoolsRequest)},
+        {35, -1, -1, sizeof(::School::UpdateSchoolRequest)},
+        {48, -1, -1, sizeof(::School::SchoolList)},
+        {57, 66, -1, sizeof(::School::AddReceiptRequest)},
+        {67, 76, -1, sizeof(::School::AddInvoiceRequest)},
+        {77, -1, -1, sizeof(::School::DeleteSchoolHeadRequest)},
+        {86, -1, -1, sizeof(::School::GetReceiptRequest)},
+        {95, -1, -1, sizeof(::School::ReceiptList)},
+        {104, -1, -1, sizeof(::School::GetInvoiceRequest)},
+        {113, -1, -1, sizeof(::School::InvoiceList)},
+        {122, -1, -1, sizeof(::School::UpdateAdminRoleRequest)},
+        {133, 149, -1, sizeof(::School::Receipt)},
+        {157, -1, -1, sizeof(::School::paymentDetails)},
+        {168, 184, -1, sizeof(::School::Invoice)},
+        {192, -1, -1, sizeof(::School::DeleteTeacherSubjectRequest)},
+        {203, -1, -1, sizeof(::School::DeleteSubjectRequest)},
+        {214, 224, -1, sizeof(::School::EditStudentDetailsRequest)},
+        {226, -1, -1, sizeof(::School::AddSubjectsRequest)},
+        {237, -1, -1, sizeof(::School::FindExamRequest)},
+        {246, -1, -1, sizeof(::School::GetTeachersRequest)},
+        {255, -1, -1, sizeof(::School::FindGradesRequest)},
+        {264, -1, -1, sizeof(::School::FindStudentsRequest)},
+        {273, 282, -1, sizeof(::School::AddSchoolRequest)},
+        {283, 292, -1, sizeof(::School::SchoolDetails)},
+        {293, 311, -1, sizeof(::School::school)},
+        {321, -1, -1, sizeof(::School::SchoolDetailsRequest)},
+        {330, -1, -1, sizeof(::School::RemoveSubjectRequest)},
+        {341, -1, -1, sizeof(::School::ResetPasswordRequest)},
+        {351, -1, -1, sizeof(::School::setloadedsubjectrequest)},
+        {365, -1, -1, sizeof(::School::getloadedsubjectsrequest)},
+        {376, -1, -1, sizeof(::School::SubjectList)},
+        {385, -1, -1, sizeof(::School::MeritListRequest)},
+        {397, -1, -1, sizeof(::School::StudentMerit)},
+        {409, -1, -1, sizeof(::School::MeritList)},
+        {418, -1, -1, sizeof(::School::SetExamAnalysedRequest)},
+        {430, -1, -1, sizeof(::School::GradeStudentsRequest)},
+        {440, -1, -1, sizeof(::School::ExamList)},
+        {449, -1, -1, sizeof(::School::Students_Grade_Request)},
+        {459, -1, -1, sizeof(::School::GetStudentsperSubjectRequest)},
+        {474, -1, -1, sizeof(::School::LearnersListperGrade)},
+        {483, -1, -1, sizeof(::School::studentforteacher)},
+        {495, -1, -1, sizeof(::School::UpdateSubjectsRequest)},
+        {507, -1, -1, sizeof(::School::ExamReportRequest)},
+        {518, 529, -1, sizeof(::School::AddScoreRequest)},
+        {532, 545, -1, sizeof(::School::add_subject_score)},
+        {550, -1, -1, sizeof(::School::paper_score)},
+        {560, -1, -1, sizeof(::School::UpdateGradeRequest)},
+        {573, -1, -1, sizeof(::School::Grade)},
+        {583, 595, -1, sizeof(::School::AddGradeRequest)},
+        {599, -1, -1, sizeof(::School::grade_subject)},
+        {609, -1, -1, sizeof(::School::RemoveGradeRequest)},
+        {619, -1, -1, sizeof(::School::GradeList)},
+        {628, -1, -1, sizeof(::School::Return_Grade)},
+        {644, -1, -1, sizeof(::School::teacher_subject)},
+        {655, -1, -1, sizeof(::School::AddExamRequest)},
+        {668, -1, -1, sizeof(::School::exam_grade)},
+        {678, -1, -1, sizeof(::School::Exam)},
+        {690, -1, -1, sizeof(::School::TeachersList)},
+        {699, -1, -1, sizeof(::School::RemoveTeacherRequest)},
+        {710, 722, -1, sizeof(::School::AddTeacherRequest)},
+        {726, -1, -1, sizeof(::School::loginDetails)},
+        {736, 745, -1, sizeof(::School::LoginRequest)},
+        {746, -1, -1, sizeof(::School::StudentList)},
+        {755, -1, -1, sizeof(::School::Student)},
+        {768, 778, -1, sizeof(::School::AddStudentRequest)},
+        {780, -1, -1, sizeof(::School::Response)},
+        {790, -1, -1, sizeof(::School::RemoveStudentRequest)},
+        {800, -1, -1, sizeof(::School::Teacher)},
+        {813, -1, -1, sizeof(::School::GradeSub)},
+        {823, -1, -1, sizeof(::School::SubjectScore)},
+        {834, -1, -1, sizeof(::School::ExamReport)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
+    &::School::_AddExamToGradeRequest_default_instance_._instance,
+    &::School::_AddSchoolHeadRequest_default_instance_._instance,
     &::School::_SchoolsRequest_default_instance_._instance,
+    &::School::_UpdateSchoolRequest_default_instance_._instance,
     &::School::_SchoolList_default_instance_._instance,
     &::School::_AddReceiptRequest_default_instance_._instance,
     &::School::_AddInvoiceRequest_default_instance_._instance,
+    &::School::_DeleteSchoolHeadRequest_default_instance_._instance,
     &::School::_GetReceiptRequest_default_instance_._instance,
     &::School::_ReceiptList_default_instance_._instance,
     &::School::_GetInvoiceRequest_default_instance_._instance,
     &::School::_InvoiceList_default_instance_._instance,
+    &::School::_UpdateAdminRoleRequest_default_instance_._instance,
     &::School::_Receipt_default_instance_._instance,
     &::School::_paymentDetails_default_instance_._instance,
     &::School::_Invoice_default_instance_._instance,
@@ -2993,217 +3219,238 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_School_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\014School.proto\022\006School\032\037google/protobuf/"
-    "timestamp.proto\",\n\016SchoolsRequest\022\032\n\004rol"
-    "e\030\001 \001(\0162\014.School.Role\"-\n\nSchoolList\022\037\n\007s"
-    "chools\030\001 \003(\0132\016.School.school\"5\n\021AddRecei"
-    "ptRequest\022 \n\007receipt\030\001 \001(\0132\017.School.Rece"
-    "ipt\"5\n\021AddInvoiceRequest\022 \n\007invoice\030\001 \001("
-    "\0132\017.School.Invoice\"%\n\021GetReceiptRequest\022"
-    "\020\n\010schoolid\030\001 \001(\t\"0\n\013ReceiptList\022!\n\010rece"
-    "ipts\030\001 \003(\0132\017.School.Receipt\"%\n\021GetInvoic"
-    "eRequest\022\020\n\010schoolid\030\001 \001(\t\"0\n\013InvoiceLis"
-    "t\022!\n\010invoices\030\001 \003(\0132\017.School.Invoice\"\324\001\n"
-    "\007Receipt\022\020\n\010schoolid\030\001 \001(\t\022\025\n\rreceiptnum"
-    "ber\030\002 \001(\t\022\021\n\tinvoiceid\030\003 \001(\t\022(\n\004date\030\004 \001"
-    "(\0132\032.google.protobuf.Timestamp\022\'\n\007paymen"
-    "t\030\005 \001(\0132\026.School.paymentDetails\022\016\n\006amoun"
-    "t\030\006 \001(\001\022\023\n\013description\030\007 \001(\t\022\025\n\ramountin"
-    "words\030\010 \001(\t\"M\n\016paymentDetails\022\016\n\006method\030"
-    "\001 \001(\t\022\027\n\017transactioncode\030\002 \001(\t\022\022\n\nsender"
-    "Name\030\003 \001(\t\"\357\001\n\007Invoice\022\025\n\rinvoiceNumber\030"
-    "\001 \001(\t\022\020\n\010schoolId\030\002 \001(\t\022%\n\006status\030\003 \001(\0162"
-    "\025.School.InvoiceStatus\022\023\n\013billingYear\030\004 "
-    "\001(\005\022\016\n\006amount\030\005 \001(\001\022\023\n\013description\030\006 \001(\t"
-    "\022-\n\tstartDate\030\007 \001(\0132\032.google.protobuf.Ti"
-    "mestamp\022+\n\007dueDate\030\010 \001(\0132\032.google.protob"
-    "uf.Timestamp\"i\n\033DeleteTeacherSubjectRequ"
-    "est\022\023\n\013teachercode\030\001 \001(\005\022\"\n\010subjects\030\002 \003"
-    "(\0132\020.School.GradeSub\022\021\n\tschool_id\030\003 \001(\t\""
-    "P\n\024DeleteSubjectRequest\022\020\n\010subjects\030\001 \003("
-    "\t\022\021\n\tschool_id\030\002 \001(\t\022\023\n\013student_upi\030\003 \001("
-    "\t\"P\n\031EditStudentDetailsRequest\022 \n\007studen"
-    "t\030\001 \001(\0132\017.School.Student\022\021\n\tschool_id\030\002 "
-    "\001(\t\"]\n\022AddSubjectsRequest\022\'\n\010subjects\030\001 "
-    "\003(\0132\025.School.grade_subject\022\021\n\tschool_id\030"
-    "\002 \001(\t\022\013\n\003upi\030\003 \001(\t\"$\n\017FindExamRequest\022\021\n"
-    "\tschool_id\030\001 \001(\t\"\'\n\022GetTeachersRequest\022\021"
-    "\n\tschool_id\030\001 \001(\t\"&\n\021FindGradesRequest\022\021"
-    "\n\tschool_id\030\001 \001(\t\"(\n\023FindStudentsRequest"
-    "\022\021\n\tschool_id\030\001 \001(\t\"3\n\020AddSchoolRequest\022"
-    "\037\n\007details\030\001 \001(\0132\016.School.school\"0\n\rScho"
-    "olDetails\022\037\n\007details\030\001 \001(\0132\016.School.scho"
-    "ol\"\240\002\n\006school\022\014\n\004name\030\001 \001(\t\022\r\n\005email\030\002 \001"
-    "(\t\022\017\n\007address\030\003 \001(\t\022\"\n\010category\030\004 \001(\0162\020."
-    "School.Category\022\021\n\tschool_id\030\005 \001(\t\022\024\n\014sc"
-    "hool_motto\030\006 \001(\t\022\023\n\013school_head\030\007 \001(\t\022*\n"
-    "\006status\030\010 \001(\0162\032.School.SubscriptionStatu"
-    "s\022-\n\tstartDate\030\t \001(\0132\032.google.protobuf.T"
-    "imestamp\022+\n\007dueDate\030\n \001(\0132\032.google.proto"
-    "buf.Timestamp\")\n\024SchoolDetailsRequest\022\021\n"
-    "\tschool_id\030\001 \001(\t\"f\n\024RemoveSubjectRequest"
-    "\022\'\n\010subjects\030\001 \003(\0132\025.School.grade_subjec"
-    "t\022\022\n\ngrade_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t"
-    "\"=\n\024ResetPasswordRequest\022\020\n\010username\030\001 \001"
-    "(\t\022\023\n\013newpassword\030\002 \001(\t\"\216\001\n\027setloadedsub"
-    "jectrequest\022\022\n\ngrade_name\030\001 \001(\t\022\021\n\texam_"
-    "name\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\021\n\tschool_id"
-    "\030\004 \001(\t\022\024\n\014paper_number\030\005 \001(\005\022\022\n\nfull_pap"
-    "er\030\006 \001(\010\"T\n\030getloadedsubjectsrequest\022\022\n\n"
-    "grade_name\030\001 \001(\t\022\021\n\texam_name\030\002 \001(\t\022\021\n\ts"
-    "chool_id\030\003 \001(\t\"\036\n\013SubjectList\022\017\n\007subject"
-    "\030\001 \003(\t\"^\n\020MeritListRequest\022\021\n\tgradename\030"
-    "\001 \001(\t\022\020\n\010examname\030\002 \001(\t\022\022\n\nfull_paper\030\003 "
-    "\001(\010\022\021\n\tschool_id\030\004 \001(\t\"q\n\014StudentMerit\022\013"
-    "\n\003upi\030\001 \001(\t\022\024\n\014student_name\030\002 \001(\t\022\030\n\003sex"
-    "\030\003 \001(\0162\013.School.Sex\022$\n\006scores\030\004 \003(\0132\024.Sc"
-    "hool.SubjectScore\"3\n\tMeritList\022&\n\010learne"
-    "rs\030\001 \003(\0132\024.School.StudentMerit\"k\n\026SetExa"
-    "mAnalysedRequest\022\021\n\texam_name\030\001 \001(\t\022\022\n\ng"
-    "rade_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\022\027\n\017an"
-    "alysis_status\030\004 \001(\010\"8\n\024GradeStudentsRequ"
-    "est\022\r\n\005grade\030\001 \001(\t\022\021\n\tschool_id\030\002 \001(\t\"\'\n"
-    "\010ExamList\022\033\n\005exams\030\001 \003(\0132\014.School.Exam\"<"
-    "\n\026Students_Grade_Request\022\022\n\ngrade_name\030\001"
-    " \001(\t\022\016\n\006school\030\002 \001(\t\"\241\001\n\034GetStudentsperS"
-    "ubjectRequest\022\014\n\004code\030\001 \001(\005\022\017\n\007subject\030\002"
-    " \001(\t\022\022\n\ngrade_name\030\003 \001(\t\022\021\n\texam_name\030\004 "
-    "\001(\t\022\021\n\tschool_id\030\005 \001(\t\022\022\n\nfull_paper\030\006 \001"
-    "(\010\022\024\n\014paper_number\030\007 \001(\005\"C\n\024LearnersList"
-    "perGrade\022+\n\010students\030\001 \003(\0132\031.School.stud"
-    "entforteacher\"Y\n\021studentforteacher\022\024\n\014st"
-    "udent_name\030\001 \001(\t\022\013\n\003upi\030\002 \001(\t\022\022\n\ngrade_n"
-    "ame\030\003 \001(\t\022\r\n\005score\030\004 \001(\005\"\204\001\n\025UpdateSubje"
-    "ctsRequest\022&\n\014new_subjects\030\001 \003(\0132\020.Schoo"
-    "l.GradeSub\022\024\n\014teacher_code\030\002 \001(\005\022\032\n\004role"
-    "\030\003 \001(\0162\014.School.Role\022\021\n\tschool_id\030\004 \001(\t\""
-    "F\n\021ExamReportRequest\022\013\n\003upi\030\001 \001(\t\022\021\n\texa"
-    "m_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"]\n\017AddSc"
-    "oreRequest\022\'\n\004mark\030\001 \001(\0132\031.School.add_su"
-    "bject_score\022\021\n\tschool_id\030\002 \001(\t\022\016\n\006out_of"
-    "\030\003 \001(\005\"}\n\021add_subject_score\022\017\n\007subject\030\001"
-    " \001(\t\022#\n\006scores\030\002 \001(\0132\023.School.paper_scor"
-    "e\022\013\n\003upi\030\003 \001(\t\022\021\n\texam_name\030\004 \001(\t\022\022\n\nful"
-    "l_paper\030\005 \001(\010\"(\n\013paper_score\022\n\n\002pp\030\001 \001(\005"
-    "\022\r\n\005score\030\002 \001(\005\"}\n\022UpdateGradeRequest\022\014\n"
-    "\004code\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\017\n\007newname\030\003 \001"
-    "(\t\022\'\n\010subjects\030\004 \003(\0132\025.School.grade_subj"
-    "ect\022\021\n\tschool_id\030\005 \001(\t\"1\n\005Grade\022\014\n\004name\030"
-    "\001 \001(\t\022\032\n\022grade_teacher_code\030\002 \001(\005\"\214\001\n\017Ad"
-    "dGradeRequest\022\034\n\005grade\030\001 \001(\0132\r.School.Gr"
-    "ade\022\'\n\010subjects\030\002 \003(\0132\025.School.grade_sub"
-    "ject\022\021\n\tschool_id\030\003 \001(\t\022\037\n\005level\030\004 \001(\0162\020"
-    ".School.Category\".\n\rgrade_subject\022\017\n\007sub"
-    "ject\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\"5\n\022RemoveGradeR"
-    "equest\022\014\n\004name\030\001 \001(\t\022\021\n\tschool_id\030\002 \001(\t\""
-    "1\n\tGradeList\022$\n\006grades\030\001 \003(\0132\024.School.Re"
-    "turn_Grade\"\375\001\n\014Return_Grade\022\014\n\004name\030\001 \001("
-    "\t\022\032\n\022grade_teacher_code\030\002 \001(\005\022\033\n\005exams\030\003"
-    " \003(\0132\014.School.Exam\022\026\n\016total_learners\030\004 \001"
-    "(\005\022\'\n\010subjects\030\005 \003(\0132\025.School.grade_subj"
-    "ect\022(\n\007l_areas\030\006 \003(\0132\027.School.teacher_su"
-    "bject\022\032\n\022grade_teacher_name\030\007 \001(\t\022\037\n\005lev"
-    "el\030\010 \001(\0162\020.School.Category\"N\n\017teacher_su"
-    "bject\022\017\n\007subject\030\001 \001(\t\022\024\n\014teacher_name\030\002"
-    " \001(\t\022\024\n\014teacher_code\030\003 \001(\005\"u\n\016AddExamReq"
-    "uest\022\014\n\004name\030\001 \001(\t\022\"\n\006grades\030\002 \003(\0132\022.Sch"
-    "ool.exam_grade\022\020\n\010analysed\030\003 \001(\010\022\014\n\004term"
-    "\030\004 \001(\005\022\021\n\tschool_id\030\005 \001(\t\"/\n\nexam_grade\022"
-    "\r\n\005grade\030\001 \001(\t\022\022\n\nfull_paper\030\002 \001(\010\"M\n\004Ex"
-    "am\022\021\n\texam_name\030\001 \001(\t\022\020\n\010analysed\030\002 \001(\010\022"
-    "\014\n\004term\030\003 \001(\005\022\022\n\nfull_paper\030\004 \001(\010\"1\n\014Tea"
-    "chersList\022!\n\010teachers\030\001 \003(\0132\017.School.Tea"
-    "cher\"E\n\024RemoveTeacherRequest\022\014\n\004code\030\001 \001"
-    "(\005\022\014\n\004name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"\223\001\n\021"
-    "AddTeacherRequest\022 \n\007teacher\030\001 \001(\0132\017.Sch"
-    "ool.Teacher\022$\n\ngrade_subs\030\002 \003(\0132\020.School"
-    ".GradeSub\022#\n\005login\030\003 \001(\0132\024.School.loginD"
-    "etails\022\021\n\tschool_id\030\004 \001(\t\"2\n\014loginDetail"
-    "s\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"4\n"
-    "\014LoginRequest\022$\n\006verify\030\001 \001(\0132\024.School.l"
-    "oginDetails\"0\n\013StudentList\022!\n\010students\030\001"
-    " \003(\0132\017.School.Student\"e\n\007Student\022\014\n\004name"
-    "\030\001 \001(\t\022\016\n\006upi_no\030\002 \001(\t\022\r\n\005grade\030\003 \001(\t\022\033\n"
-    "\006gender\030\004 \001(\0162\013.School.Sex\022\020\n\010subjects\030\005"
-    " \003(\t\"H\n\021AddStudentRequest\022 \n\007student\030\001 \001"
-    "(\0132\017.School.Student\022\021\n\tschool_id\030\002 \001(\t\","
-    "\n\010Response\022\017\n\007message\030\001 \001(\t\022\017\n\007success\030\002"
-    " \001(\010\"9\n\024RemoveStudentRequest\022\016\n\006upi_no\030\001"
-    " \001(\t\022\021\n\tschool_id\030\002 \001(\t\"z\n\007Teacher\022\014\n\004na"
-    "me\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\022$\n\ngrade_subs\030\003 \003"
-    "(\0132\020.School.GradeSub\022\032\n\004role\030\004 \001(\0162\014.Sch"
-    "ool.Role\022\021\n\tschool_id\030\005 \001(\t\"*\n\010GradeSub\022"
-    "\r\n\005grade\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\"=\n\014Subje"
-    "ctScore\022\017\n\007subject\030\001 \001(\t\022\r\n\005score\030\002 \001(\005\022"
-    "\r\n\005level\030\003 \001(\t\"^\n\nExamReport\022\023\n\013total_ma"
-    "rks\030\001 \001(\005\022\025\n\roverall_level\030\002 \001(\t\022$\n\006scor"
-    "es\030\003 \003(\0132\024.School.SubjectScore*K\n\rInvoic"
-    "eStatus\022\023\n\017INVOICE_PENDING\020\000\022\020\n\014INVOICE_"
-    "PAID\020\001\022\023\n\017INVOICE_OVERDUE\020\002*8\n\022Subscript"
-    "ionStatus\022\t\n\005GRACE\020\000\022\n\n\006ACTIVE\020\001\022\013\n\007EXPI"
-    "RED\020\002*,\n\003Sex\022\017\n\013Unspecified\020\000\022\010\n\004Male\020\001\022"
-    "\n\n\006Female\020\002*E\n\004Role\022\013\n\007TEACHER\020\000\022\r\n\tPRIN"
-    "CIPAL\020\001\022\t\n\005ADMIN\020\003\022\007\n\003HOI\020\004\022\r\n\tDEVELOPER"
-    "\020\005*2\n\010Category\022\013\n\007PRIMARY\020\000\022\n\n\006JUNIOR\020\001\022"
-    "\r\n\tSECONDARY\020\0022\307\022\n\rSchoolService\022:\n\014Crea"
-    "teSchool\022\030.School.AddSchoolRequest\032\020.Sch"
-    "ool.Response\022G\n\020GetSchoolDetails\022\034.Schoo"
-    "l.SchoolDetailsRequest\032\025.School.SchoolDe"
-    "tails\0228\n\nGetSchools\022\026.School.SchoolsRequ"
-    "est\032\022.School.SchoolList\0229\n\nAddStudent\022\031."
-    "School.AddStudentRequest\032\020.School.Respon"
-    "se\022\?\n\rRemoveStudent\022\034.School.RemoveStude"
-    "ntRequest\032\020.School.Response\022I\n\022EditStude"
-    "ntDetails\022!.School.EditStudentDetailsReq"
-    "uest\032\020.School.Response\022\?\n\013GetStudents\022\033."
-    "School.FindStudentsRequest\032\023.School.Stud"
-    "entList\022I\n\022GetLearnersbyGrade\022\036.School.S"
-    "tudents_Grade_Request\032\023.School.StudentLi"
-    "st\022F\n\024DeleteStudentSubject\022\034.School.Dele"
-    "teSubjectRequest\032\020.School.Response\022<\n\017Ad"
-    "dStudentScore\022\027.School.AddScoreRequest\032\020"
-    ".School.Response\022B\n\021StudentExamReport\022\031."
-    "School.ExamReportRequest\032\022.School.ExamRe"
-    "port\022D\n\024AddSubjectsToStudent\022\032.School.Ad"
-    "dSubjectsRequest\032\020.School.Response\0229\n\nAd"
-    "dTeacher\022\031.School.AddTeacherRequest\032\020.Sc"
-    "hool.Response\0225\n\014TeacherLogin\022\024.School.L"
-    "oginRequest\032\017.School.Teacher\022\?\n\rRemoveTe"
-    "acher\022\034.School.RemoveTeacherRequest\032\020.Sc"
-    "hool.Response\022\?\n\013GetTeachers\022\032.School.Ge"
-    "tTeachersRequest\032\024.School.TeachersList\022A"
-    "\n\016UpdateSubjects\022\035.School.UpdateSubjects"
-    "Request\032\020.School.Response\022c\n\035ListofLearn"
-    "ersbyGrade_Subject\022$.School.GetStudentsp"
-    "erSubjectRequest\032\034.School.LearnersListpe"
-    "rGrade\022\?\n\rResetPassword\022\034.School.ResetPa"
-    "sswordRequest\032\020.School.Response\022M\n\024Delet"
-    "eTeacherSubject\022#.School.DeleteTeacherSu"
-    "bjectRequest\032\020.School.Response\0223\n\007AddExa"
-    "m\022\026.School.AddExamRequest\032\020.School.Respo"
-    "nse\0226\n\tFindExams\022\027.School.FindExamReques"
-    "t\032\020.School.ExamList\022C\n\017SetExamAnalysed\022\036"
-    ".School.SetExamAnalysedRequest\032\020.School."
-    "Response\022=\n\016GradeMeritList\022\030.School.Meri"
-    "tListRequest\032\021.School.MeritList\022F\n\021setLo"
-    "adedSubjects\022\037.School.setloadedsubjectre"
-    "quest\032\020.School.Response\022L\n\023fetchLoadedSu"
-    "bjects\022 .School.getloadedsubjectsrequest"
-    "\032\023.School.SubjectList\0225\n\010AddGrade\022\027.Scho"
-    "ol.AddGradeRequest\032\020.School.Response\022D\n\022"
-    "RemoveGradeSubject\022\034.School.RemoveSubjec"
-    "tRequest\032\020.School.Response\022;\n\013RemoveGrad"
-    "e\022\032.School.RemoveGradeRequest\032\020.School.R"
-    "esponse\022:\n\nFindGrades\022\031.School.FindGrade"
-    "sRequest\032\021.School.GradeList\022;\n\013UpdateGra"
-    "de\022\032.School.UpdateGradeRequest\032\020.School."
-    "Response\022B\n\rGradeStudents\022\034.School.Grade"
-    "StudentsRequest\032\023.School.StudentList\0226\n\007"
-    "Invoice\022\031.School.AddInvoiceRequest\032\020.Sch"
-    "ool.Response\022<\n\nGetInvoice\022\031.School.GetI"
-    "nvoiceRequest\032\023.School.InvoiceList\0226\n\007Re"
-    "ceipt\022\031.School.AddReceiptRequest\032\020.Schoo"
-    "l.Response\022<\n\nGetReceipt\022\031.School.GetRec"
-    "eiptRequest\032\023.School.ReceiptListb\006proto3"
+    "timestamp.proto\"\210\001\n\025AddExamToGradeReques"
+    "t\022\020\n\010schoolid\030\001 \001(\t\022\021\n\texam_name\030\002 \001(\t\022\022"
+    "\n\ngrade_name\030\003 \001(\t\022\032\n\004role\030\004 \001(\0162\014.Schoo"
+    "l.Role\022\014\n\004term\030\005 \001(\005\022\014\n\004full\030\006 \001(\010\"J\n\024Ad"
+    "dSchoolHeadRequest\022\020\n\010schoolid\030\001 \001(\t\022 \n\007"
+    "teacher\030\002 \001(\0132\017.School.Teacher\",\n\016School"
+    "sRequest\022\032\n\004role\030\001 \001(\0162\014.School.Role\"\205\001\n"
+    "\023UpdateSchoolRequest\022\023\n\013school_name\030\001 \001("
+    "\t\022\024\n\014school_motto\030\002 \001(\t\022\024\n\014school_email\030"
+    "\003 \001(\t\022\021\n\tschool_id\030\004 \001(\t\022\032\n\004role\030\005 \001(\0162\014"
+    ".School.Role\"-\n\nSchoolList\022\037\n\007schools\030\001 "
+    "\003(\0132\016.School.school\"5\n\021AddReceiptRequest"
+    "\022 \n\007receipt\030\001 \001(\0132\017.School.Receipt\"5\n\021Ad"
+    "dInvoiceRequest\022 \n\007invoice\030\001 \001(\0132\017.Schoo"
+    "l.Invoice\"+\n\027DeleteSchoolHeadRequest\022\020\n\010"
+    "schoolid\030\001 \001(\t\"%\n\021GetReceiptRequest\022\020\n\010s"
+    "choolid\030\001 \001(\t\"0\n\013ReceiptList\022!\n\010receipts"
+    "\030\001 \003(\0132\017.School.Receipt\"%\n\021GetInvoiceReq"
+    "uest\022\020\n\010schoolid\030\001 \001(\t\"0\n\013InvoiceList\022!\n"
+    "\010invoices\030\001 \003(\0132\017.School.Invoice\"X\n\026Upda"
+    "teAdminRoleRequest\022\020\n\010schoolid\030\001 \001(\t\022\036\n\010"
+    "new_role\030\002 \001(\0162\014.School.Role\022\014\n\004code\030\003 \001"
+    "(\005\"\324\001\n\007Receipt\022\020\n\010schoolid\030\001 \001(\t\022\025\n\rrece"
+    "iptnumber\030\002 \001(\t\022\021\n\tinvoiceid\030\003 \001(\t\022(\n\004da"
+    "te\030\004 \001(\0132\032.google.protobuf.Timestamp\022\'\n\007"
+    "payment\030\005 \001(\0132\026.School.paymentDetails\022\016\n"
+    "\006amount\030\006 \001(\001\022\023\n\013description\030\007 \001(\t\022\025\n\ram"
+    "ountinwords\030\010 \001(\t\"M\n\016paymentDetails\022\016\n\006m"
+    "ethod\030\001 \001(\t\022\027\n\017transactioncode\030\002 \001(\t\022\022\n\n"
+    "senderName\030\003 \001(\t\"\357\001\n\007Invoice\022\025\n\rinvoiceN"
+    "umber\030\001 \001(\t\022\020\n\010schoolId\030\002 \001(\t\022%\n\006status\030"
+    "\003 \001(\0162\025.School.InvoiceStatus\022\023\n\013billingY"
+    "ear\030\004 \001(\005\022\016\n\006amount\030\005 \001(\001\022\023\n\013description"
+    "\030\006 \001(\t\022-\n\tstartDate\030\007 \001(\0132\032.google.proto"
+    "buf.Timestamp\022+\n\007dueDate\030\010 \001(\0132\032.google."
+    "protobuf.Timestamp\"i\n\033DeleteTeacherSubje"
+    "ctRequest\022\023\n\013teachercode\030\001 \001(\005\022\"\n\010subjec"
+    "ts\030\002 \003(\0132\020.School.GradeSub\022\021\n\tschool_id\030"
+    "\003 \001(\t\"P\n\024DeleteSubjectRequest\022\020\n\010subject"
+    "s\030\001 \003(\t\022\021\n\tschool_id\030\002 \001(\t\022\023\n\013student_up"
+    "i\030\003 \001(\t\"P\n\031EditStudentDetailsRequest\022 \n\007"
+    "student\030\001 \001(\0132\017.School.Student\022\021\n\tschool"
+    "_id\030\002 \001(\t\"]\n\022AddSubjectsRequest\022\'\n\010subje"
+    "cts\030\001 \003(\0132\025.School.grade_subject\022\021\n\tscho"
+    "ol_id\030\002 \001(\t\022\013\n\003upi\030\003 \001(\t\"$\n\017FindExamRequ"
+    "est\022\021\n\tschool_id\030\001 \001(\t\"\'\n\022GetTeachersReq"
+    "uest\022\021\n\tschool_id\030\001 \001(\t\"&\n\021FindGradesReq"
+    "uest\022\021\n\tschool_id\030\001 \001(\t\"(\n\023FindStudentsR"
+    "equest\022\021\n\tschool_id\030\001 \001(\t\"3\n\020AddSchoolRe"
+    "quest\022\037\n\007details\030\001 \001(\0132\016.School.school\"0"
+    "\n\rSchoolDetails\022\037\n\007details\030\001 \001(\0132\016.Schoo"
+    "l.school\"\240\002\n\006school\022\014\n\004name\030\001 \001(\t\022\r\n\005ema"
+    "il\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\022\"\n\010category\030\004 "
+    "\001(\0162\020.School.Category\022\021\n\tschool_id\030\005 \001(\t"
+    "\022\024\n\014school_motto\030\006 \001(\t\022\023\n\013school_head\030\007 "
+    "\001(\t\022*\n\006status\030\010 \001(\0162\032.School.Subscriptio"
+    "nStatus\022-\n\tstartDate\030\t \001(\0132\032.google.prot"
+    "obuf.Timestamp\022+\n\007dueDate\030\n \001(\0132\032.google"
+    ".protobuf.Timestamp\")\n\024SchoolDetailsRequ"
+    "est\022\021\n\tschool_id\030\001 \001(\t\"f\n\024RemoveSubjectR"
+    "equest\022\'\n\010subjects\030\001 \003(\0132\025.School.grade_"
+    "subject\022\022\n\ngrade_name\030\002 \001(\t\022\021\n\tschool_id"
+    "\030\003 \001(\t\"=\n\024ResetPasswordRequest\022\020\n\010userna"
+    "me\030\001 \001(\t\022\023\n\013newpassword\030\002 \001(\t\"\216\001\n\027setloa"
+    "dedsubjectrequest\022\022\n\ngrade_name\030\001 \001(\t\022\021\n"
+    "\texam_name\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\021\n\tsch"
+    "ool_id\030\004 \001(\t\022\024\n\014paper_number\030\005 \001(\005\022\022\n\nfu"
+    "ll_paper\030\006 \001(\010\"T\n\030getloadedsubjectsreque"
+    "st\022\022\n\ngrade_name\030\001 \001(\t\022\021\n\texam_name\030\002 \001("
+    "\t\022\021\n\tschool_id\030\003 \001(\t\"\036\n\013SubjectList\022\017\n\007s"
+    "ubject\030\001 \003(\t\"^\n\020MeritListRequest\022\021\n\tgrad"
+    "ename\030\001 \001(\t\022\020\n\010examname\030\002 \001(\t\022\022\n\nfull_pa"
+    "per\030\003 \001(\010\022\021\n\tschool_id\030\004 \001(\t\"q\n\014StudentM"
+    "erit\022\013\n\003upi\030\001 \001(\t\022\024\n\014student_name\030\002 \001(\t\022"
+    "\030\n\003sex\030\003 \001(\0162\013.School.Sex\022$\n\006scores\030\004 \003("
+    "\0132\024.School.SubjectScore\"3\n\tMeritList\022&\n\010"
+    "learners\030\001 \003(\0132\024.School.StudentMerit\"k\n\026"
+    "SetExamAnalysedRequest\022\021\n\texam_name\030\001 \001("
+    "\t\022\022\n\ngrade_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t"
+    "\022\027\n\017analysis_status\030\004 \001(\010\"8\n\024GradeStuden"
+    "tsRequest\022\r\n\005grade\030\001 \001(\t\022\021\n\tschool_id\030\002 "
+    "\001(\t\"\'\n\010ExamList\022\033\n\005exams\030\001 \003(\0132\014.School."
+    "Exam\"<\n\026Students_Grade_Request\022\022\n\ngrade_"
+    "name\030\001 \001(\t\022\016\n\006school\030\002 \001(\t\"\241\001\n\034GetStuden"
+    "tsperSubjectRequest\022\014\n\004code\030\001 \001(\005\022\017\n\007sub"
+    "ject\030\002 \001(\t\022\022\n\ngrade_name\030\003 \001(\t\022\021\n\texam_n"
+    "ame\030\004 \001(\t\022\021\n\tschool_id\030\005 \001(\t\022\022\n\nfull_pap"
+    "er\030\006 \001(\010\022\024\n\014paper_number\030\007 \001(\005\"C\n\024Learne"
+    "rsListperGrade\022+\n\010students\030\001 \003(\0132\031.Schoo"
+    "l.studentforteacher\"Y\n\021studentforteacher"
+    "\022\024\n\014student_name\030\001 \001(\t\022\013\n\003upi\030\002 \001(\t\022\022\n\ng"
+    "rade_name\030\003 \001(\t\022\r\n\005score\030\004 \001(\005\"\204\001\n\025Updat"
+    "eSubjectsRequest\022&\n\014new_subjects\030\001 \003(\0132\020"
+    ".School.GradeSub\022\024\n\014teacher_code\030\002 \001(\005\022\032"
+    "\n\004role\030\003 \001(\0162\014.School.Role\022\021\n\tschool_id\030"
+    "\004 \001(\t\"F\n\021ExamReportRequest\022\013\n\003upi\030\001 \001(\t\022"
+    "\021\n\texam_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"]\n"
+    "\017AddScoreRequest\022\'\n\004mark\030\001 \001(\0132\031.School."
+    "add_subject_score\022\021\n\tschool_id\030\002 \001(\t\022\016\n\006"
+    "out_of\030\003 \001(\005\"}\n\021add_subject_score\022\017\n\007sub"
+    "ject\030\001 \001(\t\022#\n\006scores\030\002 \001(\0132\023.School.pape"
+    "r_score\022\013\n\003upi\030\003 \001(\t\022\021\n\texam_name\030\004 \001(\t\022"
+    "\022\n\nfull_paper\030\005 \001(\010\"(\n\013paper_score\022\n\n\002pp"
+    "\030\001 \001(\005\022\r\n\005score\030\002 \001(\005\"}\n\022UpdateGradeRequ"
+    "est\022\014\n\004code\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\017\n\007newna"
+    "me\030\003 \001(\t\022\'\n\010subjects\030\004 \003(\0132\025.School.grad"
+    "e_subject\022\021\n\tschool_id\030\005 \001(\t\"1\n\005Grade\022\014\n"
+    "\004name\030\001 \001(\t\022\032\n\022grade_teacher_code\030\002 \001(\005\""
+    "\214\001\n\017AddGradeRequest\022\034\n\005grade\030\001 \001(\0132\r.Sch"
+    "ool.Grade\022\'\n\010subjects\030\002 \003(\0132\025.School.gra"
+    "de_subject\022\021\n\tschool_id\030\003 \001(\t\022\037\n\005level\030\004"
+    " \001(\0162\020.School.Category\".\n\rgrade_subject\022"
+    "\017\n\007subject\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\"5\n\022Remove"
+    "GradeRequest\022\014\n\004name\030\001 \001(\t\022\021\n\tschool_id\030"
+    "\002 \001(\t\"1\n\tGradeList\022$\n\006grades\030\001 \003(\0132\024.Sch"
+    "ool.Return_Grade\"\375\001\n\014Return_Grade\022\014\n\004nam"
+    "e\030\001 \001(\t\022\032\n\022grade_teacher_code\030\002 \001(\005\022\033\n\005e"
+    "xams\030\003 \003(\0132\014.School.Exam\022\026\n\016total_learne"
+    "rs\030\004 \001(\005\022\'\n\010subjects\030\005 \003(\0132\025.School.grad"
+    "e_subject\022(\n\007l_areas\030\006 \003(\0132\027.School.teac"
+    "her_subject\022\032\n\022grade_teacher_name\030\007 \001(\t\022"
+    "\037\n\005level\030\010 \001(\0162\020.School.Category\"N\n\017teac"
+    "her_subject\022\017\n\007subject\030\001 \001(\t\022\024\n\014teacher_"
+    "name\030\002 \001(\t\022\024\n\014teacher_code\030\003 \001(\005\"u\n\016AddE"
+    "xamRequest\022\014\n\004name\030\001 \001(\t\022\"\n\006grades\030\002 \003(\013"
+    "2\022.School.exam_grade\022\020\n\010analysed\030\003 \001(\010\022\014"
+    "\n\004term\030\004 \001(\005\022\021\n\tschool_id\030\005 \001(\t\"/\n\nexam_"
+    "grade\022\r\n\005grade\030\001 \001(\t\022\022\n\nfull_paper\030\002 \001(\010"
+    "\"M\n\004Exam\022\021\n\texam_name\030\001 \001(\t\022\020\n\010analysed\030"
+    "\002 \001(\010\022\014\n\004term\030\003 \001(\005\022\022\n\nfull_paper\030\004 \001(\010\""
+    "1\n\014TeachersList\022!\n\010teachers\030\001 \003(\0132\017.Scho"
+    "ol.Teacher\"E\n\024RemoveTeacherRequest\022\014\n\004co"
+    "de\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001("
+    "\t\"\223\001\n\021AddTeacherRequest\022 \n\007teacher\030\001 \001(\013"
+    "2\017.School.Teacher\022$\n\ngrade_subs\030\002 \003(\0132\020."
+    "School.GradeSub\022#\n\005login\030\003 \001(\0132\024.School."
+    "loginDetails\022\021\n\tschool_id\030\004 \001(\t\"2\n\014login"
+    "Details\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 "
+    "\001(\t\"4\n\014LoginRequest\022$\n\006verify\030\001 \001(\0132\024.Sc"
+    "hool.loginDetails\"0\n\013StudentList\022!\n\010stud"
+    "ents\030\001 \003(\0132\017.School.Student\"e\n\007Student\022\014"
+    "\n\004name\030\001 \001(\t\022\016\n\006upi_no\030\002 \001(\t\022\r\n\005grade\030\003 "
+    "\001(\t\022\033\n\006gender\030\004 \001(\0162\013.School.Sex\022\020\n\010subj"
+    "ects\030\005 \003(\t\"H\n\021AddStudentRequest\022 \n\007stude"
+    "nt\030\001 \001(\0132\017.School.Student\022\021\n\tschool_id\030\002"
+    " \001(\t\",\n\010Response\022\017\n\007message\030\001 \001(\t\022\017\n\007suc"
+    "cess\030\002 \001(\010\"9\n\024RemoveStudentRequest\022\016\n\006up"
+    "i_no\030\001 \001(\t\022\021\n\tschool_id\030\002 \001(\t\"z\n\007Teacher"
+    "\022\014\n\004name\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\022$\n\ngrade_su"
+    "bs\030\003 \003(\0132\020.School.GradeSub\022\032\n\004role\030\004 \001(\016"
+    "2\014.School.Role\022\021\n\tschool_id\030\005 \001(\t\"*\n\010Gra"
+    "deSub\022\r\n\005grade\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\"=\n"
+    "\014SubjectScore\022\017\n\007subject\030\001 \001(\t\022\r\n\005score\030"
+    "\002 \001(\005\022\r\n\005level\030\003 \001(\t\"^\n\nExamReport\022\023\n\013to"
+    "tal_marks\030\001 \001(\005\022\025\n\roverall_level\030\002 \001(\t\022$"
+    "\n\006scores\030\003 \003(\0132\024.School.SubjectScore*K\n\r"
+    "InvoiceStatus\022\023\n\017INVOICE_PENDING\020\000\022\020\n\014IN"
+    "VOICE_PAID\020\001\022\023\n\017INVOICE_OVERDUE\020\002*8\n\022Sub"
+    "scriptionStatus\022\t\n\005GRACE\020\000\022\n\n\006ACTIVE\020\001\022\013"
+    "\n\007EXPIRED\020\002*,\n\003Sex\022\017\n\013Unspecified\020\000\022\010\n\004M"
+    "ale\020\001\022\n\n\006Female\020\002*E\n\004Role\022\013\n\007TEACHER\020\000\022\r"
+    "\n\tPRINCIPAL\020\001\022\t\n\005ADMIN\020\002\022\007\n\003HOI\020\003\022\r\n\tDEV"
+    "ELOPER\020\004*2\n\010Category\022\013\n\007PRIMARY\020\000\022\n\n\006JUN"
+    "IOR\020\001\022\r\n\tSECONDARY\020\0022\236\025\n\rSchoolService\022:"
+    "\n\014CreateSchool\022\030.School.AddSchoolRequest"
+    "\032\020.School.Response\022G\n\020GetSchoolDetails\022\034"
+    ".School.SchoolDetailsRequest\032\025.School.Sc"
+    "hoolDetails\0228\n\nGetSchools\022\026.School.Schoo"
+    "lsRequest\032\022.School.SchoolList\022\?\n\rAddScho"
+    "olHead\022\034.School.AddSchoolHeadRequest\032\020.S"
+    "chool.Response\022F\n\021Delete_SchoolHead\022\037.Sc"
+    "hool.DeleteSchoolHeadRequest\032\020.School.Re"
+    "sponse\022D\n\023UpdateSchoolDetails\022\033.School.U"
+    "pdateSchoolRequest\032\020.School.Response\0229\n\n"
+    "AddStudent\022\031.School.AddStudentRequest\032\020."
+    "School.Response\022\?\n\rRemoveStudent\022\034.Schoo"
+    "l.RemoveStudentRequest\032\020.School.Response"
+    "\022I\n\022EditStudentDetails\022!.School.EditStud"
+    "entDetailsRequest\032\020.School.Response\022\?\n\013G"
+    "etStudents\022\033.School.FindStudentsRequest\032"
+    "\023.School.StudentList\022I\n\022GetLearnersbyGra"
+    "de\022\036.School.Students_Grade_Request\032\023.Sch"
+    "ool.StudentList\022F\n\024DeleteStudentSubject\022"
+    "\034.School.DeleteSubjectRequest\032\020.School.R"
+    "esponse\022<\n\017AddStudentScore\022\027.School.AddS"
+    "coreRequest\032\020.School.Response\022B\n\021Student"
+    "ExamReport\022\031.School.ExamReportRequest\032\022."
+    "School.ExamReport\022D\n\024AddSubjectsToStuden"
+    "t\022\032.School.AddSubjectsRequest\032\020.School.R"
+    "esponse\0229\n\nAddTeacher\022\031.School.AddTeache"
+    "rRequest\032\020.School.Response\0225\n\014TeacherLog"
+    "in\022\024.School.LoginRequest\032\017.School.Teache"
+    "r\022\?\n\rRemoveTeacher\022\034.School.RemoveTeache"
+    "rRequest\032\020.School.Response\022\?\n\013GetTeacher"
+    "s\022\032.School.GetTeachersRequest\032\024.School.T"
+    "eachersList\022A\n\016UpdateSubjects\022\035.School.U"
+    "pdateSubjectsRequest\032\020.School.Response\022c"
+    "\n\035ListofLearnersbyGrade_Subject\022$.School"
+    ".GetStudentsperSubjectRequest\032\034.School.L"
+    "earnersListperGrade\022\?\n\rResetPassword\022\034.S"
+    "chool.ResetPasswordRequest\032\020.School.Resp"
+    "onse\022M\n\024DeleteTeacherSubject\022#.School.De"
+    "leteTeacherSubjectRequest\032\020.School.Respo"
+    "nse\022C\n\017UpdateAdminRole\022\036.School.UpdateAd"
+    "minRoleRequest\032\020.School.Response\0223\n\007AddE"
+    "xam\022\026.School.AddExamRequest\032\020.School.Res"
+    "ponse\022A\n\016AddExamToGrade\022\035.School.AddExam"
+    "ToGradeRequest\032\020.School.Response\0226\n\tFind"
+    "Exams\022\027.School.FindExamRequest\032\020.School."
+    "ExamList\022C\n\017SetExamAnalysed\022\036.School.Set"
+    "ExamAnalysedRequest\032\020.School.Response\022=\n"
+    "\016GradeMeritList\022\030.School.MeritListReques"
+    "t\032\021.School.MeritList\022F\n\021setLoadedSubject"
+    "s\022\037.School.setloadedsubjectrequest\032\020.Sch"
+    "ool.Response\022L\n\023fetchLoadedSubjects\022 .Sc"
+    "hool.getloadedsubjectsrequest\032\023.School.S"
+    "ubjectList\0225\n\010AddGrade\022\027.School.AddGrade"
+    "Request\032\020.School.Response\022D\n\022RemoveGrade"
+    "Subject\022\034.School.RemoveSubjectRequest\032\020."
+    "School.Response\022;\n\013RemoveGrade\022\032.School."
+    "RemoveGradeRequest\032\020.School.Response\022:\n\n"
+    "FindGrades\022\031.School.FindGradesRequest\032\021."
+    "School.GradeList\022;\n\013UpdateGrade\022\032.School"
+    ".UpdateGradeRequest\032\020.School.Response\022B\n"
+    "\rGradeStudents\022\034.School.GradeStudentsReq"
+    "uest\032\023.School.StudentList\0226\n\007Invoice\022\031.S"
+    "chool.AddInvoiceRequest\032\020.School.Respons"
+    "e\022<\n\nGetInvoice\022\031.School.GetInvoiceReque"
+    "st\032\023.School.InvoiceList\0226\n\007Receipt\022\031.Sch"
+    "ool.AddReceiptRequest\032\020.School.Response\022"
+    "<\n\nGetReceipt\022\031.School.GetReceiptRequest"
+    "\032\023.School.ReceiptListb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_School_2eproto_deps[1] =
     {
@@ -3213,13 +3460,13 @@ static ::absl::once_flag descriptor_table_School_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_School_2eproto = {
     false,
     false,
-    8480,
+    9309,
     descriptor_table_protodef_School_2eproto,
     "School.proto",
     &descriptor_table_School_2eproto_once,
     descriptor_table_School_2eproto_deps,
     1,
-    68,
+    73,
     schemas,
     file_default_instances,
     TableStruct_School_2eproto::offsets,
@@ -3259,9 +3506,9 @@ const ::google::protobuf::EnumDescriptor* Role_descriptor() {
   return file_level_enum_descriptors_School_2eproto[3];
 }
 PROTOBUF_CONSTINIT const uint32_t Role_internal_data_[] = {
-    131072u, 32u, 14u, };
+    327680u, 0u, };
 bool Role_IsValid(int value) {
-  return 0 <= value && value <= 5 && ((59u >> value) & 1) != 0;
+  return 0 <= value && value <= 4;
 }
 const ::google::protobuf::EnumDescriptor* Category_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_School_2eproto);
@@ -3271,6 +3518,665 @@ PROTOBUF_CONSTINIT const uint32_t Category_internal_data_[] = {
     196608u, 0u, };
 bool Category_IsValid(int value) {
   return 0 <= value && value <= 2;
+}
+// ===================================================================
+
+class AddExamToGradeRequest::_Internal {
+ public:
+};
+
+AddExamToGradeRequest::AddExamToGradeRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.AddExamToGradeRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE AddExamToGradeRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::AddExamToGradeRequest& from_msg)
+      : schoolid_(arena, from.schoolid_),
+        exam_name_(arena, from.exam_name_),
+        grade_name_(arena, from.grade_name_),
+        _cached_size_{0} {}
+
+AddExamToGradeRequest::AddExamToGradeRequest(
+    ::google::protobuf::Arena* arena,
+    const AddExamToGradeRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  AddExamToGradeRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, role_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, role_),
+           offsetof(Impl_, full_) -
+               offsetof(Impl_, role_) +
+               sizeof(Impl_::full_));
+
+  // @@protoc_insertion_point(copy_constructor:School.AddExamToGradeRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE AddExamToGradeRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : schoolid_(arena),
+        exam_name_(arena),
+        grade_name_(arena),
+        _cached_size_{0} {}
+
+inline void AddExamToGradeRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, role_),
+           0,
+           offsetof(Impl_, full_) -
+               offsetof(Impl_, role_) +
+               sizeof(Impl_::full_));
+}
+AddExamToGradeRequest::~AddExamToGradeRequest() {
+  // @@protoc_insertion_point(destructor:School.AddExamToGradeRequest)
+  SharedDtor(*this);
+}
+inline void AddExamToGradeRequest::SharedDtor(MessageLite& self) {
+  AddExamToGradeRequest& this_ = static_cast<AddExamToGradeRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.schoolid_.Destroy();
+  this_._impl_.exam_name_.Destroy();
+  this_._impl_.grade_name_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* AddExamToGradeRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) AddExamToGradeRequest(arena);
+}
+constexpr auto AddExamToGradeRequest::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(AddExamToGradeRequest),
+                                            alignof(AddExamToGradeRequest));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull AddExamToGradeRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_AddExamToGradeRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &AddExamToGradeRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<AddExamToGradeRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &AddExamToGradeRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<AddExamToGradeRequest>(), &AddExamToGradeRequest::ByteSizeLong,
+            &AddExamToGradeRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_._cached_size_),
+        false,
+    },
+    &AddExamToGradeRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* AddExamToGradeRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 0, 64, 2> AddExamToGradeRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    6, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967232,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::AddExamToGradeRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string schoolid = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.schoolid_)}},
+    // string exam_name = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.exam_name_)}},
+    // string grade_name = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.grade_name_)}},
+    // .School.Role role = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AddExamToGradeRequest, _impl_.role_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.role_)}},
+    // int32 term = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AddExamToGradeRequest, _impl_.term_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.term_)}},
+    // bool full = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(AddExamToGradeRequest, _impl_.full_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.full_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string schoolid = 1;
+    {PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.schoolid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string exam_name = 2;
+    {PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.exam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string grade_name = 3;
+    {PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.grade_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .School.Role role = 4;
+    {PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.role_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+    // int32 term = 5;
+    {PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.term_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // bool full = 6;
+    {PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.full_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+    "\34\10\11\12\0\0\0\0"
+    "School.AddExamToGradeRequest"
+    "schoolid"
+    "exam_name"
+    "grade_name"
+  }},
+};
+
+PROTOBUF_NOINLINE void AddExamToGradeRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.AddExamToGradeRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.schoolid_.ClearToEmpty();
+  _impl_.exam_name_.ClearToEmpty();
+  _impl_.grade_name_.ClearToEmpty();
+  ::memset(&_impl_.role_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.full_) -
+      reinterpret_cast<char*>(&_impl_.role_)) + sizeof(_impl_.full_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* AddExamToGradeRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const AddExamToGradeRequest& this_ = static_cast<const AddExamToGradeRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* AddExamToGradeRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const AddExamToGradeRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.AddExamToGradeRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string schoolid = 1;
+          if (!this_._internal_schoolid().empty()) {
+            const std::string& _s = this_._internal_schoolid();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddExamToGradeRequest.schoolid");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string exam_name = 2;
+          if (!this_._internal_exam_name().empty()) {
+            const std::string& _s = this_._internal_exam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddExamToGradeRequest.exam_name");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          // string grade_name = 3;
+          if (!this_._internal_grade_name().empty()) {
+            const std::string& _s = this_._internal_grade_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddExamToGradeRequest.grade_name");
+            target = stream->WriteStringMaybeAliased(3, _s, target);
+          }
+
+          // .School.Role role = 4;
+          if (this_._internal_role() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                4, this_._internal_role(), target);
+          }
+
+          // int32 term = 5;
+          if (this_._internal_term() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<5>(
+                    stream, this_._internal_term(), target);
+          }
+
+          // bool full = 6;
+          if (this_._internal_full() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                6, this_._internal_full(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.AddExamToGradeRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t AddExamToGradeRequest::ByteSizeLong(const MessageLite& base) {
+          const AddExamToGradeRequest& this_ = static_cast<const AddExamToGradeRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t AddExamToGradeRequest::ByteSizeLong() const {
+          const AddExamToGradeRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.AddExamToGradeRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string schoolid = 1;
+            if (!this_._internal_schoolid().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_schoolid());
+            }
+            // string exam_name = 2;
+            if (!this_._internal_exam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_exam_name());
+            }
+            // string grade_name = 3;
+            if (!this_._internal_grade_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_grade_name());
+            }
+            // .School.Role role = 4;
+            if (this_._internal_role() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_role());
+            }
+            // int32 term = 5;
+            if (this_._internal_term() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_term());
+            }
+            // bool full = 6;
+            if (this_._internal_full() != 0) {
+              total_size += 2;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void AddExamToGradeRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AddExamToGradeRequest*>(&to_msg);
+  auto& from = static_cast<const AddExamToGradeRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.AddExamToGradeRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_schoolid().empty()) {
+    _this->_internal_set_schoolid(from._internal_schoolid());
+  }
+  if (!from._internal_exam_name().empty()) {
+    _this->_internal_set_exam_name(from._internal_exam_name());
+  }
+  if (!from._internal_grade_name().empty()) {
+    _this->_internal_set_grade_name(from._internal_grade_name());
+  }
+  if (from._internal_role() != 0) {
+    _this->_impl_.role_ = from._impl_.role_;
+  }
+  if (from._internal_term() != 0) {
+    _this->_impl_.term_ = from._impl_.term_;
+  }
+  if (from._internal_full() != 0) {
+    _this->_impl_.full_ = from._impl_.full_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void AddExamToGradeRequest::CopyFrom(const AddExamToGradeRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.AddExamToGradeRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void AddExamToGradeRequest::InternalSwap(AddExamToGradeRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.schoolid_, &other->_impl_.schoolid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.grade_name_, &other->_impl_.grade_name_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.full_)
+      + sizeof(AddExamToGradeRequest::_impl_.full_)
+      - PROTOBUF_FIELD_OFFSET(AddExamToGradeRequest, _impl_.role_)>(
+          reinterpret_cast<char*>(&_impl_.role_),
+          reinterpret_cast<char*>(&other->_impl_.role_));
+}
+
+::google::protobuf::Metadata AddExamToGradeRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class AddSchoolHeadRequest::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<AddSchoolHeadRequest>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_._has_bits_);
+};
+
+AddSchoolHeadRequest::AddSchoolHeadRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.AddSchoolHeadRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE AddSchoolHeadRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::AddSchoolHeadRequest& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        schoolid_(arena, from.schoolid_) {}
+
+AddSchoolHeadRequest::AddSchoolHeadRequest(
+    ::google::protobuf::Arena* arena,
+    const AddSchoolHeadRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  AddSchoolHeadRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.teacher_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::School::Teacher>(
+                              arena, *from._impl_.teacher_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:School.AddSchoolHeadRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE AddSchoolHeadRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        schoolid_(arena) {}
+
+inline void AddSchoolHeadRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.teacher_ = {};
+}
+AddSchoolHeadRequest::~AddSchoolHeadRequest() {
+  // @@protoc_insertion_point(destructor:School.AddSchoolHeadRequest)
+  SharedDtor(*this);
+}
+inline void AddSchoolHeadRequest::SharedDtor(MessageLite& self) {
+  AddSchoolHeadRequest& this_ = static_cast<AddSchoolHeadRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.schoolid_.Destroy();
+  delete this_._impl_.teacher_;
+  this_._impl_.~Impl_();
+}
+
+inline void* AddSchoolHeadRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) AddSchoolHeadRequest(arena);
+}
+constexpr auto AddSchoolHeadRequest::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(AddSchoolHeadRequest),
+                                            alignof(AddSchoolHeadRequest));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull AddSchoolHeadRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_AddSchoolHeadRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &AddSchoolHeadRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<AddSchoolHeadRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &AddSchoolHeadRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<AddSchoolHeadRequest>(), &AddSchoolHeadRequest::ByteSizeLong,
+            &AddSchoolHeadRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_._cached_size_),
+        false,
+    },
+    &AddSchoolHeadRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* AddSchoolHeadRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 44, 2> AddSchoolHeadRequest::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::AddSchoolHeadRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .School.Teacher teacher = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_.teacher_)}},
+    // string schoolid = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_.schoolid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string schoolid = 1;
+    {PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_.schoolid_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .School.Teacher teacher = 2;
+    {PROTOBUF_FIELD_OFFSET(AddSchoolHeadRequest, _impl_.teacher_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::School::Teacher>()},
+  }}, {{
+    "\33\10\0\0\0\0\0\0"
+    "School.AddSchoolHeadRequest"
+    "schoolid"
+  }},
+};
+
+PROTOBUF_NOINLINE void AddSchoolHeadRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.AddSchoolHeadRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.schoolid_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.teacher_ != nullptr);
+    _impl_.teacher_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* AddSchoolHeadRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const AddSchoolHeadRequest& this_ = static_cast<const AddSchoolHeadRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* AddSchoolHeadRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const AddSchoolHeadRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.AddSchoolHeadRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string schoolid = 1;
+          if (!this_._internal_schoolid().empty()) {
+            const std::string& _s = this_._internal_schoolid();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddSchoolHeadRequest.schoolid");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .School.Teacher teacher = 2;
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                2, *this_._impl_.teacher_, this_._impl_.teacher_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.AddSchoolHeadRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t AddSchoolHeadRequest::ByteSizeLong(const MessageLite& base) {
+          const AddSchoolHeadRequest& this_ = static_cast<const AddSchoolHeadRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t AddSchoolHeadRequest::ByteSizeLong() const {
+          const AddSchoolHeadRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.AddSchoolHeadRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string schoolid = 1;
+            if (!this_._internal_schoolid().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_schoolid());
+            }
+          }
+           {
+            // .School.Teacher teacher = 2;
+            cached_has_bits = this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.teacher_);
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void AddSchoolHeadRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AddSchoolHeadRequest*>(&to_msg);
+  auto& from = static_cast<const AddSchoolHeadRequest&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.AddSchoolHeadRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_schoolid().empty()) {
+    _this->_internal_set_schoolid(from._internal_schoolid());
+  }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.teacher_ != nullptr);
+    if (_this->_impl_.teacher_ == nullptr) {
+      _this->_impl_.teacher_ =
+          ::google::protobuf::Message::CopyConstruct<::School::Teacher>(arena, *from._impl_.teacher_);
+    } else {
+      _this->_impl_.teacher_->MergeFrom(*from._impl_.teacher_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void AddSchoolHeadRequest::CopyFrom(const AddSchoolHeadRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.AddSchoolHeadRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void AddSchoolHeadRequest::InternalSwap(AddSchoolHeadRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.schoolid_, &other->_impl_.schoolid_, arena);
+  swap(_impl_.teacher_, other->_impl_.teacher_);
+}
+
+::google::protobuf::Metadata AddSchoolHeadRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
@@ -3477,6 +4383,350 @@ void SchoolsRequest::InternalSwap(SchoolsRequest* PROTOBUF_RESTRICT other) {
 }
 
 ::google::protobuf::Metadata SchoolsRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class UpdateSchoolRequest::_Internal {
+ public:
+};
+
+UpdateSchoolRequest::UpdateSchoolRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.UpdateSchoolRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE UpdateSchoolRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::UpdateSchoolRequest& from_msg)
+      : school_name_(arena, from.school_name_),
+        school_motto_(arena, from.school_motto_),
+        school_email_(arena, from.school_email_),
+        school_id_(arena, from.school_id_),
+        _cached_size_{0} {}
+
+UpdateSchoolRequest::UpdateSchoolRequest(
+    ::google::protobuf::Arena* arena,
+    const UpdateSchoolRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  UpdateSchoolRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.role_ = from._impl_.role_;
+
+  // @@protoc_insertion_point(copy_constructor:School.UpdateSchoolRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE UpdateSchoolRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : school_name_(arena),
+        school_motto_(arena),
+        school_email_(arena),
+        school_id_(arena),
+        _cached_size_{0} {}
+
+inline void UpdateSchoolRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.role_ = {};
+}
+UpdateSchoolRequest::~UpdateSchoolRequest() {
+  // @@protoc_insertion_point(destructor:School.UpdateSchoolRequest)
+  SharedDtor(*this);
+}
+inline void UpdateSchoolRequest::SharedDtor(MessageLite& self) {
+  UpdateSchoolRequest& this_ = static_cast<UpdateSchoolRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.school_name_.Destroy();
+  this_._impl_.school_motto_.Destroy();
+  this_._impl_.school_email_.Destroy();
+  this_._impl_.school_id_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* UpdateSchoolRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) UpdateSchoolRequest(arena);
+}
+constexpr auto UpdateSchoolRequest::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(UpdateSchoolRequest),
+                                            alignof(UpdateSchoolRequest));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull UpdateSchoolRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_UpdateSchoolRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &UpdateSchoolRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<UpdateSchoolRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &UpdateSchoolRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<UpdateSchoolRequest>(), &UpdateSchoolRequest::ByteSizeLong,
+            &UpdateSchoolRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_._cached_size_),
+        false,
+    },
+    &UpdateSchoolRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* UpdateSchoolRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 0, 79, 2> UpdateSchoolRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::UpdateSchoolRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string school_name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_name_)}},
+    // string school_motto = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_motto_)}},
+    // string school_email = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_email_)}},
+    // string school_id = 4;
+    {::_pbi::TcParser::FastUS1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_id_)}},
+    // .School.Role role = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(UpdateSchoolRequest, _impl_.role_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.role_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string school_name = 1;
+    {PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string school_motto = 2;
+    {PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_motto_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string school_email = 3;
+    {PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_email_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string school_id = 4;
+    {PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.school_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .School.Role role = 5;
+    {PROTOBUF_FIELD_OFFSET(UpdateSchoolRequest, _impl_.role_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+  }},
+  // no aux_entries
+  {{
+    "\32\13\14\14\11\0\0\0"
+    "School.UpdateSchoolRequest"
+    "school_name"
+    "school_motto"
+    "school_email"
+    "school_id"
+  }},
+};
+
+PROTOBUF_NOINLINE void UpdateSchoolRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.UpdateSchoolRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.school_name_.ClearToEmpty();
+  _impl_.school_motto_.ClearToEmpty();
+  _impl_.school_email_.ClearToEmpty();
+  _impl_.school_id_.ClearToEmpty();
+  _impl_.role_ = 0;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* UpdateSchoolRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const UpdateSchoolRequest& this_ = static_cast<const UpdateSchoolRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* UpdateSchoolRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const UpdateSchoolRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.UpdateSchoolRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string school_name = 1;
+          if (!this_._internal_school_name().empty()) {
+            const std::string& _s = this_._internal_school_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.UpdateSchoolRequest.school_name");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string school_motto = 2;
+          if (!this_._internal_school_motto().empty()) {
+            const std::string& _s = this_._internal_school_motto();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.UpdateSchoolRequest.school_motto");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          // string school_email = 3;
+          if (!this_._internal_school_email().empty()) {
+            const std::string& _s = this_._internal_school_email();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.UpdateSchoolRequest.school_email");
+            target = stream->WriteStringMaybeAliased(3, _s, target);
+          }
+
+          // string school_id = 4;
+          if (!this_._internal_school_id().empty()) {
+            const std::string& _s = this_._internal_school_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.UpdateSchoolRequest.school_id");
+            target = stream->WriteStringMaybeAliased(4, _s, target);
+          }
+
+          // .School.Role role = 5;
+          if (this_._internal_role() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                5, this_._internal_role(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.UpdateSchoolRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t UpdateSchoolRequest::ByteSizeLong(const MessageLite& base) {
+          const UpdateSchoolRequest& this_ = static_cast<const UpdateSchoolRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t UpdateSchoolRequest::ByteSizeLong() const {
+          const UpdateSchoolRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.UpdateSchoolRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string school_name = 1;
+            if (!this_._internal_school_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_school_name());
+            }
+            // string school_motto = 2;
+            if (!this_._internal_school_motto().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_school_motto());
+            }
+            // string school_email = 3;
+            if (!this_._internal_school_email().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_school_email());
+            }
+            // string school_id = 4;
+            if (!this_._internal_school_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_school_id());
+            }
+            // .School.Role role = 5;
+            if (this_._internal_role() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_role());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void UpdateSchoolRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<UpdateSchoolRequest*>(&to_msg);
+  auto& from = static_cast<const UpdateSchoolRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.UpdateSchoolRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_school_name().empty()) {
+    _this->_internal_set_school_name(from._internal_school_name());
+  }
+  if (!from._internal_school_motto().empty()) {
+    _this->_internal_set_school_motto(from._internal_school_motto());
+  }
+  if (!from._internal_school_email().empty()) {
+    _this->_internal_set_school_email(from._internal_school_email());
+  }
+  if (!from._internal_school_id().empty()) {
+    _this->_internal_set_school_id(from._internal_school_id());
+  }
+  if (from._internal_role() != 0) {
+    _this->_impl_.role_ = from._impl_.role_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UpdateSchoolRequest::CopyFrom(const UpdateSchoolRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.UpdateSchoolRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void UpdateSchoolRequest::InternalSwap(UpdateSchoolRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_name_, &other->_impl_.school_name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_motto_, &other->_impl_.school_motto_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_email_, &other->_impl_.school_email_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_id_, &other->_impl_.school_id_, arena);
+  swap(_impl_.role_, other->_impl_.role_);
+}
+
+::google::protobuf::Metadata UpdateSchoolRequest::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -4219,6 +5469,237 @@ void AddInvoiceRequest::InternalSwap(AddInvoiceRequest* PROTOBUF_RESTRICT other)
 }
 
 ::google::protobuf::Metadata AddInvoiceRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class DeleteSchoolHeadRequest::_Internal {
+ public:
+};
+
+DeleteSchoolHeadRequest::DeleteSchoolHeadRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.DeleteSchoolHeadRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE DeleteSchoolHeadRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::DeleteSchoolHeadRequest& from_msg)
+      : schoolid_(arena, from.schoolid_),
+        _cached_size_{0} {}
+
+DeleteSchoolHeadRequest::DeleteSchoolHeadRequest(
+    ::google::protobuf::Arena* arena,
+    const DeleteSchoolHeadRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  DeleteSchoolHeadRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:School.DeleteSchoolHeadRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE DeleteSchoolHeadRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : schoolid_(arena),
+        _cached_size_{0} {}
+
+inline void DeleteSchoolHeadRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+DeleteSchoolHeadRequest::~DeleteSchoolHeadRequest() {
+  // @@protoc_insertion_point(destructor:School.DeleteSchoolHeadRequest)
+  SharedDtor(*this);
+}
+inline void DeleteSchoolHeadRequest::SharedDtor(MessageLite& self) {
+  DeleteSchoolHeadRequest& this_ = static_cast<DeleteSchoolHeadRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.schoolid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* DeleteSchoolHeadRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) DeleteSchoolHeadRequest(arena);
+}
+constexpr auto DeleteSchoolHeadRequest::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(DeleteSchoolHeadRequest),
+                                            alignof(DeleteSchoolHeadRequest));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull DeleteSchoolHeadRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_DeleteSchoolHeadRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &DeleteSchoolHeadRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<DeleteSchoolHeadRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &DeleteSchoolHeadRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<DeleteSchoolHeadRequest>(), &DeleteSchoolHeadRequest::ByteSizeLong,
+            &DeleteSchoolHeadRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(DeleteSchoolHeadRequest, _impl_._cached_size_),
+        false,
+    },
+    &DeleteSchoolHeadRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* DeleteSchoolHeadRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 47, 2> DeleteSchoolHeadRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::DeleteSchoolHeadRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string schoolid = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(DeleteSchoolHeadRequest, _impl_.schoolid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string schoolid = 1;
+    {PROTOBUF_FIELD_OFFSET(DeleteSchoolHeadRequest, _impl_.schoolid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\36\10\0\0\0\0\0\0"
+    "School.DeleteSchoolHeadRequest"
+    "schoolid"
+  }},
+};
+
+PROTOBUF_NOINLINE void DeleteSchoolHeadRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.DeleteSchoolHeadRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.schoolid_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* DeleteSchoolHeadRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const DeleteSchoolHeadRequest& this_ = static_cast<const DeleteSchoolHeadRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* DeleteSchoolHeadRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const DeleteSchoolHeadRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.DeleteSchoolHeadRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string schoolid = 1;
+          if (!this_._internal_schoolid().empty()) {
+            const std::string& _s = this_._internal_schoolid();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.DeleteSchoolHeadRequest.schoolid");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.DeleteSchoolHeadRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t DeleteSchoolHeadRequest::ByteSizeLong(const MessageLite& base) {
+          const DeleteSchoolHeadRequest& this_ = static_cast<const DeleteSchoolHeadRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t DeleteSchoolHeadRequest::ByteSizeLong() const {
+          const DeleteSchoolHeadRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.DeleteSchoolHeadRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+           {
+            // string schoolid = 1;
+            if (!this_._internal_schoolid().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_schoolid());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void DeleteSchoolHeadRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<DeleteSchoolHeadRequest*>(&to_msg);
+  auto& from = static_cast<const DeleteSchoolHeadRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.DeleteSchoolHeadRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_schoolid().empty()) {
+    _this->_internal_set_schoolid(from._internal_schoolid());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DeleteSchoolHeadRequest::CopyFrom(const DeleteSchoolHeadRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.DeleteSchoolHeadRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void DeleteSchoolHeadRequest::InternalSwap(DeleteSchoolHeadRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.schoolid_, &other->_impl_.schoolid_, arena);
+}
+
+::google::protobuf::Metadata DeleteSchoolHeadRequest::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -5165,6 +6646,303 @@ void InvoiceList::InternalSwap(InvoiceList* PROTOBUF_RESTRICT other) {
 }
 
 ::google::protobuf::Metadata InvoiceList::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class UpdateAdminRoleRequest::_Internal {
+ public:
+};
+
+UpdateAdminRoleRequest::UpdateAdminRoleRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.UpdateAdminRoleRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE UpdateAdminRoleRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::UpdateAdminRoleRequest& from_msg)
+      : schoolid_(arena, from.schoolid_),
+        _cached_size_{0} {}
+
+UpdateAdminRoleRequest::UpdateAdminRoleRequest(
+    ::google::protobuf::Arena* arena,
+    const UpdateAdminRoleRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  UpdateAdminRoleRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, new_role_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, new_role_),
+           offsetof(Impl_, code_) -
+               offsetof(Impl_, new_role_) +
+               sizeof(Impl_::code_));
+
+  // @@protoc_insertion_point(copy_constructor:School.UpdateAdminRoleRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE UpdateAdminRoleRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : schoolid_(arena),
+        _cached_size_{0} {}
+
+inline void UpdateAdminRoleRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, new_role_),
+           0,
+           offsetof(Impl_, code_) -
+               offsetof(Impl_, new_role_) +
+               sizeof(Impl_::code_));
+}
+UpdateAdminRoleRequest::~UpdateAdminRoleRequest() {
+  // @@protoc_insertion_point(destructor:School.UpdateAdminRoleRequest)
+  SharedDtor(*this);
+}
+inline void UpdateAdminRoleRequest::SharedDtor(MessageLite& self) {
+  UpdateAdminRoleRequest& this_ = static_cast<UpdateAdminRoleRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.schoolid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* UpdateAdminRoleRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) UpdateAdminRoleRequest(arena);
+}
+constexpr auto UpdateAdminRoleRequest::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(UpdateAdminRoleRequest),
+                                            alignof(UpdateAdminRoleRequest));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull UpdateAdminRoleRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_UpdateAdminRoleRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &UpdateAdminRoleRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<UpdateAdminRoleRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &UpdateAdminRoleRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<UpdateAdminRoleRequest>(), &UpdateAdminRoleRequest::ByteSizeLong,
+            &UpdateAdminRoleRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_._cached_size_),
+        false,
+    },
+    &UpdateAdminRoleRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* UpdateAdminRoleRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 46, 2> UpdateAdminRoleRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::UpdateAdminRoleRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string schoolid = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.schoolid_)}},
+    // .School.Role new_role = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(UpdateAdminRoleRequest, _impl_.new_role_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.new_role_)}},
+    // int32 code = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(UpdateAdminRoleRequest, _impl_.code_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.code_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string schoolid = 1;
+    {PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.schoolid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .School.Role new_role = 2;
+    {PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.new_role_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+    // int32 code = 3;
+    {PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.code_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\35\10\0\0\0\0\0\0"
+    "School.UpdateAdminRoleRequest"
+    "schoolid"
+  }},
+};
+
+PROTOBUF_NOINLINE void UpdateAdminRoleRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.UpdateAdminRoleRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.schoolid_.ClearToEmpty();
+  ::memset(&_impl_.new_role_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.code_) -
+      reinterpret_cast<char*>(&_impl_.new_role_)) + sizeof(_impl_.code_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* UpdateAdminRoleRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const UpdateAdminRoleRequest& this_ = static_cast<const UpdateAdminRoleRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* UpdateAdminRoleRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const UpdateAdminRoleRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.UpdateAdminRoleRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string schoolid = 1;
+          if (!this_._internal_schoolid().empty()) {
+            const std::string& _s = this_._internal_schoolid();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.UpdateAdminRoleRequest.schoolid");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // .School.Role new_role = 2;
+          if (this_._internal_new_role() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                2, this_._internal_new_role(), target);
+          }
+
+          // int32 code = 3;
+          if (this_._internal_code() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<3>(
+                    stream, this_._internal_code(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.UpdateAdminRoleRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t UpdateAdminRoleRequest::ByteSizeLong(const MessageLite& base) {
+          const UpdateAdminRoleRequest& this_ = static_cast<const UpdateAdminRoleRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t UpdateAdminRoleRequest::ByteSizeLong() const {
+          const UpdateAdminRoleRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.UpdateAdminRoleRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string schoolid = 1;
+            if (!this_._internal_schoolid().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_schoolid());
+            }
+            // .School.Role new_role = 2;
+            if (this_._internal_new_role() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_new_role());
+            }
+            // int32 code = 3;
+            if (this_._internal_code() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_code());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void UpdateAdminRoleRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<UpdateAdminRoleRequest*>(&to_msg);
+  auto& from = static_cast<const UpdateAdminRoleRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.UpdateAdminRoleRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_schoolid().empty()) {
+    _this->_internal_set_schoolid(from._internal_schoolid());
+  }
+  if (from._internal_new_role() != 0) {
+    _this->_impl_.new_role_ = from._impl_.new_role_;
+  }
+  if (from._internal_code() != 0) {
+    _this->_impl_.code_ = from._impl_.code_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UpdateAdminRoleRequest::CopyFrom(const UpdateAdminRoleRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.UpdateAdminRoleRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void UpdateAdminRoleRequest::InternalSwap(UpdateAdminRoleRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.schoolid_, &other->_impl_.schoolid_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.code_)
+      + sizeof(UpdateAdminRoleRequest::_impl_.code_)
+      - PROTOBUF_FIELD_OFFSET(UpdateAdminRoleRequest, _impl_.new_role_)>(
+          reinterpret_cast<char*>(&_impl_.new_role_),
+          reinterpret_cast<char*>(&other->_impl_.new_role_));
+}
+
+::google::protobuf::Metadata UpdateAdminRoleRequest::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
