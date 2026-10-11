@@ -347,8 +347,7 @@ Status SchoolServiceImpl::UpdateGrade(ServerContext* context,const UpdateGradeRe
         }
 
     }
- Status SchoolServiceImpl::AddStudentScore(ServerContext* context,const AddScoreRequest* request,
-        Response* reply){
+ Status SchoolServiceImpl::AddStudentScore(ServerContext* context,const Add_bulk_ScoreRequest* request,Response* reply){
     try{
         std::string s_id=request->school_id();
         int out_of=request->out_of();
@@ -357,27 +356,24 @@ Status SchoolServiceImpl::UpdateGrade(ServerContext* context,const UpdateGradeRe
             reply->set_message("The school is not recorgnized!");
             return Status(grpc::StatusCode::INTERNAL,reply->message());
         }
-        add_subject_score score=request->mark();
-        if(score.upi().empty()||score.subject().empty()||score.exam_name().empty()){
+        if(out_of<=0){
             reply->set_success(false);
-            return Status(grpc::StatusCode::INTERNAL,"All fields are required!");
+            reply->set_message("The maximum score entered is not valid!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
         }
-        std::string upi=score.upi();
-        auto subject=score.subject();
-        auto marks=score.scores();
-        bool full_paper=score.full_paper();
-        std::string exam=score.exam_name();
-        int mark=marks.score();
-        int pp=marks.pp();
         
+        if(request->exam_name().empty()){
+            reply->set_success(false);
+            return Status(grpc::StatusCode::INTERNAL,"Assessment name is required!");
+        }
+        bool full_paper=request->full_paper();
+        auto bulk_scores=*request;
 
         if(full_paper){
-            std::string p="pp"+std::to_string(pp);
-            std::pair<std::string,int> score{p,mark};
-            school_db.AddScore(exam,upi,score,subject,s_id,out_of);
+            school_db.AddScore_fullpaper(bulk_scores);
         }
         else{
-            school_db.AddScore(exam,upi,subject,mark,s_id);
+            school_db.AddScore(bulk_scores);
         }
         
         reply->set_success(true);
@@ -402,7 +398,7 @@ Status SchoolServiceImpl::StudentExamReport(ServerContext* context,const ExamRep
         return Status(grpc::StatusCode::INTERNAL,"The school is not recorgnized!");
     }
     if(request->upi().empty()||request->exam_name().empty()){
-    return Status(grpc::StatusCode::INTERNAL,"UPI NO for the student is required!");
+    return Status(grpc::StatusCode::INTERNAL,"UPI of the learner and the Assessment name are required!");
    }
    auto upi=request->upi();
    auto exam=request->exam_name();
@@ -474,6 +470,31 @@ Status SchoolServiceImpl::UpdateSubjects(ServerContext* context,const UpdateSubj
             return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
         }
     }
+Status SchoolServiceImpl::AddCombinedExam(ServerContext* context,const School::AddCombinedExamRequest* request,Response* reply){
+    try{
+        std::string schoolid=request->school_id();
+        if(schoolid.empty()){
+            reply->set_success(false);
+            reply->set_message("The school is not recorgnized!");
+            return Status(grpc::StatusCode::INTERNAL,reply->message());
+        }
+        School::AddCombinedExamRequest addexam;
+        addexam.CopyFrom(*request);
+        auto db_response=school_db.CreateCombinedExam(addexam);
+        reply->set_success(true);
+        reply->set_message(db_response);
+        return Status::OK;
+    }
+    catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
 Status SchoolServiceImpl::AddExam(ServerContext* context,const AddExamRequest* request,Response* reply){
     try{
         std::string s_id=request->school_id();
@@ -482,6 +503,7 @@ Status SchoolServiceImpl::AddExam(ServerContext* context,const AddExamRequest* r
             reply->set_message("The school is not recorgnized!");
             return Status(grpc::StatusCode::INTERNAL,reply->message());
         }
+        int year=request->year();
         std::string exam_name=request->name();
         int term=request->term();
         std::vector<std::pair<std::string,bool>>grades;
@@ -492,7 +514,7 @@ Status SchoolServiceImpl::AddExam(ServerContext* context,const AddExamRequest* r
             reply->set_success(false);
             return Status(grpc::StatusCode::INTERNAL,"All fields are required!");
         }
-        std::string db_response=school_db.CreateExam(exam_name,term,std::move(grades),s_id);
+        std::string db_response=school_db.CreateExam(exam_name,term,year,std::move(grades),s_id);
         if(db_response.find("Could not")!=std::string::npos){
             reply->set_success(false);
             reply->set_message(db_response);
@@ -525,8 +547,14 @@ Status SchoolServiceImpl::ListofLearnersbyGrade_Subject(ServerContext* context,c
             std::string grade=request->grade_name();
             std::string exam=request->exam_name();
             int t_code=request->code();
-            if(subject.empty()||grade.empty()||exam.empty()||t_code<=0){
-                return Status(grpc::StatusCode::INTERNAL,"all fields are required!");
+            if(subject.empty()){
+                return Status(grpc::StatusCode::INTERNAL,"learning area is required!");
+            }
+            if(grade.empty()){
+                return Status(grpc::StatusCode::INTERNAL,"grade is required!");
+            }
+            if(t_code<=0){
+                return Status(grpc::StatusCode::INTERNAL,"Teacher is not specified!");
             }
             if(request->full_paper()){
                 
@@ -880,6 +908,290 @@ Status SchoolServiceImpl::SetExamAnalysed(ServerContext* context,const SetExamAn
         reply->set_message("Exam analyzed successfully.");
         return Status::OK;
     }
+    catch(const std::runtime_error& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
+    }
+    catch(...){
+        return Status(grpc::StatusCode::INTERNAL,"Unexpected error occurred.");
+    }
+}
+Status SchoolServiceImpl::GetCombinedExamMerit(ServerContext* context,const School::CombinedMeritRequest* request,MeritList* reply)
+{
+    try {
+        std::string s_id = request->school_id();
+        std::string grd = request->grade();
+
+        if (s_id.empty()) {
+            return Status(grpc::StatusCode::INTERNAL,"The School is not recognized");
+        }
+
+        if (grd.empty()) {
+            return Status(grpc::StatusCode::INTERNAL,"The grade is required!");
+        }
+
+        if (request->exams_to_combine_size() < 2) {
+            return Status(grpc::StatusCode::INTERNAL,"Assessments to combine must not be less than 2!");
+        }
+
+        // Currently combined exam implementation supports exactly 2 exams.
+        if (request->exams_to_combine_size() != 2) {
+            return Status(grpc::StatusCode::INTERNAL, "Assessments to combine must be exactly 2!");
+        }
+        std::vector<std::pair<MeritList, int>> scores_per_exam;
+
+        for (const auto& item : request->exams_to_combine()) {
+
+            std::string exam = item.exam_name();
+
+            if (exam.empty()) {
+                return Status(grpc::StatusCode::INTERNAL,"Assessment name cannot be empty!");
+            }
+
+            if (item.weight() <= 0) {
+                return Status(grpc::StatusCode::INTERNAL,"Assessment weight must be greater than zero!");
+            }
+
+            if (item.full_paper()) {
+                scores_per_exam.push_back({
+                    school_db.GetGradeMeritList(
+                        grd, exam, s_id),
+                    item.weight()
+                });
+            }
+            else {
+                scores_per_exam.push_back({
+                    school_db.FetchGradeMeritList(
+                        grd, exam, s_id),
+                    item.weight()
+                });
+            }
+        }
+        // Exam weights
+
+        const int exam1_weight = scores_per_exam[0].second;
+        const int exam2_weight = scores_per_exam[1].second;
+
+        // Prevent duplicate assessments.
+        const std::string exam1_name =request->exams_to_combine(0).exam_name();
+
+        const std::string exam2_name =request->exams_to_combine(1).exam_name();
+
+        if (exam1_name == exam2_name) {
+            return Status(grpc::StatusCode::INTERNAL,"The same assessment cannot be combined with itself!");
+        }
+        // Normally the weights should total 100.
+        if (exam1_weight + exam2_weight != 100) {
+            return Status(grpc::StatusCode::INTERNAL,"Assessment weights must total 100!");
+        }
+        // Put learners into maps indexed by UPI
+        std::map<std::string, School::StudentMerit> exam1;
+        std::map<std::string, School::StudentMerit> exam2;
+
+        std::set<std::string> learners_upis;
+
+        for (const auto& item :scores_per_exam[0].first.learners()) {
+
+            exam1[item.upi()] = item;
+            learners_upis.insert(item.upi());
+        }
+
+        for (const auto& item :scores_per_exam[1].first.learners()) {
+
+            exam2[item.upi()] = item;
+            learners_upis.insert(item.upi());
+        }
+        // Process every learner found in either assessmen
+
+        for (const auto& upi : learners_upis) {
+
+            auto it1 = exam1.find(upi);
+            auto it2 = exam2.find(upi);
+
+            const School::StudentMerit* learner_exam1 = nullptr;
+            const School::StudentMerit* learner_exam2 = nullptr;
+
+            if (it1 != exam1.end()) {
+                learner_exam1 = &it1->second;
+            }
+
+            if (it2 != exam2.end()) {
+                learner_exam2 = &it2->second;
+            }
+            // Create learner in combined result
+
+            auto* learner = reply->add_learners();
+
+            if (learner_exam1 != nullptr) {
+                learner->set_sex(learner_exam1->sex());
+                learner->set_student_name(
+                learner_exam1->student_name());
+                learner->set_upi(
+                learner_exam1->upi());
+            }
+            else {
+                learner->set_sex(learner_exam2->sex());
+                learner->set_student_name(
+                learner_exam2->student_name());
+                learner->set_upi(
+                learner_exam2->upi());
+            }
+            // Build union of subjects for this learner
+
+            std::set<std::string> subjects;
+            if (learner_exam1 != nullptr) {
+
+                for (const auto& score :
+                    learner_exam1->scores()) {
+                    subjects.insert(score.subject());
+                }
+            }
+
+            if (learner_exam2 != nullptr) {
+
+                for (const auto& score :
+                     learner_exam2->scores()) {
+
+                    subjects.insert(score.subject());
+                }
+            }
+
+            int learner_total_marks = 0;
+
+            // Process every subject
+            for (const auto& subject : subjects) {
+
+                int original_score1 = -1;
+                int original_score2 = -1;
+
+                // Find Exam 1 score
+                if (learner_exam1 != nullptr) {
+
+                    for (const auto& score :
+                         learner_exam1->scores()) {
+
+                        if (score.subject() == subject) {
+
+                            if (score.score() >= 0) {
+                                original_score1 =
+                                    score.score();
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                // Find Exam 2 score
+                if (learner_exam2 != nullptr) {
+
+                    for (const auto& score :
+                         learner_exam2->scores()) {
+
+                        if (score.subject() == subject) {
+
+                            if (score.score() >= 0) {
+                                original_score2 =
+                                    score.score();
+                            }
+
+                            break;
+                        }
+                    }
+                }
+                // Calculate weighted scores
+
+                double weighted_score1 = -1.0;
+                double weighted_score2 = -1.0;
+
+                if (original_score1 >= 0) {
+
+                    weighted_score1 =original_score1 *(exam1_weight / 100.0);
+                }
+
+                if (original_score2 >= 0) {
+
+                    weighted_score2 =original_score2 *(exam2_weight / 100.0);
+                }
+                // Add Exam 1 contribution
+                auto* combined_exam1 =learner->add_combinedscores();
+
+                combined_exam1->set_exam_name(exam1_name);
+                combined_exam1->set_subject_name(subject);
+
+                if (weighted_score1 >= 0) {
+                    combined_exam1->set_score(weighted_score1);
+                }
+                else {
+                    combined_exam1->set_score(-1);
+                }
+                // Add Exam 2 contribution
+                auto* combined_exam2 =learner->add_combinedscores();
+
+                combined_exam2->set_exam_name(exam2_name);
+                combined_exam2->set_subject_name(subject);
+
+                if (weighted_score2 >= 0) {
+                    combined_exam2->set_score(weighted_score2);
+                }
+                else {
+                    combined_exam2->set_score(-1);
+                }
+                // Calculate final combined subject score
+                double combined_total = 0.0;
+                bool has_score = false;
+
+                if (weighted_score1 >= 0) {
+                    combined_total += weighted_score1;
+                    has_score = true;
+                }
+
+                if (weighted_score2 >= 0) {
+                    combined_total += weighted_score2;
+                    has_score = true;
+                }
+
+                auto* combined_score =learner->add_scores();
+
+                combined_score->set_subject(subject);
+
+                int final_score = -1;
+
+                if (has_score) {
+
+                    final_score =static_cast<int>(std::round(combined_total));
+                }
+                combined_score->set_score(final_score);
+
+                if (final_score >= 0) {
+
+                    combined_score->set_level(school_db.getsubject_level(final_score,s_id));
+
+                    learner_total_marks += final_score;
+                }
+                else {
+
+                    combined_score->set_level("");
+                }
+            }
+            // Learner total
+
+            learner->set_total_marks(learner_total_marks);
+
+            if (learner_total_marks > 0) {
+
+                learner->set_level(school_db.getsubject_level(learner_total_marks,s_id));
+            }
+            else {
+                learner->set_level("");
+            }
+        }
+
+        return Status::OK;
+    }
+
     catch(const std::runtime_error& e){
         return Status(grpc::StatusCode::INTERNAL,std::string(e.what()));
     }

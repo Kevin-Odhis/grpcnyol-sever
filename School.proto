@@ -19,7 +19,7 @@ service SchoolService{
     rpc GetLearnersbyGrade(Students_Grade_Request)returns(StudentList);
     rpc DeleteStudentSubject(DeleteSubjectRequest)returns(Response);
 
-    rpc AddStudentScore(AddScoreRequest)returns(Response);
+    rpc AddStudentScore(Add_bulk_ScoreRequest)returns(Response);
     rpc StudentExamReport(ExamReportRequest)returns(ExamReport);
     rpc AddSubjectsToStudent(AddSubjectsRequest) returns (Response);
 
@@ -34,10 +34,12 @@ service SchoolService{
     rpc UpdateAdminRole(UpdateAdminRoleRequest)returns(Response);
 
     rpc AddExam(AddExamRequest)returns(Response);
+    rpc AddCombinedExam(AddCombinedExamRequest)returns(Response);
     rpc AddExamToGrade(AddExamToGradeRequest)returns(Response);
     rpc FindExams(FindExamRequest)returns(ExamList);
     rpc SetExamAnalysed(SetExamAnalysedRequest)returns(Response);
     rpc GradeMeritList(MeritListRequest)returns(MeritList);
+    rpc GetCombinedExamMerit(CombinedMeritRequest)returns(MeritList);
     rpc setLoadedSubjects(setloadedsubjectrequest)returns(Response);
     rpc fetchLoadedSubjects(getloadedsubjectsrequest)returns(SubjectList);
 
@@ -61,6 +63,12 @@ message AddExamToGradeRequest{
     Role role=4;
     int32 term=5;
     bool full=6;
+}
+message CombinedMeritRequest{
+    string school_id=1;
+    string exam_name=2;
+    string grade=3;
+    repeated exam_weight exams_to_combine=4;
 }
 message AddSchoolHeadRequest{
     string schoolid=1;
@@ -229,6 +237,15 @@ message StudentMerit{
     string student_name=2;
     Sex sex=3;
     repeated SubjectScore scores=4;
+    int32 total_marks=5;
+    string level=6;
+    repeated scores_per_subject combinedscores=7;
+    string exam_name=8;
+}
+message scores_per_subject{
+    string exam_name=1;
+    string subject_name=2;
+    int32 score=3;
 }
 message MeritList{
     repeated StudentMerit learners=1;
@@ -279,23 +296,20 @@ message ExamReportRequest{
     string exam_name=2;
     string school_id=3;
 }
-message AddScoreRequest{
-    add_subject_score mark=1;
+message Add_bulk_ScoreRequest{
+    repeated add_subject_score mark=1;
     string school_id=2;
     int32 out_of=3;
+    string exam_name=4;
+    bool full_paper=5;
+    int32 pp_no=6;
 }
 message add_subject_score{
     string subject=1;
-    paper_score scores=2;
-    string upi=3;
-    string exam_name=4;
-    bool full_paper=5;
+    string upi=2;
+    int32 score=3;
 }
-message paper_score{
-    int32 pp=1;
-    int32 score=2;
 
-}
 message UpdateGradeRequest{
     int32 code=1;
     string name=2;
@@ -345,6 +359,23 @@ message AddExamRequest{
     bool analysed=3;
     int32 term=4;
     string school_id=5;
+    bool combined_exam=6;
+    int32 year=7;
+}
+message AddCombinedExamRequest{
+    repeated exam_weight exams=1;
+    repeated exam_grade grades=2;
+    int32 term=3;
+    int32 year=4;
+    string school_id=5;
+    bool analysed=6;
+    bool combined_exam=7;
+    string combinedexam_name=8;
+}
+message exam_weight{
+    string exam_name=1;
+    int32 weight=2;
+    bool full_paper=3;
 }
 message exam_grade{
     string grade=1;
@@ -355,6 +386,9 @@ message Exam{
     bool analysed=2;
     int32 term=3;
     bool full_paper=4;
+    int32 year=5;
+    bool combined_exam=6;
+    repeated exam_weight combinedexams=7;
 }
 message TeachersList{
     repeated Teacher teachers=1;

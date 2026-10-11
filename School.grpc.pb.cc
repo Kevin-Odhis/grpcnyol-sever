@@ -47,10 +47,12 @@ static const char* SchoolService_method_names[] = {
   "/School.SchoolService/DeleteTeacherSubject",
   "/School.SchoolService/UpdateAdminRole",
   "/School.SchoolService/AddExam",
+  "/School.SchoolService/AddCombinedExam",
   "/School.SchoolService/AddExamToGrade",
   "/School.SchoolService/FindExams",
   "/School.SchoolService/SetExamAnalysed",
   "/School.SchoolService/GradeMeritList",
+  "/School.SchoolService/GetCombinedExamMerit",
   "/School.SchoolService/setLoadedSubjects",
   "/School.SchoolService/fetchLoadedSubjects",
   "/School.SchoolService/AddGrade",
@@ -97,22 +99,24 @@ SchoolService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   , rpcmethod_DeleteTeacherSubject_(SchoolService_method_names[22], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateAdminRole_(SchoolService_method_names[23], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_AddExam_(SchoolService_method_names[24], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_AddExamToGrade_(SchoolService_method_names[25], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_FindExams_(SchoolService_method_names[26], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetExamAnalysed_(SchoolService_method_names[27], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GradeMeritList_(SchoolService_method_names[28], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_setLoadedSubjects_(SchoolService_method_names[29], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_fetchLoadedSubjects_(SchoolService_method_names[30], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_AddGrade_(SchoolService_method_names[31], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_RemoveGradeSubject_(SchoolService_method_names[32], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_RemoveGrade_(SchoolService_method_names[33], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_FindGrades_(SchoolService_method_names[34], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateGrade_(SchoolService_method_names[35], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GradeStudents_(SchoolService_method_names[36], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Invoice_(SchoolService_method_names[37], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetInvoice_(SchoolService_method_names[38], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Receipt_(SchoolService_method_names[39], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetReceipt_(SchoolService_method_names[40], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AddCombinedExam_(SchoolService_method_names[25], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AddExamToGrade_(SchoolService_method_names[26], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_FindExams_(SchoolService_method_names[27], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetExamAnalysed_(SchoolService_method_names[28], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GradeMeritList_(SchoolService_method_names[29], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCombinedExamMerit_(SchoolService_method_names[30], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_setLoadedSubjects_(SchoolService_method_names[31], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_fetchLoadedSubjects_(SchoolService_method_names[32], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AddGrade_(SchoolService_method_names[33], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RemoveGradeSubject_(SchoolService_method_names[34], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RemoveGrade_(SchoolService_method_names[35], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_FindGrades_(SchoolService_method_names[36], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateGrade_(SchoolService_method_names[37], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GradeStudents_(SchoolService_method_names[38], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Invoice_(SchoolService_method_names[39], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetInvoice_(SchoolService_method_names[40], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Receipt_(SchoolService_method_names[41], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetReceipt_(SchoolService_method_names[42], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status SchoolService::Stub::CreateSchool(::grpc::ClientContext* context, const ::School::AddSchoolRequest& request, ::School::Response* response) {
@@ -391,23 +395,23 @@ void SchoolService::Stub::async::DeleteStudentSubject(::grpc::ClientContext* con
   return result;
 }
 
-::grpc::Status SchoolService::Stub::AddStudentScore(::grpc::ClientContext* context, const ::School::AddScoreRequest& request, ::School::Response* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::School::AddScoreRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_AddStudentScore_, context, request, response);
+::grpc::Status SchoolService::Stub::AddStudentScore(::grpc::ClientContext* context, const ::School::Add_bulk_ScoreRequest& request, ::School::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::School::Add_bulk_ScoreRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_AddStudentScore_, context, request, response);
 }
 
-void SchoolService::Stub::async::AddStudentScore(::grpc::ClientContext* context, const ::School::AddScoreRequest* request, ::School::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::School::AddScoreRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddStudentScore_, context, request, response, std::move(f));
+void SchoolService::Stub::async::AddStudentScore(::grpc::ClientContext* context, const ::School::Add_bulk_ScoreRequest* request, ::School::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::School::Add_bulk_ScoreRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddStudentScore_, context, request, response, std::move(f));
 }
 
-void SchoolService::Stub::async::AddStudentScore(::grpc::ClientContext* context, const ::School::AddScoreRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+void SchoolService::Stub::async::AddStudentScore(::grpc::ClientContext* context, const ::School::Add_bulk_ScoreRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddStudentScore_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::School::Response>* SchoolService::Stub::PrepareAsyncAddStudentScoreRaw(::grpc::ClientContext* context, const ::School::AddScoreRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::School::Response, ::School::AddScoreRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_AddStudentScore_, context, request);
+::grpc::ClientAsyncResponseReader< ::School::Response>* SchoolService::Stub::PrepareAsyncAddStudentScoreRaw(::grpc::ClientContext* context, const ::School::Add_bulk_ScoreRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::School::Response, ::School::Add_bulk_ScoreRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_AddStudentScore_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::School::Response>* SchoolService::Stub::AsyncAddStudentScoreRaw(::grpc::ClientContext* context, const ::School::AddScoreRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::School::Response>* SchoolService::Stub::AsyncAddStudentScoreRaw(::grpc::ClientContext* context, const ::School::Add_bulk_ScoreRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncAddStudentScoreRaw(context, request, cq);
   result->StartCall();
@@ -690,6 +694,29 @@ void SchoolService::Stub::async::AddExam(::grpc::ClientContext* context, const :
   return result;
 }
 
+::grpc::Status SchoolService::Stub::AddCombinedExam(::grpc::ClientContext* context, const ::School::AddCombinedExamRequest& request, ::School::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::School::AddCombinedExamRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_AddCombinedExam_, context, request, response);
+}
+
+void SchoolService::Stub::async::AddCombinedExam(::grpc::ClientContext* context, const ::School::AddCombinedExamRequest* request, ::School::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::School::AddCombinedExamRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddCombinedExam_, context, request, response, std::move(f));
+}
+
+void SchoolService::Stub::async::AddCombinedExam(::grpc::ClientContext* context, const ::School::AddCombinedExamRequest* request, ::School::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_AddCombinedExam_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::School::Response>* SchoolService::Stub::PrepareAsyncAddCombinedExamRaw(::grpc::ClientContext* context, const ::School::AddCombinedExamRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::School::Response, ::School::AddCombinedExamRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_AddCombinedExam_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::School::Response>* SchoolService::Stub::AsyncAddCombinedExamRaw(::grpc::ClientContext* context, const ::School::AddCombinedExamRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncAddCombinedExamRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status SchoolService::Stub::AddExamToGrade(::grpc::ClientContext* context, const ::School::AddExamToGradeRequest& request, ::School::Response* response) {
   return ::grpc::internal::BlockingUnaryCall< ::School::AddExamToGradeRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_AddExamToGrade_, context, request, response);
 }
@@ -778,6 +805,29 @@ void SchoolService::Stub::async::GradeMeritList(::grpc::ClientContext* context, 
 ::grpc::ClientAsyncResponseReader< ::School::MeritList>* SchoolService::Stub::AsyncGradeMeritListRaw(::grpc::ClientContext* context, const ::School::MeritListRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGradeMeritListRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status SchoolService::Stub::GetCombinedExamMerit(::grpc::ClientContext* context, const ::School::CombinedMeritRequest& request, ::School::MeritList* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::School::CombinedMeritRequest, ::School::MeritList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCombinedExamMerit_, context, request, response);
+}
+
+void SchoolService::Stub::async::GetCombinedExamMerit(::grpc::ClientContext* context, const ::School::CombinedMeritRequest* request, ::School::MeritList* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::School::CombinedMeritRequest, ::School::MeritList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCombinedExamMerit_, context, request, response, std::move(f));
+}
+
+void SchoolService::Stub::async::GetCombinedExamMerit(::grpc::ClientContext* context, const ::School::CombinedMeritRequest* request, ::School::MeritList* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCombinedExamMerit_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::School::MeritList>* SchoolService::Stub::PrepareAsyncGetCombinedExamMeritRaw(::grpc::ClientContext* context, const ::School::CombinedMeritRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::School::MeritList, ::School::CombinedMeritRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCombinedExamMerit_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::School::MeritList>* SchoolService::Stub::AsyncGetCombinedExamMeritRaw(::grpc::ClientContext* context, const ::School::CombinedMeritRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetCombinedExamMeritRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -1182,10 +1232,10 @@ SchoolService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SchoolService_method_names[12],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::AddScoreRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::Add_bulk_ScoreRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::School::AddScoreRequest* req,
+             const ::School::Add_bulk_ScoreRequest* req,
              ::School::Response* resp) {
                return service->AddStudentScore(ctx, req, resp);
              }, this)));
@@ -1312,6 +1362,16 @@ SchoolService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SchoolService_method_names[25],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::AddCombinedExamRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](SchoolService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::School::AddCombinedExamRequest* req,
+             ::School::Response* resp) {
+               return service->AddCombinedExam(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      SchoolService_method_names[26],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::AddExamToGradeRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
              ::grpc::ServerContext* ctx,
@@ -1320,7 +1380,7 @@ SchoolService::Service::Service() {
                return service->AddExamToGrade(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[26],
+      SchoolService_method_names[27],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::FindExamRequest, ::School::ExamList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1330,7 +1390,7 @@ SchoolService::Service::Service() {
                return service->FindExams(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[27],
+      SchoolService_method_names[28],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::SetExamAnalysedRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1340,7 +1400,7 @@ SchoolService::Service::Service() {
                return service->SetExamAnalysed(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[28],
+      SchoolService_method_names[29],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::MeritListRequest, ::School::MeritList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1350,7 +1410,17 @@ SchoolService::Service::Service() {
                return service->GradeMeritList(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[29],
+      SchoolService_method_names[30],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::CombinedMeritRequest, ::School::MeritList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](SchoolService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::School::CombinedMeritRequest* req,
+             ::School::MeritList* resp) {
+               return service->GetCombinedExamMerit(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      SchoolService_method_names[31],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::setloadedsubjectrequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1360,7 +1430,7 @@ SchoolService::Service::Service() {
                return service->setLoadedSubjects(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[30],
+      SchoolService_method_names[32],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::getloadedsubjectsrequest, ::School::SubjectList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1370,7 +1440,7 @@ SchoolService::Service::Service() {
                return service->fetchLoadedSubjects(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[31],
+      SchoolService_method_names[33],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::AddGradeRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1380,7 +1450,7 @@ SchoolService::Service::Service() {
                return service->AddGrade(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[32],
+      SchoolService_method_names[34],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::RemoveSubjectRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1390,7 +1460,7 @@ SchoolService::Service::Service() {
                return service->RemoveGradeSubject(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[33],
+      SchoolService_method_names[35],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::RemoveGradeRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1400,7 +1470,7 @@ SchoolService::Service::Service() {
                return service->RemoveGrade(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[34],
+      SchoolService_method_names[36],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::FindGradesRequest, ::School::GradeList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1410,7 +1480,7 @@ SchoolService::Service::Service() {
                return service->FindGrades(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[35],
+      SchoolService_method_names[37],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::UpdateGradeRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1420,7 +1490,7 @@ SchoolService::Service::Service() {
                return service->UpdateGrade(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[36],
+      SchoolService_method_names[38],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::GradeStudentsRequest, ::School::StudentList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1430,7 +1500,7 @@ SchoolService::Service::Service() {
                return service->GradeStudents(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[37],
+      SchoolService_method_names[39],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::AddInvoiceRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1440,7 +1510,7 @@ SchoolService::Service::Service() {
                return service->Invoice(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[38],
+      SchoolService_method_names[40],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::GetInvoiceRequest, ::School::InvoiceList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1450,7 +1520,7 @@ SchoolService::Service::Service() {
                return service->GetInvoice(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[39],
+      SchoolService_method_names[41],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::AddReceiptRequest, ::School::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1460,7 +1530,7 @@ SchoolService::Service::Service() {
                return service->Receipt(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SchoolService_method_names[40],
+      SchoolService_method_names[42],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SchoolService::Service, ::School::GetReceiptRequest, ::School::ReceiptList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SchoolService::Service* service,
@@ -1558,7 +1628,7 @@ SchoolService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status SchoolService::Service::AddStudentScore(::grpc::ServerContext* context, const ::School::AddScoreRequest* request, ::School::Response* response) {
+::grpc::Status SchoolService::Service::AddStudentScore(::grpc::ServerContext* context, const ::School::Add_bulk_ScoreRequest* request, ::School::Response* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -1649,6 +1719,13 @@ SchoolService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+::grpc::Status SchoolService::Service::AddCombinedExam(::grpc::ServerContext* context, const ::School::AddCombinedExamRequest* request, ::School::Response* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
 ::grpc::Status SchoolService::Service::AddExamToGrade(::grpc::ServerContext* context, const ::School::AddExamToGradeRequest* request, ::School::Response* response) {
   (void) context;
   (void) request;
@@ -1671,6 +1748,13 @@ SchoolService::Service::~Service() {
 }
 
 ::grpc::Status SchoolService::Service::GradeMeritList(::grpc::ServerContext* context, const ::School::MeritListRequest* request, ::School::MeritList* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SchoolService::Service::GetCombinedExamMerit(::grpc::ServerContext* context, const ::School::CombinedMeritRequest* request, ::School::MeritList* response) {
   (void) context;
   (void) request;
   (void) response;

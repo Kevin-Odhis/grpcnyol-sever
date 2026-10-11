@@ -71,12 +71,13 @@ class SchoolDB{
         std::string UpdateGrade(const std::string& name,const std::string& school_id,const std::string& name2="",int code=-1,
         const std::vector<std::pair<int,std::string>>& added_sub={});
 
-       void AddScore(const std::string& exam,const std::string& upi,const std::string& subject, int score,const std::string& school_id);
-       void AddScore(const std::string& exam,const std::string& upi,const std::pair<std::string,int>&score,const std::string& subject,
-        const std::string& school_id,int out_of);
+       void AddScore(const School::Add_bulk_ScoreRequest& scores);
+       void AddScore_fullpaper(const School::Add_bulk_ScoreRequest& scores);
        student_exam StudentExamReport(const std::string& upi,const std::string& examname,const std::string& school_id);
 
-       std::string CreateExam(const std::string& exam_name,int term,std::vector<std::pair<std::string,bool>>&& grades,const std::string& school_id);
+       std::string CreateExam(const std::string& exam_name,int term,int year,std::vector<std::pair<std::string,bool>>&& grades,const std::string& school_id);
+       std::string CreateCombinedExam(const School::AddCombinedExamRequest& request);
+       
        std::vector<School::Exam>GetExams(const std::string& school_id);
        std::string AddExamToGrade(const std::string& exam,const std::string& grade,const std::string&school_id,int term,bool full=false);
        bool ExamAnalyzed(const std::string& grade_name,const std::string& exam_name,bool analysis,const std::string& school_id);
@@ -88,7 +89,8 @@ class SchoolDB{
        std::vector<std::string>get_loadedsubjects(const std::string& grade,const std::string& exam,const std::string& school_id);
        std::string getsubject_level(int score,const std::string& school_id);
        std::string Science_Math_Grading(int marks,const std::string&s_id);
-       void AddExamPapers(const std::string& grade,const std::string& school_id,const std::string& exam);
+       void AddExamPapers(const std::string& grade,const std::string& school_id,const std::string& exam,const std::string& level);
+       void AddExamPapersToAstudent(const std::string& upi,const std::string& school_id,const std::string& exam,const std::string& level);
        login_response UserLogin(const std::string& username,const std::string& password);
        std::string ResetUserPassword(const std::string& username,const std::string& newpassword);
        Return_Grade GetSubjects_Teacher(const std::string& grade,const std::string& school_id);

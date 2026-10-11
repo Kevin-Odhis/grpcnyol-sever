@@ -13,7 +13,7 @@ std::map<int,std::pair<std::string,int>> GetSubjects(const std::string& school_c
             {907,{"Social Studies",1}},
             {908,{"Christian Religious Education",1}},
             {911,{"Creative Arts & Sports",1}},
-            {912,{"Pre-Technical Studies",1}}
+            {912,{"Pre-technical Studies",1}}
         };
         return subjects;
     }else{
@@ -32,7 +32,6 @@ std::map<int,std::pair<std::string,int>> GetSubjects(const std::string& school_c
         };
         return subjects;
     }
-
 }
 
 std::string SchoolDB::CreateStudent(const std::string& name,const std::string& sex,const std::string& upi,const std::string& grade,
@@ -55,23 +54,59 @@ const std::string& school_id){
         if(!found){
             return grade+" not found, the learner not added! Add grade first";
         }
-        
-        /*auto grd_doc=found.value();
-        if(grd_doc["subjects"]&&grd_doc["subjects"].type()==bsoncxx::type::k_array){
-            auto sub_arr=grd_doc["subjects"].get_array().value;
-            for(const auto& sub:sub_arr){
-                if(sub["subject"].type()==bsoncxx::type::k_string){
-                    std::string subject=std::string(sub["subject"].get_string().value);
-                    stude_subjects.append(subject);
+        auto grd_doc=found.value();
+
+        std::string level="SECONDARY";
+        if(grd_doc["level"]&&grd_doc["level"].type()==bsoncxx::type::k_string){
+            level=std::string(grd_doc["level"].get_string().value);
+        }
+        if(level=="PRIMARY"||level=="JUNIOR"){
+            if(grd_doc["subjects"]&&grd_doc["subjects"].type()==bsoncxx::type::k_array){
+                auto sub_arr=grd_doc["subjects"].get_array().value;
+                for(const auto& sub:sub_arr){
+                    if(sub["subject"].type()==bsoncxx::type::k_string){
+                        std::string subject=std::string(sub["subject"].get_string().value);
+                        stude_subjects.append(subject);
+                    }
                 }
             }
-        }*/
+        }
 
     auto stude=make_document(kvp("name",name),kvp("sex",sex),kvp("upi",upi),kvp("grade_name",grade),kvp("school_id",school_id),
-    kvp("subjects",make_array()),kvp("exams",make_array()));
+    kvp("subjects",stude_subjects),kvp("exams",make_array()));
     auto added=coll.insert_one(stude.view());
     if(!added||added->result().inserted_count()!=1){
         return "Could not add learner "+name+" to the system! Please try again.";
+    }
+
+    if(grd_doc["exams"]&&grd_doc["exams"].type()==bsoncxx::type::k_array){
+        auto exam_arr=grd_doc["exams"].get_array().value;
+        for(const auto& exam:exam_arr){
+            if(exam.type()!=bsoncxx::type::k_document)continue;
+            auto exam_doc=exam.get_document().value;
+            bool full_paper=false;
+            std::string exam_name;
+            bool analyzed=false;
+            if(exam_doc["analyzed"]&&exam_doc["analyzed"].type()==bsoncxx::type::k_bool){
+                analyzed=exam_doc["analyzed"].get_bool().value;
+            }
+            if(analyzed)continue;
+            if(exam_doc["exam_name"]&&exam_doc["exam_name"].type()==bsoncxx::type::k_string){
+                exam_name=std::string(exam_doc["exam_name"].get_string().value);
+            }
+            if(exam_doc["full_paper"]&&exam_doc["full_paper"].type()==bsoncxx::type::k_bool){
+                full_paper=exam_doc["full_paper"].get_bool().value;
+            }
+            auto ass_doc=make_document(kvp("exam_name",exam_name),kvp("scores",make_document()));
+            if(full_paper){
+                AddExamPapersToAstudent(upi,school_id,exam_name,level);
+            }else{
+                auto assess_insert=make_document(kvp("$push",make_document(
+                    kvp("exams",ass_doc.view())
+                )));
+                auto push_assess_result=coll.update_one(stude_filter.view(),assess_insert.view());
+            }
+        }
     }
     return name+" added successfully to the school database";
     }
@@ -479,7 +514,7 @@ const std::string& user,const std::string& password,const std::string& school_id
         auto grd_filter=make_document(kvp("grade",grade.name()),kvp("school_id",school_id));
         auto find=coll.find_one(grd_filter.view());
         if(find){
-            throw std::runtime_error("A grade with the same name already exist.");
+            throw std::runtime_error("A grade with the same name already exist!");
         }
         bsoncxx::builder::basic::array sub_array{};
         for(const auto& elem:subs){
@@ -581,14 +616,46 @@ const std::string& user,const std::string& password,const std::string& school_id
                         
                         School::Exam* grdexam=grade.add_exams();
                         grdexam->set_exam_name(exam);
-                        if(!exam_doc["analyzed"]||exam_doc["analyzed"].type()!=bsoncxx::type::k_bool)continue;
-                        auto status=exam_doc["analyzed"].get_bool().value;
+                        if(exam_doc["analyzed"]||exam_doc["analyzed"].type()==bsoncxx::type::k_bool){
+                            auto status=exam_doc["analyzed"].get_bool().value;
+                            grdexam->set_analysed(status);
+                        }
+                        
                         bool full=false;
                         if(exam_doc["full_paper"]&&exam_doc["full_paper"].type()==bsoncxx::type::k_bool){
                             full=exam_doc["full_paper"].get_bool().value;
                         }
-                        grdexam->set_analysed(status);
+                        
                         grdexam->set_full_paper(full);
+                        if(exam_doc["year"]&&exam_doc["year"].type()==bsoncxx::type::k_int32){
+                            int year=exam_doc["year"].get_int32().value;
+                            grdexam->set_year(year);
+                        }
+                        bool combined=false;
+                        if(exam_doc["combined_exam"]&&exam_doc["combined_exam"].type()==bsoncxx::type::k_bool){
+                            combined=exam_doc["combined_exam"].get_bool().value;
+                            grdexam->set_combined_exam(combined);
+                        }
+                        if(combined && exam_doc["exams_combined"]&&exam_doc["exams_combined"].type()==bsoncxx::type::k_array){
+                           auto combinedexams=exam_doc["exams_combined"].get_array().value;
+
+                           
+                           for(const auto& item:combinedexams){
+                            if(item.type() != bsoncxx::type::k_document)continue;
+
+                            auto assessment=item.get_document().view();
+                            if(!assessment["exam_name"]||assessment["exam_name"].type()!=bsoncxx::type::k_string)continue;
+                            
+                            auto addcombined=grdexam->add_combinedexams();
+                            auto ass_name=std::string(assessment["exam_name"].get_string().value);
+                            int weight=0;
+                            if(assessment["weight"]&&assessment["weight"].type()==bsoncxx::type::k_int32){
+                                weight=assessment["weight"].get_int32().value;
+                            }
+                            addcombined->set_exam_name(ass_name);
+                            addcombined->set_weight(weight);
+                           }
+                        }
                     }
                 }
             }
@@ -644,44 +711,30 @@ const std::string& user,const std::string& password,const std::string& school_id
         throw std::runtime_error("Database error: "+std::string(e.what()));
     }
   }
-  void SchoolDB::AddScore(const std::string& exam,const std::string& upi,const std::string& subject, int score,const std::string& school_id){
+  void SchoolDB::AddScore(const School::Add_bulk_ScoreRequest& scores){
     auto handle=getcollection("students");
     auto& coll=handle.coll;
     try{
-        auto filter=make_document(kvp("upi",upi),kvp("school_id",school_id));
-        std::string path="exams.$[examelem].scores."+subject;
-        auto exist=coll.find_one(filter.view());
-        bool found=false;
-        if(exist){
-            auto exa=exist->view();
-            if(exa["exams"]&&exa["exams"].type()==bsoncxx::type::k_array){
-                auto exa_arr=exa["exams"].get_array().value;
-                for(const auto& ele:exa_arr){
-                    if(ele.type()==bsoncxx::type::k_document){
-                        auto exdoc=ele.get_document().value;
-                        if(exdoc["exam_name"]&&exdoc["exam_name"].type()==bsoncxx::type::k_string){
-                            auto name=std::string(exdoc["exam_name"].get_string().value);
-                            if(name==exam) found=true;
-                        }
-                    }
-                }
-            }
+        //Adding scores for learners in bulk
+        auto bulk=coll.create_bulk_write();
+        std::string school_id=scores.school_id();
+        std::string assess_name=scores.exam_name();
+
+        for(const auto& learner:scores.mark()){
+            std::string path="exams.$[examelem].scores."+learner.subject();
+
+            auto filter=make_document(kvp("upi",learner.upi()),kvp("school_id",school_id));
+            auto update=make_document(kvp("$set",make_document(kvp(path,bsoncxx::types::b_int32{learner.score()}))));
+
+            bsoncxx::builder::basic::array array_filters{};
+            array_filters.append(make_document(kvp("examelem.exam_name",assess_name)));
+            mongocxx::model::update_one opt(filter.view(),update.view());
+            opt.array_filters(array_filters.view());
+            bulk.append(opt);
+        }         auto result=bulk.execute();
+        if(!result||result->matched_count()==0){
+            throw std::runtime_error("No scores added to the system!");
         }
-        if(found){
-            auto update=make_document(kvp("$set",make_document(kvp(std::string(path),bsoncxx::types::b_int32{score}))));
-            bsoncxx::builder::basic::array array_filter{};
-            array_filter.append(make_document(kvp("examelem.exam_name",exam)));
-            mongocxx::options::update update_options{};
-            update_options.array_filters(array_filter.view());
-            auto result=coll.update_one(filter.view(),update.view(),update_options);
-            if(result&&result->modified_count()>0) return;
-        }
-        if(!found){
-            auto exam_doc=make_document(kvp("exam_name",exam),kvp("scores",make_document(kvp(subject,
-                bsoncxx::types::b_int32{score}))));
-            auto push_exam=make_document(kvp("$push",make_document(kvp("exams",exam_doc))));
-            auto result_up=coll.update_one(filter.view(),push_exam.view());
-      }
     }
     catch(const mongocxx::operation_exception& e){
         throw std::runtime_error("Operation failed: "+std::string(e.what()));
@@ -693,22 +746,38 @@ const std::string& user,const std::string& password,const std::string& school_id
         throw std::runtime_error(std::string("Unknown error occured!"));
     }
   }
-  void SchoolDB::AddScore(const std::string& exam,const std::string& upi,const std::pair<std::string,int>&score,const std::string& subj,
-    const std::string& s_id,int out_of){
+  void SchoolDB::AddScore_fullpaper(const School::Add_bulk_ScoreRequest& scores){
     auto handle=getcollection("students");
     auto& coll=handle.coll;
     try{
-        auto filter=make_document(kvp("upi",upi),kvp("school_id",s_id));
-        auto update_doc=make_document(kvp("$set",
-            make_document(kvp("exams.$[exam].subjects.$[sub].papers."+score.first+".score",score.second),
-            kvp("exams.$[exam].subjects.$[sub].papers."+score.first+".out_of",out_of))));
-        mongocxx::options::update option;
-        bsoncxx::builder::basic::array array_filter;
-        array_filter.append(make_document(kvp("exam.exam_name",exam)));
-        array_filter.append(make_document(kvp("sub.subject",subj)));
-        option.array_filters(array_filter.view());
+        auto bulk=coll.create_bulk_write();
+        std::string school_id=scores.school_id();
+        std::string assess_name=scores.exam_name();
+        int out_of=scores.out_of();
+        auto p="pp"+std::to_string(scores.pp_no());
 
-        auto result=coll.update_one(filter.view(),update_doc.view(),option);
+        for(const auto& learner:scores.mark()){
+            auto filter=make_document(kvp("upi",learner.upi()),kvp("school_id",school_id));
+            std::string path="exams.$[exam].subjects.$[sub].papers."+p+".score";
+            std::string outof_path="exams.$[exam].subjects.$[sub].papers."+p+".out_of";
+            auto update=make_document(kvp("$set",make_document(
+                kvp(std::string(path),bsoncxx::types::b_int32{learner.score()}),
+                kvp(std::string(outof_path),bsoncxx::types::b_int32{out_of})
+            )));
+            
+            bsoncxx::builder::basic::array array_filter{};
+            array_filter.append(make_document(kvp("exam.exam_name",assess_name)));
+            array_filter.append(make_document(kvp("sub.subject",learner.subject())));
+    
+            mongocxx::model::update_one opt(filter.view(),update.view());
+            opt.array_filters(array_filter.view());
+            bulk.append(opt);
+        }
+        auto result=bulk.execute();
+        if(!result||result->matched_count()==0){
+            throw std::runtime_error("No scores added to the system!");
+        }
+      
     }
     catch(const mongocxx::operation_exception& e){
         throw std::runtime_error("Operation failed: "+std::string(e.what()));
@@ -839,12 +908,87 @@ catch(const mongocxx::exception& e){
 catch(const std::exception& e){
     throw std::runtime_error("Internal error: "+std::string(e.what()));}
 }
+std::string SchoolDB::CreateCombinedExam(const School::AddCombinedExamRequest& request){
+    auto handel=getcollection("grades");
+    auto& grade_coll=handel.coll;
+    auto handle=getcollection("exam");
+    auto& exam_coll=handle.coll;
+    try{
+        std::string school_id=request.school_id();
+        std::string exam_name=request.combinedexam_name();
+        std::string grades_not_added{};
+        auto exam_filter=make_document(kvp("exam",exam_name),kvp("school_id",school_id));
+        if(request.exams_size()<=1){
+            throw std::runtime_error("Select two assessments to continue!");
+        }
+        
+        int total_weight=0;
+        for(const auto& item:request.exams()){
+            total_weight+=item.weight();
+        }
+        if(total_weight!=100){
+            throw std::runtime_error("Assessment weights must total to 100%!");
+        }
+        if(request.grades_size()<1){
+            throw std::runtime_error("Select at least one grade for the combined assessment!");
+        }
+        
+        auto exam_exist=exam_coll.find_one(exam_filter.view());
+        if(exam_exist){
+            throw std::runtime_error("Assessment with same name had already been created this term, choose another name for the assessment.");
+        }
+        auto exam_doc=make_document(kvp("exam",exam_name),kvp("school_id",school_id),
+                kvp("combined_exam",true),kvp("term",request.term()),kvp("year",request.year()),
+                kvp("createdAt",b_date{std::chrono::system_clock::now()}));
+        auto success=exam_coll.insert_one(exam_doc.view());
+        if(success){
+            bsoncxx::builder::basic::array array_exams;
+            for(const auto& item:request.exams()){
+                array_exams.append(make_document(kvp("exam_name",item.exam_name()),kvp("weight",item.weight())));
+            }
+            auto assessment_doc=make_document(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",false),kvp("term",request.term()),
+                kvp("year",request.year()),kvp("combined_exam",true),kvp("exams_combined",array_exams.extract()));
+            auto update=make_document(kvp("$addToSet",make_document(kvp("exams",assessment_doc.view()))));
 
-std::string SchoolDB::CreateExam(const std::string& exam_name,int term,std::vector<std::pair<std::string,bool>>&& grades,const std::string& school_id){
+            for(const auto& item:request.grades()){
+                auto grade_filter=make_document(kvp("grade",item.grade()),kvp("school_id",request.school_id()),kvp("exams",make_document(
+                    kvp("$not",make_document(kvp("$elemMatch",make_document(kvp("exam_name",exam_name)))))
+                )));
+                auto result=grade_coll.update_one(grade_filter.view(),update.view());
+                if(!result||result->matched_count()==0){
+                    grades_not_added.empty()
+                    ? grades_not_added += item.grade()
+                    : grades_not_added += ", " + item.grade();
+                }
+            }
+        }
+        if(grades_not_added.empty()){
+            return "Combined Assessment created successfully to all grades";
+        }else{
+            return "Combined Assessment created but failed to add to: "+grades_not_added;
+        }
+    }
+    catch(const mongocxx::operation_exception& e){
+        if(e.code().value()==11000){
+            throw std::runtime_error("Exam already exists.");
+        }
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
+
+std::string SchoolDB::CreateExam(const std::string& exam_name,int term,int year,std::vector<std::pair<std::string,bool>>&& grades,const std::string& school_id){
     auto handle=getcollection("grades");
     auto& coll=handle.coll;
     auto handl=getcollection("exam");
     auto& exam_coll=handl.coll;
+    auto stude_handle=getcollection("students");
+    auto stude_coll=stude_handle.coll;
     try{
         std::string added_grades;
         School::school s_category=GetSchoolDetails(school_id);
@@ -868,6 +1012,10 @@ std::string SchoolDB::CreateExam(const std::string& exam_name,int term,std::vect
             if(!find_grade)continue;
 
             auto class_doc=find_grade->view();
+            std::string level="";
+            if(class_doc["level"]&&class_doc["level"].type()==bsoncxx::type::k_string){
+                level=std::string(class_doc["level"].get_string().value);
+            }
             if(!class_doc["subjects"]||class_doc["subjects"].type()!=bsoncxx::type::k_array)continue;
             auto sub_arr=class_doc["subjects"].get_array().value;
             
@@ -894,11 +1042,11 @@ std::string SchoolDB::CreateExam(const std::string& exam_name,int term,std::vect
         
             bsoncxx::builder::basic::document exam{};
             if(grd.second){
-                exam.append(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",grd.second),
-                kvp("loaded_subjects",loaded_subs.extract()));
+                exam.append(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",grd.second),kvp("term",term),
+                kvp("year",year),kvp("loaded_subjects",loaded_subs.extract()));
             }else{
-                exam.append(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",grd.second),
-                kvp("loaded_subjects",make_array()));
+                exam.append(kvp("exam_name",exam_name),kvp("analyzed",false),kvp("full_paper",grd.second),kvp("term",term),
+                kvp("year",year),kvp("loaded_subjects",make_array()));
             }
 
             auto filter=make_document(kvp("grade",grd.first),kvp("school_id",school_id),
@@ -911,7 +1059,14 @@ std::string SchoolDB::CreateExam(const std::string& exam_name,int term,std::vect
                 if(update_result&&update_result->modified_count()>0){
                     added_grades+=grd.first+" ";
                     if(grd.second){
-                        AddExamPapers(grd.first,school_id,exam_name);
+                        AddExamPapers(grd.first,school_id,exam_name,level);
+                    }else{
+                        //add the assessment to each document per grade to ensure enable the entry of scores
+                        auto filter=make_document(kvp("grade_name",grd.first),kvp("school_id",school_id));
+                        auto stude_exam_doc=make_document(kvp("exam_name",exam_name),kvp("scores",make_document()));
+                        auto push_stude_exam=make_document(kvp("$push",make_document(kvp("exams",stude_exam_doc.view()))));
+                        auto stude_result=stude_coll.update_many(filter.view(),push_stude_exam.view());
+
                     }
                 }
             }    
@@ -935,6 +1090,8 @@ std::string SchoolDB::CreateExam(const std::string& exam_name,int term,std::vect
 std::string SchoolDB::AddExamToGrade(const std::string& exam_name,const std::string& grade,const std::string&school_id,int term,bool full){
     auto handle=getcollection("grades");
     auto& coll=handle.coll;
+    auto stude_handle=getcollection("students");
+    auto stude_coll=stude_handle.coll;
     try{
         School::school s_category=GetSchoolDetails(school_id);
         std::map<int,std::pair<std::string,int>> subject_paper=GetSubjects(School::Category_Name(s_category.category()));
@@ -946,6 +1103,10 @@ std::string SchoolDB::AddExamToGrade(const std::string& exam_name,const std::str
             throw std::runtime_error(grade+" not found in the school database.");
         }
         auto class_doc=find_grade->view();
+        std::string level="";
+        if(class_doc["level"]&&class_doc["level"].type()==bsoncxx::type::k_string){
+            level=std::string(class_doc["level"].get_string().value);
+        }
         if(!class_doc["subjects"]||class_doc["subjects"].type()!=bsoncxx::type::k_array){
             throw std::runtime_error("No subjects found for grade "+grade+".");
         }
@@ -988,7 +1149,12 @@ std::string SchoolDB::AddExamToGrade(const std::string& exam_name,const std::str
 
         if(update_result&&update_result->modified_count()>0){
             if(full){
-                AddExamPapers(grade,school_id,exam_name);
+                AddExamPapers(grade,school_id,exam_name,level);
+              }else{
+                auto filter=make_document(kvp("grade_name",grade),kvp("school_id",school_id));
+                auto stude_exam_doc=make_document(kvp("exam_name",exam_name),kvp("scores",make_document()));
+                auto push_stude_exam=make_document(kvp("$push",make_document(kvp("exams",stude_exam_doc.view()))));
+                auto stude_result=stude_coll.update_many(filter.view(),push_stude_exam.view());
               }
         }
         return exam_name+" added to "+grade+" successfully.";
@@ -1003,7 +1169,7 @@ std::string SchoolDB::AddExamToGrade(const std::string& exam_name,const std::str
         throw std::runtime_error("Internal error: "+std::string(e.what()));
     }
 }
-void SchoolDB::AddExamPapers(const std::string& grade,const std::string& s_id,const std::string& exam){
+void SchoolDB::AddExamPapers(const std::string& grade,const std::string& s_id,const std::string& exam,const std::string& level){
     auto handle = getcollection("students");
     auto& student_coll = handle.coll;
 
@@ -1022,6 +1188,17 @@ void SchoolDB::AddExamPapers(const std::string& grade,const std::string& s_id,co
             {"Christian Religious Education", 2}, {"Agriculture", 2},
             {"Business Studies", 2}
         };
+        std::map<std::string,int>exam_papers_junior={
+            {"English",2},
+            {"Kiswahili",2},
+            {"Mathematics",1},
+            {"Integrated Science",2},
+            {"Agriculture",1},
+            {"Social Studies",1},
+            {"Christian Religious Education",1},
+            {"Creative Arts & Sports",1},
+            {"Pre-technical Studies",1}
+        };
 
         std::vector<mongocxx::model::update_one> updates;
         std::vector<bsoncxx::document::value>   owned_filters;
@@ -1039,11 +1216,17 @@ void SchoolDB::AddExamPapers(const std::string& grade,const std::string& s_id,co
 
                 std::string subject{ elem.get_string().value };
 
-                auto it = exam_papers.find(subject);
-                if (it == exam_papers.end()) continue;
-
-                int paper_count = it->second;
-
+                int paper_count=0;
+                if(level=="JUNIOR"||level=="PRIMARY"){
+                    auto it = exam_papers_junior.find(subject);
+                    if (it == exam_papers_junior.end()) continue;
+                    paper_count = it->second;
+                }else{
+                    auto it = exam_papers.find(subject);
+                    if (it == exam_papers.end()) continue;
+                    paper_count = it->second;
+                }
+                if(paper_count==0)continue;
                 bsoncxx::builder::basic::document papers_doc;
                 for (int i = 1; i <= paper_count; ++i) {
                     papers_doc.append(kvp(
@@ -1104,84 +1287,164 @@ void SchoolDB::AddExamPapers(const std::string& grade,const std::string& s_id,co
         throw std::runtime_error("Internal error: "+std::string(e.what()));
     }
 }
+void SchoolDB::AddExamPapersToAstudent(const std::string& upi,const std::string& school_id,const std::string& exam,const std::string& level){
+    auto handle=getcollection("students");
+    auto& coll=handle.coll;
+    try{
+        auto filter=make_document(kvp("upi",upi),kvp("school_id",school_id));
+        std::map<std::string, int> exam_papers = {
+            {"English", 3}, {"Kiswahili", 3}, {"Mathematics", 2},
+            {"Biology", 3}, {"Physics", 3}, {"Chemistry", 3},
+            {"History and Government", 2}, {"Geography", 2},
+            {"Christian Religious Education", 2}, {"Agriculture", 2},
+            {"Business Studies", 2}
+        };
+        std::map<std::string,int>exam_papers_junior={
+            {"English",2},
+            {"Kiswahili",2},
+            {"Mathematics",1},
+            {"Integrated Science",2},
+            {"Agriculture",1},
+            {"Social Studies",1},
+            {"Christian Religious Education",1},
+            {"Creative Arts & Sports",1},
+            {"Pre-technical Studies",1}
+        };
+        auto cursor=coll.find_one(filter.view());
+        if(!cursor)return;
+        auto student_doc=cursor.value();
+         if (!student_doc["subjects"] || student_doc["subjects"].type() != bsoncxx::type::k_array)return;
+            
+        auto student_subjects = student_doc["subjects"].get_array().value;
+        bsoncxx::builder::basic::array subjects_array;
+
+        for(const auto& elem:student_subjects){
+            if (elem.type() != bsoncxx::type::k_string) continue;
+            std::string subject{ elem.get_string().value };
+
+            int paper_count=0;
+            if(level=="SECONDARY"){
+                
+            }else{
+                auto it = exam_papers_junior.find(subject);
+                if (it == exam_papers_junior.end()) continue;
+                paper_count = it->second;
+            }
+           if(paper_count==0)continue;
+
+            bsoncxx::builder::basic::document papers_doc;
+            for (int i = 1; i <= paper_count; ++i) {
+                papers_doc.append(kvp("pp" + std::to_string(i),
+                    make_document(kvp("score",   bsoncxx::types::b_int32{-1}),kvp("out_of",  bsoncxx::types::b_int32{0}))
+                ));
+            }
+            bsoncxx::builder::basic::document subject_doc;
+            subject_doc.append(kvp("subject", subject));
+            subject_doc.append(kvp("papers", papers_doc.extract()));
+            subjects_array.append(subject_doc.extract());
+        }
+        if (subjects_array.view().empty())return;
+        bsoncxx::builder::basic::document exam_doc;
+        exam_doc.append(kvp("exam_name", exam));
+        exam_doc.append(kvp("subjects", subjects_array.extract()));
+        auto update_doc = make_document(kvp("$addToSet",make_document(kvp("exams", exam_doc.extract()))
+            )
+        );
+        auto up_result=coll.update_one(filter.view(),update_doc.view());
+
+    }
+     catch(const mongocxx::operation_exception& e){
+        throw std::runtime_error("Operation failed: "+std::string(e.what()));
+    }
+    catch(const mongocxx::exception& e){
+        throw std::runtime_error("Database error: "+std::string(e.what()));
+    }
+    catch(const std::exception& e){
+        throw std::runtime_error("Internal error: "+std::string(e.what()));
+    }
+}
 std::vector<StudentExam> SchoolDB::GetStudentsperSubject(const std::string& grade,const std::string& subj,
-    int t_code,const std::string& examname,const std::string& school_id){
+                                            int t_code,const std::string& examname,const std::string& school_id){
     auto handle=getcollection("teachers");
     auto &coll=handle.coll;
+    auto handle_stud=getcollection("students");
+    auto &stud_coll=handle_stud.coll;
     try{
-        mongocxx::pipeline pipe{};
-        pipe.match(make_document(kvp("code",bsoncxx::types::b_int32{t_code}),kvp("school_id",school_id)));
-
-        pipe.project(make_document(kvp("classes",make_document(kvp("$filter",make_document(kvp("input",
-        "$classes"),kvp("as","ele"),kvp("cond",make_document(kvp("$and",make_array(make_document(kvp("$eq",
-        make_array("$$ele.grade_name",grade))),
-        make_document(kvp("$eq",make_array("$$ele.subject",subj)))))))))))));
-
-        pipe.lookup(make_document(kvp("from","students"),
-                                  kvp("localField","classes.grade_name"),
-                                  kvp("foreignField","grade_name"),
-                                  kvp("as","student_info")));
-
-        pipe.unwind(make_document(kvp("path","$student_info")));
-
-        pipe.project(make_document(kvp("_id",0),
-                                   kvp("student_info.name",1),
-                                   kvp("student_info.upi",1),
-                                   kvp("student_info.exams",1)));
-                                
-    pipe.sort(make_document(kvp("student_info.upi",1)));
-    mongocxx::options::aggregate a_opts;
-    a_opts.allow_disk_use(true);
-    auto cursor=coll.aggregate(pipe,a_opts);
-    std::vector<StudentExam> learners;
-
-    for(auto&& doc:cursor){
-        StudentExam report;
-        bool exam_found=false;
-        bool sub_found=false;
-        if(!doc["student_info"]||doc["student_info"].type()!=bsoncxx::type::k_document)continue;
-        std::string s_name,s_upi;
-        int score_value=0;
-        auto student_doc=doc["student_info"].get_document().view();
-
-        if(student_doc["name"]&&student_doc["name"].type()==bsoncxx::type::k_string&&student_doc["upi"]&&
-             student_doc["upi"].type()==bsoncxx::type::k_string){
-        s_name=std::string(student_doc["name"].get_string().value);
-        s_upi=std::string(student_doc["upi"].get_string().value);
-       }
-                        // scan the exam array
-       if(student_doc["exams"]&&student_doc["exams"].type()==bsoncxx::type::k_array){
-        auto exam_array=student_doc["exams"].get_array().value;
-        for(const auto& element:exam_array){
-            if(element.type()!=bsoncxx::type::k_document)continue;
-            auto exa_doc=element.get_document().view();
-            if(exa_doc["exam_name"]&&exa_doc["exam_name"].type()==bsoncxx::type::k_string&&
-            std::string(exa_doc["exam_name"].get_string().value)==examname){
-                exam_found=true;
-
-                if(exa_doc["scores"]&&exa_doc["scores"].type()==bsoncxx::type::k_document){
-                    auto exa_scores=exa_doc["scores"].get_document().view();
-                    for(const auto& s:exa_scores){
-                        if(s.key()==subj&&s.type()==bsoncxx::type::k_int32){
-                            sub_found=true;
-                            score_value=s.get_int32().value;
-                        }
-                    }
-                }
-                
-                break;
+            auto stud_filter=make_document(kvp("grade_name",grade),kvp("school_id",school_id));
+            auto teacher_filter=make_document(kvp("code",bsoncxx::types::b_int32{t_code}),kvp("school_id",school_id));
+            auto teacher_doc=coll.find_one(teacher_filter.view());
+            if(!teacher_doc) throw std::runtime_error("Teacher with code "+std::to_string(t_code)+" not found in the school database.");
+            auto teacher_view=teacher_doc->view();
+            if(!teacher_view["classes"]||teacher_view["classes"].type()!=bsoncxx::type::k_array) 
+            throw std::runtime_error("No classes found for teacher");
+            auto class_array=teacher_view["classes"].get_array().value;
+            bool class_found=false;
+            for(const auto doc:class_array){
+                if(doc.type()!=bsoncxx::type::k_document)continue;
+                auto class_doc=doc.get_document().view();
+                if(!class_doc["grade_name"]||class_doc["grade_name"].type()!=bsoncxx::type::k_string)continue;
+                if(!class_doc["subject"]||class_doc["subject"].type()!=bsoncxx::type::k_string)continue;
+                std::string class_grade=std::string(class_doc["grade_name"].get_string().value);
+                std::string class_subject=std::string(class_doc["subject"].get_string().value);
+                if(class_grade==grade&&class_subject==subj){
+                    class_found=true;
+                    break;
+                };
             }
+
+            if(class_found){
+                mongocxx::options::find opts;
+                opts.sort(make_document(kvp("upi", 1)));
+                auto cursor=stud_coll.find(stud_filter.view(),opts);
+                std::vector<StudentExam> learners;
+                for(const auto& st_doc:cursor){
+                    if(!st_doc["name"]||st_doc["name"].type()!=bsoncxx::type::k_string)continue;
+                    if(!st_doc["upi"]||st_doc["upi"].type()!=bsoncxx::type::k_string)continue;
+
+                    StudentExam report;
+                    bool exam_found=false;
+                    bool sub_found=false;
+                    int score_value=0;
+                    std::string s_name=std::string(st_doc["name"].get_string().value);
+                    std::string s_upi=std::string(st_doc["upi"].get_string().value);
+                    //scan the exam array
+                    if(st_doc["exams"]&&st_doc["exams"].type()==bsoncxx::type::k_array){
+                        auto exam_array=st_doc["exams"].get_array().value;
+
+                        for(const auto& element:exam_array){
+                            if(element.type()!=bsoncxx::type::k_document)continue;
+                            auto exa_doc=element.get_document().view();
+                            if(exa_doc["exam_name"]&&exa_doc["exam_name"].type()==bsoncxx::type::k_string&&
+                            std::string(exa_doc["exam_name"].get_string().value)==examname){
+                                exam_found=true;
+
+                                if(exa_doc["scores"]&&exa_doc["scores"].type()==bsoncxx::type::k_document){
+                                    auto exa_scores=exa_doc["scores"].get_document().view();
+                                    for(const auto& s:exa_scores){
+                                        if(s.key()==subj&&s.type()==bsoncxx::type::k_int32){
+                                            sub_found=true;
+                                            score_value=s.get_int32().value;
+                                        }
+                                    }
+                                }
+                                
+                                break;
+                            }
+                        }
+
+                    }
+                report.student_name=s_name;
+                report.upi=s_upi;
+                if(exam_found&&sub_found){
+                    report.total_marks=score_value;
+                }
+                learners.push_back(report); 
+            }
+            return learners;
+        }else{
+            throw std::runtime_error("Access denied. You do not teach "+subj+" in grade "+grade+".");
         }
-       }
-       report.student_name=s_name;
-       report.upi=s_upi;
-       if(exam_found&&sub_found){
-        report.total_marks=score_value;
-       }
-       learners.push_back(report);
-    }
-return learners;
-    }
+    } 
     catch(const mongocxx::operation_exception& e){
         throw std::runtime_error("Operation failed: "+std::string(e.what()));
     }
@@ -1192,6 +1455,7 @@ return learners;
         throw std::runtime_error("Internal error: "+std::string(e.what()));
     }
 }
+
 std::vector<StudentExam> SchoolDB::GetStudentScoreInSubject(const std::string& grade,const std::string& subj,
     int t_code,const std::string& examname,const std::string& s_id,int pp){
     auto handle=getcollection("students");
@@ -1342,19 +1606,26 @@ std::vector<School::Exam>SchoolDB::GetExams(const std::string& school_id){
         opt.sort(sort_doc.view());
         auto cursor=coll.find(filter.view(),opt);
         for(auto& doc:cursor){
-            
-            if(doc["exam"]&&doc["exam"].type()==bsoncxx::type::k_string&&doc["term"]&&doc["term"].type()==bsoncxx::type::k_int32&&
-            doc["analyzed"]&&doc["analyzed"].type()==bsoncxx::type::k_bool){
-                 School::Exam assmnt;
-                std::string exam_name=std::string(doc["exam"].get_string().value);
+            if(!doc["exam"]||doc["exam"].type()!=bsoncxx::type::k_string)continue;
+            std::string exam_name=std::string(doc["exam"].get_string().value);
+            School::Exam assmnt;
+            assmnt.set_exam_name(exam_name);
+            if(doc["term"]&&doc["term"].type()==bsoncxx::type::k_int32){
                 int term=doc["term"].get_int32().value;
-                bool analyzed=doc["analyzed"].get_bool().value;
-               
-                assmnt.set_exam_name(exam_name);
                 assmnt.set_term(term);
-                assmnt.set_analysed(analyzed);
-                exam_status.push_back(assmnt);
             }
+            if(doc["analyzed"]&&doc["analyzed"].type()==bsoncxx::type::k_bool){
+                bool analysed=doc["analyzed"].get_bool().value;
+            }
+            if(doc["year"]&&doc["year"].type()==bsoncxx::type::k_int32){
+                int year=doc["year"].get_int32().value;
+                assmnt.set_year(year);
+            }
+            if(doc["combined_exam"]&&doc["combined_exam"].type()==bsoncxx::type::k_bool){
+                bool combined=doc["combined_exam"].get_bool().value;
+                assmnt.set_combined_exam(combined);
+            }
+            exam_status.push_back(assmnt);
         }
         return exam_status;
     }
@@ -1577,67 +1848,69 @@ School::MeritList SchoolDB::FetchGradeMeritList(const std::string& grade_name,co
                 subjects_done[subject]=-1;
             }
         }
-        if(!doc["exams"]||doc["exams"].type()!=bsoncxx::type::k_array)continue;
-        auto Exam_array=doc["exams"].get_array().value;
-        for(const auto& element:Exam_array){
-            if(element.type()!=bsoncxx::type::k_document)continue;
-            auto examdoc=element.get_document().view();
-            if(!examdoc["exam_name"]||examdoc["exam_name"].type()!=bsoncxx::type::k_string)continue;
-            std::string exam="";
-            exam=std::string(examdoc["exam_name"].get_string().value);
-            if(exam!=exam_name)continue;
-            exam_found=true;
-            
-            if(!examdoc["scores"]||examdoc["scores"].type()!=bsoncxx::type::k_document)continue;
-            if(!stude)stude=studentlist.add_learners();
+            if(!doc["exams"]||doc["exams"].type()!=bsoncxx::type::k_array)continue;
+            auto Exam_array=doc["exams"].get_array().value;
+            for(const auto& element:Exam_array){
+                if(element.type()!=bsoncxx::type::k_document)continue;
+                auto examdoc=element.get_document().view();
+                if(!examdoc["exam_name"]||examdoc["exam_name"].type()!=bsoncxx::type::k_string)continue;
+                std::string exam="";
+                exam=std::string(examdoc["exam_name"].get_string().value);
+                if(exam!=exam_name)continue;
+                exam_found=true;
+                
+                if(!examdoc["scores"]||examdoc["scores"].type()!=bsoncxx::type::k_document)continue;
+                if(!stude)stude=studentlist.add_learners();
 
-            auto all_cores=examdoc["scores"].get_document().view();
-            for(const auto& s:all_cores){
-                if(s.type()==bsoncxx::type::k_int32){
-                    School::SubjectScore* sub_score=stude->add_scores();
-                    std::string sub=std::string(s.key());
-                    sub_score->set_subject(sub);
-                    int mark=s.get_int32().value;
-                    sub_score->set_score(mark);
-                    auto it=subjects_done.find(sub);
-                    if(it!=subjects_done.end()){
-                        subjects_done.erase(it);
-                    }
+                auto all_cores=examdoc["scores"].get_document().view();
+                for(const auto& s:all_cores){
+                    if(s.type()==bsoncxx::type::k_int32){
+                        School::SubjectScore* sub_score=stude->add_scores();
+                        std::string sub=std::string(s.key());
+                        sub_score->set_subject(sub);
+                        int mark=s.get_int32().value;
+                        sub_score->set_score(mark);
+                        auto it=subjects_done.find(sub);
+                        if(it!=subjects_done.end()){
+                            subjects_done.erase(it);
+                        }
 
-                    if(sub=="Mathematics"||sub=="Physics"||sub=="Chemistry"||sub=="Biology"){
-                        sub_score->set_level(Science_Math_Grading(mark,school_id));
-                    }else{
-                        std::string lev=getsubject_level(mark,school_id);
-                        sub_score->set_level(lev);
+                        if(sub=="Mathematics"||sub=="Physics"||sub=="Chemistry"||sub=="Biology"){
+                            sub_score->set_level(Science_Math_Grading(mark,school_id));
+                        }else{
+                            std::string lev=getsubject_level(mark,school_id);
+                            sub_score->set_level(lev);
+                        }
+                        
                     }
-                    
                 }
             }
-        }
-        if(!exam_found)continue;
-        if(doc["name"]&&doc["name"].type()==bsoncxx::type::k_string){
-            std::string name=std::string(doc["name"].get_string().value);
-            stude->set_student_name(name);
-            if(subjects_done.size()>0){
-                for(const auto& sub:subjects_done){
-                    School::SubjectScore* sub_score=stude->add_scores();
-                    sub_score->set_subject(sub.first);
-                    sub_score->set_score(-1);
-                    sub_score->set_level(getsubject_level(-1,school_id));
+            if(!exam_found)continue;
+            if(doc["name"]&&doc["name"].type()==bsoncxx::type::k_string){
+                std::string name=std::string(doc["name"].get_string().value);
+                stude->set_student_name(name);
+                if(subjects_done.size()>0){
+                    for(const auto& sub:subjects_done){
+                        School::SubjectScore* sub_score=stude->add_scores();
+                        sub_score->set_subject(sub.first);
+                        sub_score->set_score(-1);
+                        sub_score->set_level(getsubject_level(-1,school_id));
+                    }
                 }
             }
-        }
-        if(doc["upi"]&&doc["upi"].type()==bsoncxx::type::k_string){
-            std::string upi=std::string(doc["upi"].get_string().value);
-            stude->set_upi(upi);
+            if(doc["upi"]&&doc["upi"].type()==bsoncxx::type::k_string){
+                std::string upi=std::string(doc["upi"].get_string().value);
+                stude->set_upi(upi);
+            }
+        
+            Sex sex;
+            if(doc["sex"]&&doc["sex"].type()==bsoncxx::type::k_string){
+                std::string gender=std::string(doc["sex"].get_string().value);
+                if(Sex_Parse(gender,&sex)) stude->set_sex(sex);
+            }
+            stude->set_exam_name(exam_name);
         }
         
-        Sex sex;
-        if(doc["sex"]&&doc["sex"].type()==bsoncxx::type::k_string){
-            std::string gender=std::string(doc["sex"].get_string().value);
-            if(Sex_Parse(gender,&sex)) stude->set_sex(sex);
-          }
-        }
         return studentlist;
     }
     catch(const mongocxx::operation_exception& e){
@@ -2094,12 +2367,19 @@ School::MeritList SchoolDB::GetGradeMeritList(const std::string& grade,const std
         for(const auto& doc:cursor){
             if(!doc["name"]||doc["name"].type()!=bsoncxx::type::k_string)continue;
             std::string name=std::string(doc["name"].get_string().value);
-            std::string sex=std::string(doc["sex"].get_string().value);
-            std::string upi=std::string(doc["upi"].get_string().value);
-
+            std::string sex="Unspecified";
+            if(doc["sex"]&&doc["sex"].type()==bsoncxx::type::k_string){
+                sex=std::string(doc["sex"].get_string().value);
+            }
+            std::string upi="Unspecified";
+            if(doc["upi"]&&doc["upi"].type()==bsoncxx::type::k_string){
+                upi=std::string(doc["upi"].get_string().value);
+            }
+            
             School::StudentMerit* student=students.add_learners();
             student->set_upi(upi);
             student->set_student_name(name);
+            student->set_exam_name(exam);
             School::Sex gender=School::Sex::Unspecified;
             if(School::Sex_Parse(sex,&gender)){
                 student->set_sex(gender);
@@ -2136,9 +2416,12 @@ School::MeritList SchoolDB::GetGradeMeritList(const std::string& grade,const std
                             if(!sc_doc["score"]||sc_doc["score"].type()!=bsoncxx::type::k_int32)continue;
                             if(!sc_doc["out_of"]||sc_doc["out_of"].type()!=bsoncxx::type::k_int32)continue;
                             int mark=sc_doc["score"].get_int32().value;
-                            if(mark>=0)score+=mark;
+                            
                             int max_score=sc_doc["out_of"].get_int32().value;
-                            if(max_score>0)out_of+=max_score;
+                            if(mark>=0&&max_score>0){
+                                score+=mark;
+                                out_of+=max_score;
+                            }
                         }
                         int sub_score=0;
                         if(out_of>0&&score>=0){
@@ -2153,7 +2436,6 @@ School::MeritList SchoolDB::GetGradeMeritList(const std::string& grade,const std
                         }else{
                             each_subject->set_level(getsubject_level(sub_score,s_id));
                         }
-                       
                         
                     }
                     break;

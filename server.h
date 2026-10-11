@@ -6,6 +6,7 @@
 #include"ActivityLogger.h"
 #include"ActivityInterceptor.h"
 #include<iostream>
+#include<cmath>
 
 using grpc::ServerContext;
 using grpc::Status;
@@ -18,7 +19,6 @@ using School::Student;
 using School::SchoolService;
 using School::RemoveStudentRequest;
 using School::StudentList;
-using School::AddStudentRequest;
 using School::Teacher;
 using School::GradeSub;
 using School::AddTeacherRequest;
@@ -30,7 +30,7 @@ using School::GradeList;
 using School::RemoveGradeRequest;
 using School::Grade;
 using School::UpdateGradeRequest;
-using School::AddScoreRequest;
+using School::Add_bulk_ScoreRequest;
 using School::ExamReportRequest;
 using School::ExamReport;
 using School::SubjectScore;
@@ -69,13 +69,13 @@ class SchoolServiceImpl final:public SchoolService::Service{
         Status UpdateAdminRole(ServerContext* context,const School::UpdateAdminRoleRequest* request,Response* reply)override;
 
         Status AddExam(ServerContext* context,const AddExamRequest* request,Response* reply)override;
-
+        Status AddCombinedExam(ServerContext* context,const School::AddCombinedExamRequest* request,Response* reply)override;
         Status AddGrade(ServerContext* context, const AddGradeRequest* request, Response* reply)override;
         Status RemoveGrade(ServerContext* context,const RemoveGradeRequest* request, Response* reply)override;
         Status FindGrades(ServerContext* context,const School::FindGradesRequest* request, GradeList* reply)override;
         Status UpdateGrade(ServerContext* context,const UpdateGradeRequest* request,Response* r)override;
 
-        Status AddStudentScore(ServerContext* context,const AddScoreRequest* re,Response* reply)override;
+        Status AddStudentScore(ServerContext* context,const Add_bulk_ScoreRequest* re,Response* reply)override;
         Status StudentExamReport(ServerContext* context,const ExamReportRequest* r,ExamReport* reply)override;
         Status ListofLearnersbyGrade_Subject(ServerContext* context,const GetStudentsperSubjectRequest* request,
             LearnersListperGrade* response)override;
@@ -85,6 +85,7 @@ class SchoolServiceImpl final:public SchoolService::Service{
         Status AddExamToGrade(ServerContext* context,const School::AddExamToGradeRequest* request,Response* reply)override;
 
         Status GradeMeritList(ServerContext* context,const MeritListRequest* request,MeritList* reply)override;
+        Status GetCombinedExamMerit(ServerContext* context, const School::CombinedMeritRequest* rquest,MeritList* reply)override;
         Status setLoadedSubjects(ServerContext* context,const School::setloadedsubjectrequest* request,Response* reply)override;
         Status fetchLoadedSubjects(ServerContext* context,const School::getloadedsubjectsrequest* request,SubjectList* reply)override;
         Status TeacherLogin(ServerContext* context,const School::LoginRequest* request,Teacher* response)override;

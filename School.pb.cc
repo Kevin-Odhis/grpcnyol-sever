@@ -129,6 +129,37 @@ struct setloadedsubjectrequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 setloadedsubjectrequestDefaultTypeInternal _setloadedsubjectrequest_default_instance_;
 
+inline constexpr scores_per_subject::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        subject_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        score_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR scores_per_subject::scores_per_subject(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct scores_per_subjectDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR scores_per_subjectDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~scores_per_subjectDefaultTypeInternal() {}
+  union {
+    scores_per_subject _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 scores_per_subjectDefaultTypeInternal _scores_per_subject_default_instance_;
+
 inline constexpr paymentDetails::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : method_(
@@ -161,32 +192,6 @@ struct paymentDetailsDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 paymentDetailsDefaultTypeInternal _paymentDetails_default_instance_;
-
-inline constexpr paper_score::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : pp_{0},
-        score_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR paper_score::paper_score(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct paper_scoreDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR paper_scoreDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~paper_scoreDefaultTypeInternal() {}
-  union {
-    paper_score _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 paper_scoreDefaultTypeInternal _paper_score_default_instance_;
 
 inline constexpr loginDetails::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -279,6 +284,35 @@ struct getloadedsubjectsrequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 getloadedsubjectsrequestDefaultTypeInternal _getloadedsubjectsrequest_default_instance_;
 
+inline constexpr exam_weight::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        weight_{0},
+        full_paper_{false},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR exam_weight::exam_weight(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct exam_weightDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR exam_weightDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~exam_weightDefaultTypeInternal() {}
+  union {
+    exam_weight _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 exam_weightDefaultTypeInternal _exam_weight_default_instance_;
+
 inline constexpr exam_grade::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : grade_(
@@ -306,6 +340,37 @@ struct exam_gradeDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 exam_gradeDefaultTypeInternal _exam_grade_default_instance_;
+
+inline constexpr add_subject_score::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : subject_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        upi_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        score_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR add_subject_score::add_subject_score(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct add_subject_scoreDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR add_subject_scoreDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~add_subject_scoreDefaultTypeInternal() {}
+  union {
+    add_subject_score _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 add_subject_scoreDefaultTypeInternal _add_subject_score_default_instance_;
 
 inline constexpr UpdateSchoolRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1085,36 +1150,6 @@ struct ExamReportRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExamReportRequestDefaultTypeInternal _ExamReportRequest_default_instance_;
 
-inline constexpr Exam::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : exam_name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        term_{0},
-        analysed_{false},
-        full_paper_{false},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR Exam::Exam(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct ExamDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ExamDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ExamDefaultTypeInternal() {}
-  union {
-    Exam _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExamDefaultTypeInternal _Exam_default_instance_;
-
 inline constexpr DeleteSubjectRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : subjects_{},
@@ -1255,41 +1290,6 @@ struct schoolDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 schoolDefaultTypeInternal _school_default_instance_;
 
-inline constexpr add_subject_score::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        subject_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        upi_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        exam_name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        scores_{nullptr},
-        full_paper_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR add_subject_score::add_subject_score(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct add_subject_scoreDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR add_subject_scoreDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~add_subject_scoreDefaultTypeInternal() {}
-  union {
-    add_subject_score _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 add_subject_scoreDefaultTypeInternal _add_subject_score_default_instance_;
-
 inline constexpr UpdateSubjectsRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : new_subjects_{},
@@ -1391,13 +1391,21 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr StudentMerit::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : scores_{},
+        combinedscores_{},
         upi_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         student_name_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        level_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         sex_{static_cast< ::School::Sex >(0)},
+        total_marks_{0},
         _cached_size_{0} {}
 
 template <typename>
@@ -1444,42 +1452,6 @@ struct StudentListDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StudentListDefaultTypeInternal _StudentList_default_instance_;
-
-inline constexpr Return_Grade::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : exams_{},
-        subjects_{},
-        l_areas_{},
-        name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        grade_teacher_name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        grade_teacher_code_{0},
-        total_learners_{0},
-        level_{static_cast< ::School::Category >(0)},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR Return_Grade::Return_Grade(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct Return_GradeDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Return_GradeDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~Return_GradeDefaultTypeInternal() {}
-  union {
-    Return_Grade _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Return_GradeDefaultTypeInternal _Return_Grade_default_instance_;
 
 inline constexpr RemoveSubjectRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1671,13 +1643,21 @@ struct ExamReportDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExamReportDefaultTypeInternal _ExamReport_default_instance_;
 
-inline constexpr ExamList::Impl_::Impl_(
+inline constexpr Exam::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : exams_{},
+      : combinedexams_{},
+        exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        term_{0},
+        analysed_{false},
+        full_paper_{false},
+        combined_exam_{false},
+        year_{0},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR ExamList::ExamList(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR Exam::Exam(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -1685,16 +1665,16 @@ PROTOBUF_CONSTEXPR ExamList::ExamList(::_pbi::ConstantInitialized)
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct ExamListDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ExamListDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ExamListDefaultTypeInternal() {}
+struct ExamDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExamDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExamDefaultTypeInternal() {}
   union {
-    ExamList _instance;
+    Exam _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExamListDefaultTypeInternal _ExamList_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExamDefaultTypeInternal _Exam_default_instance_;
 
 inline constexpr EditStudentDetailsRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1752,6 +1732,74 @@ struct DeleteTeacherSubjectRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DeleteTeacherSubjectRequestDefaultTypeInternal _DeleteTeacherSubjectRequest_default_instance_;
+
+inline constexpr CombinedMeritRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : exams_to_combine_{},
+        school_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        grade_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CombinedMeritRequest::CombinedMeritRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CombinedMeritRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CombinedMeritRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CombinedMeritRequestDefaultTypeInternal() {}
+  union {
+    CombinedMeritRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CombinedMeritRequestDefaultTypeInternal _CombinedMeritRequest_default_instance_;
+
+inline constexpr Add_bulk_ScoreRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : mark_{},
+        school_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        exam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        out_of_{0},
+        full_paper_{false},
+        pp_no_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR Add_bulk_ScoreRequest::Add_bulk_ScoreRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct Add_bulk_ScoreRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR Add_bulk_ScoreRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~Add_bulk_ScoreRequestDefaultTypeInternal() {}
+  union {
+    Add_bulk_ScoreRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Add_bulk_ScoreRequestDefaultTypeInternal _Add_bulk_ScoreRequest_default_instance_;
 
 inline constexpr AddSubjectsRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1851,8 +1899,10 @@ inline constexpr AddExamRequest::Impl_::Impl_(
         school_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        analysed_{false},
         term_{0},
+        analysed_{false},
+        combined_exam_{false},
+        year_{0},
         _cached_size_{0} {}
 
 template <typename>
@@ -1874,6 +1924,42 @@ struct AddExamRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddExamRequestDefaultTypeInternal _AddExamRequest_default_instance_;
+
+inline constexpr AddCombinedExamRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : exams_{},
+        grades_{},
+        school_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        combinedexam_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        term_{0},
+        year_{0},
+        analysed_{false},
+        combined_exam_{false},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AddCombinedExamRequest::AddCombinedExamRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AddCombinedExamRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AddCombinedExamRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AddCombinedExamRequestDefaultTypeInternal() {}
+  union {
+    AddCombinedExamRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddCombinedExamRequestDefaultTypeInternal _AddCombinedExamRequest_default_instance_;
 
 inline constexpr TeachersList::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1950,6 +2036,42 @@ struct SchoolDetailsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SchoolDetailsDefaultTypeInternal _SchoolDetails_default_instance_;
 
+inline constexpr Return_Grade::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : exams_{},
+        subjects_{},
+        l_areas_{},
+        name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        grade_teacher_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        grade_teacher_code_{0},
+        total_learners_{0},
+        level_{static_cast< ::School::Category >(0)},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR Return_Grade::Return_Grade(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct Return_GradeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR Return_GradeDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~Return_GradeDefaultTypeInternal() {}
+  union {
+    Return_Grade _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Return_GradeDefaultTypeInternal _Return_Grade_default_instance_;
+
 inline constexpr ReceiptList::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : receipts_{},
@@ -2025,13 +2147,13 @@ struct InvoiceListDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InvoiceListDefaultTypeInternal _InvoiceList_default_instance_;
 
-inline constexpr GradeList::Impl_::Impl_(
+inline constexpr ExamList::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : grades_{},
+      : exams_{},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR GradeList::GradeList(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR ExamList::ExamList(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -2039,16 +2161,16 @@ PROTOBUF_CONSTEXPR GradeList::GradeList(::_pbi::ConstantInitialized)
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct GradeListDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR GradeListDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~GradeListDefaultTypeInternal() {}
+struct ExamListDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExamListDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExamListDefaultTypeInternal() {}
   union {
-    GradeList _instance;
+    ExamList _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GradeListDefaultTypeInternal _GradeList_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExamListDefaultTypeInternal _ExamList_default_instance_;
 
 inline constexpr AddTeacherRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2079,35 +2201,6 @@ struct AddTeacherRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddTeacherRequestDefaultTypeInternal _AddTeacherRequest_default_instance_;
-
-inline constexpr AddScoreRequest::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        school_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        mark_{nullptr},
-        out_of_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR AddScoreRequest::AddScoreRequest(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct AddScoreRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR AddScoreRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~AddScoreRequestDefaultTypeInternal() {}
-  union {
-    AddScoreRequest _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddScoreRequestDefaultTypeInternal _AddScoreRequest_default_instance_;
 
 inline constexpr AddSchoolRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2211,6 +2304,31 @@ struct AddInvoiceRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AddInvoiceRequestDefaultTypeInternal _AddInvoiceRequest_default_instance_;
+
+inline constexpr GradeList::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : grades_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GradeList::GradeList(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GradeListDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GradeListDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GradeListDefaultTypeInternal() {}
+  union {
+    GradeList _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GradeListDefaultTypeInternal _GradeList_default_instance_;
 }  // namespace School
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_School_2eproto[5];
 static constexpr const ::_pb::ServiceDescriptor**
@@ -2232,6 +2350,18 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.role_),
         PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.term_),
         PROTOBUF_FIELD_OFFSET(::School::AddExamToGradeRequest, _impl_.full_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::CombinedMeritRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::CombinedMeritRequest, _impl_.school_id_),
+        PROTOBUF_FIELD_OFFSET(::School::CombinedMeritRequest, _impl_.exam_name_),
+        PROTOBUF_FIELD_OFFSET(::School::CombinedMeritRequest, _impl_.grade_),
+        PROTOBUF_FIELD_OFFSET(::School::CombinedMeritRequest, _impl_.exams_to_combine_),
         PROTOBUF_FIELD_OFFSET(::School::AddSchoolHeadRequest, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::School::AddSchoolHeadRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2627,6 +2757,21 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.student_name_),
         PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.sex_),
         PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.scores_),
+        PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.total_marks_),
+        PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.level_),
+        PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.combinedscores_),
+        PROTOBUF_FIELD_OFFSET(::School::StudentMerit, _impl_.exam_name_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::scores_per_subject, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::scores_per_subject, _impl_.exam_name_),
+        PROTOBUF_FIELD_OFFSET(::School::scores_per_subject, _impl_.subject_name_),
+        PROTOBUF_FIELD_OFFSET(::School::scores_per_subject, _impl_.score_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::MeritList, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2736,21 +2881,21 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::School::ExamReportRequest, _impl_.upi_),
         PROTOBUF_FIELD_OFFSET(::School::ExamReportRequest, _impl_.exam_name_),
         PROTOBUF_FIELD_OFFSET(::School::ExamReportRequest, _impl_.school_id_),
-        PROTOBUF_FIELD_OFFSET(::School::AddScoreRequest, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::School::AddScoreRequest, _internal_metadata_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::School::AddScoreRequest, _impl_.mark_),
-        PROTOBUF_FIELD_OFFSET(::School::AddScoreRequest, _impl_.school_id_),
-        PROTOBUF_FIELD_OFFSET(::School::AddScoreRequest, _impl_.out_of_),
-        0,
-        ~0u,
-        ~0u,
-        PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _impl_.mark_),
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _impl_.school_id_),
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _impl_.out_of_),
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _impl_.exam_name_),
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _impl_.full_paper_),
+        PROTOBUF_FIELD_OFFSET(::School::Add_bulk_ScoreRequest, _impl_.pp_no_),
+        ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -2759,25 +2904,8 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_.subject_),
-        PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_.scores_),
         PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_.upi_),
-        PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_.exam_name_),
-        PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_.full_paper_),
-        ~0u,
-        0,
-        ~0u,
-        ~0u,
-        ~0u,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::School::paper_score, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::School::paper_score, _impl_.pp_),
-        PROTOBUF_FIELD_OFFSET(::School::paper_score, _impl_.score_),
+        PROTOBUF_FIELD_OFFSET(::School::add_subject_score, _impl_.score_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::UpdateGradeRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2886,6 +3014,35 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::School::AddExamRequest, _impl_.analysed_),
         PROTOBUF_FIELD_OFFSET(::School::AddExamRequest, _impl_.term_),
         PROTOBUF_FIELD_OFFSET(::School::AddExamRequest, _impl_.school_id_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamRequest, _impl_.combined_exam_),
+        PROTOBUF_FIELD_OFFSET(::School::AddExamRequest, _impl_.year_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.exams_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.grades_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.term_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.year_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.school_id_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.analysed_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.combined_exam_),
+        PROTOBUF_FIELD_OFFSET(::School::AddCombinedExamRequest, _impl_.combinedexam_name_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::School::exam_weight, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::School::exam_weight, _impl_.exam_name_),
+        PROTOBUF_FIELD_OFFSET(::School::exam_weight, _impl_.weight_),
+        PROTOBUF_FIELD_OFFSET(::School::exam_weight, _impl_.full_paper_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::exam_grade, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -2908,6 +3065,9 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::School::Exam, _impl_.analysed_),
         PROTOBUF_FIELD_OFFSET(::School::Exam, _impl_.term_),
         PROTOBUF_FIELD_OFFSET(::School::Exam, _impl_.full_paper_),
+        PROTOBUF_FIELD_OFFSET(::School::Exam, _impl_.year_),
+        PROTOBUF_FIELD_OFFSET(::School::Exam, _impl_.combined_exam_),
+        PROTOBUF_FIELD_OFFSET(::School::Exam, _impl_.combinedexams_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::School::TeachersList, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -3068,81 +3228,85 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::School::AddExamToGradeRequest)},
-        {14, 24, -1, sizeof(::School::AddSchoolHeadRequest)},
-        {26, -1, -1, sizeof(::School::SchoolsRequest)},
-        {35, -1, -1, sizeof(::School::UpdateSchoolRequest)},
-        {48, -1, -1, sizeof(::School::SchoolList)},
-        {57, 66, -1, sizeof(::School::AddReceiptRequest)},
-        {67, 76, -1, sizeof(::School::AddInvoiceRequest)},
-        {77, -1, -1, sizeof(::School::DeleteSchoolHeadRequest)},
-        {86, -1, -1, sizeof(::School::GetReceiptRequest)},
-        {95, -1, -1, sizeof(::School::ReceiptList)},
-        {104, -1, -1, sizeof(::School::GetInvoiceRequest)},
-        {113, -1, -1, sizeof(::School::InvoiceList)},
-        {122, -1, -1, sizeof(::School::UpdateAdminRoleRequest)},
-        {133, 149, -1, sizeof(::School::Receipt)},
-        {157, -1, -1, sizeof(::School::paymentDetails)},
-        {168, 184, -1, sizeof(::School::Invoice)},
-        {192, -1, -1, sizeof(::School::DeleteTeacherSubjectRequest)},
-        {203, -1, -1, sizeof(::School::DeleteSubjectRequest)},
-        {214, 224, -1, sizeof(::School::EditStudentDetailsRequest)},
-        {226, -1, -1, sizeof(::School::AddSubjectsRequest)},
-        {237, -1, -1, sizeof(::School::FindExamRequest)},
-        {246, -1, -1, sizeof(::School::GetTeachersRequest)},
-        {255, -1, -1, sizeof(::School::FindGradesRequest)},
-        {264, -1, -1, sizeof(::School::FindStudentsRequest)},
-        {273, 282, -1, sizeof(::School::AddSchoolRequest)},
-        {283, 292, -1, sizeof(::School::SchoolDetails)},
-        {293, 311, -1, sizeof(::School::school)},
-        {321, -1, -1, sizeof(::School::SchoolDetailsRequest)},
-        {330, -1, -1, sizeof(::School::RemoveSubjectRequest)},
-        {341, -1, -1, sizeof(::School::ResetPasswordRequest)},
-        {351, -1, -1, sizeof(::School::setloadedsubjectrequest)},
-        {365, -1, -1, sizeof(::School::getloadedsubjectsrequest)},
-        {376, -1, -1, sizeof(::School::SubjectList)},
-        {385, -1, -1, sizeof(::School::MeritListRequest)},
-        {397, -1, -1, sizeof(::School::StudentMerit)},
-        {409, -1, -1, sizeof(::School::MeritList)},
-        {418, -1, -1, sizeof(::School::SetExamAnalysedRequest)},
-        {430, -1, -1, sizeof(::School::GradeStudentsRequest)},
-        {440, -1, -1, sizeof(::School::ExamList)},
-        {449, -1, -1, sizeof(::School::Students_Grade_Request)},
-        {459, -1, -1, sizeof(::School::GetStudentsperSubjectRequest)},
-        {474, -1, -1, sizeof(::School::LearnersListperGrade)},
-        {483, -1, -1, sizeof(::School::studentforteacher)},
-        {495, -1, -1, sizeof(::School::UpdateSubjectsRequest)},
-        {507, -1, -1, sizeof(::School::ExamReportRequest)},
-        {518, 529, -1, sizeof(::School::AddScoreRequest)},
-        {532, 545, -1, sizeof(::School::add_subject_score)},
-        {550, -1, -1, sizeof(::School::paper_score)},
-        {560, -1, -1, sizeof(::School::UpdateGradeRequest)},
-        {573, -1, -1, sizeof(::School::Grade)},
-        {583, 595, -1, sizeof(::School::AddGradeRequest)},
-        {599, -1, -1, sizeof(::School::grade_subject)},
-        {609, -1, -1, sizeof(::School::RemoveGradeRequest)},
-        {619, -1, -1, sizeof(::School::GradeList)},
-        {628, -1, -1, sizeof(::School::Return_Grade)},
-        {644, -1, -1, sizeof(::School::teacher_subject)},
-        {655, -1, -1, sizeof(::School::AddExamRequest)},
-        {668, -1, -1, sizeof(::School::exam_grade)},
-        {678, -1, -1, sizeof(::School::Exam)},
-        {690, -1, -1, sizeof(::School::TeachersList)},
-        {699, -1, -1, sizeof(::School::RemoveTeacherRequest)},
-        {710, 722, -1, sizeof(::School::AddTeacherRequest)},
-        {726, -1, -1, sizeof(::School::loginDetails)},
-        {736, 745, -1, sizeof(::School::LoginRequest)},
-        {746, -1, -1, sizeof(::School::StudentList)},
-        {755, -1, -1, sizeof(::School::Student)},
-        {768, 778, -1, sizeof(::School::AddStudentRequest)},
-        {780, -1, -1, sizeof(::School::Response)},
-        {790, -1, -1, sizeof(::School::RemoveStudentRequest)},
-        {800, -1, -1, sizeof(::School::Teacher)},
-        {813, -1, -1, sizeof(::School::GradeSub)},
-        {823, -1, -1, sizeof(::School::SubjectScore)},
-        {834, -1, -1, sizeof(::School::ExamReport)},
+        {14, -1, -1, sizeof(::School::CombinedMeritRequest)},
+        {26, 36, -1, sizeof(::School::AddSchoolHeadRequest)},
+        {38, -1, -1, sizeof(::School::SchoolsRequest)},
+        {47, -1, -1, sizeof(::School::UpdateSchoolRequest)},
+        {60, -1, -1, sizeof(::School::SchoolList)},
+        {69, 78, -1, sizeof(::School::AddReceiptRequest)},
+        {79, 88, -1, sizeof(::School::AddInvoiceRequest)},
+        {89, -1, -1, sizeof(::School::DeleteSchoolHeadRequest)},
+        {98, -1, -1, sizeof(::School::GetReceiptRequest)},
+        {107, -1, -1, sizeof(::School::ReceiptList)},
+        {116, -1, -1, sizeof(::School::GetInvoiceRequest)},
+        {125, -1, -1, sizeof(::School::InvoiceList)},
+        {134, -1, -1, sizeof(::School::UpdateAdminRoleRequest)},
+        {145, 161, -1, sizeof(::School::Receipt)},
+        {169, -1, -1, sizeof(::School::paymentDetails)},
+        {180, 196, -1, sizeof(::School::Invoice)},
+        {204, -1, -1, sizeof(::School::DeleteTeacherSubjectRequest)},
+        {215, -1, -1, sizeof(::School::DeleteSubjectRequest)},
+        {226, 236, -1, sizeof(::School::EditStudentDetailsRequest)},
+        {238, -1, -1, sizeof(::School::AddSubjectsRequest)},
+        {249, -1, -1, sizeof(::School::FindExamRequest)},
+        {258, -1, -1, sizeof(::School::GetTeachersRequest)},
+        {267, -1, -1, sizeof(::School::FindGradesRequest)},
+        {276, -1, -1, sizeof(::School::FindStudentsRequest)},
+        {285, 294, -1, sizeof(::School::AddSchoolRequest)},
+        {295, 304, -1, sizeof(::School::SchoolDetails)},
+        {305, 323, -1, sizeof(::School::school)},
+        {333, -1, -1, sizeof(::School::SchoolDetailsRequest)},
+        {342, -1, -1, sizeof(::School::RemoveSubjectRequest)},
+        {353, -1, -1, sizeof(::School::ResetPasswordRequest)},
+        {363, -1, -1, sizeof(::School::setloadedsubjectrequest)},
+        {377, -1, -1, sizeof(::School::getloadedsubjectsrequest)},
+        {388, -1, -1, sizeof(::School::SubjectList)},
+        {397, -1, -1, sizeof(::School::MeritListRequest)},
+        {409, -1, -1, sizeof(::School::StudentMerit)},
+        {425, -1, -1, sizeof(::School::scores_per_subject)},
+        {436, -1, -1, sizeof(::School::MeritList)},
+        {445, -1, -1, sizeof(::School::SetExamAnalysedRequest)},
+        {457, -1, -1, sizeof(::School::GradeStudentsRequest)},
+        {467, -1, -1, sizeof(::School::ExamList)},
+        {476, -1, -1, sizeof(::School::Students_Grade_Request)},
+        {486, -1, -1, sizeof(::School::GetStudentsperSubjectRequest)},
+        {501, -1, -1, sizeof(::School::LearnersListperGrade)},
+        {510, -1, -1, sizeof(::School::studentforteacher)},
+        {522, -1, -1, sizeof(::School::UpdateSubjectsRequest)},
+        {534, -1, -1, sizeof(::School::ExamReportRequest)},
+        {545, -1, -1, sizeof(::School::Add_bulk_ScoreRequest)},
+        {559, -1, -1, sizeof(::School::add_subject_score)},
+        {570, -1, -1, sizeof(::School::UpdateGradeRequest)},
+        {583, -1, -1, sizeof(::School::Grade)},
+        {593, 605, -1, sizeof(::School::AddGradeRequest)},
+        {609, -1, -1, sizeof(::School::grade_subject)},
+        {619, -1, -1, sizeof(::School::RemoveGradeRequest)},
+        {629, -1, -1, sizeof(::School::GradeList)},
+        {638, -1, -1, sizeof(::School::Return_Grade)},
+        {654, -1, -1, sizeof(::School::teacher_subject)},
+        {665, -1, -1, sizeof(::School::AddExamRequest)},
+        {680, -1, -1, sizeof(::School::AddCombinedExamRequest)},
+        {696, -1, -1, sizeof(::School::exam_weight)},
+        {707, -1, -1, sizeof(::School::exam_grade)},
+        {717, -1, -1, sizeof(::School::Exam)},
+        {732, -1, -1, sizeof(::School::TeachersList)},
+        {741, -1, -1, sizeof(::School::RemoveTeacherRequest)},
+        {752, 764, -1, sizeof(::School::AddTeacherRequest)},
+        {768, -1, -1, sizeof(::School::loginDetails)},
+        {778, 787, -1, sizeof(::School::LoginRequest)},
+        {788, -1, -1, sizeof(::School::StudentList)},
+        {797, -1, -1, sizeof(::School::Student)},
+        {810, 820, -1, sizeof(::School::AddStudentRequest)},
+        {822, -1, -1, sizeof(::School::Response)},
+        {832, -1, -1, sizeof(::School::RemoveStudentRequest)},
+        {842, -1, -1, sizeof(::School::Teacher)},
+        {855, -1, -1, sizeof(::School::GradeSub)},
+        {865, -1, -1, sizeof(::School::SubjectScore)},
+        {876, -1, -1, sizeof(::School::ExamReport)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::School::_AddExamToGradeRequest_default_instance_._instance,
+    &::School::_CombinedMeritRequest_default_instance_._instance,
     &::School::_AddSchoolHeadRequest_default_instance_._instance,
     &::School::_SchoolsRequest_default_instance_._instance,
     &::School::_UpdateSchoolRequest_default_instance_._instance,
@@ -3177,6 +3341,7 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::School::_SubjectList_default_instance_._instance,
     &::School::_MeritListRequest_default_instance_._instance,
     &::School::_StudentMerit_default_instance_._instance,
+    &::School::_scores_per_subject_default_instance_._instance,
     &::School::_MeritList_default_instance_._instance,
     &::School::_SetExamAnalysedRequest_default_instance_._instance,
     &::School::_GradeStudentsRequest_default_instance_._instance,
@@ -3187,9 +3352,8 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::School::_studentforteacher_default_instance_._instance,
     &::School::_UpdateSubjectsRequest_default_instance_._instance,
     &::School::_ExamReportRequest_default_instance_._instance,
-    &::School::_AddScoreRequest_default_instance_._instance,
+    &::School::_Add_bulk_ScoreRequest_default_instance_._instance,
     &::School::_add_subject_score_default_instance_._instance,
-    &::School::_paper_score_default_instance_._instance,
     &::School::_UpdateGradeRequest_default_instance_._instance,
     &::School::_Grade_default_instance_._instance,
     &::School::_AddGradeRequest_default_instance_._instance,
@@ -3199,6 +3363,8 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::School::_Return_Grade_default_instance_._instance,
     &::School::_teacher_subject_default_instance_._instance,
     &::School::_AddExamRequest_default_instance_._instance,
+    &::School::_AddCombinedExamRequest_default_instance_._instance,
+    &::School::_exam_weight_default_instance_._instance,
     &::School::_exam_grade_default_instance_._instance,
     &::School::_Exam_default_instance_._instance,
     &::School::_TeachersList_default_instance_._instance,
@@ -3222,235 +3388,256 @@ const char descriptor_table_protodef_School_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "timestamp.proto\"\210\001\n\025AddExamToGradeReques"
     "t\022\020\n\010schoolid\030\001 \001(\t\022\021\n\texam_name\030\002 \001(\t\022\022"
     "\n\ngrade_name\030\003 \001(\t\022\032\n\004role\030\004 \001(\0162\014.Schoo"
-    "l.Role\022\014\n\004term\030\005 \001(\005\022\014\n\004full\030\006 \001(\010\"J\n\024Ad"
-    "dSchoolHeadRequest\022\020\n\010schoolid\030\001 \001(\t\022 \n\007"
-    "teacher\030\002 \001(\0132\017.School.Teacher\",\n\016School"
-    "sRequest\022\032\n\004role\030\001 \001(\0162\014.School.Role\"\205\001\n"
-    "\023UpdateSchoolRequest\022\023\n\013school_name\030\001 \001("
-    "\t\022\024\n\014school_motto\030\002 \001(\t\022\024\n\014school_email\030"
-    "\003 \001(\t\022\021\n\tschool_id\030\004 \001(\t\022\032\n\004role\030\005 \001(\0162\014"
-    ".School.Role\"-\n\nSchoolList\022\037\n\007schools\030\001 "
-    "\003(\0132\016.School.school\"5\n\021AddReceiptRequest"
-    "\022 \n\007receipt\030\001 \001(\0132\017.School.Receipt\"5\n\021Ad"
-    "dInvoiceRequest\022 \n\007invoice\030\001 \001(\0132\017.Schoo"
-    "l.Invoice\"+\n\027DeleteSchoolHeadRequest\022\020\n\010"
-    "schoolid\030\001 \001(\t\"%\n\021GetReceiptRequest\022\020\n\010s"
-    "choolid\030\001 \001(\t\"0\n\013ReceiptList\022!\n\010receipts"
-    "\030\001 \003(\0132\017.School.Receipt\"%\n\021GetInvoiceReq"
-    "uest\022\020\n\010schoolid\030\001 \001(\t\"0\n\013InvoiceList\022!\n"
-    "\010invoices\030\001 \003(\0132\017.School.Invoice\"X\n\026Upda"
-    "teAdminRoleRequest\022\020\n\010schoolid\030\001 \001(\t\022\036\n\010"
-    "new_role\030\002 \001(\0162\014.School.Role\022\014\n\004code\030\003 \001"
-    "(\005\"\324\001\n\007Receipt\022\020\n\010schoolid\030\001 \001(\t\022\025\n\rrece"
-    "iptnumber\030\002 \001(\t\022\021\n\tinvoiceid\030\003 \001(\t\022(\n\004da"
-    "te\030\004 \001(\0132\032.google.protobuf.Timestamp\022\'\n\007"
-    "payment\030\005 \001(\0132\026.School.paymentDetails\022\016\n"
-    "\006amount\030\006 \001(\001\022\023\n\013description\030\007 \001(\t\022\025\n\ram"
-    "ountinwords\030\010 \001(\t\"M\n\016paymentDetails\022\016\n\006m"
-    "ethod\030\001 \001(\t\022\027\n\017transactioncode\030\002 \001(\t\022\022\n\n"
-    "senderName\030\003 \001(\t\"\357\001\n\007Invoice\022\025\n\rinvoiceN"
-    "umber\030\001 \001(\t\022\020\n\010schoolId\030\002 \001(\t\022%\n\006status\030"
-    "\003 \001(\0162\025.School.InvoiceStatus\022\023\n\013billingY"
-    "ear\030\004 \001(\005\022\016\n\006amount\030\005 \001(\001\022\023\n\013description"
-    "\030\006 \001(\t\022-\n\tstartDate\030\007 \001(\0132\032.google.proto"
-    "buf.Timestamp\022+\n\007dueDate\030\010 \001(\0132\032.google."
-    "protobuf.Timestamp\"i\n\033DeleteTeacherSubje"
-    "ctRequest\022\023\n\013teachercode\030\001 \001(\005\022\"\n\010subjec"
-    "ts\030\002 \003(\0132\020.School.GradeSub\022\021\n\tschool_id\030"
-    "\003 \001(\t\"P\n\024DeleteSubjectRequest\022\020\n\010subject"
-    "s\030\001 \003(\t\022\021\n\tschool_id\030\002 \001(\t\022\023\n\013student_up"
-    "i\030\003 \001(\t\"P\n\031EditStudentDetailsRequest\022 \n\007"
-    "student\030\001 \001(\0132\017.School.Student\022\021\n\tschool"
-    "_id\030\002 \001(\t\"]\n\022AddSubjectsRequest\022\'\n\010subje"
-    "cts\030\001 \003(\0132\025.School.grade_subject\022\021\n\tscho"
-    "ol_id\030\002 \001(\t\022\013\n\003upi\030\003 \001(\t\"$\n\017FindExamRequ"
-    "est\022\021\n\tschool_id\030\001 \001(\t\"\'\n\022GetTeachersReq"
-    "uest\022\021\n\tschool_id\030\001 \001(\t\"&\n\021FindGradesReq"
-    "uest\022\021\n\tschool_id\030\001 \001(\t\"(\n\023FindStudentsR"
-    "equest\022\021\n\tschool_id\030\001 \001(\t\"3\n\020AddSchoolRe"
-    "quest\022\037\n\007details\030\001 \001(\0132\016.School.school\"0"
-    "\n\rSchoolDetails\022\037\n\007details\030\001 \001(\0132\016.Schoo"
-    "l.school\"\240\002\n\006school\022\014\n\004name\030\001 \001(\t\022\r\n\005ema"
-    "il\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\022\"\n\010category\030\004 "
-    "\001(\0162\020.School.Category\022\021\n\tschool_id\030\005 \001(\t"
-    "\022\024\n\014school_motto\030\006 \001(\t\022\023\n\013school_head\030\007 "
-    "\001(\t\022*\n\006status\030\010 \001(\0162\032.School.Subscriptio"
-    "nStatus\022-\n\tstartDate\030\t \001(\0132\032.google.prot"
-    "obuf.Timestamp\022+\n\007dueDate\030\n \001(\0132\032.google"
-    ".protobuf.Timestamp\")\n\024SchoolDetailsRequ"
-    "est\022\021\n\tschool_id\030\001 \001(\t\"f\n\024RemoveSubjectR"
-    "equest\022\'\n\010subjects\030\001 \003(\0132\025.School.grade_"
-    "subject\022\022\n\ngrade_name\030\002 \001(\t\022\021\n\tschool_id"
-    "\030\003 \001(\t\"=\n\024ResetPasswordRequest\022\020\n\010userna"
-    "me\030\001 \001(\t\022\023\n\013newpassword\030\002 \001(\t\"\216\001\n\027setloa"
-    "dedsubjectrequest\022\022\n\ngrade_name\030\001 \001(\t\022\021\n"
-    "\texam_name\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\021\n\tsch"
-    "ool_id\030\004 \001(\t\022\024\n\014paper_number\030\005 \001(\005\022\022\n\nfu"
-    "ll_paper\030\006 \001(\010\"T\n\030getloadedsubjectsreque"
-    "st\022\022\n\ngrade_name\030\001 \001(\t\022\021\n\texam_name\030\002 \001("
-    "\t\022\021\n\tschool_id\030\003 \001(\t\"\036\n\013SubjectList\022\017\n\007s"
-    "ubject\030\001 \003(\t\"^\n\020MeritListRequest\022\021\n\tgrad"
-    "ename\030\001 \001(\t\022\020\n\010examname\030\002 \001(\t\022\022\n\nfull_pa"
-    "per\030\003 \001(\010\022\021\n\tschool_id\030\004 \001(\t\"q\n\014StudentM"
-    "erit\022\013\n\003upi\030\001 \001(\t\022\024\n\014student_name\030\002 \001(\t\022"
-    "\030\n\003sex\030\003 \001(\0162\013.School.Sex\022$\n\006scores\030\004 \003("
-    "\0132\024.School.SubjectScore\"3\n\tMeritList\022&\n\010"
-    "learners\030\001 \003(\0132\024.School.StudentMerit\"k\n\026"
-    "SetExamAnalysedRequest\022\021\n\texam_name\030\001 \001("
-    "\t\022\022\n\ngrade_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t"
-    "\022\027\n\017analysis_status\030\004 \001(\010\"8\n\024GradeStuden"
-    "tsRequest\022\r\n\005grade\030\001 \001(\t\022\021\n\tschool_id\030\002 "
-    "\001(\t\"\'\n\010ExamList\022\033\n\005exams\030\001 \003(\0132\014.School."
-    "Exam\"<\n\026Students_Grade_Request\022\022\n\ngrade_"
-    "name\030\001 \001(\t\022\016\n\006school\030\002 \001(\t\"\241\001\n\034GetStuden"
-    "tsperSubjectRequest\022\014\n\004code\030\001 \001(\005\022\017\n\007sub"
-    "ject\030\002 \001(\t\022\022\n\ngrade_name\030\003 \001(\t\022\021\n\texam_n"
-    "ame\030\004 \001(\t\022\021\n\tschool_id\030\005 \001(\t\022\022\n\nfull_pap"
-    "er\030\006 \001(\010\022\024\n\014paper_number\030\007 \001(\005\"C\n\024Learne"
-    "rsListperGrade\022+\n\010students\030\001 \003(\0132\031.Schoo"
-    "l.studentforteacher\"Y\n\021studentforteacher"
-    "\022\024\n\014student_name\030\001 \001(\t\022\013\n\003upi\030\002 \001(\t\022\022\n\ng"
-    "rade_name\030\003 \001(\t\022\r\n\005score\030\004 \001(\005\"\204\001\n\025Updat"
-    "eSubjectsRequest\022&\n\014new_subjects\030\001 \003(\0132\020"
-    ".School.GradeSub\022\024\n\014teacher_code\030\002 \001(\005\022\032"
-    "\n\004role\030\003 \001(\0162\014.School.Role\022\021\n\tschool_id\030"
-    "\004 \001(\t\"F\n\021ExamReportRequest\022\013\n\003upi\030\001 \001(\t\022"
-    "\021\n\texam_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"]\n"
-    "\017AddScoreRequest\022\'\n\004mark\030\001 \001(\0132\031.School."
-    "add_subject_score\022\021\n\tschool_id\030\002 \001(\t\022\016\n\006"
-    "out_of\030\003 \001(\005\"}\n\021add_subject_score\022\017\n\007sub"
-    "ject\030\001 \001(\t\022#\n\006scores\030\002 \001(\0132\023.School.pape"
-    "r_score\022\013\n\003upi\030\003 \001(\t\022\021\n\texam_name\030\004 \001(\t\022"
-    "\022\n\nfull_paper\030\005 \001(\010\"(\n\013paper_score\022\n\n\002pp"
-    "\030\001 \001(\005\022\r\n\005score\030\002 \001(\005\"}\n\022UpdateGradeRequ"
-    "est\022\014\n\004code\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\017\n\007newna"
-    "me\030\003 \001(\t\022\'\n\010subjects\030\004 \003(\0132\025.School.grad"
-    "e_subject\022\021\n\tschool_id\030\005 \001(\t\"1\n\005Grade\022\014\n"
-    "\004name\030\001 \001(\t\022\032\n\022grade_teacher_code\030\002 \001(\005\""
-    "\214\001\n\017AddGradeRequest\022\034\n\005grade\030\001 \001(\0132\r.Sch"
-    "ool.Grade\022\'\n\010subjects\030\002 \003(\0132\025.School.gra"
-    "de_subject\022\021\n\tschool_id\030\003 \001(\t\022\037\n\005level\030\004"
-    " \001(\0162\020.School.Category\".\n\rgrade_subject\022"
-    "\017\n\007subject\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\"5\n\022Remove"
-    "GradeRequest\022\014\n\004name\030\001 \001(\t\022\021\n\tschool_id\030"
-    "\002 \001(\t\"1\n\tGradeList\022$\n\006grades\030\001 \003(\0132\024.Sch"
-    "ool.Return_Grade\"\375\001\n\014Return_Grade\022\014\n\004nam"
-    "e\030\001 \001(\t\022\032\n\022grade_teacher_code\030\002 \001(\005\022\033\n\005e"
-    "xams\030\003 \003(\0132\014.School.Exam\022\026\n\016total_learne"
-    "rs\030\004 \001(\005\022\'\n\010subjects\030\005 \003(\0132\025.School.grad"
-    "e_subject\022(\n\007l_areas\030\006 \003(\0132\027.School.teac"
-    "her_subject\022\032\n\022grade_teacher_name\030\007 \001(\t\022"
-    "\037\n\005level\030\010 \001(\0162\020.School.Category\"N\n\017teac"
-    "her_subject\022\017\n\007subject\030\001 \001(\t\022\024\n\014teacher_"
-    "name\030\002 \001(\t\022\024\n\014teacher_code\030\003 \001(\005\"u\n\016AddE"
-    "xamRequest\022\014\n\004name\030\001 \001(\t\022\"\n\006grades\030\002 \003(\013"
-    "2\022.School.exam_grade\022\020\n\010analysed\030\003 \001(\010\022\014"
-    "\n\004term\030\004 \001(\005\022\021\n\tschool_id\030\005 \001(\t\"/\n\nexam_"
-    "grade\022\r\n\005grade\030\001 \001(\t\022\022\n\nfull_paper\030\002 \001(\010"
-    "\"M\n\004Exam\022\021\n\texam_name\030\001 \001(\t\022\020\n\010analysed\030"
-    "\002 \001(\010\022\014\n\004term\030\003 \001(\005\022\022\n\nfull_paper\030\004 \001(\010\""
-    "1\n\014TeachersList\022!\n\010teachers\030\001 \003(\0132\017.Scho"
-    "ol.Teacher\"E\n\024RemoveTeacherRequest\022\014\n\004co"
-    "de\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001("
-    "\t\"\223\001\n\021AddTeacherRequest\022 \n\007teacher\030\001 \001(\013"
-    "2\017.School.Teacher\022$\n\ngrade_subs\030\002 \003(\0132\020."
-    "School.GradeSub\022#\n\005login\030\003 \001(\0132\024.School."
-    "loginDetails\022\021\n\tschool_id\030\004 \001(\t\"2\n\014login"
-    "Details\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 "
-    "\001(\t\"4\n\014LoginRequest\022$\n\006verify\030\001 \001(\0132\024.Sc"
-    "hool.loginDetails\"0\n\013StudentList\022!\n\010stud"
-    "ents\030\001 \003(\0132\017.School.Student\"e\n\007Student\022\014"
-    "\n\004name\030\001 \001(\t\022\016\n\006upi_no\030\002 \001(\t\022\r\n\005grade\030\003 "
-    "\001(\t\022\033\n\006gender\030\004 \001(\0162\013.School.Sex\022\020\n\010subj"
-    "ects\030\005 \003(\t\"H\n\021AddStudentRequest\022 \n\007stude"
-    "nt\030\001 \001(\0132\017.School.Student\022\021\n\tschool_id\030\002"
-    " \001(\t\",\n\010Response\022\017\n\007message\030\001 \001(\t\022\017\n\007suc"
-    "cess\030\002 \001(\010\"9\n\024RemoveStudentRequest\022\016\n\006up"
-    "i_no\030\001 \001(\t\022\021\n\tschool_id\030\002 \001(\t\"z\n\007Teacher"
-    "\022\014\n\004name\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\022$\n\ngrade_su"
-    "bs\030\003 \003(\0132\020.School.GradeSub\022\032\n\004role\030\004 \001(\016"
-    "2\014.School.Role\022\021\n\tschool_id\030\005 \001(\t\"*\n\010Gra"
-    "deSub\022\r\n\005grade\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\"=\n"
-    "\014SubjectScore\022\017\n\007subject\030\001 \001(\t\022\r\n\005score\030"
-    "\002 \001(\005\022\r\n\005level\030\003 \001(\t\"^\n\nExamReport\022\023\n\013to"
-    "tal_marks\030\001 \001(\005\022\025\n\roverall_level\030\002 \001(\t\022$"
-    "\n\006scores\030\003 \003(\0132\024.School.SubjectScore*K\n\r"
-    "InvoiceStatus\022\023\n\017INVOICE_PENDING\020\000\022\020\n\014IN"
-    "VOICE_PAID\020\001\022\023\n\017INVOICE_OVERDUE\020\002*8\n\022Sub"
-    "scriptionStatus\022\t\n\005GRACE\020\000\022\n\n\006ACTIVE\020\001\022\013"
-    "\n\007EXPIRED\020\002*,\n\003Sex\022\017\n\013Unspecified\020\000\022\010\n\004M"
-    "ale\020\001\022\n\n\006Female\020\002*E\n\004Role\022\013\n\007TEACHER\020\000\022\r"
-    "\n\tPRINCIPAL\020\001\022\t\n\005ADMIN\020\002\022\007\n\003HOI\020\003\022\r\n\tDEV"
-    "ELOPER\020\004*2\n\010Category\022\013\n\007PRIMARY\020\000\022\n\n\006JUN"
-    "IOR\020\001\022\r\n\tSECONDARY\020\0022\236\025\n\rSchoolService\022:"
-    "\n\014CreateSchool\022\030.School.AddSchoolRequest"
-    "\032\020.School.Response\022G\n\020GetSchoolDetails\022\034"
-    ".School.SchoolDetailsRequest\032\025.School.Sc"
-    "hoolDetails\0228\n\nGetSchools\022\026.School.Schoo"
-    "lsRequest\032\022.School.SchoolList\022\?\n\rAddScho"
-    "olHead\022\034.School.AddSchoolHeadRequest\032\020.S"
-    "chool.Response\022F\n\021Delete_SchoolHead\022\037.Sc"
-    "hool.DeleteSchoolHeadRequest\032\020.School.Re"
-    "sponse\022D\n\023UpdateSchoolDetails\022\033.School.U"
-    "pdateSchoolRequest\032\020.School.Response\0229\n\n"
-    "AddStudent\022\031.School.AddStudentRequest\032\020."
-    "School.Response\022\?\n\rRemoveStudent\022\034.Schoo"
-    "l.RemoveStudentRequest\032\020.School.Response"
-    "\022I\n\022EditStudentDetails\022!.School.EditStud"
-    "entDetailsRequest\032\020.School.Response\022\?\n\013G"
-    "etStudents\022\033.School.FindStudentsRequest\032"
-    "\023.School.StudentList\022I\n\022GetLearnersbyGra"
-    "de\022\036.School.Students_Grade_Request\032\023.Sch"
-    "ool.StudentList\022F\n\024DeleteStudentSubject\022"
-    "\034.School.DeleteSubjectRequest\032\020.School.R"
-    "esponse\022<\n\017AddStudentScore\022\027.School.AddS"
-    "coreRequest\032\020.School.Response\022B\n\021Student"
-    "ExamReport\022\031.School.ExamReportRequest\032\022."
-    "School.ExamReport\022D\n\024AddSubjectsToStuden"
-    "t\022\032.School.AddSubjectsRequest\032\020.School.R"
-    "esponse\0229\n\nAddTeacher\022\031.School.AddTeache"
-    "rRequest\032\020.School.Response\0225\n\014TeacherLog"
-    "in\022\024.School.LoginRequest\032\017.School.Teache"
-    "r\022\?\n\rRemoveTeacher\022\034.School.RemoveTeache"
-    "rRequest\032\020.School.Response\022\?\n\013GetTeacher"
-    "s\022\032.School.GetTeachersRequest\032\024.School.T"
-    "eachersList\022A\n\016UpdateSubjects\022\035.School.U"
-    "pdateSubjectsRequest\032\020.School.Response\022c"
-    "\n\035ListofLearnersbyGrade_Subject\022$.School"
-    ".GetStudentsperSubjectRequest\032\034.School.L"
-    "earnersListperGrade\022\?\n\rResetPassword\022\034.S"
-    "chool.ResetPasswordRequest\032\020.School.Resp"
-    "onse\022M\n\024DeleteTeacherSubject\022#.School.De"
-    "leteTeacherSubjectRequest\032\020.School.Respo"
-    "nse\022C\n\017UpdateAdminRole\022\036.School.UpdateAd"
-    "minRoleRequest\032\020.School.Response\0223\n\007AddE"
-    "xam\022\026.School.AddExamRequest\032\020.School.Res"
-    "ponse\022A\n\016AddExamToGrade\022\035.School.AddExam"
-    "ToGradeRequest\032\020.School.Response\0226\n\tFind"
-    "Exams\022\027.School.FindExamRequest\032\020.School."
-    "ExamList\022C\n\017SetExamAnalysed\022\036.School.Set"
-    "ExamAnalysedRequest\032\020.School.Response\022=\n"
-    "\016GradeMeritList\022\030.School.MeritListReques"
-    "t\032\021.School.MeritList\022F\n\021setLoadedSubject"
-    "s\022\037.School.setloadedsubjectrequest\032\020.Sch"
-    "ool.Response\022L\n\023fetchLoadedSubjects\022 .Sc"
-    "hool.getloadedsubjectsrequest\032\023.School.S"
-    "ubjectList\0225\n\010AddGrade\022\027.School.AddGrade"
-    "Request\032\020.School.Response\022D\n\022RemoveGrade"
-    "Subject\022\034.School.RemoveSubjectRequest\032\020."
-    "School.Response\022;\n\013RemoveGrade\022\032.School."
-    "RemoveGradeRequest\032\020.School.Response\022:\n\n"
-    "FindGrades\022\031.School.FindGradesRequest\032\021."
-    "School.GradeList\022;\n\013UpdateGrade\022\032.School"
-    ".UpdateGradeRequest\032\020.School.Response\022B\n"
-    "\rGradeStudents\022\034.School.GradeStudentsReq"
-    "uest\032\023.School.StudentList\0226\n\007Invoice\022\031.S"
-    "chool.AddInvoiceRequest\032\020.School.Respons"
-    "e\022<\n\nGetInvoice\022\031.School.GetInvoiceReque"
-    "st\032\023.School.InvoiceList\0226\n\007Receipt\022\031.Sch"
-    "ool.AddReceiptRequest\032\020.School.Response\022"
-    "<\n\nGetReceipt\022\031.School.GetReceiptRequest"
-    "\032\023.School.ReceiptListb\006proto3"
+    "l.Role\022\014\n\004term\030\005 \001(\005\022\014\n\004full\030\006 \001(\010\"z\n\024Co"
+    "mbinedMeritRequest\022\021\n\tschool_id\030\001 \001(\t\022\021\n"
+    "\texam_name\030\002 \001(\t\022\r\n\005grade\030\003 \001(\t\022-\n\020exams"
+    "_to_combine\030\004 \003(\0132\023.School.exam_weight\"J"
+    "\n\024AddSchoolHeadRequest\022\020\n\010schoolid\030\001 \001(\t"
+    "\022 \n\007teacher\030\002 \001(\0132\017.School.Teacher\",\n\016Sc"
+    "hoolsRequest\022\032\n\004role\030\001 \001(\0162\014.School.Role"
+    "\"\205\001\n\023UpdateSchoolRequest\022\023\n\013school_name\030"
+    "\001 \001(\t\022\024\n\014school_motto\030\002 \001(\t\022\024\n\014school_em"
+    "ail\030\003 \001(\t\022\021\n\tschool_id\030\004 \001(\t\022\032\n\004role\030\005 \001"
+    "(\0162\014.School.Role\"-\n\nSchoolList\022\037\n\007school"
+    "s\030\001 \003(\0132\016.School.school\"5\n\021AddReceiptReq"
+    "uest\022 \n\007receipt\030\001 \001(\0132\017.School.Receipt\"5"
+    "\n\021AddInvoiceRequest\022 \n\007invoice\030\001 \001(\0132\017.S"
+    "chool.Invoice\"+\n\027DeleteSchoolHeadRequest"
+    "\022\020\n\010schoolid\030\001 \001(\t\"%\n\021GetReceiptRequest\022"
+    "\020\n\010schoolid\030\001 \001(\t\"0\n\013ReceiptList\022!\n\010rece"
+    "ipts\030\001 \003(\0132\017.School.Receipt\"%\n\021GetInvoic"
+    "eRequest\022\020\n\010schoolid\030\001 \001(\t\"0\n\013InvoiceLis"
+    "t\022!\n\010invoices\030\001 \003(\0132\017.School.Invoice\"X\n\026"
+    "UpdateAdminRoleRequest\022\020\n\010schoolid\030\001 \001(\t"
+    "\022\036\n\010new_role\030\002 \001(\0162\014.School.Role\022\014\n\004code"
+    "\030\003 \001(\005\"\324\001\n\007Receipt\022\020\n\010schoolid\030\001 \001(\t\022\025\n\r"
+    "receiptnumber\030\002 \001(\t\022\021\n\tinvoiceid\030\003 \001(\t\022("
+    "\n\004date\030\004 \001(\0132\032.google.protobuf.Timestamp"
+    "\022\'\n\007payment\030\005 \001(\0132\026.School.paymentDetail"
+    "s\022\016\n\006amount\030\006 \001(\001\022\023\n\013description\030\007 \001(\t\022\025"
+    "\n\ramountinwords\030\010 \001(\t\"M\n\016paymentDetails\022"
+    "\016\n\006method\030\001 \001(\t\022\027\n\017transactioncode\030\002 \001(\t"
+    "\022\022\n\nsenderName\030\003 \001(\t\"\357\001\n\007Invoice\022\025\n\rinvo"
+    "iceNumber\030\001 \001(\t\022\020\n\010schoolId\030\002 \001(\t\022%\n\006sta"
+    "tus\030\003 \001(\0162\025.School.InvoiceStatus\022\023\n\013bill"
+    "ingYear\030\004 \001(\005\022\016\n\006amount\030\005 \001(\001\022\023\n\013descrip"
+    "tion\030\006 \001(\t\022-\n\tstartDate\030\007 \001(\0132\032.google.p"
+    "rotobuf.Timestamp\022+\n\007dueDate\030\010 \001(\0132\032.goo"
+    "gle.protobuf.Timestamp\"i\n\033DeleteTeacherS"
+    "ubjectRequest\022\023\n\013teachercode\030\001 \001(\005\022\"\n\010su"
+    "bjects\030\002 \003(\0132\020.School.GradeSub\022\021\n\tschool"
+    "_id\030\003 \001(\t\"P\n\024DeleteSubjectRequest\022\020\n\010sub"
+    "jects\030\001 \003(\t\022\021\n\tschool_id\030\002 \001(\t\022\023\n\013studen"
+    "t_upi\030\003 \001(\t\"P\n\031EditStudentDetailsRequest"
+    "\022 \n\007student\030\001 \001(\0132\017.School.Student\022\021\n\tsc"
+    "hool_id\030\002 \001(\t\"]\n\022AddSubjectsRequest\022\'\n\010s"
+    "ubjects\030\001 \003(\0132\025.School.grade_subject\022\021\n\t"
+    "school_id\030\002 \001(\t\022\013\n\003upi\030\003 \001(\t\"$\n\017FindExam"
+    "Request\022\021\n\tschool_id\030\001 \001(\t\"\'\n\022GetTeacher"
+    "sRequest\022\021\n\tschool_id\030\001 \001(\t\"&\n\021FindGrade"
+    "sRequest\022\021\n\tschool_id\030\001 \001(\t\"(\n\023FindStude"
+    "ntsRequest\022\021\n\tschool_id\030\001 \001(\t\"3\n\020AddScho"
+    "olRequest\022\037\n\007details\030\001 \001(\0132\016.School.scho"
+    "ol\"0\n\rSchoolDetails\022\037\n\007details\030\001 \001(\0132\016.S"
+    "chool.school\"\240\002\n\006school\022\014\n\004name\030\001 \001(\t\022\r\n"
+    "\005email\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\022\"\n\010categor"
+    "y\030\004 \001(\0162\020.School.Category\022\021\n\tschool_id\030\005"
+    " \001(\t\022\024\n\014school_motto\030\006 \001(\t\022\023\n\013school_hea"
+    "d\030\007 \001(\t\022*\n\006status\030\010 \001(\0162\032.School.Subscri"
+    "ptionStatus\022-\n\tstartDate\030\t \001(\0132\032.google."
+    "protobuf.Timestamp\022+\n\007dueDate\030\n \001(\0132\032.go"
+    "ogle.protobuf.Timestamp\")\n\024SchoolDetails"
+    "Request\022\021\n\tschool_id\030\001 \001(\t\"f\n\024RemoveSubj"
+    "ectRequest\022\'\n\010subjects\030\001 \003(\0132\025.School.gr"
+    "ade_subject\022\022\n\ngrade_name\030\002 \001(\t\022\021\n\tschoo"
+    "l_id\030\003 \001(\t\"=\n\024ResetPasswordRequest\022\020\n\010us"
+    "ername\030\001 \001(\t\022\023\n\013newpassword\030\002 \001(\t\"\216\001\n\027se"
+    "tloadedsubjectrequest\022\022\n\ngrade_name\030\001 \001("
+    "\t\022\021\n\texam_name\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\021\n"
+    "\tschool_id\030\004 \001(\t\022\024\n\014paper_number\030\005 \001(\005\022\022"
+    "\n\nfull_paper\030\006 \001(\010\"T\n\030getloadedsubjectsr"
+    "equest\022\022\n\ngrade_name\030\001 \001(\t\022\021\n\texam_name\030"
+    "\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"\036\n\013SubjectList\022"
+    "\017\n\007subject\030\001 \003(\t\"^\n\020MeritListRequest\022\021\n\t"
+    "gradename\030\001 \001(\t\022\020\n\010examname\030\002 \001(\t\022\022\n\nful"
+    "l_paper\030\003 \001(\010\022\021\n\tschool_id\030\004 \001(\t\"\334\001\n\014Stu"
+    "dentMerit\022\013\n\003upi\030\001 \001(\t\022\024\n\014student_name\030\002"
+    " \001(\t\022\030\n\003sex\030\003 \001(\0162\013.School.Sex\022$\n\006scores"
+    "\030\004 \003(\0132\024.School.SubjectScore\022\023\n\013total_ma"
+    "rks\030\005 \001(\005\022\r\n\005level\030\006 \001(\t\0222\n\016combinedscor"
+    "es\030\007 \003(\0132\032.School.scores_per_subject\022\021\n\t"
+    "exam_name\030\010 \001(\t\"L\n\022scores_per_subject\022\021\n"
+    "\texam_name\030\001 \001(\t\022\024\n\014subject_name\030\002 \001(\t\022\r"
+    "\n\005score\030\003 \001(\005\"3\n\tMeritList\022&\n\010learners\030\001"
+    " \003(\0132\024.School.StudentMerit\"k\n\026SetExamAna"
+    "lysedRequest\022\021\n\texam_name\030\001 \001(\t\022\022\n\ngrade"
+    "_name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\022\027\n\017analys"
+    "is_status\030\004 \001(\010\"8\n\024GradeStudentsRequest\022"
+    "\r\n\005grade\030\001 \001(\t\022\021\n\tschool_id\030\002 \001(\t\"\'\n\010Exa"
+    "mList\022\033\n\005exams\030\001 \003(\0132\014.School.Exam\"<\n\026St"
+    "udents_Grade_Request\022\022\n\ngrade_name\030\001 \001(\t"
+    "\022\016\n\006school\030\002 \001(\t\"\241\001\n\034GetStudentsperSubje"
+    "ctRequest\022\014\n\004code\030\001 \001(\005\022\017\n\007subject\030\002 \001(\t"
+    "\022\022\n\ngrade_name\030\003 \001(\t\022\021\n\texam_name\030\004 \001(\t\022"
+    "\021\n\tschool_id\030\005 \001(\t\022\022\n\nfull_paper\030\006 \001(\010\022\024"
+    "\n\014paper_number\030\007 \001(\005\"C\n\024LearnersListperG"
+    "rade\022+\n\010students\030\001 \003(\0132\031.School.studentf"
+    "orteacher\"Y\n\021studentforteacher\022\024\n\014studen"
+    "t_name\030\001 \001(\t\022\013\n\003upi\030\002 \001(\t\022\022\n\ngrade_name\030"
+    "\003 \001(\t\022\r\n\005score\030\004 \001(\005\"\204\001\n\025UpdateSubjectsR"
+    "equest\022&\n\014new_subjects\030\001 \003(\0132\020.School.Gr"
+    "adeSub\022\024\n\014teacher_code\030\002 \001(\005\022\032\n\004role\030\003 \001"
+    "(\0162\014.School.Role\022\021\n\tschool_id\030\004 \001(\t\"F\n\021E"
+    "xamReportRequest\022\013\n\003upi\030\001 \001(\t\022\021\n\texam_na"
+    "me\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"\231\001\n\025Add_bulk"
+    "_ScoreRequest\022\'\n\004mark\030\001 \003(\0132\031.School.add"
+    "_subject_score\022\021\n\tschool_id\030\002 \001(\t\022\016\n\006out"
+    "_of\030\003 \001(\005\022\021\n\texam_name\030\004 \001(\t\022\022\n\nfull_pap"
+    "er\030\005 \001(\010\022\r\n\005pp_no\030\006 \001(\005\"@\n\021add_subject_s"
+    "core\022\017\n\007subject\030\001 \001(\t\022\013\n\003upi\030\002 \001(\t\022\r\n\005sc"
+    "ore\030\003 \001(\005\"}\n\022UpdateGradeRequest\022\014\n\004code\030"
+    "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\017\n\007newname\030\003 \001(\t\022\'\n\010"
+    "subjects\030\004 \003(\0132\025.School.grade_subject\022\021\n"
+    "\tschool_id\030\005 \001(\t\"1\n\005Grade\022\014\n\004name\030\001 \001(\t\022"
+    "\032\n\022grade_teacher_code\030\002 \001(\005\"\214\001\n\017AddGrade"
+    "Request\022\034\n\005grade\030\001 \001(\0132\r.School.Grade\022\'\n"
+    "\010subjects\030\002 \003(\0132\025.School.grade_subject\022\021"
+    "\n\tschool_id\030\003 \001(\t\022\037\n\005level\030\004 \001(\0162\020.Schoo"
+    "l.Category\".\n\rgrade_subject\022\017\n\007subject\030\001"
+    " \001(\t\022\014\n\004code\030\002 \001(\005\"5\n\022RemoveGradeRequest"
+    "\022\014\n\004name\030\001 \001(\t\022\021\n\tschool_id\030\002 \001(\t\"1\n\tGra"
+    "deList\022$\n\006grades\030\001 \003(\0132\024.School.Return_G"
+    "rade\"\375\001\n\014Return_Grade\022\014\n\004name\030\001 \001(\t\022\032\n\022g"
+    "rade_teacher_code\030\002 \001(\005\022\033\n\005exams\030\003 \003(\0132\014"
+    ".School.Exam\022\026\n\016total_learners\030\004 \001(\005\022\'\n\010"
+    "subjects\030\005 \003(\0132\025.School.grade_subject\022(\n"
+    "\007l_areas\030\006 \003(\0132\027.School.teacher_subject\022"
+    "\032\n\022grade_teacher_name\030\007 \001(\t\022\037\n\005level\030\010 \001"
+    "(\0162\020.School.Category\"N\n\017teacher_subject\022"
+    "\017\n\007subject\030\001 \001(\t\022\024\n\014teacher_name\030\002 \001(\t\022\024"
+    "\n\014teacher_code\030\003 \001(\005\"\232\001\n\016AddExamRequest\022"
+    "\014\n\004name\030\001 \001(\t\022\"\n\006grades\030\002 \003(\0132\022.School.e"
+    "xam_grade\022\020\n\010analysed\030\003 \001(\010\022\014\n\004term\030\004 \001("
+    "\005\022\021\n\tschool_id\030\005 \001(\t\022\025\n\rcombined_exam\030\006 "
+    "\001(\010\022\014\n\004year\030\007 \001(\005\"\323\001\n\026AddCombinedExamReq"
+    "uest\022\"\n\005exams\030\001 \003(\0132\023.School.exam_weight"
+    "\022\"\n\006grades\030\002 \003(\0132\022.School.exam_grade\022\014\n\004"
+    "term\030\003 \001(\005\022\014\n\004year\030\004 \001(\005\022\021\n\tschool_id\030\005 "
+    "\001(\t\022\020\n\010analysed\030\006 \001(\010\022\025\n\rcombined_exam\030\007"
+    " \001(\010\022\031\n\021combinedexam_name\030\010 \001(\t\"D\n\013exam_"
+    "weight\022\021\n\texam_name\030\001 \001(\t\022\016\n\006weight\030\002 \001("
+    "\005\022\022\n\nfull_paper\030\003 \001(\010\"/\n\nexam_grade\022\r\n\005g"
+    "rade\030\001 \001(\t\022\022\n\nfull_paper\030\002 \001(\010\"\236\001\n\004Exam\022"
+    "\021\n\texam_name\030\001 \001(\t\022\020\n\010analysed\030\002 \001(\010\022\014\n\004"
+    "term\030\003 \001(\005\022\022\n\nfull_paper\030\004 \001(\010\022\014\n\004year\030\005"
+    " \001(\005\022\025\n\rcombined_exam\030\006 \001(\010\022*\n\rcombinede"
+    "xams\030\007 \003(\0132\023.School.exam_weight\"1\n\014Teach"
+    "ersList\022!\n\010teachers\030\001 \003(\0132\017.School.Teach"
+    "er\"E\n\024RemoveTeacherRequest\022\014\n\004code\030\001 \001(\005"
+    "\022\014\n\004name\030\002 \001(\t\022\021\n\tschool_id\030\003 \001(\t\"\223\001\n\021Ad"
+    "dTeacherRequest\022 \n\007teacher\030\001 \001(\0132\017.Schoo"
+    "l.Teacher\022$\n\ngrade_subs\030\002 \003(\0132\020.School.G"
+    "radeSub\022#\n\005login\030\003 \001(\0132\024.School.loginDet"
+    "ails\022\021\n\tschool_id\030\004 \001(\t\"2\n\014loginDetails\022"
+    "\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"4\n\014L"
+    "oginRequest\022$\n\006verify\030\001 \001(\0132\024.School.log"
+    "inDetails\"0\n\013StudentList\022!\n\010students\030\001 \003"
+    "(\0132\017.School.Student\"e\n\007Student\022\014\n\004name\030\001"
+    " \001(\t\022\016\n\006upi_no\030\002 \001(\t\022\r\n\005grade\030\003 \001(\t\022\033\n\006g"
+    "ender\030\004 \001(\0162\013.School.Sex\022\020\n\010subjects\030\005 \003"
+    "(\t\"H\n\021AddStudentRequest\022 \n\007student\030\001 \001(\013"
+    "2\017.School.Student\022\021\n\tschool_id\030\002 \001(\t\",\n\010"
+    "Response\022\017\n\007message\030\001 \001(\t\022\017\n\007success\030\002 \001"
+    "(\010\"9\n\024RemoveStudentRequest\022\016\n\006upi_no\030\001 \001"
+    "(\t\022\021\n\tschool_id\030\002 \001(\t\"z\n\007Teacher\022\014\n\004name"
+    "\030\001 \001(\t\022\014\n\004code\030\002 \001(\005\022$\n\ngrade_subs\030\003 \003(\013"
+    "2\020.School.GradeSub\022\032\n\004role\030\004 \001(\0162\014.Schoo"
+    "l.Role\022\021\n\tschool_id\030\005 \001(\t\"*\n\010GradeSub\022\r\n"
+    "\005grade\030\001 \001(\t\022\017\n\007subject\030\002 \001(\t\"=\n\014Subject"
+    "Score\022\017\n\007subject\030\001 \001(\t\022\r\n\005score\030\002 \001(\005\022\r\n"
+    "\005level\030\003 \001(\t\"^\n\nExamReport\022\023\n\013total_mark"
+    "s\030\001 \001(\005\022\025\n\roverall_level\030\002 \001(\t\022$\n\006scores"
+    "\030\003 \003(\0132\024.School.SubjectScore*K\n\rInvoiceS"
+    "tatus\022\023\n\017INVOICE_PENDING\020\000\022\020\n\014INVOICE_PA"
+    "ID\020\001\022\023\n\017INVOICE_OVERDUE\020\002*8\n\022Subscriptio"
+    "nStatus\022\t\n\005GRACE\020\000\022\n\n\006ACTIVE\020\001\022\013\n\007EXPIRE"
+    "D\020\002*,\n\003Sex\022\017\n\013Unspecified\020\000\022\010\n\004Male\020\001\022\n\n"
+    "\006Female\020\002*E\n\004Role\022\013\n\007TEACHER\020\000\022\r\n\tPRINCI"
+    "PAL\020\001\022\t\n\005ADMIN\020\002\022\007\n\003HOI\020\003\022\r\n\tDEVELOPER\020\004"
+    "*2\n\010Category\022\013\n\007PRIMARY\020\000\022\n\n\006JUNIOR\020\001\022\r\n"
+    "\tSECONDARY\020\0022\262\026\n\rSchoolService\022:\n\014Create"
+    "School\022\030.School.AddSchoolRequest\032\020.Schoo"
+    "l.Response\022G\n\020GetSchoolDetails\022\034.School."
+    "SchoolDetailsRequest\032\025.School.SchoolDeta"
+    "ils\0228\n\nGetSchools\022\026.School.SchoolsReques"
+    "t\032\022.School.SchoolList\022\?\n\rAddSchoolHead\022\034"
+    ".School.AddSchoolHeadRequest\032\020.School.Re"
+    "sponse\022F\n\021Delete_SchoolHead\022\037.School.Del"
+    "eteSchoolHeadRequest\032\020.School.Response\022D"
+    "\n\023UpdateSchoolDetails\022\033.School.UpdateSch"
+    "oolRequest\032\020.School.Response\0229\n\nAddStude"
+    "nt\022\031.School.AddStudentRequest\032\020.School.R"
+    "esponse\022\?\n\rRemoveStudent\022\034.School.Remove"
+    "StudentRequest\032\020.School.Response\022I\n\022Edit"
+    "StudentDetails\022!.School.EditStudentDetai"
+    "lsRequest\032\020.School.Response\022\?\n\013GetStuden"
+    "ts\022\033.School.FindStudentsRequest\032\023.School"
+    ".StudentList\022I\n\022GetLearnersbyGrade\022\036.Sch"
+    "ool.Students_Grade_Request\032\023.School.Stud"
+    "entList\022F\n\024DeleteStudentSubject\022\034.School"
+    ".DeleteSubjectRequest\032\020.School.Response\022"
+    "B\n\017AddStudentScore\022\035.School.Add_bulk_Sco"
+    "reRequest\032\020.School.Response\022B\n\021StudentEx"
+    "amReport\022\031.School.ExamReportRequest\032\022.Sc"
+    "hool.ExamReport\022D\n\024AddSubjectsToStudent\022"
+    "\032.School.AddSubjectsRequest\032\020.School.Res"
+    "ponse\0229\n\nAddTeacher\022\031.School.AddTeacherR"
+    "equest\032\020.School.Response\0225\n\014TeacherLogin"
+    "\022\024.School.LoginRequest\032\017.School.Teacher\022"
+    "\?\n\rRemoveTeacher\022\034.School.RemoveTeacherR"
+    "equest\032\020.School.Response\022\?\n\013GetTeachers\022"
+    "\032.School.GetTeachersRequest\032\024.School.Tea"
+    "chersList\022A\n\016UpdateSubjects\022\035.School.Upd"
+    "ateSubjectsRequest\032\020.School.Response\022c\n\035"
+    "ListofLearnersbyGrade_Subject\022$.School.G"
+    "etStudentsperSubjectRequest\032\034.School.Lea"
+    "rnersListperGrade\022\?\n\rResetPassword\022\034.Sch"
+    "ool.ResetPasswordRequest\032\020.School.Respon"
+    "se\022M\n\024DeleteTeacherSubject\022#.School.Dele"
+    "teTeacherSubjectRequest\032\020.School.Respons"
+    "e\022C\n\017UpdateAdminRole\022\036.School.UpdateAdmi"
+    "nRoleRequest\032\020.School.Response\0223\n\007AddExa"
+    "m\022\026.School.AddExamRequest\032\020.School.Respo"
+    "nse\022C\n\017AddCombinedExam\022\036.School.AddCombi"
+    "nedExamRequest\032\020.School.Response\022A\n\016AddE"
+    "xamToGrade\022\035.School.AddExamToGradeReques"
+    "t\032\020.School.Response\0226\n\tFindExams\022\027.Schoo"
+    "l.FindExamRequest\032\020.School.ExamList\022C\n\017S"
+    "etExamAnalysed\022\036.School.SetExamAnalysedR"
+    "equest\032\020.School.Response\022=\n\016GradeMeritLi"
+    "st\022\030.School.MeritListRequest\032\021.School.Me"
+    "ritList\022G\n\024GetCombinedExamMerit\022\034.School"
+    ".CombinedMeritRequest\032\021.School.MeritList"
+    "\022F\n\021setLoadedSubjects\022\037.School.setloaded"
+    "subjectrequest\032\020.School.Response\022L\n\023fetc"
+    "hLoadedSubjects\022 .School.getloadedsubjec"
+    "tsrequest\032\023.School.SubjectList\0225\n\010AddGra"
+    "de\022\027.School.AddGradeRequest\032\020.School.Res"
+    "ponse\022D\n\022RemoveGradeSubject\022\034.School.Rem"
+    "oveSubjectRequest\032\020.School.Response\022;\n\013R"
+    "emoveGrade\022\032.School.RemoveGradeRequest\032\020"
+    ".School.Response\022:\n\nFindGrades\022\031.School."
+    "FindGradesRequest\032\021.School.GradeList\022;\n\013"
+    "UpdateGrade\022\032.School.UpdateGradeRequest\032"
+    "\020.School.Response\022B\n\rGradeStudents\022\034.Sch"
+    "ool.GradeStudentsRequest\032\023.School.Studen"
+    "tList\0226\n\007Invoice\022\031.School.AddInvoiceRequ"
+    "est\032\020.School.Response\022<\n\nGetInvoice\022\031.Sc"
+    "hool.GetInvoiceRequest\032\023.School.InvoiceL"
+    "ist\0226\n\007Receipt\022\031.School.AddReceiptReques"
+    "t\032\020.School.Response\022<\n\nGetReceipt\022\031.Scho"
+    "ol.GetReceiptRequest\032\023.School.ReceiptLis"
+    "tb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_School_2eproto_deps[1] =
     {
@@ -3460,13 +3647,13 @@ static ::absl::once_flag descriptor_table_School_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_School_2eproto = {
     false,
     false,
-    9309,
+    10129,
     descriptor_table_protodef_School_2eproto,
     "School.proto",
     &descriptor_table_School_2eproto_once,
     descriptor_table_School_2eproto_deps,
     1,
-    73,
+    76,
     schemas,
     file_default_instances,
     TableStruct_School_2eproto::offsets,
@@ -3891,6 +4078,338 @@ void AddExamToGradeRequest::InternalSwap(AddExamToGradeRequest* PROTOBUF_RESTRIC
 }
 
 ::google::protobuf::Metadata AddExamToGradeRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CombinedMeritRequest::_Internal {
+ public:
+};
+
+CombinedMeritRequest::CombinedMeritRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.CombinedMeritRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE CombinedMeritRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::CombinedMeritRequest& from_msg)
+      : exams_to_combine_{visibility, arena, from.exams_to_combine_},
+        school_id_(arena, from.school_id_),
+        exam_name_(arena, from.exam_name_),
+        grade_(arena, from.grade_),
+        _cached_size_{0} {}
+
+CombinedMeritRequest::CombinedMeritRequest(
+    ::google::protobuf::Arena* arena,
+    const CombinedMeritRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CombinedMeritRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:School.CombinedMeritRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE CombinedMeritRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : exams_to_combine_{visibility, arena},
+        school_id_(arena),
+        exam_name_(arena),
+        grade_(arena),
+        _cached_size_{0} {}
+
+inline void CombinedMeritRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+CombinedMeritRequest::~CombinedMeritRequest() {
+  // @@protoc_insertion_point(destructor:School.CombinedMeritRequest)
+  SharedDtor(*this);
+}
+inline void CombinedMeritRequest::SharedDtor(MessageLite& self) {
+  CombinedMeritRequest& this_ = static_cast<CombinedMeritRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.school_id_.Destroy();
+  this_._impl_.exam_name_.Destroy();
+  this_._impl_.grade_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* CombinedMeritRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) CombinedMeritRequest(arena);
+}
+constexpr auto CombinedMeritRequest::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.exams_to_combine_) +
+          decltype(CombinedMeritRequest::_impl_.exams_to_combine_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(CombinedMeritRequest), alignof(CombinedMeritRequest), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&CombinedMeritRequest::PlacementNew_,
+                                 sizeof(CombinedMeritRequest),
+                                 alignof(CombinedMeritRequest));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull CombinedMeritRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_CombinedMeritRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &CombinedMeritRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<CombinedMeritRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &CombinedMeritRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<CombinedMeritRequest>(), &CombinedMeritRequest::ByteSizeLong,
+            &CombinedMeritRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_._cached_size_),
+        false,
+    },
+    &CombinedMeritRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* CombinedMeritRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 1, 59, 2> CombinedMeritRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::CombinedMeritRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated .School.exam_weight exams_to_combine = 4;
+    {::_pbi::TcParser::FastMtR1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.exams_to_combine_)}},
+    // string school_id = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.school_id_)}},
+    // string exam_name = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.exam_name_)}},
+    // string grade = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.grade_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string school_id = 1;
+    {PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.school_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string exam_name = 2;
+    {PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.exam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string grade = 3;
+    {PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.grade_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // repeated .School.exam_weight exams_to_combine = 4;
+    {PROTOBUF_FIELD_OFFSET(CombinedMeritRequest, _impl_.exams_to_combine_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::School::exam_weight>()},
+  }}, {{
+    "\33\11\11\5\0\0\0\0"
+    "School.CombinedMeritRequest"
+    "school_id"
+    "exam_name"
+    "grade"
+  }},
+};
+
+PROTOBUF_NOINLINE void CombinedMeritRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.CombinedMeritRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.exams_to_combine_.Clear();
+  _impl_.school_id_.ClearToEmpty();
+  _impl_.exam_name_.ClearToEmpty();
+  _impl_.grade_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* CombinedMeritRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const CombinedMeritRequest& this_ = static_cast<const CombinedMeritRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* CombinedMeritRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const CombinedMeritRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.CombinedMeritRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string school_id = 1;
+          if (!this_._internal_school_id().empty()) {
+            const std::string& _s = this_._internal_school_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.CombinedMeritRequest.school_id");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string exam_name = 2;
+          if (!this_._internal_exam_name().empty()) {
+            const std::string& _s = this_._internal_exam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.CombinedMeritRequest.exam_name");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          // string grade = 3;
+          if (!this_._internal_grade().empty()) {
+            const std::string& _s = this_._internal_grade();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.CombinedMeritRequest.grade");
+            target = stream->WriteStringMaybeAliased(3, _s, target);
+          }
+
+          // repeated .School.exam_weight exams_to_combine = 4;
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_exams_to_combine_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_exams_to_combine().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    4, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.CombinedMeritRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t CombinedMeritRequest::ByteSizeLong(const MessageLite& base) {
+          const CombinedMeritRequest& this_ = static_cast<const CombinedMeritRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t CombinedMeritRequest::ByteSizeLong() const {
+          const CombinedMeritRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.CombinedMeritRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated .School.exam_weight exams_to_combine = 4;
+            {
+              total_size += 1UL * this_._internal_exams_to_combine_size();
+              for (const auto& msg : this_._internal_exams_to_combine()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
+            // string school_id = 1;
+            if (!this_._internal_school_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_school_id());
+            }
+            // string exam_name = 2;
+            if (!this_._internal_exam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_exam_name());
+            }
+            // string grade = 3;
+            if (!this_._internal_grade().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_grade());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void CombinedMeritRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<CombinedMeritRequest*>(&to_msg);
+  auto& from = static_cast<const CombinedMeritRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.CombinedMeritRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_exams_to_combine()->MergeFrom(
+      from._internal_exams_to_combine());
+  if (!from._internal_school_id().empty()) {
+    _this->_internal_set_school_id(from._internal_school_id());
+  }
+  if (!from._internal_exam_name().empty()) {
+    _this->_internal_set_exam_name(from._internal_exam_name());
+  }
+  if (!from._internal_grade().empty()) {
+    _this->_internal_set_grade(from._internal_grade());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CombinedMeritRequest::CopyFrom(const CombinedMeritRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.CombinedMeritRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CombinedMeritRequest::InternalSwap(CombinedMeritRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.exams_to_combine_.InternalSwap(&other->_impl_.exams_to_combine_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_id_, &other->_impl_.school_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.grade_, &other->_impl_.grade_, arena);
+}
+
+::google::protobuf::Metadata CombinedMeritRequest::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -13390,8 +13909,11 @@ inline PROTOBUF_NDEBUG_INLINE StudentMerit::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::School::StudentMerit& from_msg)
       : scores_{visibility, arena, from.scores_},
+        combinedscores_{visibility, arena, from.combinedscores_},
         upi_(arena, from.upi_),
         student_name_(arena, from.student_name_),
+        level_(arena, from.level_),
+        exam_name_(arena, from.exam_name_),
         _cached_size_{0} {}
 
 StudentMerit::StudentMerit(
@@ -13407,7 +13929,13 @@ StudentMerit::StudentMerit(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  _impl_.sex_ = from._impl_.sex_;
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, sex_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, sex_),
+           offsetof(Impl_, total_marks_) -
+               offsetof(Impl_, sex_) +
+               sizeof(Impl_::total_marks_));
 
   // @@protoc_insertion_point(copy_constructor:School.StudentMerit)
 }
@@ -13415,13 +13943,21 @@ inline PROTOBUF_NDEBUG_INLINE StudentMerit::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : scores_{visibility, arena},
+        combinedscores_{visibility, arena},
         upi_(arena),
         student_name_(arena),
+        level_(arena),
+        exam_name_(arena),
         _cached_size_{0} {}
 
 inline void StudentMerit::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.sex_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, sex_),
+           0,
+           offsetof(Impl_, total_marks_) -
+               offsetof(Impl_, sex_) +
+               sizeof(Impl_::total_marks_));
 }
 StudentMerit::~StudentMerit() {
   // @@protoc_insertion_point(destructor:School.StudentMerit)
@@ -13433,6 +13969,8 @@ inline void StudentMerit::SharedDtor(MessageLite& self) {
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.upi_.Destroy();
   this_._impl_.student_name_.Destroy();
+  this_._impl_.level_.Destroy();
+  this_._impl_.exam_name_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -13444,6 +13982,10 @@ constexpr auto StudentMerit::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
       PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.scores_) +
           decltype(StudentMerit::_impl_.scores_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.combinedscores_) +
+          decltype(StudentMerit::_impl_.combinedscores_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
@@ -13484,16 +14026,16 @@ const ::google::protobuf::internal::ClassData* StudentMerit::GetClassData() cons
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 1, 43, 2> StudentMerit::_table_ = {
+const ::_pbi::TcParseTable<3, 8, 2, 65, 2> StudentMerit::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    8, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967040,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    1,  // num_aux_entries
+    8,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -13502,9 +14044,9 @@ const ::_pbi::TcParseTable<2, 4, 1, 43, 2> StudentMerit::_table_ = {
     ::_pbi::TcParser::GetTable<::School::StudentMerit>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // repeated .School.SubjectScore scores = 4;
-    {::_pbi::TcParser::FastMtR1,
-     {34, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.scores_)}},
+    // string exam_name = 8;
+    {::_pbi::TcParser::FastUS1,
+     {66, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.exam_name_)}},
     // string upi = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.upi_)}},
@@ -13514,6 +14056,18 @@ const ::_pbi::TcParseTable<2, 4, 1, 43, 2> StudentMerit::_table_ = {
     // .School.Sex sex = 3;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StudentMerit, _impl_.sex_), 63>(),
      {24, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.sex_)}},
+    // repeated .School.SubjectScore scores = 4;
+    {::_pbi::TcParser::FastMtR1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.scores_)}},
+    // int32 total_marks = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StudentMerit, _impl_.total_marks_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.total_marks_)}},
+    // string level = 6;
+    {::_pbi::TcParser::FastUS1,
+     {50, 63, 0, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.level_)}},
+    // repeated .School.scores_per_subject combinedscores = 7;
+    {::_pbi::TcParser::FastMtR1,
+     {58, 63, 1, PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.combinedscores_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -13529,13 +14083,28 @@ const ::_pbi::TcParseTable<2, 4, 1, 43, 2> StudentMerit::_table_ = {
     // repeated .School.SubjectScore scores = 4;
     {PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.scores_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // int32 total_marks = 5;
+    {PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.total_marks_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string level = 6;
+    {PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.level_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // repeated .School.scores_per_subject combinedscores = 7;
+    {PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.combinedscores_), 0, 1,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string exam_name = 8;
+    {PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.exam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::School::SubjectScore>()},
+    {::_pbi::TcParser::GetTable<::School::scores_per_subject>()},
   }}, {{
-    "\23\3\14\0\0\0\0\0"
+    "\23\3\14\0\0\0\5\0\11\0\0\0\0\0\0\0"
     "School.StudentMerit"
     "upi"
     "student_name"
+    "level"
+    "exam_name"
   }},
 };
 
@@ -13547,9 +14116,14 @@ PROTOBUF_NOINLINE void StudentMerit::Clear() {
   (void) cached_has_bits;
 
   _impl_.scores_.Clear();
+  _impl_.combinedscores_.Clear();
   _impl_.upi_.ClearToEmpty();
   _impl_.student_name_.ClearToEmpty();
-  _impl_.sex_ = 0;
+  _impl_.level_.ClearToEmpty();
+  _impl_.exam_name_.ClearToEmpty();
+  ::memset(&_impl_.sex_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.total_marks_) -
+      reinterpret_cast<char*>(&_impl_.sex_)) + sizeof(_impl_.total_marks_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -13602,6 +14176,40 @@ PROTOBUF_NOINLINE void StudentMerit::Clear() {
                     target, stream);
           }
 
+          // int32 total_marks = 5;
+          if (this_._internal_total_marks() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<5>(
+                    stream, this_._internal_total_marks(), target);
+          }
+
+          // string level = 6;
+          if (!this_._internal_level().empty()) {
+            const std::string& _s = this_._internal_level();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.StudentMerit.level");
+            target = stream->WriteStringMaybeAliased(6, _s, target);
+          }
+
+          // repeated .School.scores_per_subject combinedscores = 7;
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_combinedscores_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_combinedscores().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    7, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          // string exam_name = 8;
+          if (!this_._internal_exam_name().empty()) {
+            const std::string& _s = this_._internal_exam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.StudentMerit.exam_name");
+            target = stream->WriteStringMaybeAliased(8, _s, target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -13634,6 +14242,13 @@ PROTOBUF_NOINLINE void StudentMerit::Clear() {
                 total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
               }
             }
+            // repeated .School.scores_per_subject combinedscores = 7;
+            {
+              total_size += 1UL * this_._internal_combinedscores_size();
+              for (const auto& msg : this_._internal_combinedscores()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
           }
            {
             // string upi = 1;
@@ -13646,10 +14261,25 @@ PROTOBUF_NOINLINE void StudentMerit::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_student_name());
             }
+            // string level = 6;
+            if (!this_._internal_level().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_level());
+            }
+            // string exam_name = 8;
+            if (!this_._internal_exam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_exam_name());
+            }
             // .School.Sex sex = 3;
             if (this_._internal_sex() != 0) {
               total_size += 1 +
                             ::_pbi::WireFormatLite::EnumSize(this_._internal_sex());
+            }
+            // int32 total_marks = 5;
+            if (this_._internal_total_marks() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_total_marks());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -13666,14 +14296,25 @@ void StudentMerit::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::go
 
   _this->_internal_mutable_scores()->MergeFrom(
       from._internal_scores());
+  _this->_internal_mutable_combinedscores()->MergeFrom(
+      from._internal_combinedscores());
   if (!from._internal_upi().empty()) {
     _this->_internal_set_upi(from._internal_upi());
   }
   if (!from._internal_student_name().empty()) {
     _this->_internal_set_student_name(from._internal_student_name());
   }
+  if (!from._internal_level().empty()) {
+    _this->_internal_set_level(from._internal_level());
+  }
+  if (!from._internal_exam_name().empty()) {
+    _this->_internal_set_exam_name(from._internal_exam_name());
+  }
   if (from._internal_sex() != 0) {
     _this->_impl_.sex_ = from._impl_.sex_;
+  }
+  if (from._internal_total_marks() != 0) {
+    _this->_impl_.total_marks_ = from._impl_.total_marks_;
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -13692,12 +14333,306 @@ void StudentMerit::InternalSwap(StudentMerit* PROTOBUF_RESTRICT other) {
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.scores_.InternalSwap(&other->_impl_.scores_);
+  _impl_.combinedscores_.InternalSwap(&other->_impl_.combinedscores_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.upi_, &other->_impl_.upi_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.student_name_, &other->_impl_.student_name_, arena);
-  swap(_impl_.sex_, other->_impl_.sex_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.level_, &other->_impl_.level_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.total_marks_)
+      + sizeof(StudentMerit::_impl_.total_marks_)
+      - PROTOBUF_FIELD_OFFSET(StudentMerit, _impl_.sex_)>(
+          reinterpret_cast<char*>(&_impl_.sex_),
+          reinterpret_cast<char*>(&other->_impl_.sex_));
 }
 
 ::google::protobuf::Metadata StudentMerit::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class scores_per_subject::_Internal {
+ public:
+};
+
+scores_per_subject::scores_per_subject(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.scores_per_subject)
+}
+inline PROTOBUF_NDEBUG_INLINE scores_per_subject::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::scores_per_subject& from_msg)
+      : exam_name_(arena, from.exam_name_),
+        subject_name_(arena, from.subject_name_),
+        _cached_size_{0} {}
+
+scores_per_subject::scores_per_subject(
+    ::google::protobuf::Arena* arena,
+    const scores_per_subject& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  scores_per_subject* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.score_ = from._impl_.score_;
+
+  // @@protoc_insertion_point(copy_constructor:School.scores_per_subject)
+}
+inline PROTOBUF_NDEBUG_INLINE scores_per_subject::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : exam_name_(arena),
+        subject_name_(arena),
+        _cached_size_{0} {}
+
+inline void scores_per_subject::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.score_ = {};
+}
+scores_per_subject::~scores_per_subject() {
+  // @@protoc_insertion_point(destructor:School.scores_per_subject)
+  SharedDtor(*this);
+}
+inline void scores_per_subject::SharedDtor(MessageLite& self) {
+  scores_per_subject& this_ = static_cast<scores_per_subject&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.exam_name_.Destroy();
+  this_._impl_.subject_name_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* scores_per_subject::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) scores_per_subject(arena);
+}
+constexpr auto scores_per_subject::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(scores_per_subject),
+                                            alignof(scores_per_subject));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull scores_per_subject::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_scores_per_subject_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &scores_per_subject::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<scores_per_subject>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &scores_per_subject::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<scores_per_subject>(), &scores_per_subject::ByteSizeLong,
+            &scores_per_subject::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_._cached_size_),
+        false,
+    },
+    &scores_per_subject::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* scores_per_subject::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 55, 2> scores_per_subject::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::scores_per_subject>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string exam_name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_.exam_name_)}},
+    // string subject_name = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_.subject_name_)}},
+    // int32 score = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(scores_per_subject, _impl_.score_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_.score_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string exam_name = 1;
+    {PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_.exam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string subject_name = 2;
+    {PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_.subject_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // int32 score = 3;
+    {PROTOBUF_FIELD_OFFSET(scores_per_subject, _impl_.score_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\31\11\14\0\0\0\0\0"
+    "School.scores_per_subject"
+    "exam_name"
+    "subject_name"
+  }},
+};
+
+PROTOBUF_NOINLINE void scores_per_subject::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.scores_per_subject)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.exam_name_.ClearToEmpty();
+  _impl_.subject_name_.ClearToEmpty();
+  _impl_.score_ = 0;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* scores_per_subject::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const scores_per_subject& this_ = static_cast<const scores_per_subject&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* scores_per_subject::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const scores_per_subject& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.scores_per_subject)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string exam_name = 1;
+          if (!this_._internal_exam_name().empty()) {
+            const std::string& _s = this_._internal_exam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.scores_per_subject.exam_name");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string subject_name = 2;
+          if (!this_._internal_subject_name().empty()) {
+            const std::string& _s = this_._internal_subject_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.scores_per_subject.subject_name");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          // int32 score = 3;
+          if (this_._internal_score() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<3>(
+                    stream, this_._internal_score(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.scores_per_subject)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t scores_per_subject::ByteSizeLong(const MessageLite& base) {
+          const scores_per_subject& this_ = static_cast<const scores_per_subject&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t scores_per_subject::ByteSizeLong() const {
+          const scores_per_subject& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.scores_per_subject)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string exam_name = 1;
+            if (!this_._internal_exam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_exam_name());
+            }
+            // string subject_name = 2;
+            if (!this_._internal_subject_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_subject_name());
+            }
+            // int32 score = 3;
+            if (this_._internal_score() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_score());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void scores_per_subject::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<scores_per_subject*>(&to_msg);
+  auto& from = static_cast<const scores_per_subject&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.scores_per_subject)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_exam_name().empty()) {
+    _this->_internal_set_exam_name(from._internal_exam_name());
+  }
+  if (!from._internal_subject_name().empty()) {
+    _this->_internal_set_subject_name(from._internal_subject_name());
+  }
+  if (from._internal_score() != 0) {
+    _this->_impl_.score_ = from._impl_.score_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void scores_per_subject::CopyFrom(const scores_per_subject& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.scores_per_subject)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void scores_per_subject::InternalSwap(scores_per_subject* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.subject_name_, &other->_impl_.subject_name_, arena);
+        swap(_impl_.score_, other->_impl_.score_);
+}
+
+::google::protobuf::Metadata scores_per_subject::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -16603,210 +17538,244 @@ void ExamReportRequest::InternalSwap(ExamReportRequest* PROTOBUF_RESTRICT other)
 }
 // ===================================================================
 
-class AddScoreRequest::_Internal {
+class Add_bulk_ScoreRequest::_Internal {
  public:
-  using HasBits =
-      decltype(std::declval<AddScoreRequest>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_._has_bits_);
 };
 
-AddScoreRequest::AddScoreRequest(::google::protobuf::Arena* arena)
+Add_bulk_ScoreRequest::Add_bulk_ScoreRequest(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:School.AddScoreRequest)
+  // @@protoc_insertion_point(arena_constructor:School.Add_bulk_ScoreRequest)
 }
-inline PROTOBUF_NDEBUG_INLINE AddScoreRequest::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE Add_bulk_ScoreRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::School::AddScoreRequest& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        school_id_(arena, from.school_id_) {}
+    const Impl_& from, const ::School::Add_bulk_ScoreRequest& from_msg)
+      : mark_{visibility, arena, from.mark_},
+        school_id_(arena, from.school_id_),
+        exam_name_(arena, from.exam_name_),
+        _cached_size_{0} {}
 
-AddScoreRequest::AddScoreRequest(
+Add_bulk_ScoreRequest::Add_bulk_ScoreRequest(
     ::google::protobuf::Arena* arena,
-    const AddScoreRequest& from)
+    const Add_bulk_ScoreRequest& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  AddScoreRequest* const _this = this;
+  Add_bulk_ScoreRequest* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.mark_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::School::add_subject_score>(
-                              arena, *from._impl_.mark_)
-                        : nullptr;
-  _impl_.out_of_ = from._impl_.out_of_;
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, out_of_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, out_of_),
+           offsetof(Impl_, pp_no_) -
+               offsetof(Impl_, out_of_) +
+               sizeof(Impl_::pp_no_));
 
-  // @@protoc_insertion_point(copy_constructor:School.AddScoreRequest)
+  // @@protoc_insertion_point(copy_constructor:School.Add_bulk_ScoreRequest)
 }
-inline PROTOBUF_NDEBUG_INLINE AddScoreRequest::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE Add_bulk_ScoreRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        school_id_(arena) {}
+      : mark_{visibility, arena},
+        school_id_(arena),
+        exam_name_(arena),
+        _cached_size_{0} {}
 
-inline void AddScoreRequest::SharedCtor(::_pb::Arena* arena) {
+inline void Add_bulk_ScoreRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, mark_),
+               offsetof(Impl_, out_of_),
            0,
-           offsetof(Impl_, out_of_) -
-               offsetof(Impl_, mark_) +
-               sizeof(Impl_::out_of_));
+           offsetof(Impl_, pp_no_) -
+               offsetof(Impl_, out_of_) +
+               sizeof(Impl_::pp_no_));
 }
-AddScoreRequest::~AddScoreRequest() {
-  // @@protoc_insertion_point(destructor:School.AddScoreRequest)
+Add_bulk_ScoreRequest::~Add_bulk_ScoreRequest() {
+  // @@protoc_insertion_point(destructor:School.Add_bulk_ScoreRequest)
   SharedDtor(*this);
 }
-inline void AddScoreRequest::SharedDtor(MessageLite& self) {
-  AddScoreRequest& this_ = static_cast<AddScoreRequest&>(self);
+inline void Add_bulk_ScoreRequest::SharedDtor(MessageLite& self) {
+  Add_bulk_ScoreRequest& this_ = static_cast<Add_bulk_ScoreRequest&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.school_id_.Destroy();
-  delete this_._impl_.mark_;
+  this_._impl_.exam_name_.Destroy();
   this_._impl_.~Impl_();
 }
 
-inline void* AddScoreRequest::PlacementNew_(const void*, void* mem,
+inline void* Add_bulk_ScoreRequest::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) AddScoreRequest(arena);
+  return ::new (mem) Add_bulk_ScoreRequest(arena);
 }
-constexpr auto AddScoreRequest::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(AddScoreRequest),
-                                            alignof(AddScoreRequest));
+constexpr auto Add_bulk_ScoreRequest::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.mark_) +
+          decltype(Add_bulk_ScoreRequest::_impl_.mark_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(Add_bulk_ScoreRequest), alignof(Add_bulk_ScoreRequest), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&Add_bulk_ScoreRequest::PlacementNew_,
+                                 sizeof(Add_bulk_ScoreRequest),
+                                 alignof(Add_bulk_ScoreRequest));
+  }
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull AddScoreRequest::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull Add_bulk_ScoreRequest::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_AddScoreRequest_default_instance_._instance,
+        &_Add_bulk_ScoreRequest_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &AddScoreRequest::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<AddScoreRequest>(),
+        &Add_bulk_ScoreRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<Add_bulk_ScoreRequest>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &AddScoreRequest::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<AddScoreRequest>(), &AddScoreRequest::ByteSizeLong,
-            &AddScoreRequest::_InternalSerialize,
+        &Add_bulk_ScoreRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<Add_bulk_ScoreRequest>(), &Add_bulk_ScoreRequest::ByteSizeLong,
+            &Add_bulk_ScoreRequest::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_._cached_size_),
         false,
     },
-    &AddScoreRequest::kDescriptorMethods,
+    &Add_bulk_ScoreRequest::kDescriptorMethods,
     &descriptor_table_School_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* AddScoreRequest::GetClassData() const {
+const ::google::protobuf::internal::ClassData* Add_bulk_ScoreRequest::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 1, 40, 2> AddScoreRequest::_table_ = {
+const ::_pbi::TcParseTable<3, 6, 1, 55, 2> Add_bulk_ScoreRequest::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_._has_bits_),
+    0,  // no _has_bits_
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967232,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    6,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::School::AddScoreRequest>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::School::Add_bulk_ScoreRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // .School.add_subject_score mark = 1;
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.mark_)}},
+    // repeated .School.add_subject_score mark = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.mark_)}},
     // string school_id = 2;
     {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.school_id_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.school_id_)}},
     // int32 out_of = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AddScoreRequest, _impl_.out_of_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.out_of_)}},
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Add_bulk_ScoreRequest, _impl_.out_of_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.out_of_)}},
+    // string exam_name = 4;
+    {::_pbi::TcParser::FastUS1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.exam_name_)}},
+    // bool full_paper = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Add_bulk_ScoreRequest, _impl_.full_paper_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.full_paper_)}},
+    // int32 pp_no = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Add_bulk_ScoreRequest, _impl_.pp_no_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.pp_no_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
-    // .School.add_subject_score mark = 1;
-    {PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.mark_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .School.add_subject_score mark = 1;
+    {PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.mark_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // string school_id = 2;
-    {PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.school_id_), -1, 0,
+    {PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.school_id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // int32 out_of = 3;
-    {PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.out_of_), -1, 0,
+    {PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.out_of_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string exam_name = 4;
+    {PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.exam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bool full_paper = 5;
+    {PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.full_paper_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // int32 pp_no = 6;
+    {PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.pp_no_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
   }}, {{
     {::_pbi::TcParser::GetTable<::School::add_subject_score>()},
   }}, {{
-    "\26\0\11\0\0\0\0\0"
-    "School.AddScoreRequest"
+    "\34\0\11\0\11\0\0\0"
+    "School.Add_bulk_ScoreRequest"
     "school_id"
+    "exam_name"
   }},
 };
 
-PROTOBUF_NOINLINE void AddScoreRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:School.AddScoreRequest)
+PROTOBUF_NOINLINE void Add_bulk_ScoreRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.Add_bulk_ScoreRequest)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.mark_.Clear();
   _impl_.school_id_.ClearToEmpty();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.mark_ != nullptr);
-    _impl_.mark_->Clear();
-  }
-  _impl_.out_of_ = 0;
-  _impl_._has_bits_.Clear();
+  _impl_.exam_name_.ClearToEmpty();
+  ::memset(&_impl_.out_of_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.pp_no_) -
+      reinterpret_cast<char*>(&_impl_.out_of_)) + sizeof(_impl_.pp_no_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* AddScoreRequest::_InternalSerialize(
+        ::uint8_t* Add_bulk_ScoreRequest::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const AddScoreRequest& this_ = static_cast<const AddScoreRequest&>(base);
+          const Add_bulk_ScoreRequest& this_ = static_cast<const Add_bulk_ScoreRequest&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* AddScoreRequest::_InternalSerialize(
+        ::uint8_t* Add_bulk_ScoreRequest::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const AddScoreRequest& this_ = *this;
+          const Add_bulk_ScoreRequest& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:School.AddScoreRequest)
+          // @@protoc_insertion_point(serialize_to_array_start:School.Add_bulk_ScoreRequest)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .School.add_subject_score mark = 1;
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.mark_, this_._impl_.mark_->GetCachedSize(), target,
-                stream);
+          // repeated .School.add_subject_score mark = 1;
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_mark_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_mark().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    1, repfield, repfield.GetCachedSize(),
+                    target, stream);
           }
 
           // string school_id = 2;
           if (!this_._internal_school_id().empty()) {
             const std::string& _s = this_._internal_school_id();
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddScoreRequest.school_id");
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.Add_bulk_ScoreRequest.school_id");
             target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
@@ -16817,23 +17786,45 @@ PROTOBUF_NOINLINE void AddScoreRequest::Clear() {
                     stream, this_._internal_out_of(), target);
           }
 
+          // string exam_name = 4;
+          if (!this_._internal_exam_name().empty()) {
+            const std::string& _s = this_._internal_exam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.Add_bulk_ScoreRequest.exam_name");
+            target = stream->WriteStringMaybeAliased(4, _s, target);
+          }
+
+          // bool full_paper = 5;
+          if (this_._internal_full_paper() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                5, this_._internal_full_paper(), target);
+          }
+
+          // int32 pp_no = 6;
+          if (this_._internal_pp_no() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<6>(
+                    stream, this_._internal_pp_no(), target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:School.AddScoreRequest)
+          // @@protoc_insertion_point(serialize_to_array_end:School.Add_bulk_ScoreRequest)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t AddScoreRequest::ByteSizeLong(const MessageLite& base) {
-          const AddScoreRequest& this_ = static_cast<const AddScoreRequest&>(base);
+        ::size_t Add_bulk_ScoreRequest::ByteSizeLong(const MessageLite& base) {
+          const Add_bulk_ScoreRequest& this_ = static_cast<const Add_bulk_ScoreRequest&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t AddScoreRequest::ByteSizeLong() const {
-          const AddScoreRequest& this_ = *this;
+        ::size_t Add_bulk_ScoreRequest::ByteSizeLong() const {
+          const Add_bulk_ScoreRequest& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:School.AddScoreRequest)
+          // @@protoc_insertion_point(message_byte_size_start:School.Add_bulk_ScoreRequest)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -16842,94 +17833,103 @@ PROTOBUF_NOINLINE void AddScoreRequest::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
+            // repeated .School.add_subject_score mark = 1;
+            {
+              total_size += 1UL * this_._internal_mark_size();
+              for (const auto& msg : this_._internal_mark()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
             // string school_id = 2;
             if (!this_._internal_school_id().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_school_id());
             }
-          }
-           {
-            // .School.add_subject_score mark = 1;
-            cached_has_bits = this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.mark_);
+            // string exam_name = 4;
+            if (!this_._internal_exam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_exam_name());
             }
-          }
-           {
             // int32 out_of = 3;
             if (this_._internal_out_of() != 0) {
               total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
                   this_._internal_out_of());
+            }
+            // bool full_paper = 5;
+            if (this_._internal_full_paper() != 0) {
+              total_size += 2;
+            }
+            // int32 pp_no = 6;
+            if (this_._internal_pp_no() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_pp_no());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
 
-void AddScoreRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<AddScoreRequest*>(&to_msg);
-  auto& from = static_cast<const AddScoreRequest&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:School.AddScoreRequest)
+void Add_bulk_ScoreRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<Add_bulk_ScoreRequest*>(&to_msg);
+  auto& from = static_cast<const Add_bulk_ScoreRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.Add_bulk_ScoreRequest)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_internal_mutable_mark()->MergeFrom(
+      from._internal_mark());
   if (!from._internal_school_id().empty()) {
     _this->_internal_set_school_id(from._internal_school_id());
   }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.mark_ != nullptr);
-    if (_this->_impl_.mark_ == nullptr) {
-      _this->_impl_.mark_ =
-          ::google::protobuf::Message::CopyConstruct<::School::add_subject_score>(arena, *from._impl_.mark_);
-    } else {
-      _this->_impl_.mark_->MergeFrom(*from._impl_.mark_);
-    }
+  if (!from._internal_exam_name().empty()) {
+    _this->_internal_set_exam_name(from._internal_exam_name());
   }
   if (from._internal_out_of() != 0) {
     _this->_impl_.out_of_ = from._impl_.out_of_;
   }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  if (from._internal_full_paper() != 0) {
+    _this->_impl_.full_paper_ = from._impl_.full_paper_;
+  }
+  if (from._internal_pp_no() != 0) {
+    _this->_impl_.pp_no_ = from._impl_.pp_no_;
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void AddScoreRequest::CopyFrom(const AddScoreRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:School.AddScoreRequest)
+void Add_bulk_ScoreRequest::CopyFrom(const Add_bulk_ScoreRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.Add_bulk_ScoreRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void AddScoreRequest::InternalSwap(AddScoreRequest* PROTOBUF_RESTRICT other) {
+void Add_bulk_ScoreRequest::InternalSwap(Add_bulk_ScoreRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.mark_.InternalSwap(&other->_impl_.mark_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_id_, &other->_impl_.school_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.out_of_)
-      + sizeof(AddScoreRequest::_impl_.out_of_)
-      - PROTOBUF_FIELD_OFFSET(AddScoreRequest, _impl_.mark_)>(
-          reinterpret_cast<char*>(&_impl_.mark_),
-          reinterpret_cast<char*>(&other->_impl_.mark_));
+      PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.pp_no_)
+      + sizeof(Add_bulk_ScoreRequest::_impl_.pp_no_)
+      - PROTOBUF_FIELD_OFFSET(Add_bulk_ScoreRequest, _impl_.out_of_)>(
+          reinterpret_cast<char*>(&_impl_.out_of_),
+          reinterpret_cast<char*>(&other->_impl_.out_of_));
 }
 
-::google::protobuf::Metadata AddScoreRequest::GetMetadata() const {
+::google::protobuf::Metadata Add_bulk_ScoreRequest::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
 class add_subject_score::_Internal {
  public:
-  using HasBits =
-      decltype(std::declval<add_subject_score>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_._has_bits_);
 };
 
 add_subject_score::add_subject_score(::google::protobuf::Arena* arena)
@@ -16944,11 +17944,9 @@ add_subject_score::add_subject_score(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE add_subject_score::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::School::add_subject_score& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        subject_(arena, from.subject_),
+      : subject_(arena, from.subject_),
         upi_(arena, from.upi_),
-        exam_name_(arena, from.exam_name_) {}
+        _cached_size_{0} {}
 
 add_subject_score::add_subject_score(
     ::google::protobuf::Arena* arena,
@@ -16963,30 +17961,20 @@ add_subject_score::add_subject_score(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.scores_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::School::paper_score>(
-                              arena, *from._impl_.scores_)
-                        : nullptr;
-  _impl_.full_paper_ = from._impl_.full_paper_;
+  _impl_.score_ = from._impl_.score_;
 
   // @@protoc_insertion_point(copy_constructor:School.add_subject_score)
 }
 inline PROTOBUF_NDEBUG_INLINE add_subject_score::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        subject_(arena),
+      : subject_(arena),
         upi_(arena),
-        exam_name_(arena) {}
+        _cached_size_{0} {}
 
 inline void add_subject_score::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, scores_),
-           0,
-           offsetof(Impl_, full_paper_) -
-               offsetof(Impl_, scores_) +
-               sizeof(Impl_::full_paper_));
+  _impl_.score_ = {};
 }
 add_subject_score::~add_subject_score() {
   // @@protoc_insertion_point(destructor:School.add_subject_score)
@@ -16998,8 +17986,6 @@ inline void add_subject_score::SharedDtor(MessageLite& self) {
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.subject_.Destroy();
   this_._impl_.upi_.Destroy();
-  this_._impl_.exam_name_.Destroy();
-  delete this_._impl_.scores_;
   this_._impl_.~Impl_();
 }
 
@@ -17039,17 +18025,17 @@ const ::google::protobuf::internal::ClassData* add_subject_score::GetClassData()
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 1, 52, 2> add_subject_score::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 43, 2> add_subject_score::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_._has_bits_),
+    0,  // no _has_bits_
     0, // no _extensions_
-    5, 56,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
@@ -17061,46 +18047,31 @@ const ::_pbi::TcParseTable<3, 5, 1, 52, 2> add_subject_score::_table_ = {
     // string subject = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.subject_)}},
-    // .School.paper_score scores = 2;
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.scores_)}},
-    // string upi = 3;
+    // string upi = 2;
     {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.upi_)}},
-    // string exam_name = 4;
-    {::_pbi::TcParser::FastUS1,
-     {34, 63, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.exam_name_)}},
-    // bool full_paper = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(add_subject_score, _impl_.full_paper_), 63>(),
-     {40, 63, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.full_paper_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.upi_)}},
+    // int32 score = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(add_subject_score, _impl_.score_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.score_)}},
   }}, {{
     65535, 65535
   }}, {{
     // string subject = 1;
-    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.subject_), -1, 0,
+    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.subject_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // .School.paper_score scores = 2;
-    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.scores_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // string upi = 3;
-    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.upi_), -1, 0,
+    // string upi = 2;
+    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.upi_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string exam_name = 4;
-    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.exam_name_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // bool full_paper = 5;
-    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.full_paper_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::School::paper_score>()},
-  }}, {{
-    "\30\7\0\3\11\0\0\0"
+    // int32 score = 3;
+    {PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.score_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\30\7\3\0\0\0\0\0"
     "School.add_subject_score"
     "subject"
     "upi"
-    "exam_name"
   }},
 };
 
@@ -17113,14 +18084,7 @@ PROTOBUF_NOINLINE void add_subject_score::Clear() {
 
   _impl_.subject_.ClearToEmpty();
   _impl_.upi_.ClearToEmpty();
-  _impl_.exam_name_.ClearToEmpty();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.scores_ != nullptr);
-    _impl_.scores_->Clear();
-  }
-  _impl_.full_paper_ = false;
-  _impl_._has_bits_.Clear();
+  _impl_.score_ = 0;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -17147,35 +18111,19 @@ PROTOBUF_NOINLINE void add_subject_score::Clear() {
             target = stream->WriteStringMaybeAliased(1, _s, target);
           }
 
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .School.paper_score scores = 2;
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.scores_, this_._impl_.scores_->GetCachedSize(), target,
-                stream);
-          }
-
-          // string upi = 3;
+          // string upi = 2;
           if (!this_._internal_upi().empty()) {
             const std::string& _s = this_._internal_upi();
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                 _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.add_subject_score.upi");
-            target = stream->WriteStringMaybeAliased(3, _s, target);
+            target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
-          // string exam_name = 4;
-          if (!this_._internal_exam_name().empty()) {
-            const std::string& _s = this_._internal_exam_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.add_subject_score.exam_name");
-            target = stream->WriteStringMaybeAliased(4, _s, target);
-          }
-
-          // bool full_paper = 5;
-          if (this_._internal_full_paper() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteBoolToArray(
-                5, this_._internal_full_paper(), target);
+          // int32 score = 3;
+          if (this_._internal_score() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<3>(
+                    stream, this_._internal_score(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -17208,29 +18156,15 @@ PROTOBUF_NOINLINE void add_subject_score::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_subject());
             }
-            // string upi = 3;
+            // string upi = 2;
             if (!this_._internal_upi().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_upi());
             }
-            // string exam_name = 4;
-            if (!this_._internal_exam_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_exam_name());
-            }
-          }
-           {
-            // .School.paper_score scores = 2;
-            cached_has_bits = this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.scores_);
-            }
-          }
-           {
-            // bool full_paper = 5;
-            if (this_._internal_full_paper() != 0) {
-              total_size += 2;
+            // int32 score = 3;
+            if (this_._internal_score() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_score());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -17240,7 +18174,6 @@ PROTOBUF_NOINLINE void add_subject_score::Clear() {
 void add_subject_score::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<add_subject_score*>(&to_msg);
   auto& from = static_cast<const add_subject_score&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:School.add_subject_score)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -17252,23 +18185,9 @@ void add_subject_score::MergeImpl(::google::protobuf::MessageLite& to_msg, const
   if (!from._internal_upi().empty()) {
     _this->_internal_set_upi(from._internal_upi());
   }
-  if (!from._internal_exam_name().empty()) {
-    _this->_internal_set_exam_name(from._internal_exam_name());
+  if (from._internal_score() != 0) {
+    _this->_impl_.score_ = from._impl_.score_;
   }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.scores_ != nullptr);
-    if (_this->_impl_.scores_ == nullptr) {
-      _this->_impl_.scores_ =
-          ::google::protobuf::Message::CopyConstruct<::School::paper_score>(arena, *from._impl_.scores_);
-    } else {
-      _this->_impl_.scores_->MergeFrom(*from._impl_.scores_);
-    }
-  }
-  if (from._internal_full_paper() != 0) {
-    _this->_impl_.full_paper_ = from._impl_.full_paper_;
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -17285,260 +18204,12 @@ void add_subject_score::InternalSwap(add_subject_score* PROTOBUF_RESTRICT other)
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.subject_, &other->_impl_.subject_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.upi_, &other->_impl_.upi_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.full_paper_)
-      + sizeof(add_subject_score::_impl_.full_paper_)
-      - PROTOBUF_FIELD_OFFSET(add_subject_score, _impl_.scores_)>(
-          reinterpret_cast<char*>(&_impl_.scores_),
-          reinterpret_cast<char*>(&other->_impl_.scores_));
+        swap(_impl_.score_, other->_impl_.score_);
 }
 
 ::google::protobuf::Metadata add_subject_score::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class paper_score::_Internal {
- public:
-};
-
-paper_score::paper_score(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:School.paper_score)
-}
-paper_score::paper_score(
-    ::google::protobuf::Arena* arena, const paper_score& from)
-    : paper_score(arena) {
-  MergeFrom(from);
-}
-inline PROTOBUF_NDEBUG_INLINE paper_score::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void paper_score::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, pp_),
-           0,
-           offsetof(Impl_, score_) -
-               offsetof(Impl_, pp_) +
-               sizeof(Impl_::score_));
-}
-paper_score::~paper_score() {
-  // @@protoc_insertion_point(destructor:School.paper_score)
-  SharedDtor(*this);
-}
-inline void paper_score::SharedDtor(MessageLite& self) {
-  paper_score& this_ = static_cast<paper_score&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.~Impl_();
-}
-
-inline void* paper_score::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) paper_score(arena);
-}
-constexpr auto paper_score::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(paper_score),
-                                            alignof(paper_score));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull paper_score::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_paper_score_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &paper_score::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<paper_score>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &paper_score::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<paper_score>(), &paper_score::ByteSizeLong,
-            &paper_score::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(paper_score, _impl_._cached_size_),
-        false,
-    },
-    &paper_score::kDescriptorMethods,
-    &descriptor_table_School_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* paper_score::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 0, 2> paper_score::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::School::paper_score>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // int32 score = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(paper_score, _impl_.score_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(paper_score, _impl_.score_)}},
-    // int32 pp = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(paper_score, _impl_.pp_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(paper_score, _impl_.pp_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // int32 pp = 1;
-    {PROTOBUF_FIELD_OFFSET(paper_score, _impl_.pp_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // int32 score = 2;
-    {PROTOBUF_FIELD_OFFSET(paper_score, _impl_.score_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-  }},
-  // no aux_entries
-  {{
-  }},
-};
-
-PROTOBUF_NOINLINE void paper_score::Clear() {
-// @@protoc_insertion_point(message_clear_start:School.paper_score)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&_impl_.pp_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.score_) -
-      reinterpret_cast<char*>(&_impl_.pp_)) + sizeof(_impl_.score_));
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* paper_score::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const paper_score& this_ = static_cast<const paper_score&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* paper_score::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const paper_score& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:School.paper_score)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // int32 pp = 1;
-          if (this_._internal_pp() != 0) {
-            target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<1>(
-                    stream, this_._internal_pp(), target);
-          }
-
-          // int32 score = 2;
-          if (this_._internal_score() != 0) {
-            target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<2>(
-                    stream, this_._internal_score(), target);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:School.paper_score)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t paper_score::ByteSizeLong(const MessageLite& base) {
-          const paper_score& this_ = static_cast<const paper_score&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t paper_score::ByteSizeLong() const {
-          const paper_score& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:School.paper_score)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // int32 pp = 1;
-            if (this_._internal_pp() != 0) {
-              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
-                  this_._internal_pp());
-            }
-            // int32 score = 2;
-            if (this_._internal_score() != 0) {
-              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
-                  this_._internal_score());
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void paper_score::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<paper_score*>(&to_msg);
-  auto& from = static_cast<const paper_score&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:School.paper_score)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_pp() != 0) {
-    _this->_impl_.pp_ = from._impl_.pp_;
-  }
-  if (from._internal_score() != 0) {
-    _this->_impl_.score_ = from._impl_.score_;
-  }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void paper_score::CopyFrom(const paper_score& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:School.paper_score)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void paper_score::InternalSwap(paper_score* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(paper_score, _impl_.score_)
-      + sizeof(paper_score::_impl_.score_)
-      - PROTOBUF_FIELD_OFFSET(paper_score, _impl_.pp_)>(
-          reinterpret_cast<char*>(&_impl_.pp_),
-          reinterpret_cast<char*>(&other->_impl_.pp_));
-}
-
-::google::protobuf::Metadata paper_score::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -20064,12 +20735,12 @@ AddExamRequest::AddExamRequest(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, analysed_),
+               offsetof(Impl_, term_),
            reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, analysed_),
-           offsetof(Impl_, term_) -
-               offsetof(Impl_, analysed_) +
-               sizeof(Impl_::term_));
+               offsetof(Impl_, term_),
+           offsetof(Impl_, year_) -
+               offsetof(Impl_, term_) +
+               sizeof(Impl_::year_));
 
   // @@protoc_insertion_point(copy_constructor:School.AddExamRequest)
 }
@@ -20084,11 +20755,11 @@ inline PROTOBUF_NDEBUG_INLINE AddExamRequest::Impl_::Impl_(
 inline void AddExamRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, analysed_),
+               offsetof(Impl_, term_),
            0,
-           offsetof(Impl_, term_) -
-               offsetof(Impl_, analysed_) +
-               sizeof(Impl_::term_));
+           offsetof(Impl_, year_) -
+               offsetof(Impl_, term_) +
+               sizeof(Impl_::year_));
 }
 AddExamRequest::~AddExamRequest() {
   // @@protoc_insertion_point(destructor:School.AddExamRequest)
@@ -20151,15 +20822,15 @@ const ::google::protobuf::internal::ClassData* AddExamRequest::GetClassData() co
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 1, 43, 2> AddExamRequest::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 1, 43, 2> AddExamRequest::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    5, 56,  // max_field_number, fast_idx_mask
+    7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967168,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
+    7,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -20185,8 +20856,12 @@ const ::_pbi::TcParseTable<3, 5, 1, 43, 2> AddExamRequest::_table_ = {
     // string school_id = 5;
     {::_pbi::TcParser::FastUS1,
      {42, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.school_id_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // bool combined_exam = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(AddExamRequest, _impl_.combined_exam_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.combined_exam_)}},
+    // int32 year = 7;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AddExamRequest, _impl_.year_), 63>(),
+     {56, 63, 0, PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.year_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -20205,6 +20880,12 @@ const ::_pbi::TcParseTable<3, 5, 1, 43, 2> AddExamRequest::_table_ = {
     // string school_id = 5;
     {PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.school_id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bool combined_exam = 6;
+    {PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.combined_exam_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // int32 year = 7;
+    {PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.year_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
   }}, {{
     {::_pbi::TcParser::GetTable<::School::exam_grade>()},
   }}, {{
@@ -20225,9 +20906,9 @@ PROTOBUF_NOINLINE void AddExamRequest::Clear() {
   _impl_.grades_.Clear();
   _impl_.name_.ClearToEmpty();
   _impl_.school_id_.ClearToEmpty();
-  ::memset(&_impl_.analysed_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.term_) -
-      reinterpret_cast<char*>(&_impl_.analysed_)) + sizeof(_impl_.term_));
+  ::memset(&_impl_.term_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.year_) -
+      reinterpret_cast<char*>(&_impl_.term_)) + sizeof(_impl_.year_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -20287,6 +20968,20 @@ PROTOBUF_NOINLINE void AddExamRequest::Clear() {
             target = stream->WriteStringMaybeAliased(5, _s, target);
           }
 
+          // bool combined_exam = 6;
+          if (this_._internal_combined_exam() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                6, this_._internal_combined_exam(), target);
+          }
+
+          // int32 year = 7;
+          if (this_._internal_year() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<7>(
+                    stream, this_._internal_year(), target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -20331,14 +21026,23 @@ PROTOBUF_NOINLINE void AddExamRequest::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_school_id());
             }
-            // bool analysed = 3;
-            if (this_._internal_analysed() != 0) {
-              total_size += 2;
-            }
             // int32 term = 4;
             if (this_._internal_term() != 0) {
               total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
                   this_._internal_term());
+            }
+            // bool analysed = 3;
+            if (this_._internal_analysed() != 0) {
+              total_size += 2;
+            }
+            // bool combined_exam = 6;
+            if (this_._internal_combined_exam() != 0) {
+              total_size += 2;
+            }
+            // int32 year = 7;
+            if (this_._internal_year() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_year());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -20361,11 +21065,17 @@ void AddExamRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::
   if (!from._internal_school_id().empty()) {
     _this->_internal_set_school_id(from._internal_school_id());
   }
+  if (from._internal_term() != 0) {
+    _this->_impl_.term_ = from._impl_.term_;
+  }
   if (from._internal_analysed() != 0) {
     _this->_impl_.analysed_ = from._impl_.analysed_;
   }
-  if (from._internal_term() != 0) {
-    _this->_impl_.term_ = from._impl_.term_;
+  if (from._internal_combined_exam() != 0) {
+    _this->_impl_.combined_exam_ = from._impl_.combined_exam_;
+  }
+  if (from._internal_year() != 0) {
+    _this->_impl_.year_ = from._impl_.year_;
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -20387,14 +21097,753 @@ void AddExamRequest::InternalSwap(AddExamRequest* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_id_, &other->_impl_.school_id_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.term_)
-      + sizeof(AddExamRequest::_impl_.term_)
-      - PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.analysed_)>(
-          reinterpret_cast<char*>(&_impl_.analysed_),
-          reinterpret_cast<char*>(&other->_impl_.analysed_));
+      PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.year_)
+      + sizeof(AddExamRequest::_impl_.year_)
+      - PROTOBUF_FIELD_OFFSET(AddExamRequest, _impl_.term_)>(
+          reinterpret_cast<char*>(&_impl_.term_),
+          reinterpret_cast<char*>(&other->_impl_.term_));
 }
 
 ::google::protobuf::Metadata AddExamRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class AddCombinedExamRequest::_Internal {
+ public:
+};
+
+AddCombinedExamRequest::AddCombinedExamRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.AddCombinedExamRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE AddCombinedExamRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::AddCombinedExamRequest& from_msg)
+      : exams_{visibility, arena, from.exams_},
+        grades_{visibility, arena, from.grades_},
+        school_id_(arena, from.school_id_),
+        combinedexam_name_(arena, from.combinedexam_name_),
+        _cached_size_{0} {}
+
+AddCombinedExamRequest::AddCombinedExamRequest(
+    ::google::protobuf::Arena* arena,
+    const AddCombinedExamRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  AddCombinedExamRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, term_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, term_),
+           offsetof(Impl_, combined_exam_) -
+               offsetof(Impl_, term_) +
+               sizeof(Impl_::combined_exam_));
+
+  // @@protoc_insertion_point(copy_constructor:School.AddCombinedExamRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE AddCombinedExamRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : exams_{visibility, arena},
+        grades_{visibility, arena},
+        school_id_(arena),
+        combinedexam_name_(arena),
+        _cached_size_{0} {}
+
+inline void AddCombinedExamRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, term_),
+           0,
+           offsetof(Impl_, combined_exam_) -
+               offsetof(Impl_, term_) +
+               sizeof(Impl_::combined_exam_));
+}
+AddCombinedExamRequest::~AddCombinedExamRequest() {
+  // @@protoc_insertion_point(destructor:School.AddCombinedExamRequest)
+  SharedDtor(*this);
+}
+inline void AddCombinedExamRequest::SharedDtor(MessageLite& self) {
+  AddCombinedExamRequest& this_ = static_cast<AddCombinedExamRequest&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.school_id_.Destroy();
+  this_._impl_.combinedexam_name_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* AddCombinedExamRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) AddCombinedExamRequest(arena);
+}
+constexpr auto AddCombinedExamRequest::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.exams_) +
+          decltype(AddCombinedExamRequest::_impl_.exams_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.grades_) +
+          decltype(AddCombinedExamRequest::_impl_.grades_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(AddCombinedExamRequest), alignof(AddCombinedExamRequest), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&AddCombinedExamRequest::PlacementNew_,
+                                 sizeof(AddCombinedExamRequest),
+                                 alignof(AddCombinedExamRequest));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull AddCombinedExamRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_AddCombinedExamRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &AddCombinedExamRequest::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<AddCombinedExamRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &AddCombinedExamRequest::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<AddCombinedExamRequest>(), &AddCombinedExamRequest::ByteSizeLong,
+            &AddCombinedExamRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_._cached_size_),
+        false,
+    },
+    &AddCombinedExamRequest::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* AddCombinedExamRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 8, 2, 72, 2> AddCombinedExamRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    8, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967040,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    8,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::AddCombinedExamRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string combinedexam_name = 8;
+    {::_pbi::TcParser::FastUS1,
+     {66, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.combinedexam_name_)}},
+    // repeated .School.exam_weight exams = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.exams_)}},
+    // repeated .School.exam_grade grades = 2;
+    {::_pbi::TcParser::FastMtR1,
+     {18, 63, 1, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.grades_)}},
+    // int32 term = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AddCombinedExamRequest, _impl_.term_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.term_)}},
+    // int32 year = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AddCombinedExamRequest, _impl_.year_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.year_)}},
+    // string school_id = 5;
+    {::_pbi::TcParser::FastUS1,
+     {42, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.school_id_)}},
+    // bool analysed = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(AddCombinedExamRequest, _impl_.analysed_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.analysed_)}},
+    // bool combined_exam = 7;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(AddCombinedExamRequest, _impl_.combined_exam_), 63>(),
+     {56, 63, 0, PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.combined_exam_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .School.exam_weight exams = 1;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.exams_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .School.exam_grade grades = 2;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.grades_), 0, 1,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // int32 term = 3;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.term_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // int32 year = 4;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.year_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string school_id = 5;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.school_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bool analysed = 6;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.analysed_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // bool combined_exam = 7;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.combined_exam_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // string combinedexam_name = 8;
+    {PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.combinedexam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::School::exam_weight>()},
+    {::_pbi::TcParser::GetTable<::School::exam_grade>()},
+  }}, {{
+    "\35\0\0\0\0\11\0\0\21\0\0\0\0\0\0\0"
+    "School.AddCombinedExamRequest"
+    "school_id"
+    "combinedexam_name"
+  }},
+};
+
+PROTOBUF_NOINLINE void AddCombinedExamRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.AddCombinedExamRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.exams_.Clear();
+  _impl_.grades_.Clear();
+  _impl_.school_id_.ClearToEmpty();
+  _impl_.combinedexam_name_.ClearToEmpty();
+  ::memset(&_impl_.term_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.combined_exam_) -
+      reinterpret_cast<char*>(&_impl_.term_)) + sizeof(_impl_.combined_exam_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* AddCombinedExamRequest::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const AddCombinedExamRequest& this_ = static_cast<const AddCombinedExamRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* AddCombinedExamRequest::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const AddCombinedExamRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.AddCombinedExamRequest)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // repeated .School.exam_weight exams = 1;
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_exams_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_exams().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    1, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          // repeated .School.exam_grade grades = 2;
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_grades_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_grades().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    2, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          // int32 term = 3;
+          if (this_._internal_term() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<3>(
+                    stream, this_._internal_term(), target);
+          }
+
+          // int32 year = 4;
+          if (this_._internal_year() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<4>(
+                    stream, this_._internal_year(), target);
+          }
+
+          // string school_id = 5;
+          if (!this_._internal_school_id().empty()) {
+            const std::string& _s = this_._internal_school_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddCombinedExamRequest.school_id");
+            target = stream->WriteStringMaybeAliased(5, _s, target);
+          }
+
+          // bool analysed = 6;
+          if (this_._internal_analysed() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                6, this_._internal_analysed(), target);
+          }
+
+          // bool combined_exam = 7;
+          if (this_._internal_combined_exam() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                7, this_._internal_combined_exam(), target);
+          }
+
+          // string combinedexam_name = 8;
+          if (!this_._internal_combinedexam_name().empty()) {
+            const std::string& _s = this_._internal_combinedexam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.AddCombinedExamRequest.combinedexam_name");
+            target = stream->WriteStringMaybeAliased(8, _s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.AddCombinedExamRequest)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t AddCombinedExamRequest::ByteSizeLong(const MessageLite& base) {
+          const AddCombinedExamRequest& this_ = static_cast<const AddCombinedExamRequest&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t AddCombinedExamRequest::ByteSizeLong() const {
+          const AddCombinedExamRequest& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.AddCombinedExamRequest)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated .School.exam_weight exams = 1;
+            {
+              total_size += 1UL * this_._internal_exams_size();
+              for (const auto& msg : this_._internal_exams()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+            // repeated .School.exam_grade grades = 2;
+            {
+              total_size += 1UL * this_._internal_grades_size();
+              for (const auto& msg : this_._internal_grades()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
+            // string school_id = 5;
+            if (!this_._internal_school_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_school_id());
+            }
+            // string combinedexam_name = 8;
+            if (!this_._internal_combinedexam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_combinedexam_name());
+            }
+            // int32 term = 3;
+            if (this_._internal_term() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_term());
+            }
+            // int32 year = 4;
+            if (this_._internal_year() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_year());
+            }
+            // bool analysed = 6;
+            if (this_._internal_analysed() != 0) {
+              total_size += 2;
+            }
+            // bool combined_exam = 7;
+            if (this_._internal_combined_exam() != 0) {
+              total_size += 2;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void AddCombinedExamRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AddCombinedExamRequest*>(&to_msg);
+  auto& from = static_cast<const AddCombinedExamRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.AddCombinedExamRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_exams()->MergeFrom(
+      from._internal_exams());
+  _this->_internal_mutable_grades()->MergeFrom(
+      from._internal_grades());
+  if (!from._internal_school_id().empty()) {
+    _this->_internal_set_school_id(from._internal_school_id());
+  }
+  if (!from._internal_combinedexam_name().empty()) {
+    _this->_internal_set_combinedexam_name(from._internal_combinedexam_name());
+  }
+  if (from._internal_term() != 0) {
+    _this->_impl_.term_ = from._impl_.term_;
+  }
+  if (from._internal_year() != 0) {
+    _this->_impl_.year_ = from._impl_.year_;
+  }
+  if (from._internal_analysed() != 0) {
+    _this->_impl_.analysed_ = from._impl_.analysed_;
+  }
+  if (from._internal_combined_exam() != 0) {
+    _this->_impl_.combined_exam_ = from._impl_.combined_exam_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void AddCombinedExamRequest::CopyFrom(const AddCombinedExamRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.AddCombinedExamRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void AddCombinedExamRequest::InternalSwap(AddCombinedExamRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.exams_.InternalSwap(&other->_impl_.exams_);
+  _impl_.grades_.InternalSwap(&other->_impl_.grades_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.school_id_, &other->_impl_.school_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.combinedexam_name_, &other->_impl_.combinedexam_name_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.combined_exam_)
+      + sizeof(AddCombinedExamRequest::_impl_.combined_exam_)
+      - PROTOBUF_FIELD_OFFSET(AddCombinedExamRequest, _impl_.term_)>(
+          reinterpret_cast<char*>(&_impl_.term_),
+          reinterpret_cast<char*>(&other->_impl_.term_));
+}
+
+::google::protobuf::Metadata AddCombinedExamRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class exam_weight::_Internal {
+ public:
+};
+
+exam_weight::exam_weight(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:School.exam_weight)
+}
+inline PROTOBUF_NDEBUG_INLINE exam_weight::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::School::exam_weight& from_msg)
+      : exam_name_(arena, from.exam_name_),
+        _cached_size_{0} {}
+
+exam_weight::exam_weight(
+    ::google::protobuf::Arena* arena,
+    const exam_weight& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  exam_weight* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, weight_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, weight_),
+           offsetof(Impl_, full_paper_) -
+               offsetof(Impl_, weight_) +
+               sizeof(Impl_::full_paper_));
+
+  // @@protoc_insertion_point(copy_constructor:School.exam_weight)
+}
+inline PROTOBUF_NDEBUG_INLINE exam_weight::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : exam_name_(arena),
+        _cached_size_{0} {}
+
+inline void exam_weight::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, weight_),
+           0,
+           offsetof(Impl_, full_paper_) -
+               offsetof(Impl_, weight_) +
+               sizeof(Impl_::full_paper_));
+}
+exam_weight::~exam_weight() {
+  // @@protoc_insertion_point(destructor:School.exam_weight)
+  SharedDtor(*this);
+}
+inline void exam_weight::SharedDtor(MessageLite& self) {
+  exam_weight& this_ = static_cast<exam_weight&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.exam_name_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* exam_weight::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) exam_weight(arena);
+}
+constexpr auto exam_weight::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(exam_weight),
+                                            alignof(exam_weight));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull exam_weight::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_exam_weight_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &exam_weight::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<exam_weight>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &exam_weight::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<exam_weight>(), &exam_weight::ByteSizeLong,
+            &exam_weight::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(exam_weight, _impl_._cached_size_),
+        false,
+    },
+    &exam_weight::kDescriptorMethods,
+    &descriptor_table_School_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* exam_weight::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 36, 2> exam_weight::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::School::exam_weight>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string exam_name = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.exam_name_)}},
+    // int32 weight = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(exam_weight, _impl_.weight_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.weight_)}},
+    // bool full_paper = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(exam_weight, _impl_.full_paper_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.full_paper_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string exam_name = 1;
+    {PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.exam_name_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // int32 weight = 2;
+    {PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.weight_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // bool full_paper = 3;
+    {PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.full_paper_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+    "\22\11\0\0\0\0\0\0"
+    "School.exam_weight"
+    "exam_name"
+  }},
+};
+
+PROTOBUF_NOINLINE void exam_weight::Clear() {
+// @@protoc_insertion_point(message_clear_start:School.exam_weight)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.exam_name_.ClearToEmpty();
+  ::memset(&_impl_.weight_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.full_paper_) -
+      reinterpret_cast<char*>(&_impl_.weight_)) + sizeof(_impl_.full_paper_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* exam_weight::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const exam_weight& this_ = static_cast<const exam_weight&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* exam_weight::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const exam_weight& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:School.exam_weight)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string exam_name = 1;
+          if (!this_._internal_exam_name().empty()) {
+            const std::string& _s = this_._internal_exam_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "School.exam_weight.exam_name");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // int32 weight = 2;
+          if (this_._internal_weight() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<2>(
+                    stream, this_._internal_weight(), target);
+          }
+
+          // bool full_paper = 3;
+          if (this_._internal_full_paper() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                3, this_._internal_full_paper(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:School.exam_weight)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t exam_weight::ByteSizeLong(const MessageLite& base) {
+          const exam_weight& this_ = static_cast<const exam_weight&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t exam_weight::ByteSizeLong() const {
+          const exam_weight& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:School.exam_weight)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string exam_name = 1;
+            if (!this_._internal_exam_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_exam_name());
+            }
+            // int32 weight = 2;
+            if (this_._internal_weight() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_weight());
+            }
+            // bool full_paper = 3;
+            if (this_._internal_full_paper() != 0) {
+              total_size += 2;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void exam_weight::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<exam_weight*>(&to_msg);
+  auto& from = static_cast<const exam_weight&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:School.exam_weight)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_exam_name().empty()) {
+    _this->_internal_set_exam_name(from._internal_exam_name());
+  }
+  if (from._internal_weight() != 0) {
+    _this->_impl_.weight_ = from._impl_.weight_;
+  }
+  if (from._internal_full_paper() != 0) {
+    _this->_impl_.full_paper_ = from._impl_.full_paper_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void exam_weight::CopyFrom(const exam_weight& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:School.exam_weight)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void exam_weight::InternalSwap(exam_weight* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.full_paper_)
+      + sizeof(exam_weight::_impl_.full_paper_)
+      - PROTOBUF_FIELD_OFFSET(exam_weight, _impl_.weight_)>(
+          reinterpret_cast<char*>(&_impl_.weight_),
+          reinterpret_cast<char*>(&other->_impl_.weight_));
+}
+
+::google::protobuf::Metadata exam_weight::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -20671,7 +22120,8 @@ Exam::Exam(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Exam::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::School::Exam& from_msg)
-      : exam_name_(arena, from.exam_name_),
+      : combinedexams_{visibility, arena, from.combinedexams_},
+        exam_name_(arena, from.exam_name_),
         _cached_size_{0} {}
 
 Exam::Exam(
@@ -20691,16 +22141,17 @@ Exam::Exam(
                offsetof(Impl_, term_),
            reinterpret_cast<const char *>(&from._impl_) +
                offsetof(Impl_, term_),
-           offsetof(Impl_, full_paper_) -
+           offsetof(Impl_, year_) -
                offsetof(Impl_, term_) +
-               sizeof(Impl_::full_paper_));
+               sizeof(Impl_::year_));
 
   // @@protoc_insertion_point(copy_constructor:School.Exam)
 }
 inline PROTOBUF_NDEBUG_INLINE Exam::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : exam_name_(arena),
+      : combinedexams_{visibility, arena},
+        exam_name_(arena),
         _cached_size_{0} {}
 
 inline void Exam::SharedCtor(::_pb::Arena* arena) {
@@ -20708,9 +22159,9 @@ inline void Exam::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, term_),
            0,
-           offsetof(Impl_, full_paper_) -
+           offsetof(Impl_, year_) -
                offsetof(Impl_, term_) +
-               sizeof(Impl_::full_paper_));
+               sizeof(Impl_::year_));
 }
 Exam::~Exam() {
   // @@protoc_insertion_point(destructor:School.Exam)
@@ -20729,8 +22180,20 @@ inline void* Exam::PlacementNew_(const void*, void* mem,
   return ::new (mem) Exam(arena);
 }
 constexpr auto Exam::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(Exam),
-                                            alignof(Exam));
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(Exam, _impl_.combinedexams_) +
+          decltype(Exam::_impl_.combinedexams_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(Exam), alignof(Exam), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&Exam::PlacementNew_,
+                                 sizeof(Exam),
+                                 alignof(Exam));
+  }
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
@@ -20760,17 +22223,17 @@ const ::google::protobuf::internal::ClassData* Exam::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 29, 2> Exam::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 1, 29, 2> Exam::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967168,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    7,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
@@ -20778,9 +22241,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 29, 2> Exam::_table_ = {
     ::_pbi::TcParser::GetTable<::School::Exam>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // bool full_paper = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Exam, _impl_.full_paper_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.full_paper_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // string exam_name = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.exam_name_)}},
@@ -20790,6 +22251,18 @@ const ::_pbi::TcParseTable<2, 4, 0, 29, 2> Exam::_table_ = {
     // int32 term = 3;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Exam, _impl_.term_), 63>(),
      {24, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.term_)}},
+    // bool full_paper = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Exam, _impl_.full_paper_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.full_paper_)}},
+    // int32 year = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Exam, _impl_.year_), 63>(),
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.year_)}},
+    // bool combined_exam = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(Exam, _impl_.combined_exam_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.combined_exam_)}},
+    // repeated .School.exam_weight combinedexams = 7;
+    {::_pbi::TcParser::FastMtR1,
+     {58, 63, 0, PROTOBUF_FIELD_OFFSET(Exam, _impl_.combinedexams_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -20805,9 +22278,18 @@ const ::_pbi::TcParseTable<2, 4, 0, 29, 2> Exam::_table_ = {
     // bool full_paper = 4;
     {PROTOBUF_FIELD_OFFSET(Exam, _impl_.full_paper_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
-  }},
-  // no aux_entries
-  {{
+    // int32 year = 5;
+    {PROTOBUF_FIELD_OFFSET(Exam, _impl_.year_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // bool combined_exam = 6;
+    {PROTOBUF_FIELD_OFFSET(Exam, _impl_.combined_exam_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // repeated .School.exam_weight combinedexams = 7;
+    {PROTOBUF_FIELD_OFFSET(Exam, _impl_.combinedexams_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::School::exam_weight>()},
+  }}, {{
     "\13\11\0\0\0\0\0\0"
     "School.Exam"
     "exam_name"
@@ -20821,10 +22303,11 @@ PROTOBUF_NOINLINE void Exam::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.combinedexams_.Clear();
   _impl_.exam_name_.ClearToEmpty();
   ::memset(&_impl_.term_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.full_paper_) -
-      reinterpret_cast<char*>(&_impl_.term_)) + sizeof(_impl_.full_paper_));
+      reinterpret_cast<char*>(&_impl_.year_) -
+      reinterpret_cast<char*>(&_impl_.term_)) + sizeof(_impl_.year_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -20872,6 +22355,31 @@ PROTOBUF_NOINLINE void Exam::Clear() {
                 4, this_._internal_full_paper(), target);
           }
 
+          // int32 year = 5;
+          if (this_._internal_year() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<5>(
+                    stream, this_._internal_year(), target);
+          }
+
+          // bool combined_exam = 6;
+          if (this_._internal_combined_exam() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                6, this_._internal_combined_exam(), target);
+          }
+
+          // repeated .School.exam_weight combinedexams = 7;
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_combinedexams_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_combinedexams().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    7, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -20897,6 +22405,15 @@ PROTOBUF_NOINLINE void Exam::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
+            // repeated .School.exam_weight combinedexams = 7;
+            {
+              total_size += 1UL * this_._internal_combinedexams_size();
+              for (const auto& msg : this_._internal_combinedexams()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
             // string exam_name = 1;
             if (!this_._internal_exam_name().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -20915,6 +22432,15 @@ PROTOBUF_NOINLINE void Exam::Clear() {
             if (this_._internal_full_paper() != 0) {
               total_size += 2;
             }
+            // bool combined_exam = 6;
+            if (this_._internal_combined_exam() != 0) {
+              total_size += 2;
+            }
+            // int32 year = 5;
+            if (this_._internal_year() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_year());
+            }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
@@ -20928,6 +22454,8 @@ void Exam::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::pr
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_internal_mutable_combinedexams()->MergeFrom(
+      from._internal_combinedexams());
   if (!from._internal_exam_name().empty()) {
     _this->_internal_set_exam_name(from._internal_exam_name());
   }
@@ -20939,6 +22467,12 @@ void Exam::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::pr
   }
   if (from._internal_full_paper() != 0) {
     _this->_impl_.full_paper_ = from._impl_.full_paper_;
+  }
+  if (from._internal_combined_exam() != 0) {
+    _this->_impl_.combined_exam_ = from._impl_.combined_exam_;
+  }
+  if (from._internal_year() != 0) {
+    _this->_impl_.year_ = from._impl_.year_;
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -20956,10 +22490,11 @@ void Exam::InternalSwap(Exam* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.combinedexams_.InternalSwap(&other->_impl_.combinedexams_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.exam_name_, &other->_impl_.exam_name_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Exam, _impl_.full_paper_)
-      + sizeof(Exam::_impl_.full_paper_)
+      PROTOBUF_FIELD_OFFSET(Exam, _impl_.year_)
+      + sizeof(Exam::_impl_.year_)
       - PROTOBUF_FIELD_OFFSET(Exam, _impl_.term_)>(
           reinterpret_cast<char*>(&_impl_.term_),
           reinterpret_cast<char*>(&other->_impl_.term_));
